@@ -79,7 +79,15 @@
     "hle-diamond-author-high-9243bbfe2cfeea47",
     "hle-diamond-author-high-ec9f1afddf925a20",
     "hle-diamond-author-high-21d97601528d7cff",
-    "hle-diamond-author-high-a94250b154858bb4"
+    "hle-diamond-author-high-a94250b154858bb4",
+    "qwen-review-2026-11-12-48d6f2c2d01dcd30bf6a",
+    "qwen-review-2026-11-12-8e7ec2f59e41167abc77",
+    "qwen-review-2026-11-12-743dd9ed0694b67d5ff7",
+    "qwen-review-2026-11-12-dcb9674efcb7b3ec472a",
+    "qwen-review-2026-11-12-34ac71c54061ecdeeb3c",
+    "qwen-review-2026-11-12-33da6ac67f8f5955e4f8",
+    "qwen-review-2026-11-12-f40ed8bfed138700fd63",
+    "qwen-review-2026-11-12-c053124fdc2f31bf9b61"
   ],
   "review_interval_days": 30,
   "required_providers": [

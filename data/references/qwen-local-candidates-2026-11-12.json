@@ -1,0 +1,346 @@
+[
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-48d6f2c2d01dcd30bf6a",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 27B (Xhigh)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 20,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Xhigh"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified AA Intelligence Index row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-8e7ec2f59e41167abc77",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 27B (Xhigh)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 5.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Xhigh"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified Terminal-Bench row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-743dd9ed0694b67d5ff7",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.6 35B A3B (Reasoning)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 0.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Reasoning; effort level not reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified Terminal-Bench row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-dcb9674efcb7b3ec472a",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 27B (Xhigh)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 48.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Xhigh"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified AutomationBench-AA row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-34ac71c54061ecdeeb3c",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.6 35B A3B (Reasoning)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 5.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Reasoning; effort level not reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified AutomationBench-AA row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-33da6ac67f8f5955e4f8",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 27B (Xhigh)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 15.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Xhigh"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified HLE-Diamond row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-f40ed8bfed138700fd63",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.6 35B A3B (Reasoning)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 6.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Reasoning; effort level not reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified HLE-Diamond row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-review-2026-11-12-c053124fdc2f31bf9b61",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 27B (Xhigh)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": -6,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Xhigh"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-qwen3-6-35b-a3b",
+      "retrieved_at": "2026-11-12",
+      "notes": "Manually verified AA-Omniscience row and exact source model label on 2026-11-12. Zero is included only where the source explicitly reports 0.0%; blank cells remain absent."
+    },
+    "notes": "Published Artificial Analysis endpoint measurement, not a locally measured quantization result. Dataset/metric track matches the existing source-specific reference track. Preserve reported reasoning mode; exact model artifact and evaluation date are not reported. Qwen3.6 current-version index and net knowledge score are absent from this source and are not imputed from older index versions."
+  }
+]

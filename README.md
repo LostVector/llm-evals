@@ -43,7 +43,7 @@ Keep private run configuration and raw output in the ignored `.local/`, `raw-res
 
 ## Comparison page and GitHub Pages
 
-Run `python3 scripts/build_site.py`, then open `dist/index.html`. The page includes benchmark/metric/model filters, score bars, protocol details, source links, and a full JSON download. It includes 109 stored observations and a reviewed current cohort covering major OpenAI, Anthropic, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, and Z.ai/GLM families. Provider filters and a model-coverage table show missing scores explicitly. Historical tables are available in a separate view; LiveCodeBench numeric import is pending. There are no local measurements yet.
+Run `python3 scripts/build_site.py`, then open `dist/index.html`. The page includes benchmark/metric/model filters, score bars, protocol details, source links, and a full JSON download. It includes 117 stored observations and a reviewed current cohort covering major OpenAI, Anthropic, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, and Z.ai/GLM families. Provider filters and a model-coverage table show missing scores explicitly. Historical tables are available in a separate view; LiveCodeBench numeric import is pending. There are no local measurements yet.
 
 [Publishing and sync instructions](docs/publishing.md) cover the public GitHub repo, Pages deployment, daily BBEH/SuperGPQA refresh, snapshot history, and data-review requirements. After GitHub login, `./scripts/publish_github.sh` creates the public repo and enables Pages.
 

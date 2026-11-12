@@ -194,5 +194,23 @@
       "Qwen3.8 Max (0902)"
     ],
     "notes": "Keep this dated AA variant separate from undated τ banking model label."
+  },
+  {
+    "id": "qwen-3.8-27b",
+    "name": "Qwen3.8 27B",
+    "provider": "Alibaba / Qwen",
+    "source_labels": [
+      "Qwen3.8 27B (Xhigh)"
+    ],
+    "notes": "Published Xhigh reference setting; exact local checkpoint and quantization variants remain separate observations."
+  },
+  {
+    "id": "qwen-3.6-35b-a3b",
+    "name": "Qwen3.6 35B A3B",
+    "provider": "Alibaba / Qwen",
+    "source_labels": [
+      "Qwen3.6 35B A3B (Reasoning)"
+    ],
+    "notes": "Published reasoning-mode reference. Current-version composite and net knowledge results are unreported in the verified source; older index scores are not substituted."
   }
 ]
