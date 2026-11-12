@@ -1,0 +1,1322 @@
+[
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-eadf0d613b388ea2864b",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o3-mini (high)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 44.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o3-mini (high); fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-72ac05727b7b3906fa9a",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o3-mini (high)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 54.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o3-mini (high); fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-a6429763abf0b5471c34",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o3-mini (high)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 56.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o3-mini (high); fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-7f1b143b1827ad8abbe0",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini 2.0 Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 9.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini 2.0 Flash; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-8f5d71d572775402b3cb",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini 2.0 Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 23.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini 2.0 Flash; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-e2aaad265479f1795801",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini 2.0 Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 27.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini 2.0 Flash; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-ed90fa56c61498c23773",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini 2.0 Flash-Lite",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 8.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini 2.0 Flash-Lite; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-3f987ae00d9399c811ef",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini 2.0 Flash-Lite",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 19.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini 2.0 Flash-Lite; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-e92c82f883cd05b146fa",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini 2.0 Flash-Lite",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 22.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini 2.0 Flash-Lite; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-444e6af4ea403e94b5c0",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 6.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek R1; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-f9da17adeb2b276408b7",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 34.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek R1; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-2cc7d64613d27813568d",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 37.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek R1; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-3de530e88ecdd0968f05",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "GPT4o",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 6.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: GPT4o; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-b5d3683f441c6bb2678c",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "GPT4o",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 22.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: GPT4o; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-9121d9ea36e47aaaf43c",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "GPT4o",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 23.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: GPT4o; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-0165227372dfec1375a1",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Distill R1 Qwen 32b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 5.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Distill R1 Qwen 32b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-a3a7feab492aed820784",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Distill R1 Qwen 32b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 19.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Distill R1 Qwen 32b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-f7f74be1416a5ee62c05",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Distill R1 Qwen 32b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 15.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Distill R1 Qwen 32b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-63ea4e9e85275fdfe431",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 27b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 4.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 27b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-0d1692f80d9671f7d7d8",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 27b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 18.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 27b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-d8de4b0cb3ec7dffe1b2",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 27b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 17.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 27b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-96fb0f56361787e50716",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 12b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 4.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 12b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-0ba4d02b5adefc2ef369",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 12b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 16.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 12b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-411db13e57448c2bde77",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 12b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 14.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 12b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-2d58e126827f43a22555",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 4b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 3.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 4b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-043d7bf7fb08f2f8dae8",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 4b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 11.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 4b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-437fa681f67f3b92d5b2",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma3 4b",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 13.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma3 4b; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-031bccceb27ed44267d6",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma2 27b IT",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 4.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma2 27b IT; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-27ed2dd8424d0a1e026b",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma2 27b IT",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 14.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma2 27b IT; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-7b627efa445e48d261c8",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemma2 27b IT",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 15.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemma2 27b IT; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-e791e74e8bdce0c5ca39",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Llama 3.1 8b Instruct",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 3.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Llama 3.1 8b Instruct; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-74b183d74b6b7ef1a8d2",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Llama 3.1 8b Instruct",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 10.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Llama 3.1 8b Instruct; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "bbeh-2026-11-12-c0193dc00d55-bd7e5afedcb1d3be8c85",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Llama 3.1 8b Instruct",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 11.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Llama 3.1 8b Instruct; fetched from https://raw.githubusercontent.com/google-deepmind/bbeh/main/leaderboard.md; response SHA-256 c0193dc00d55f6325457e7d5724894078195df59d87b5e32854a699869d07819. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  }
+]

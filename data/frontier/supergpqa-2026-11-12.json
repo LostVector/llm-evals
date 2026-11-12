@@ -1,0 +1,1202 @@
+[
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-276b8232469acc3be7b4",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek-R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 61.82,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek-R1; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-6b9dc507be19807aab03",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek-R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 59.95,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek-R1; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-bd00ab37c066eeafd78a",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o1-2024-12-17",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 60.24,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o1-2024-12-17; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-e3f17d9ec9158376341d",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o1-2024-12-17",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 59.44,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o1-2024-12-17; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-d950ac70b723c3d24d83",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek-R1-Zero",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 60.24,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek-R1-Zero; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-bb5fccb1a16943cf53c0",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek-R1-Zero",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 60.99,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek-R1-Zero; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-499de93a924792937757",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o3-mini-2025-01-31-high",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 55.22,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o3-mini-2025-01-31-high; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-d3e0bba06c5bce230ea2",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o3-mini-2025-01-31-high",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 48.32,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o3-mini-2025-01-31-high; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-c5133f50c62619c46eac",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o3-mini-2025-01-31-medium",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 52.69,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o3-mini-2025-01-31-medium; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-f2ef76e2b48d26a62267",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "o3-mini-2025-01-31-medium",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 46.07,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: o3-mini-2025-01-31-medium; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-15df597545b0c0c0dafa",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Doubao-1.5-pro-32k-250115",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 55.09,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Doubao-1.5-pro-32k-250115; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-4e0e94149ca14cb887bc",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Doubao-1.5-pro-32k-250115",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 54.39,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Doubao-1.5-pro-32k-250115; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-589b84a6dc42d7cb4805",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Doubao-1.5-pro-32k-241225",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 50.93,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Doubao-1.5-pro-32k-241225; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-d34d62ed5f1de4840a8e",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Doubao-1.5-pro-32k-241225",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 51.24,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Doubao-1.5-pro-32k-241225; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-e65d45f568c965fc67b5",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen-max-2025-01-25",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 50.08,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen-max-2025-01-25; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-7d6b401dd8c12ef99f0d",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen-max-2025-01-25",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 51.65,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen-max-2025-01-25; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-27fc5b74913d4feeaa89",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Claude-3-5-sonnet-20241022",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 48.16,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Claude-3-5-sonnet-20241022; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-d2c113f1f23773ae12a1",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Claude-3-5-sonnet-20241022",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 53.15,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Claude-3-5-sonnet-20241022; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-171af5f77a803c83e8cf",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini-2.0-flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 47.73,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini-2.0-flash; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-0d1f63abe0727f242795",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Gemini-2.0-flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 46.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Gemini-2.0-flash; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-0b31ff8ed328d2ad267a",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen2.5-72B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 34.33,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen2.5-72B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-2434a8958f495779532f",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen2.5-72B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 39.54,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen2.5-72B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-366420d0c73af9497d8d",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen2.5-32B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 33.16,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen2.5-32B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-b15a211bf2f81275c989",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen2.5-32B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 38.29,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen2.5-32B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-a7b9c4856786bb89834a",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek-V3-Base",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 32.14,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek-V3-Base; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-08adede39a7919b5e348",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "DeepSeek-V3-Base",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 34.71,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: DeepSeek-V3-Base; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-f46c6b09eb1d6458245a",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen2.5-14B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 30.19,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen2.5-14B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-9314fb18f530a967360f",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen2.5-14B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 34.54,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Qwen2.5-14B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-b898f776b172ffcb479c",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Yi-1.5-34B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 27.62,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Yi-1.5-34B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "supergpqa-2026-11-12-b408209587a2-1c222a7eaf9007f710e2",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Yi-1.5-34B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 32.55,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-12",
+      "notes": "Upstream model row: Yi-1.5-34B; fetched from https://raw.githubusercontent.com/SuperGPQA/SuperGPQA/main/README.md; response SHA-256 b408209587a222ad09eecb585f292c1555fd5c0d27b97022c5459a2bccfef149. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  }
+]
