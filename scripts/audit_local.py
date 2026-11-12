@@ -2,6 +2,7 @@
 """Audit private run artifacts and emit only sanitized aggregate statistics."""
 import argparse
 import csv
+from datetime import datetime
 import hashlib
 import json
 import math
@@ -120,6 +121,15 @@ def audit_coding(folder, protocol):
 
 def audit_terminal(folder, protocol):
     values, names, hashes, timeouts = [], set(), [], 0
+    trial_seconds = agent_seconds = verifier_seconds = 0.0
+
+    def elapsed(phase):
+        start = datetime.fromisoformat(phase['started_at'])
+        finish = datetime.fromisoformat(phase['finished_at'])
+        if start.tzinfo is None or finish.tzinfo is None or finish < start:
+            raise ValueError('Invalid terminal execution timestamps')
+        return (finish-start).total_seconds()
+
     for path in sorted(folder.glob('*/result.json')):
         r = read(path)
         if not r.get('finished_at'):
@@ -173,13 +183,18 @@ def audit_terminal(folder, protocol):
             raise ValueError('Incomplete or inconsistent terminal verifier test report')
         if reward != int(counts['failed'] == 0):
             raise ValueError('Terminal reward disagrees with executed tests')
+        trial_seconds += elapsed(r)
+        agent_seconds += elapsed(r['agent_execution'])
+        verifier_seconds += elapsed(r['verifier'])
         names.add(name)
         values.append(int(reward))
         hashes.append({'result': fingerprint(path), 'verifier_report': fingerprint(report),
                        'verifier_log': fingerprint(output)})
         timeouts += error == 'AgentTimeoutError'
     result = binary_summary(values, len(protocol['task_names']))
-    result.update(agent_timeouts=timeouts, artifact_fingerprints=hashes)
+    result.update(agent_timeouts=timeouts, elapsed_trial_seconds=trial_seconds,
+                  elapsed_agent_seconds=agent_seconds, elapsed_verifier_seconds=verifier_seconds,
+                  artifact_fingerprints=hashes)
     return result
 
 

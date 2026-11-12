@@ -65,6 +65,9 @@ class LocalAuditTests(unittest.TestCase):
                     'task_checksum':'correct-version','config':{'timeout_multiplier':1,
                     'agent':{'kwargs':{'reasoning_effort':'medium','llm_call_kwargs':{'max_tokens':8192}}}},
                     'exception_info':{'exception_type':'AgentTimeoutError'},'verifier_result':{'rewards':{'reward':0.0}}}
+            record['started_at']='2026-11-11T23:58:00Z'
+            record['agent_execution']={'started_at':'2026-11-11T23:58:10Z','finished_at':'2026-11-11T23:59:50Z'}
+            record['verifier']={'started_at':'2026-11-11T23:59:50Z','finished_at':'2026-11-12T00:00:00Z'}
             write(trial/'result.json',record)
             verifier=trial/'verifier';verifier.mkdir()
             (verifier/'test-stdout.txt').write_text('1 failed\n')
@@ -75,6 +78,12 @@ class LocalAuditTests(unittest.TestCase):
             result=audit_terminal(folder,protocol)
             self.assertTrue(result['complete']);self.assertEqual(result['correct'],0)
             self.assertEqual(result['agent_timeouts'],1)
+            self.assertEqual(result['elapsed_trial_seconds'],120)
+            self.assertEqual(result['elapsed_agent_seconds'],100)
+            self.assertEqual(result['elapsed_verifier_seconds'],10)
+            record['agent_execution']['finished_at']='2026-11-11T23:58:00Z';write(trial/'result.json',record)
+            with self.assertRaisesRegex(ValueError,'timestamps'):audit_terminal(folder,protocol)
+            record['agent_execution']['finished_at']='2026-11-11T23:59:50Z';write(trial/'result.json',record)
             (verifier/'test-stdout.txt').write_text('qemu: uncaught target signal 11 (Segmentation fault)\n')
             with self.assertRaisesRegex(ValueError,'emulation crash'):audit_terminal(folder,protocol)
             (verifier/'test-stdout.txt').write_text('uvx failed before tests\n')

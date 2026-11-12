@@ -68,7 +68,9 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
         config['environment_config'] = protocol.get('environment_config', {})
         metric = 'task_resolution'
     allowed = ('completed', 'total', 'correct', 'wilson_95', 'elapsed_request_seconds',
-               'truncated', 'unparsed', 'forced_reasoning_closures', 'agent_timeouts', 'artifact_fingerprints')
+               'truncated', 'unparsed', 'forced_reasoning_closures', 'agent_timeouts',
+               'elapsed_trial_seconds', 'elapsed_agent_seconds', 'elapsed_verifier_seconds',
+               'artifact_fingerprints')
     record = {'schema_version': 1, 'id': identifier, 'kind': 'local', 'observed_at': observed_at,
               'model': model, 'benchmark': benchmark,
               'metric': {'name': metric, 'value': summary['accuracy'], 'unit': 'fraction',

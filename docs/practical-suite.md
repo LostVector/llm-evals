@@ -143,6 +143,10 @@ tests for `bn-fit-modify` and all six for `cancel-async-tasks`. The replacement
 Dockerfiles natively; the oracle image architecture was checked with Docker.
 All measured tasks restart fresh under that environment. Model generation
 settings and task budgets stay fixed, and invalid emulated trials are excluded.
+Terminal exports also retain cumulative completed-trial duration, agent execution
+duration, and verifier duration from timezone-aware Harbor timestamps. Trial
+duration includes setup and grading; its agent and verifier components are not
+additional wall time. These sums are not the elapsed time of a concurrent job.
 
 Admission and transient HTTP failures are logged separately. The runners make
 up to eight transport attempts with backoff and honor `Retry-After`. Invalid
