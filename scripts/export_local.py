@@ -66,6 +66,8 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
         config['calibration'] = protocol['calibration']
         config['task_environment'] = protocol['environment']
         config['environment_config'] = protocol.get('environment_config', {})
+        if protocol.get('environment_repairs'):
+            config['environment_repairs'] = protocol['environment_repairs']
         metric = 'task_resolution'
     allowed = ('completed', 'total', 'correct', 'wilson_95', 'elapsed_request_seconds',
                'truncated', 'unparsed', 'forced_reasoning_closures', 'agent_timeouts',

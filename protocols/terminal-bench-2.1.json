@@ -200,7 +200,7 @@
     "presence_penalty": 0,
     "frequency_penalty": 0
   },
-  "environment": "Docker; native ARM64 source builds of unchanged upstream task Dockerfiles; standard per-task CPU/memory and verifier budgets",
+  "environment": "Docker; native ARM64 source builds; standard per-task resources and budgets; fix-git restores original image Git state because source repository is unavailable",
   "comparability": "Compare only 2.1 datasets. AA references use Terminus-2 in e2b and average pass@1 over three repeats; this local run uses Docker and one attempt. Generation settings, resources and harness versions may differ.",
   "scope_rationale": "Corrected 89-task release with published Flash Next and frontier references. Standard agent budgets total about 42.2 hours serially; no GPU tasks. Version 4.0 is excluded because its budgets total 528 hours and include GPU tasks.",
   "calibration": "Version 2.0 was used for harness/profile calibration only. Its outcomes are excluded from this complete 2.1 cohort. The medium/8192 profile is frozen before the 2.1 main run. Initial x86/QEMU 2.1 execution is invalidated because seven of its first eight verifiers crashed before tests; none of those trials are pooled into the fresh native run.",
@@ -235,7 +235,7 @@
     "filter-js-from-html": "53d156752f8706d9e88c598e0e562ddacf52ab478c7655352e939b8f44a5d13b",
     "financial-document-processor": "312889565426c3a4ed49c11531586aa8b7ba947b1507a846347280f44185cdba",
     "fix-code-vulnerability": "80d707a96acfd0e19af96f0f0c8f44deefdbf167538fefbc0d1dc6391392090a",
-    "fix-git": "d3220d70bc668ec6f4034fab51e62873dff724a61f824d764fd201d6f5e7a88a",
+    "fix-git": "7a45fb66abd12280b175b734ab96769782ca7e0df9b5b80570f43cec6404d2ae",
     "fix-ocaml-gc": "811cace6625023ba2bed90b8a07aa23affc6bebf77e8e5870f6c8c61e5107ae2",
     "gcode-to-text": "0ce9e2f5430d6cad157437ae0fc23f581c3f6ce3ee3eb9233484a554011557ed",
     "git-leak-recovery": "45308cc1d3e5c665486621c50d95a4789861f41066e85e572eb7ccddb7932720",
@@ -299,5 +299,17 @@
   "environment_config": {
     "type": "docker",
     "force_build": true
+  },
+  "environment_repairs": {
+    "fix-git": {
+      "original_task_checksum": "d3220d70bc668ec6f4034fab51e62873dff724a61f824d764fd201d6f5e7a88a",
+      "recovered_task_checksum": "7a45fb66abd12280b175b734ab96769782ca7e0df9b5b80570f43cec6404d2ae",
+      "source_image": "docker.io/alexgshaw/fix-git@sha256:389b9c8247610c2c5be080b1ac00429007c2c69bf57f7f26c79f0f75ba2d5c74",
+      "dockerfile_sha256": "86867d73f259d47aef2f9067aac70cba5ff3b7ff7af43bb2db597d253ca8ddbf",
+      "excluded_setup_result_sha256": "cccf45d118689066e2436e2bf808ce4aee44dd5f21deb9d0f3082d8f27f94d44",
+      "recovery_result_sha256": "7f90f25c4c7b9b255cd1d7db4a3a36de93736477205f5e8e2ed52a218c7d2137",
+      "oracle_tests_passed": 2,
+      "description": "Original remote clone returned 404 before agent setup/execution. Restore complete /app/personal-site including .git from stopped pinned image; preserve original dummy Git identity. Instructions, tests, solution and budgets unchanged. Official oracle passed 2/2 before one measured attempt. Source snapshot hash describes upstream files; repaired task checksum is explicit."
+    }
   }
 }

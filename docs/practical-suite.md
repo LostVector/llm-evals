@@ -139,10 +139,33 @@ those artifacts privately. Validate the replacement execution environment with
 an upstream oracle solution and actual test reports before another measured run.
 Two native ARM64 source-build oracle preflights subsequently passed: all nine
 tests for `bn-fit-modify` and all six for `cancel-async-tasks`. The replacement
-89-task cohort uses Harbor's `force_build: true` to build unchanged upstream
-Dockerfiles natively; the oracle image architecture was checked with Docker.
+89-task cohort uses Harbor's `force_build: true` to build upstream Dockerfiles
+natively; the oracle image architecture was checked with Docker.
 All measured tasks restart fresh under that environment. Model generation
 settings and task budgets stay fixed, and invalid emulated trials are excluded.
+
+One native task, `fix-git`, needed an explicit environment repair: its setup
+clones a public repository that now returns 404. The build failed before agent
+setup or execution. Its original preconfigured Git working tree, including the
+complete `.git` directory, was recovered from the stopped upstream image pinned
+in `environment_repairs` in the protocol. No image code was run during extraction.
+The native Dockerfile copies this state instead of executing the unavailable
+clone, and retains the original setup's dummy Git committer configuration.
+Instructions, verifier, solution and task budgets are unchanged. The repaired
+environment passed both official oracle tests before one measured attempt.
+The protocol retains both task checksums and identifies this deviation; the
+source snapshot hash continues to describe the original upstream files.
+
+Keep original failed and successful trial directories intact. Use
+`python3 -m scripts.assemble_terminal --input <private-original-job>
+--recovery <private-recovery-job> --output <fresh-private-cohort>` to create a
+private selection of symlinks for auditing and export. The assembler permits
+only the exact pinned pre-agent failure and exact pinned replacement result;
+it rejects duplicate tasks and missing replacements. It never changes trial
+contents. Reassemble into a fresh directory as the main job completes, then run
+the normal terminal audit with `--require-complete` before publication. The
+assembler itself does not establish that a score is valid.
+
 Terminal exports also retain cumulative completed-trial duration, agent execution
 duration, and verifier duration from timezone-aware Harbor timestamps. Trial
 duration includes setup and grading; its agent and verifier components are not
