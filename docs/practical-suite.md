@@ -117,3 +117,20 @@ main 2.1 profile was frozen after those latency checks, and runs all 89 tasks
 with fresh one-attempt outcomes. Calibration results are not pooled into 2.1.
 AA publishes 2.1 results for the same Flash Next family and several frontier
 models; those references retain their e2b/three-repeat protocol labels.
+
+## Audit before publishing
+
+Run `python3 scripts/audit_local.py` with the `gpqa`, `coding` or `terminal`
+lane and an ignored `--input` run directory. GPQA also requires `--dataset`.
+Use `--require-complete` for a final export: partial runs are rejected.
+The audit recomputes scores, checks task identity and generation profiles, and
+emits aggregates plus artifact hashes, without questions, answers or traces.
+Terminal-Bench content checksums must match the pinned 2.1 snapshot. A normal
+agent timeout with a verifier outcome counts as a failed task; setup failures
+and other unresolved exceptions require review before publication.
+
+Admission and transient HTTP failures are logged separately. The runners make
+up to eight transport attempts with backoff and honor `Retry-After`. Invalid
+requests fail immediately; none of these infrastructure failures become model
+scores. Request durations include any retry/queue time, so they are shared-service
+wall times rather than isolated inference throughput measurements.
