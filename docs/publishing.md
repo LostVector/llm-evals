@@ -66,3 +66,7 @@ The new reviewed snapshot contains Sol 6.1/Astra, Fable 5.2/5.1, Opus 5.5, DeepS
 **Automatic sync still covers only the historical BBEH/SuperGPQA tables.** It does not update this current cohort. The page displays the separate review date and flags a review overdue after 30 days. Update the dated current snapshot and featured IDs after source review; do not advance the review date simply because a build or historical sync ran.
 
 For a more sustainable current-model feed, [Artificial Analysis documents an authenticated data API](https://artificialanalysis.ai/data-api/docs/reference). Its free endpoint requires a valid API key and exposes headline indices, while per-benchmark scores require a higher tier. No API key is configured or committed here, and public-page extraction has not been presented as a reliable automatic feed.
+
+## Primary general metric
+
+The chart now defaults to HLE-Diamond full-set no-tool accuracy, using its reviewed AA reference track first. [The local execution guide](general-capability.md) documents the pinned public dataset/evaluator and runner. AA Intelligence Index remains a separate external composite. Do not execute the gated dataset or model/judge inference in the Pages workflow; it publishes only reviewed aggregate observations. Raw dataset-derived artifacts stay under ignored `.local/`.

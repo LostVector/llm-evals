@@ -1,0 +1,25 @@
+{
+  "name": "hle-diamond-closed-book-v1",
+  "dataset": "cais/hle-diamond",
+  "dataset_revision": "04eeb7efa7e3e4f83a00cbd5ce436a38fd5dda23",
+  "split": "test",
+  "expected_tasks": 1000,
+  "expected_image_tasks": 272,
+  "expected_partition_counts": {"reasoning": 500, "knowledge": 500},
+  "evaluator_repository": "https://github.com/centerforaisafety/hle.git",
+  "evaluator_revision": "22ed3074b1e7b134bcbc09028d0ba320839b0655",
+  "metric": "pass@1_accuracy",
+  "primary_input_modes": ["multimodal", "text-input-full"],
+  "diagnostic_input_modes": ["text-only-subset"],
+  "tools": false,
+  "attempts_per_task": 1,
+  "default_temperature": 0,
+  "default_max_tokens": 16384,
+  "judge": {
+    "prompt": "JUDGE_PROMPT from pinned upstream evaluator",
+    "model": "must be explicitly selected and pinned by caller",
+    "reference_recipe": "Artificial Analysis reports GPT-5.6 Luna (medium), official HLE judge prompt, all 1000 tasks, no tools",
+    "reference_methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  },
+  "notes": "Default decode settings are our fixed local protocol, not a claim of exact AA runtime reproduction. Record model, template, reasoning mode, token budget and judge. Full-set text-only input includes all 1000 tasks; never label the 728-item text-only subset as full-set accuracy. Dataset access requires accepting its Hugging Face gate. Never redistribute questions, images, gold answers or unredacted task traces."
+}

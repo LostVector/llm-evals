@@ -64,6 +64,16 @@ class PublishingTests(unittest.TestCase):
         self.assertTrue(any('Opus 5.5' in r['model']['name'] for r in records))
         self.assertTrue(all(r['metric']['unit']=='index' for r in records))
 
+    def test_primary_metric_is_public_diamond_not_private_composite(self):
+        payload=collect(ROOT)
+        primary=payload['reference_policy']['primary_metric']
+        self.assertEqual(primary['benchmark'],'HLE-Diamond')
+        self.assertEqual(primary['unit'],'percent')
+        protocol=json.loads((ROOT/primary['protocol']).read_text())
+        self.assertEqual(protocol['dataset'],'cais/hle-diamond')
+        self.assertEqual(protocol['expected_tasks'],1000)
+        self.assertFalse(protocol['tools'])
+
     def test_real_bundle_is_valid_and_complete(self):
         payload=collect(ROOT)
         self.assertGreaterEqual(len(payload['catalog']),6)

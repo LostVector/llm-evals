@@ -13,6 +13,11 @@ function tracks() {
   const records = visibleRows().filter(r => r.benchmark.name === $('benchmark').value);
   const groups = new Map(records.map(r => [trackKey(r), r]));
   $('track').replaceChildren(...[...groups].sort((a,b) => a[1].metric.name.localeCompare(b[1].metric.name)).map(([key,r]) => option(key, `${r.benchmark.revision} · ${r.benchmark.task_set} · ${r.metric.name} (${r.metric.unit})`)));
+  const primary=data.reference_policy.primary_metric;
+  if ($('benchmark').value===primary.benchmark) {
+    const preferred=[...groups].find(([,r])=>r.benchmark.revision===primary.preferred_reference.revision && r.benchmark.task_set===primary.preferred_reference.task_set && r.metric.name===primary.preferred_reference.metric);
+    if(preferred) $('track').value=preferred[0];
+  }
   if (!groups.size) $('track').append(option('', 'No numeric observations imported'));
   $('track').disabled = !groups.size;
 }
@@ -81,7 +86,7 @@ async function start() {
     $('benchmark').addEventListener('change',()=>{ tracks(); render(); });
     for (const id of ['track','origin','provider']) $(id).addEventListener('change',render);
     $('search').addEventListener('input',render);
-    selectBenchmark(names[0]);
+    selectBenchmark(names.includes(data.reference_policy.primary_metric.benchmark) ? data.reference_policy.primary_metric.benchmark : names[0]);
   } catch(error) { $('status').textContent='Could not load evaluation data. Please reload or check the data.json artifact.'; $('empty').hidden=false; $('empty').textContent=error.message; }
 }
 start();

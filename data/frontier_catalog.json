@@ -1,9 +1,9 @@
 [
   {
-    "name": "AA Intelligence Index",
-    "area": "Broad capability reference",
-    "coverage": "Reviewed current composite scores; provider/model gaps shown explicitly. Index v5.0.1 is not a percentage.",
-    "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+    "name": "HLE-Diamond",
+    "area": "Primary general capability",
+    "coverage": "Runnable, pinned 1000-question no-tool benchmark. Current published references; full-set modality and judge recipes must match.",
+    "url": "https://labs.scale.com/leaderboard/hle-diamond"
   },
   {
     "name": "Terminal-Bench",
@@ -16,12 +16,6 @@
     "area": "Multi-turn conversation",
     "coverage": "Current published Sol 6.1, Gemini 4 and other model rows; no inferred scores for absent models.",
     "url": "https://labs.scale.com/leaderboard/multichallenge"
-  },
-  {
-    "name": "HLE-Diamond",
-    "area": "Reasoning and knowledge",
-    "coverage": "Reviewed Fable 5.2, Opus 5.5, Sol and other rows; Scale and AA protocols are separate.",
-    "url": "https://labs.scale.com/leaderboard/hle-diamond"
   },
   {
     "name": "AutomationBench-AA",
@@ -64,5 +58,11 @@
     "area": "Multi-turn tools",
     "coverage": "Reviewed text-track summary; exact upstream dataset pin not established.",
     "url": "https://taubench.com/"
+  },
+  {
+    "name": "AA Intelligence Index",
+    "area": "External composite context",
+    "coverage": "Reference-only composite with private components. Not our local general-capability metric.",
+    "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
   }
 ]

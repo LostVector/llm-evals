@@ -73,7 +73,7 @@ def collect(root):
         aliases=model.get('source_labels')
         if not isinstance(aliases,list) or any(not isinstance(a,str) or not a for a in aliases):
             raise ValueError('Invalid model registry source labels')
-        if model['id'] in family_ids or labels.intersection(aliases):
+        if model['id'] in family_ids or len(aliases)!=len(set(aliases)) or labels.intersection(aliases):
             raise ValueError('Duplicate model family or ambiguous source label')
         family_ids.add(model['id']); labels.update(aliases)
     featured_rows=[r for r in records if r['id'] in featured]
@@ -81,6 +81,12 @@ def collect(root):
         aliases={a for m in registry if m['provider']==provider for a in m['source_labels']}
         if not any(r['model']['name'] in aliases for r in featured_rows):
             raise ValueError(f'Required provider has no featured observations: {provider}')
+    primary=policy['primary_metric']
+    if primary['benchmark']!='HLE-Diamond' or primary['unit']!='percent':
+        raise ValueError('Unsupported primary general-capability metric')
+    preferred=primary['preferred_reference']
+    if not any(r['benchmark']['name']==primary['benchmark'] and r['benchmark']['revision']==preferred['revision'] and r['benchmark']['task_set']==preferred['task_set'] and r['metric']['name']==preferred['metric'] for r in featured_rows):
+        raise ValueError('Primary general-capability reference track is missing')
     public_check(registry)
     return dict(schema_version=1,built_at=date.today().isoformat(),catalog=catalog,reference_policy=policy,model_registry=registry,observations=records)
 

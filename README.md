@@ -19,7 +19,7 @@ python3 -m unittest discover -s tests -v
 
 For a published score, use `python3 evals.py template external`. Unfilled templates intentionally fail validation. Results are one JSON file per observation, with globally unique IDs. The report sorts by benchmark and model, never invents a combined ranking, and separates local runs from external references. No scores have been seeded or benchmarks run.
 
-The proposed core spans **SuperGPQA + BBEH** (general capability), **LiveCodeBench + Terminal-Bench** (coding and terminal agents), and **τ-bench + MultiChallenge** (interactive tools and conversation). [Selection rationale and pilot gates](docs/benchmarks.md) explain how we will check ceilings, floors, uncertainty, and local run cost before freezing the suite.
+Our primary general-capability metric is **HLE-Diamond full-set accuracy at pass@1 without tools**, with reasoning/knowledge breakdowns. [Run it locally](docs/general-capability.md). **SuperGPQA + BBEH** provide supporting diagnostics, alongside **LiveCodeBench + Terminal-Bench** (coding and terminal agents), and **τ-bench + MultiChallenge** (interactive tools and conversation). [Selection rationale and pilot gates](docs/benchmarks.md) explain how we will check ceilings, floors, uncertainty, and local run cost before freezing the suite.
 
 ## Repository
 
@@ -43,8 +43,10 @@ Keep private run configuration and raw output in the ignored `.local/`, `raw-res
 
 ## Comparison page and GitHub Pages
 
-Run `python3 scripts/build_site.py`, then open `dist/index.html`. The page includes benchmark/metric/model filters, score bars, protocol details, source links, and a full JSON download. It includes 101 stored observations and a reviewed current cohort covering major OpenAI, Anthropic, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, and Z.ai/GLM families. Provider filters and a model-coverage table show missing scores explicitly. Historical tables are available in a separate view; LiveCodeBench numeric import is pending. There are no local measurements yet.
+Run `python3 scripts/build_site.py`, then open `dist/index.html`. The page includes benchmark/metric/model filters, score bars, protocol details, source links, and a full JSON download. It includes 109 stored observations and a reviewed current cohort covering major OpenAI, Anthropic, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, and Z.ai/GLM families. Provider filters and a model-coverage table show missing scores explicitly. Historical tables are available in a separate view; LiveCodeBench numeric import is pending. There are no local measurements yet.
 
 [Publishing and sync instructions](docs/publishing.md) cover the public GitHub repo, Pages deployment, daily BBEH/SuperGPQA refresh, snapshot history, and data-review requirements. After GitHub login, `./scripts/publish_github.sh` creates the public repo and enables Pages.
 
 The default reference view is controlled by `data/reference_policy.json`, with exact source labels mapped in `data/model_registry.json`. Current references supplement the locally runnable benchmark plan: external composites and private benchmarks do not become local evaluation requirements. A review-date warning prevents a new site build or historical-table fetch from implying a fresh frontier-model evaluation.
+
+The comparison page defaults to HLE-Diamond. The complete released task set and evaluator are pinned in `protocols/hle-diamond.json`; `scripts/hle_diamond.py` supports an explicit local model endpoint and a separately selected judge. Dataset files require Hugging Face access, and raw evaluation artifacts remain private under `.local/`. AA's composite index is supplementary external context, not a score this repository claims to reproduce.

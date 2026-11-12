@@ -2922,5 +2922,421 @@
       "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
     },
     "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-66224fe28d45c48b",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.2",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 74.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 79.4,
+      "knowledge_accuracy_percent": 69.2,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-426e221eec2bf57a",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Carbon",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 63.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 72.0,
+      "knowledge_accuracy_percent": 55.2,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-1b3c7f8e637e1454",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6 Astra",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 59.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 74.2,
+      "knowledge_accuracy_percent": 45.6,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-4ce5ae17197576b7",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Argon",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 56.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 61.8,
+      "knowledge_accuracy_percent": 52.0,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-9243bbfe2cfeea47",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Opus 5.5",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 54.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 62.4,
+      "knowledge_accuracy_percent": 46.8,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-ec9f1afddf925a20",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6.1 Sol",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 53.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 67.4,
+      "knowledge_accuracy_percent": 39.0,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-21d97601528d7cff",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Sonnet 5.5",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 33.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 42.4,
+      "knowledge_accuracy_percent": 23.8,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "hle-diamond-author-high-a94250b154858bb4",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Kimi K3.1 Pro",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "CAIS/Scale Diamond release",
+      "split": "published",
+      "task_set": "full-1000 no-tools reasoning-high"
+    },
+    "metric": {
+      "name": "pass@1_accuracy",
+      "value": 29.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "CAIS/Scale release evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_effort": "high",
+        "tools": false,
+        "judge_model": "not_reported",
+        "generation_budget": "not_reported",
+        "input_modality": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://lastexam.ai/blog/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Official author release chart; reasoning-high selection and overall/partition values manually verified on 2026-11-11. Distinct from AA maximum-reasoning results and Scale leaderboard rows."
+    },
+    "notes": "Published full-set no-tool baseline; exact judge snapshot, prompt revision and modality treatment not established from this source. Do not equate high reasoning with max or infer a 728-task subset score.",
+    "measurements": {
+      "reasoning_accuracy_percent": 33.6,
+      "knowledge_accuracy_percent": 25.4,
+      "reasoning_n": 500,
+      "knowledge_n": 500
+    }
   }
 ]

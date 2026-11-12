@@ -71,7 +71,15 @@
     "frontier-review-2026-11-11-0e2222ecb9fe732c48e3",
     "frontier-review-2026-11-11-47af93a4add7ae2771d3",
     "frontier-review-2026-11-11-15cb3106b458511ea985",
-    "frontier-review-2026-11-11-0a7c9a065152462f5f62"
+    "frontier-review-2026-11-11-0a7c9a065152462f5f62",
+    "hle-diamond-author-high-66224fe28d45c48b",
+    "hle-diamond-author-high-426e221eec2bf57a",
+    "hle-diamond-author-high-1b3c7f8e637e1454",
+    "hle-diamond-author-high-4ce5ae17197576b7",
+    "hle-diamond-author-high-9243bbfe2cfeea47",
+    "hle-diamond-author-high-ec9f1afddf925a20",
+    "hle-diamond-author-high-21d97601528d7cff",
+    "hle-diamond-author-high-a94250b154858bb4"
   ],
   "review_interval_days": 30,
   "required_providers": [
@@ -81,5 +89,16 @@
     "Alibaba / Qwen",
     "Moonshot / Kimi",
     "Z.ai / GLM"
-  ]
+  ],
+  "primary_metric": {
+    "benchmark": "HLE-Diamond",
+    "local_metric": "pass@1_accuracy",
+    "unit": "percent",
+    "protocol": "protocols/hle-diamond.json",
+    "preferred_reference": {
+      "revision": "AA methodology 5.0.1",
+      "task_set": "AA evaluation protocol",
+      "metric": "published_accuracy"
+    }
+  }
 }

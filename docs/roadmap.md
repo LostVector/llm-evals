@@ -17,7 +17,7 @@ Use memory tiers defined by the actual host, measuring total working memory incl
 ## Next milestones
 
 1. Inventory hardware and choose runtime; select a small exact checkpoint matrix and license-compatible artifacts.
-2. Use the [suite selection and pilot policy](benchmarks.md): SuperGPQA, BBEH, LiveCodeBench, Terminal-Bench, τ-bench text, and MultiChallenge. Start with text-only general/coding pilots and IFBench/BFCL diagnostics, then the interactive pilots. Verify current score spread before fixing the reporting suite.
+2. Use the [suite selection and pilot policy](benchmarks.md): HLE-Diamond as primary general capability; SuperGPQA/BBEH as supporting tests; LiveCodeBench, Terminal-Bench, τ-bench text, and MultiChallenge. Use the pinned HLE runner and verify dataset/model/judge access before inference. Start with text-only general/coding pilots and IFBench/BFCL diagnostics, then the interactive pilots. Verify current score spread before fixing the reporting suite.
 3. Pin runner revisions, dataset/task manifests, prompts, budgets and evaluators. Add reviewed output adapters and preserve task-level outcomes for paired model/quant comparisons.
 4. Budget interactive simulator/judge calls explicitly; no paid endpoint use is enabled by this plan. Freeze simulator and judge recipes, and isolate version-incompatible historical references.
 5. Capture source-backed frontier observations with matching benchmark versions and original provenance. Reassess broad coverage, ceilings, floors and task quality before expanding into long-context or repository patching tracks.

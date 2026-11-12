@@ -5,7 +5,8 @@
     "provider": "OpenAI",
     "source_labels": [
       "GPT-6.1 Sol (Max)",
-      "gpt 6.1 Sol"
+      "gpt 6.1 Sol",
+      "GPT-6.1 Sol"
     ],
     "notes": ""
   },
@@ -15,7 +16,8 @@
     "provider": "OpenAI",
     "source_labels": [
       "GPT-6 Astra (Max)",
-      "gpt-6-astra"
+      "gpt-6-astra",
+      "GPT-6 Astra"
     ],
     "notes": ""
   },
@@ -34,7 +36,8 @@
     "provider": "Anthropic",
     "source_labels": [
       "Claude Fable 5.2 (Max, Default Fallback)",
-      "claude-fable-5-2"
+      "claude-fable-5-2",
+      "Claude Fable 5.2"
     ],
     "notes": ""
   },
@@ -54,7 +57,8 @@
     "provider": "Anthropic",
     "source_labels": [
       "Claude Opus 5.5 (Max, Default Fallback)",
-      "claude-opus-5-5"
+      "claude-opus-5-5",
+      "Claude Opus 5.5"
     ],
     "notes": ""
   },
@@ -63,7 +67,8 @@
     "name": "Claude Sonnet 5.5",
     "provider": "Anthropic",
     "source_labels": [
-      "claude-sonnet-5-5"
+      "claude-sonnet-5-5",
+      "Claude Sonnet 5.5"
     ],
     "notes": ""
   },
@@ -157,7 +162,8 @@
     "name": "Gemini 4 Carbon",
     "provider": "Google",
     "source_labels": [
-      "Gemini 4 Carbon (High)"
+      "Gemini 4 Carbon (High)",
+      "Gemini 4 Carbon"
     ],
     "notes": ""
   },

@@ -86,5 +86,13 @@
     "type": "benchmark_official",
     "reviewed_at": "2026-11-11",
     "notes": "Long-context extension; fixed context tiers and KV configuration."
+  },
+  {
+    "id": "hle-diamond",
+    "name": "HLE-Diamond public dataset and evaluator",
+    "url": "https://huggingface.co/datasets/cais/hle-diamond",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Primary no-tool general capability; gated released 1000-task dataset, public evaluator, fixed source revisions in protocols/hle-diamond.json. Do not redistribute task content."
   }
 ]

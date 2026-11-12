@@ -1,0 +1,3 @@
+# Optional runner dependency; use Python 3.11 or 3.12 in a dedicated virtualenv.
+# Upstream evaluator uses datasets 3.2.0; prompts are read from its pinned source.
+datasets==3.2.0
