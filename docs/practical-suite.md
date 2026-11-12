@@ -134,3 +134,26 @@ up to eight transport attempts with backoff and honor `Retry-After`. Invalid
 requests fail immediately; none of these infrastructure failures become model
 scores. Request durations include any retry/queue time, so they are shared-service
 wall times rather than isolated inference throughput measurements.
+
+After a complete audit, `scripts/export_local.py` writes a validated local
+observation. It requires ignored `--metadata` containing only the approved public
+model identity (name, revision, quantization, artifact and actual SHA-256), backend
+version and hardware description, plus `artifact_verified: true`. An upstream
+expected weight hash or a gateway deployment ID does not verify the loaded file.
+Unknown metadata fields are not copied. Registered public model labels are
+required; private endpoint aliases are rejected.
+
+```sh
+python3 scripts/export_local.py gpqa \
+  --input .local/gpqa/halogen-v2-run \
+  --dataset .local/gpqa/data/gpqa_diamond.csv \
+  --metadata .local/halogen/public-metadata.json \
+  --id halogen-v2-gpqa-diamond-complete --write
+```
+
+The `coding` and `terminal` lanes use their corresponding run directories and do
+not need `--dataset`. Export refuses partial or unaudited outcomes and never
+replaces an existing observation. Review the generated record before committing;
+raw traces, questions, answer text, endpoint configuration and credentials remain
+private. The published source link points to the sanitized result and its audit
+fingerprints. The artifact hash and hardware remain operator-verified metadata.
