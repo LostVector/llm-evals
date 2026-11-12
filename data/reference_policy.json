@@ -94,7 +94,14 @@
     "gpqa-aa-2026-11-12-glm-5-3",
     "gpqa-aa-2026-11-12-qwen3-8-flash-next",
     "gpqa-aa-2026-11-12-qwen3-8-27b",
-    "gpqa-aa-2026-11-12-kimi-k3"
+    "gpqa-aa-2026-11-12-kimi-k3",
+    "terminal21-aa-2026-11-12-gpt-6-astra",
+    "terminal21-aa-2026-11-12-claude-fable-5-1",
+    "terminal21-aa-2026-11-12-qwen3-8-max",
+    "terminal21-aa-2026-11-12-glm-5-3",
+    "terminal21-aa-2026-11-12-qwen3-8-flash-next",
+    "terminal21-aa-2026-11-12-qwen3-8-27b",
+    "terminal21-aa-2026-11-12-kimi-k3"
   ],
   "review_interval_days": 30,
   "required_providers": [

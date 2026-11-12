@@ -12,7 +12,7 @@
 <section class="intro"><p class="eyebrow">OPEN MODEL EVALUATION NOTEBOOK</p><h1>Local models.<br><span>A wider frame of reference.</span></h1><p class="lede">General capability: HLE-Diamond accuracy, one attempt per question, without tools. Compare local checkpoints and quants with published references, alongside coding and multi-turn evaluations.</p><p class="status" id="status" role="status">Loading observations…</p><p class="review" id="cohort-review"></p><a class="recipe-link" href="https://github.com/LostVector/llm-evals/blob/main/docs/general-capability.md">Run HLE-Diamond yourself ↗</a></section>
 <section aria-labelledby="coverage-title"><div class="section-title"><h2 id="coverage-title">Capability and frontier references</h2><span>Source-specific tracks; composite labeled separately</span></div><div class="coverage" id="coverage"></div></section>
 <section class="workspace" aria-labelledby="comparison-title">
-<div class="section-title"><h2 id="comparison-title">Explore the evidence</h2><span class="pill">One benchmark track at a time</span></div>
+<div class="section-title"><h2 id="comparison-title">Explore the evidence</h2><span class="pill">Explicit protocols and sources</span></div>
 <div class="controls">
 <label>Reference coverage<select id="reference-view"><option value="featured">Latest reviewed cohort</option><option value="all">All references &amp; history</option></select></label>
 <label>Provider<select id="provider"><option value="all">All providers</option></select></label>
@@ -21,6 +21,8 @@
 <label>Model name<input id="search" type="search" placeholder="Filter models…"></label>
 <label>Observation type<select id="origin"><option value="all">All observations</option><option value="local">Local measurements</option><option value="external">Published references</option></select></label>
 </div>
+<label class="context-toggle"><input id="include-context" type="checkbox" aria-describedby="context-note" disabled> Compare local and published profiles</label>
+<p id="context-note" class="notice" hidden>Context view includes different evaluation profiles. Scores are shown side by side, never pooled. Review each model’s reasoning level, token budget, harness and source.</p>
 <div class="notice"><strong>Published references are context.</strong> A matching benchmark name does not establish matching prompts, harnesses, budgets, or task versions. Review the protocol before interpreting a score difference. Missing results are never zero.</div>
 <div class="chart-heading"><h3 id="chart-title">Scores</h3><span id="count"></span></div>
 <div class="legend"><span><i class="local-swatch"></i>Local measurement</span><span><i class="reference-swatch"></i>Published reference</span></div>

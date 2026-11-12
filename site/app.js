@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const node = (tag, text, className) => { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (className) el.className = className; return el; };
-const {trackKey, latestRows, scoped, providerFor, coverageRows, axis} = Comparison;
+const {trackKey, contextGroup, selectedRows, latestRows, scoped, providerFor, coverageRows, axis} = Comparison;
 const score = r => r.metric.unit === 'fraction' ? r.metric.value * 100 : r.metric.value;
 const scoreLabel = r => `${Number(score(r).toFixed(2))}${['fraction', 'percent'].includes(r.metric.unit) ? '%' : ` ${r.metric.unit}`}`;
 const safeURL = value => { try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; } catch { return null; } };
@@ -22,6 +22,7 @@ const visibleRows = () => scoped(latest, data.reference_policy, $('reference-vie
 function option(value, text) { const el = node('option', text); el.value = value; return el; }
 function selectBenchmark(name) { $('benchmark').value = name; tracks(); render(); }
 function tracks() {
+  $('include-context').checked = false;
   const records = visibleRows().filter(r => r.benchmark.name === $('benchmark').value);
   const groups = new Map(records.map(r => [trackKey(r), r]));
   $('track').replaceChildren(...[...groups].sort((a,b) => a[1].metric.name.localeCompare(b[1].metric.name)).map(([key,r]) => option(key, `${r.benchmark.revision} · ${r.benchmark.task_set} · ${r.metric.name} (${r.metric.unit})`)));
@@ -38,7 +39,12 @@ function render() {
   const catalog = data.catalog.find(c => c.name === selected);
   document.querySelectorAll('.coverage button').forEach(button => { const active = button.dataset.name === selected; button.classList.toggle('active',active); button.setAttribute('aria-pressed',String(active)); });
   const query = $('search').value.toLowerCase();
-  const trackRows = visibleRows().filter(r => r.benchmark.name === selected && trackKey(r) === $('track').value);
+  const benchmarkRows = visibleRows().filter(r => r.benchmark.name === selected);
+  const exactRows = selectedRows(benchmarkRows, $('track').value);
+  $('include-context').disabled = !exactRows.some(contextGroup);
+  if ($('include-context').disabled) $('include-context').checked = false;
+  const trackRows = selectedRows(benchmarkRows, $('track').value, $('include-context').checked);
+  $('context-note').hidden = !$('include-context').checked;
   const records = trackRows.filter(r => ($('provider').value === 'all' || providerFor(r,data.model_registry) === $('provider').value) && r.model.name.toLowerCase().includes(query) && ($('origin').value === 'all' || r.kind === $('origin').value));
   records.sort((a,b) => (a.metric.direction === 'lower' ? 1 : -1) * (score(a)-score(b)) || a.model.name.localeCompare(b.model.name));
   $('chart').replaceChildren(); $('rows').replaceChildren();
@@ -62,6 +68,12 @@ function render() {
     const row = node('div',undefined,'bar-row'); row.setAttribute('role','listitem');
     const label = node('div',r.model.name,'bar-label');
     label.append(node('small',`${providerFor(r,data.model_registry)} · ${r.kind === 'local' ? r.model.quantization : 'Published reference'} · ${r.protocol.harness}`));
+    if ($('include-context').checked) {
+      const config=typeof r.protocol.config==='object' ? r.protocol.config : {};
+      const generation=config.generation || config;
+      label.append(node('small',[r.benchmark.revision,generation.reasoning_effort || config.reasoning_setting,
+        generation.max_tokens ? `${generation.max_tokens.toLocaleString()} token cap` : 'Budget unreported'].filter(Boolean).join(' · ')));
+    }
     const track = node('div',undefined,'bar-track'); const bar = node('div',undefined,`bar${r.kind === 'external' ? ' reference' : ''}`);
     bar.style.width = `${Math.abs(score(r))/span*100}%`; bar.style.left = `${((score(r)<0 ? score(r) : 0)-min)/span*100}%`; track.append(bar); if(min<0) { const zero=node('i',undefined,'zero-line');zero.style.left=`${-min/span*100}%`;track.append(zero); } track.setAttribute('aria-hidden','true');
     row.append(label,track,scoreElement(r,'bar-score')); $('chart').append(row);
@@ -104,7 +116,7 @@ async function start() {
     coverage();
     $('reference-view').addEventListener('change',()=>{coverage();tracks();render();});
     $('benchmark').addEventListener('change',()=>{ tracks(); render(); });
-    for (const id of ['track','origin','provider']) $(id).addEventListener('change',render);
+    for (const id of ['track','origin','provider','include-context']) $(id).addEventListener('change',render);
     $('search').addEventListener('input',render);
     selectBenchmark(names.includes(data.reference_policy.primary_metric.benchmark) ? data.reference_policy.primary_metric.benchmark : names[0]);
   } catch(error) { $('status').textContent='Could not load evaluation data. Please reload or check the data.json artifact.'; $('empty').hidden=false; $('empty').textContent=error.message; }

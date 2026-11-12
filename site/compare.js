@@ -3,6 +3,17 @@
 const Comparison = (() => {
   const trackKey = r => JSON.stringify([r.benchmark.name, r.benchmark.revision, r.benchmark.split, r.benchmark.task_set, r.metric.name, r.metric.unit, r.metric.direction]);
   const identity = r => JSON.stringify([trackKey(r), r.model.name, r.model.revision, r.model.quantization, r.model.artifact, r.model.artifact_sha256 || '', r.protocol.harness, r.protocol.harness_revision, r.kind]);
+  const contextGroup = r => typeof r.protocol.config === 'object' ? r.protocol.config.comparison_group : undefined;
+  function selectedRows(records, key, includeContext = false) {
+    const exact = records.filter(r => trackKey(r) === key);
+    if (!includeContext || !exact.length) return exact;
+    const groups = new Set(exact.map(contextGroup).filter(Boolean));
+    const seed = exact[0];
+    const unit = r => ['fraction','percent'].includes(r.metric.unit) ? 'percentage' : r.metric.unit;
+    return records.filter(r => trackKey(r) === key || (groups.has(contextGroup(r)) &&
+      r.benchmark.name === seed.benchmark.name && r.metric.name === seed.metric.name &&
+      r.metric.direction === seed.metric.direction && unit(r) === unit(seed)));
+  }
   function latestRows(records) {
     const dedup = new Map();
     for (const r of records) { const key = identity(r), old = dedup.get(key); if (!old || r.provenance.retrieved_at >= old.provenance.retrieved_at) dedup.set(key, r); }
@@ -25,6 +36,6 @@ const Comparison = (() => {
     const max=percent ? 100 : Math.max(0,...values,1);
     return {min,max,percent,span:max-min};
   }
-  return {trackKey, identity, latestRows, scoped, modelInfo, providerFor, coverageRows, axis};
+  return {trackKey, identity, contextGroup, selectedRows, latestRows, scoped, modelInfo, providerFor, coverageRows, axis};
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = Comparison;

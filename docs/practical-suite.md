@@ -12,7 +12,7 @@ a task set or budget produce a distinct protocol, never a silently comparable sc
 | --- | --- | --- |
 | Reasoning | GPQA Diamond, no tools | All 198 questions, one pass; [frozen protocol](../protocols/gpqa-diamond.json) |
 | Coding | LiveCodeBench code-generation-lite, pass@1 | 131 tasks from February–April 2025; [frozen protocol](../protocols/livecodebench-v6-window.json) |
-| Agentic / multi-turn | Terminal-Bench with Terminus-2 | Pin dataset and harness versions; pilot first, then retain standard task budgets if feasible |
+| Agentic / multi-turn | Terminal-Bench 2.1 with Terminus-2 | All 89 tasks, one attempt; medium reasoning / 8192 tokens per turn, standard task timeouts |
 
 GPQA uses the simple-evals prompt and answer regex, deterministic choice shuffling,
 explicit sampling, xhigh reasoning, and a 32,768-token completion budget. This is
@@ -69,9 +69,8 @@ May 1, 2025 date filter, yielding 131 tasks. It retains all difficulties (31 eas
 prompts, last fenced code extraction and the unmodified upstream test grader are
 pinned by the harness commit. A five-task prefix is only a runtime/harness pilot.
 
-Terminal-Bench 2.0 contains 89 tasks in the downloaded official snapshot. Their
-standard agent time budgets total about 41.3 hours serially (the longest is
-12,000 seconds). Pilot latency and sandbox build time determine feasible
+Terminal-Bench 2.1 contains 89 tasks in the downloaded official snapshot. Its
+standard agent time budgets total about 42.2 hours serially. Pilot latency and sandbox build time determine feasible
 concurrency; a full one-attempt run should remain within a few days without
 shortening the official task budgets. Generated commands run only in task
 containers, and local endpoint credentials remain with the host-side agent.
@@ -109,5 +108,12 @@ when resuming. Raw responses, extracted programs and grader details stay private
 
 Current version-4.0 frontier references remain a separate external track. Its
 66 task budgets total 528 hours and include three GPU tasks; this practical run
-therefore uses [the frozen version-2.0 protocol](../protocols/terminal-bench-2.json).
+therefore uses [the frozen version-2.1 protocol](../protocols/terminal-bench-2.1.json).
 Do not combine scores across those versions.
+
+Version 2.0 was used only for calibration. Its xhigh/32768 profile timed out
+before acting; medium/8192 acted and attempted a solution but timed out. The
+main 2.1 profile was frozen after those latency checks, and runs all 89 tasks
+with fresh one-attempt outcomes. Calibration results are not pooled into 2.1.
+AA publishes 2.1 results for the same Flash Next family and several frontier
+models; those references retain their e2b/three-repeat protocol labels.

@@ -1,5 +1,5 @@
 {
-  "id": "terminal-bench-2-terminus2-one-attempt-v1",
+  "id": "terminal-bench-2-terminus2-medium8k-one-attempt-v1",
   "benchmark": "Terminal-Bench",
   "version": "2.0",
   "source": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2",
@@ -193,8 +193,8 @@
   "timeout_multiplier": 1.0,
   "generation": {
     "temperature": 1.0,
-    "reasoning_effort": "xhigh",
-    "max_tokens": 32768,
+    "reasoning_effort": "medium",
+    "max_tokens": 8192,
     "top_p": 0.95,
     "top_k": 20,
     "presence_penalty": 0,
@@ -202,5 +202,6 @@
   },
   "environment": "Docker; standard per-task CPU/memory and verifier budgets",
   "comparability": "Compare only version 2.0 results; agent harness, attempts, reasoning settings, hardware and budgets may still differ. Terminal-Bench 4.0 remains separate external context.",
-  "scope_rationale": "Standard 2.0 agent budgets total approximately 41.3 hours serially with no GPU tasks. Version 4.0 budgets total 528 hours and include three GPU tasks, so 4.0 is excluded from this bounded local suite."
+  "scope_rationale": "Standard 2.0 agent budgets total approximately 41.3 hours serially with no GPU tasks. Version 4.0 budgets total 528 hours and include three GPU tasks, so 4.0 is excluded from this bounded local suite.",
+  "calibration": "Calibration-only version-2.0 protocol. Outcomes are excluded from the main version-2.1 suite."
 }

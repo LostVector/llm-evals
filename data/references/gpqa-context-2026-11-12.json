@@ -31,7 +31,8 @@
         "reasoning_setting": "Max",
         "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
         "repeat_count": "not_reported in per-model source",
-        "generation_budget": "not_reported in per-model source"
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "gpqa-diamond-198"
       },
       "backend": "not_reported",
       "backend_revision": "not_reported",
@@ -77,7 +78,8 @@
         "reasoning_setting": "Max, Default Fallback",
         "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
         "repeat_count": "not_reported in per-model source",
-        "generation_budget": "not_reported in per-model source"
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "gpqa-diamond-198"
       },
       "backend": "not_reported",
       "backend_revision": "not_reported",
@@ -123,7 +125,8 @@
         "reasoning_setting": "not_reported",
         "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
         "repeat_count": "not_reported in per-model source",
-        "generation_budget": "not_reported in per-model source"
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "gpqa-diamond-198"
       },
       "backend": "not_reported",
       "backend_revision": "not_reported",
@@ -169,7 +172,8 @@
         "reasoning_setting": "Max",
         "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
         "repeat_count": "not_reported in per-model source",
-        "generation_budget": "not_reported in per-model source"
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "gpqa-diamond-198"
       },
       "backend": "not_reported",
       "backend_revision": "not_reported",
@@ -215,7 +219,8 @@
         "reasoning_setting": "not_reported",
         "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
         "repeat_count": "not_reported in per-model source",
-        "generation_budget": "not_reported in per-model source"
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "gpqa-diamond-198"
       },
       "backend": "not_reported",
       "backend_revision": "not_reported",
@@ -261,7 +266,8 @@
         "reasoning_setting": "Xhigh",
         "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
         "repeat_count": "not_reported in per-model source",
-        "generation_budget": "not_reported in per-model source"
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "gpqa-diamond-198"
       },
       "backend": "not_reported",
       "backend_revision": "not_reported",
@@ -307,7 +313,8 @@
         "reasoning_setting": "Max",
         "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
         "repeat_count": "not_reported in per-model source",
-        "generation_budget": "not_reported in per-model source"
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "gpqa-diamond-198"
       },
       "backend": "not_reported",
       "backend_revision": "not_reported",

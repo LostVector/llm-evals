@@ -1,0 +1,331 @@
+[
+  {
+    "schema_version": 1,
+    "id": "terminal21-aa-2026-11-12-gpt-6-astra",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "GPT-6 Astra (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "published",
+      "task_set": "89-task AA Terminus-2/e2b protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 88.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus-2 / Artificial Analysis",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max",
+        "repeats_per_task": 3,
+        "scoring": "pass@1 averaged over three repeats",
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "terminal-bench-2.1-89"
+      },
+      "backend": "e2b",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+      "retrieved_at": "2026-11-12",
+      "notes": "Reviewed the direct 2.1 page-embedded terminalBench21 numeric field and methodology. Preserve exact source model labels. Source review date is not the evaluation date."
+    },
+    "notes": "Version-matched external context. AA uses e2b and averages three attempts; local measurements use Docker and one attempt, with a declared medium/8192 profile. Do not combine with Terminal-Bench 2.0 or 4.0."
+  },
+  {
+    "schema_version": 1,
+    "id": "terminal21-aa-2026-11-12-claude-fable-5-1",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Claude Fable 5.1 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "published",
+      "task_set": "89-task AA Terminus-2/e2b protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 91.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus-2 / Artificial Analysis",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max, Default Fallback",
+        "repeats_per_task": 3,
+        "scoring": "pass@1 averaged over three repeats",
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "terminal-bench-2.1-89"
+      },
+      "backend": "e2b",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+      "retrieved_at": "2026-11-12",
+      "notes": "Reviewed the direct 2.1 page-embedded terminalBench21 numeric field and methodology. Preserve exact source model labels. Source review date is not the evaluation date."
+    },
+    "notes": "Version-matched external context. AA uses e2b and averages three attempts; local measurements use Docker and one attempt, with a declared medium/8192 profile. Do not combine with Terminal-Bench 2.0 or 4.0."
+  },
+  {
+    "schema_version": 1,
+    "id": "terminal21-aa-2026-11-12-qwen3-8-max",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 Max (0902)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "published",
+      "task_set": "89-task AA Terminus-2/e2b protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 88.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus-2 / Artificial Analysis",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "not_reported",
+        "repeats_per_task": 3,
+        "scoring": "pass@1 averaged over three repeats",
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "terminal-bench-2.1-89"
+      },
+      "backend": "e2b",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+      "retrieved_at": "2026-11-12",
+      "notes": "Reviewed the direct 2.1 page-embedded terminalBench21 numeric field and methodology. Preserve exact source model labels. Source review date is not the evaluation date."
+    },
+    "notes": "Version-matched external context. AA uses e2b and averages three attempts; local measurements use Docker and one attempt, with a declared medium/8192 profile. Do not combine with Terminal-Bench 2.0 or 4.0."
+  },
+  {
+    "schema_version": 1,
+    "id": "terminal21-aa-2026-11-12-glm-5-3",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "GLM-5.3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "published",
+      "task_set": "89-task AA Terminus-2/e2b protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 83.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus-2 / Artificial Analysis",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max",
+        "repeats_per_task": 3,
+        "scoring": "pass@1 averaged over three repeats",
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "terminal-bench-2.1-89"
+      },
+      "backend": "e2b",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+      "retrieved_at": "2026-11-12",
+      "notes": "Reviewed the direct 2.1 page-embedded terminalBench21 numeric field and methodology. Preserve exact source model labels. Source review date is not the evaluation date."
+    },
+    "notes": "Version-matched external context. AA uses e2b and averages three attempts; local measurements use Docker and one attempt, with a declared medium/8192 profile. Do not combine with Terminal-Bench 2.0 or 4.0."
+  },
+  {
+    "schema_version": 1,
+    "id": "terminal21-aa-2026-11-12-qwen3-8-flash-next",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "published",
+      "task_set": "89-task AA Terminus-2/e2b protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 86.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus-2 / Artificial Analysis",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "not_reported",
+        "repeats_per_task": 3,
+        "scoring": "pass@1 averaged over three repeats",
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "terminal-bench-2.1-89"
+      },
+      "backend": "e2b",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+      "retrieved_at": "2026-11-12",
+      "notes": "Reviewed the direct 2.1 page-embedded terminalBench21 numeric field and methodology. Preserve exact source model labels. Source review date is not the evaluation date."
+    },
+    "notes": "Version-matched external context. AA uses e2b and averages three attempts; local measurements use Docker and one attempt, with a declared medium/8192 profile. Do not combine with Terminal-Bench 2.0 or 4.0."
+  },
+  {
+    "schema_version": 1,
+    "id": "terminal21-aa-2026-11-12-qwen3-8-27b",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 27B (Xhigh)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "published",
+      "task_set": "89-task AA Terminus-2/e2b protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 79.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus-2 / Artificial Analysis",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Xhigh",
+        "repeats_per_task": 3,
+        "scoring": "pass@1 averaged over three repeats",
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "terminal-bench-2.1-89"
+      },
+      "backend": "e2b",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+      "retrieved_at": "2026-11-12",
+      "notes": "Reviewed the direct 2.1 page-embedded terminalBench21 numeric field and methodology. Preserve exact source model labels. Source review date is not the evaluation date."
+    },
+    "notes": "Version-matched external context. AA uses e2b and averages three attempts; local measurements use Docker and one attempt, with a declared medium/8192 profile. Do not combine with Terminal-Bench 2.0 or 4.0."
+  },
+  {
+    "schema_version": 1,
+    "id": "terminal21-aa-2026-11-12-kimi-k3",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Kimi K3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "published",
+      "task_set": "89-task AA Terminus-2/e2b protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 85.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus-2 / Artificial Analysis",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max",
+        "repeats_per_task": 3,
+        "scoring": "pass@1 averaged over three repeats",
+        "generation_budget": "not_reported in per-model source",
+        "comparison_group": "terminal-bench-2.1-89"
+      },
+      "backend": "e2b",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+      "retrieved_at": "2026-11-12",
+      "notes": "Reviewed the direct 2.1 page-embedded terminalBench21 numeric field and methodology. Preserve exact source model labels. Source review date is not the evaluation date."
+    },
+    "notes": "Version-matched external context. AA uses e2b and averages three attempts; local measurements use Docker and one attempt, with a declared medium/8192 profile. Do not combine with Terminal-Bench 2.0 or 4.0."
+  }
+]

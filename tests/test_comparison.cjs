@@ -2,6 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const {trackKey, latestRows, scoped, coverageRows, axis} = require('../site/compare.js');
+const {selectedRows} = require('../site/compare.js');
 const records = JSON.parse(fs.readFileSync('data/references/current-frontier-2026-11-11.json','utf8'));
 const policy = JSON.parse(fs.readFileSync('data/reference_policy.json','utf8'));
 const registry = JSON.parse(fs.readFileSync('data/model_registry.json','utf8'));
@@ -36,4 +37,22 @@ test('latest selection is independent of JSON key order', () => {
   const newer=structuredClone(records[0]);newer.id='new';newer.provenance.retrieved_at='2026-11-12';
   newer.model=Object.fromEntries(Object.entries(newer.model).reverse());
   assert.deepEqual(latestRows([older,newer]).map(r=>r.id),['new']);
+});
+test('context is opt-in and requires an explicit shared task-set group', () => {
+  const published=JSON.parse(fs.readFileSync('data/references/gpqa-context-2026-11-12.json','utf8'))[0];
+  const local=structuredClone(published);local.id='local-profile';local.kind='local';
+  local.benchmark.revision='pinned-local-dataset';local.benchmark.task_set='local-one-pass';
+  local.metric.unit='fraction';local.metric.value=0.75;
+  const different=structuredClone(published);different.id='different-task-set';
+  different.benchmark.task_set='189-question variant';different.protocol.config.comparison_group='different-group';
+  const rows=[local,published,different];
+  assert.deepEqual(selectedRows(rows,trackKey(local)).map(r=>r.id),['local-profile']);
+  assert.deepEqual(selectedRows(rows,trackKey(local),true).map(r=>r.id),['local-profile',published.id]);
+});
+test('context never mixes metrics or uncurated benchmark versions', () => {
+  const row=JSON.parse(fs.readFileSync('data/references/terminal21-context-2026-11-12.json','utf8'))[0];
+  const older=structuredClone(row);older.id='older';older.benchmark.revision='2.0';delete older.protocol.config.comparison_group;
+  const speed=structuredClone(row);speed.id='speed';speed.metric.name='runtime';speed.metric.unit='seconds';
+  assert.deepEqual(selectedRows([row,older,speed],trackKey(row),true).map(r=>r.id),[row.id]);
+  assert.deepEqual(selectedRows([row],'missing',true),[]);
 });

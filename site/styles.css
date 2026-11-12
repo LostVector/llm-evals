@@ -5,3 +5,4 @@
 .bar-track{position:relative}.bar{position:absolute;top:0}.zero-line{position:absolute;top:0;bottom:0;border-left:1px solid #45605a}.coverage-details{margin:24px 0;background:var(--paper);padding:12px 16px;border-radius:6px}.coverage-details>summary{font-size:12px;font-weight:600}
 
 a.bar-score{font-weight:650;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:4px}a.bar-score:hover{text-decoration-style:solid}a:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.context-toggle{flex-direction:row;align-items:center;gap:9px;margin:0 0 16px;font-size:12px;cursor:pointer}.context-toggle input{width:17px;height:17px;padding:0;accent-color:var(--teal)}.context-toggle:has(input:disabled){opacity:.6;cursor:default}
