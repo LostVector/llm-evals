@@ -33,10 +33,16 @@ The proposed core spans **SuperGPQA + BBEH** (general capability), **LiveCodeBen
 | `docs/roadmap.md` | Initial model/quant matrix and next implementation steps |
 | `evals.py` | Offline validation and Markdown reporting |
 
-This starts as a tracking repository. Benchmark runners, automated leaderboard importers, and a dashboard are future work. Source links are discovery aids, not live integrations. Store large logs and task traces outside Git and reference immutable artifacts; never commit model weights or credentials.
+This starts as a tracking repository. Benchmark runners and broader source adapters are future work. A static comparison page and two public-table adapters are included. Source links identify original evidence; the Pages workflow can refresh two public reference tables. Store large logs and task traces outside Git and reference immutable artifacts; never commit model weights or credentials.
 
 ## Public repository hygiene
 
 All tracked content and commit metadata are public. Use relative paths and generic machine labels; record hardware specifications without usernames, hostnames, serial numbers, or device IDs. Result provenance must point to shareable artifacts. Redact credentials, private endpoints, account/project identifiers, personal data, and private task content from configurations, notes, logs, and traces before adding them. The report preserves supplied metadata, so review observations before committing. Validation checks structure, not the absence of secrets.
 
 Keep private run configuration and raw output in the ignored `.local/`, `raw-results/`, or `logs/` directories. Ignore rules do not protect files already tracked. Review `git diff --cached` and commit author metadata before publishing; use a public identity or a hosting-provider noreply address for contributions.
+
+## Comparison page and GitHub Pages
+
+Run `python3 scripts/build_site.py`, then open `dist/index.html`. The page includes benchmark/metric/model filters, score bars, protocol details, source links, and a full JSON download. It starts with 30 reviewed reference metrics across five benchmark families; LiveCodeBench numeric import is pending. There are no local measurements yet.
+
+[Publishing and sync instructions](docs/publishing.md) cover the public GitHub repo, Pages deployment, daily BBEH/SuperGPQA refresh, snapshot history, and data-review requirements. After GitHub login, `./scripts/publish_github.sh` creates the public repo and enables Pages.

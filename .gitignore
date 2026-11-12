@@ -18,3 +18,4 @@ reports/
 credentials*.json
 raw-results/
 logs/
+dist/

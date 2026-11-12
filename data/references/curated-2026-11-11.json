@@ -1,0 +1,1211 @@
+[
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-eadf0d613b388ea2864b",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "o3-mini (high)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 44.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-72ac05727b7b3906fa9a",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "o3-mini (high)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 54.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-a6429763abf0b5471c34",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "o3-mini (high)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 56.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-7f1b143b1827ad8abbe0",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 2.0 Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 9.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-8f5d71d572775402b3cb",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 2.0 Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 23.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-e2aaad265479f1795801",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 2.0 Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 27.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-444e6af4ea403e94b5c0",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 6.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-f9da17adeb2b276408b7",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 34.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-2cc7d64613d27813568d",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 37.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-3de530e88ecdd0968f05",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT4o",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "harmonic_accuracy",
+      "value": 6.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-b5d3683f441c6bb2678c",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT4o",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 22.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-bbeh-2026-11-11-9121d9ea36e47aaaf43c",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT4o",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "BBEH",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "mini"
+    },
+    "metric": {
+      "name": "micro_accuracy",
+      "value": 23.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-276b8232469acc3be7b4",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek-R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 61.82,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-6b9dc507be19807aab03",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek-R1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 59.95,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-bd00ab37c066eeafd78a",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "o1-2024-12-17",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 60.24,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-e3f17d9ec9158376341d",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "o1-2024-12-17",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 59.44,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-27fc5b74913d4feeaa89",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude-3-5-sonnet-20241022",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 48.16,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-d2c113f1f23773ae12a1",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude-3-5-sonnet-20241022",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 53.15,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-171af5f77a803c83e8cf",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini-2.0-flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "sample_accuracy",
+      "value": 47.73,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-supergpqa-2026-11-11-0d1f63abe0727f242795",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini-2.0-flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SuperGPQA",
+      "revision": "original-paper",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "discipline_macro_accuracy",
+      "value": 46.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "upstream published evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/SuperGPQA/SuperGPQA",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually transcribed and verified against original source table on 2026-11-11; selected rows only. Retrieval date is not evaluation date."
+    },
+    "notes": "Historical reference table, not necessarily current frontier coverage. Original task/evaluator commit not established; original-paper is a source track label, not an immutable dataset pin. Do not assume equivalence with a new local run."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-21-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-5.3-Codex",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 79.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Codex CLI",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://www.tbench.ai/news/terminal-bench-2-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Published system result; protocol details incomplete. No direct local comparability established."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-22-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-5.4",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 77.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Codex CLI",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://www.tbench.ai/news/terminal-bench-2-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Published system result; protocol details incomplete. No direct local comparability established."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-23-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 3.1 Pro",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 70.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Terminus 2",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://www.tbench.ai/news/terminal-bench-2-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Published system result; protocol details incomplete. No direct local comparability established."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-24-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Opus 4.6",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "2.1",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 70.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 89
+    },
+    "protocol": {
+      "harness": "Claude Code",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://www.tbench.ai/news/terminal-bench-2-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Published system result; protocol details incomplete. No direct local comparability established."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-25-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.5-397B-A17B",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "τ²-bench",
+      "revision": "source-track-not-pinned",
+      "split": "test",
+      "task_set": "retail-airline-telecom"
+    },
+    "metric": {
+      "name": "pass^1",
+      "value": 87.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://taubench.com/",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Homepage summary row for τ² text. Dataset commit, domain weighting and run recipe not established. Keep separate from pinned local runs and τ³ banking."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-26-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 3.0 Pro",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "τ²-bench",
+      "revision": "source-track-not-pinned",
+      "split": "test",
+      "task_set": "retail-airline-telecom"
+    },
+    "metric": {
+      "name": "pass^1",
+      "value": 85.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://taubench.com/",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Homepage summary row for τ² text. Dataset commit, domain weighting and run recipe not established. Keep separate from pinned local runs and τ³ banking."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-27-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Opus 4.5",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "τ²-bench",
+      "revision": "source-track-not-pinned",
+      "split": "test",
+      "task_set": "retail-airline-telecom"
+    },
+    "metric": {
+      "name": "pass^1",
+      "value": 85.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://taubench.com/",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Homepage summary row for τ² text. Dataset commit, domain weighting and run recipe not established. Keep separate from pinned local runs and τ³ banking."
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-28-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "gpt-5.4-pro-2026-03-05",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 69.23,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Source reports ± uncertainty; confidence level/method not established in this snapshot. Judge and dataset must be pinned before local comparison.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 3.05
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-29-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "gemini-3.1-pro-preview",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 71.37,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Source reports ± uncertainty; confidence level/method not established in this snapshot. Judge and dataset must be pinned before local comparison.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 1.74
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "curated-30-2026-11-11",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "claude-opus-4-5-20251101-thinking",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "test",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 58.97,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Manually verified selected source rows. Retrieval date is not evaluation date."
+    },
+    "notes": "Source reports ± uncertainty; confidence level/method not established in this snapshot. Judge and dataset must be pinned before local comparison.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 0.42
+    }
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "SuperGPQA",
+    "area": "General capability",
+    "coverage": "Historical published results; automatic upstream table refresh configured.",
+    "url": "https://github.com/SuperGPQA/SuperGPQA"
+  },
+  {
+    "name": "BBEH",
+    "area": "General reasoning",
+    "coverage": "Historical published results; automatic upstream table refresh configured.",
+    "url": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md"
+  },
+  {
+    "name": "LiveCodeBench",
+    "area": "Coding",
+    "coverage": "Frontier evaluations exist, but no numeric snapshot imported yet.",
+    "url": "https://livecodebench.github.io/leaderboard.html"
+  },
+  {
+    "name": "Terminal-Bench",
+    "area": "Agentic coding",
+    "coverage": "Reviewed 2.1 snapshot; newer suite versions exist and remain separate.",
+    "url": "https://www.tbench.ai/"
+  },
+  {
+    "name": "τ²-bench",
+    "area": "Multi-turn tools",
+    "coverage": "Reviewed text-track summary; exact upstream dataset pin not established.",
+    "url": "https://taubench.com/"
+  },
+  {
+    "name": "MultiChallenge",
+    "area": "Multi-turn conversation",
+    "coverage": "Reviewed selected published rows; rubric and judge affect comparison.",
+    "url": "https://labs.scale.com/leaderboard/multichallenge"
+  }
+]
