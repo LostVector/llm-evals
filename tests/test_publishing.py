@@ -78,7 +78,11 @@ class PublishingTests(unittest.TestCase):
         payload=collect(ROOT)
         self.assertGreaterEqual(len(payload['catalog']),6)
         self.assertGreater(len(payload['observations']),0)
-        self.assertFalse(any(r['benchmark']['name']=='LiveCodeBench' for r in payload['observations']))
+        coding=[r for r in payload['observations'] if r['benchmark']['name']=='LiveCodeBench']
+        self.assertGreaterEqual(len(coding),5)
+        historical=[r for r in coding if r['kind']=='external']
+        self.assertTrue(all(r['metric']['n']==131 for r in historical))
+        self.assertTrue(all(r['id'] not in payload['reference_policy']['featured_observation_ids'] for r in historical))
         with tempfile.TemporaryDirectory() as tmp:
             output=Path(tmp)
             build(ROOT,output)

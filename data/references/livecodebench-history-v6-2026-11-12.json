@@ -1,0 +1,272 @@
+[
+  {
+    "schema_version": 1,
+    "id": "lcb-history-v6-5d48e1ceb3d12f136af0",
+    "kind": "external",
+    "observed_at": "2025-08-01",
+    "model": {
+      "name": "DeepSeek-R1-0528",
+      "provider": "DeepSeek",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "LiveCodeBench",
+      "revision": "release_v6",
+      "split": "published",
+      "task_set": "131 tasks; 2025-02-01 inclusive to 2025-05-01 exclusive"
+    },
+    "metric": {
+      "name": "pass@1",
+      "value": 68.7023,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 131
+    },
+    "protocol": {
+      "harness": "LiveCodeBench official archived submission",
+      "harness_revision": "not_reported",
+      "config": {
+        "comparison_group": "livecodebench-v6-feb-apr-2025-131",
+        "source_commit": "6ca212e9c2039373f6e5069d37ffa9db66e23736",
+        "source_file_git_blob": "5d48e1ceb3d12f136af07f7d3b990cb3b6209931",
+        "source_file_sha256": "403fb6060512b10766fba5e1c16ba320191355e8d7e920f01e5be69bcde25231",
+        "source_filename": "Scenario.codegeneration_10_0.6_eval_all.json",
+        "source_snapshot_date": "2025-08-01",
+        "samples_per_task": 10,
+        "aggregation": "Unweighted mean of official per-task pass@1 across the exact 131-task window; each per-task value verified against graded_list.",
+        "task_identity": "All 131 task IDs, question text and starter code match the frozen local window.",
+        "effective_generation_budget": "not_reported",
+        "effective_sampling": "Filename configuration retained; provider-effective settings are not inferred.",
+        "test_mode_and_compute": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/LiveCodeBench/submissions/blob/6ca212e9c2039373f6e5069d37ffa9db66e23736/DeepSeek-R1-0528/Scenario.codegeneration_10_0.6_eval_all.json",
+      "retrieved_at": "2026-11-12",
+      "notes": "Derived from immutable official per-question grades, not a model rerun. observed_at is the archival repository snapshot date, not a claimed inference date. Git blob and file SHA-256 verified."
+    },
+    "notes": "Historical 2025 model reference, not current frontier coverage. Same questions and date window; prompts, grading configuration, hardware and sampling may differ from the local deployment. DeepSeek R1 averages ten samples per task; the other retained submissions use one. Available only in the history view."
+  },
+  {
+    "schema_version": 1,
+    "id": "lcb-history-v6-95c58ee184af0078c117",
+    "kind": "external",
+    "observed_at": "2025-08-01",
+    "model": {
+      "name": "Claude-Sonnet-4 (Thinking)",
+      "provider": "Anthropic",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "LiveCodeBench",
+      "revision": "release_v6",
+      "split": "published",
+      "task_set": "131 tasks; 2025-02-01 inclusive to 2025-05-01 exclusive"
+    },
+    "metric": {
+      "name": "pass@1",
+      "value": 51.145,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 131
+    },
+    "protocol": {
+      "harness": "LiveCodeBench official archived submission",
+      "harness_revision": "not_reported",
+      "config": {
+        "comparison_group": "livecodebench-v6-feb-apr-2025-131",
+        "source_commit": "6ca212e9c2039373f6e5069d37ffa9db66e23736",
+        "source_file_git_blob": "95c58ee184af0078c1170069dfb3ea662ff0d442",
+        "source_file_sha256": "339db7aab7be74a509e25fcf75bc42adff3f6e4829d8d5a3359864de0e1d8188",
+        "source_filename": "Scenario.codegeneration_1_0.2_eval_all.json",
+        "source_snapshot_date": "2025-08-01",
+        "samples_per_task": 1,
+        "aggregation": "Unweighted mean of official per-task pass@1 across the exact 131-task window; each per-task value verified against graded_list.",
+        "task_identity": "All 131 task IDs, question text and starter code match the frozen local window.",
+        "effective_generation_budget": "not_reported",
+        "effective_sampling": "Filename configuration retained; provider-effective settings are not inferred.",
+        "test_mode_and_compute": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/LiveCodeBench/submissions/blob/6ca212e9c2039373f6e5069d37ffa9db66e23736/Claude-Sonnet-4%20%28Thinking%29/Scenario.codegeneration_1_0.2_eval_all.json",
+      "retrieved_at": "2026-11-12",
+      "notes": "Derived from immutable official per-question grades, not a model rerun. observed_at is the archival repository snapshot date, not a claimed inference date. Git blob and file SHA-256 verified."
+    },
+    "notes": "Historical 2025 model reference, not current frontier coverage. Same questions and date window; prompts, grading configuration, hardware and sampling may differ from the local deployment. DeepSeek R1 averages ten samples per task; the other retained submissions use one. Available only in the history view."
+  },
+  {
+    "schema_version": 1,
+    "id": "lcb-history-v6-75654f472b50a12bac69",
+    "kind": "external",
+    "observed_at": "2025-08-01",
+    "model": {
+      "name": "Qwen3-235B-A22B",
+      "provider": "Alibaba / Qwen",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "LiveCodeBench",
+      "revision": "release_v6",
+      "split": "published",
+      "task_set": "131 tasks; 2025-02-01 inclusive to 2025-05-01 exclusive"
+    },
+    "metric": {
+      "name": "pass@1",
+      "value": 55.7252,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 131
+    },
+    "protocol": {
+      "harness": "LiveCodeBench official archived submission",
+      "harness_revision": "not_reported",
+      "config": {
+        "comparison_group": "livecodebench-v6-feb-apr-2025-131",
+        "source_commit": "6ca212e9c2039373f6e5069d37ffa9db66e23736",
+        "source_file_git_blob": "75654f472b50a12bac69996eb83cb76d188aee45",
+        "source_file_sha256": "4b64e46c8f1a3e7ae14906b28e685624f05becaafe6422be7743f8a04c77b7b9",
+        "source_filename": "Scenario.codegeneration_1_0.6_eval_all.json",
+        "source_snapshot_date": "2025-08-01",
+        "samples_per_task": 1,
+        "aggregation": "Unweighted mean of official per-task pass@1 across the exact 131-task window; each per-task value verified against graded_list.",
+        "task_identity": "All 131 task IDs, question text and starter code match the frozen local window.",
+        "effective_generation_budget": "not_reported",
+        "effective_sampling": "Filename configuration retained; provider-effective settings are not inferred.",
+        "test_mode_and_compute": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/LiveCodeBench/submissions/blob/6ca212e9c2039373f6e5069d37ffa9db66e23736/Qwen3-235B-A22B/Scenario.codegeneration_1_0.6_eval_all.json",
+      "retrieved_at": "2026-11-12",
+      "notes": "Derived from immutable official per-question grades, not a model rerun. observed_at is the archival repository snapshot date, not a claimed inference date. Git blob and file SHA-256 verified."
+    },
+    "notes": "Historical 2025 model reference, not current frontier coverage. Same questions and date window; prompts, grading configuration, hardware and sampling may differ from the local deployment. DeepSeek R1 averages ten samples per task; the other retained submissions use one. Available only in the history view."
+  },
+  {
+    "schema_version": 1,
+    "id": "lcb-history-v6-e446012a33915b774288",
+    "kind": "external",
+    "observed_at": "2025-08-01",
+    "model": {
+      "name": "O3 (High)",
+      "provider": "OpenAI",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "LiveCodeBench",
+      "revision": "release_v6",
+      "split": "published",
+      "task_set": "131 tasks; 2025-02-01 inclusive to 2025-05-01 exclusive"
+    },
+    "metric": {
+      "name": "pass@1",
+      "value": 71.7557,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 131
+    },
+    "protocol": {
+      "harness": "LiveCodeBench official archived submission",
+      "harness_revision": "not_reported",
+      "config": {
+        "comparison_group": "livecodebench-v6-feb-apr-2025-131",
+        "source_commit": "6ca212e9c2039373f6e5069d37ffa9db66e23736",
+        "source_file_git_blob": "e446012a33915b77428818e774ed5b9d5926e2e4",
+        "source_file_sha256": "a7c900595d6ca6eba133e03e9e4fd24b0047a87e8a8302935ba2b83f0b834ff7",
+        "source_filename": "Scenario.codegeneration_1_0.2_eval_all.json",
+        "source_snapshot_date": "2025-08-01",
+        "samples_per_task": 1,
+        "aggregation": "Unweighted mean of official per-task pass@1 across the exact 131-task window; each per-task value verified against graded_list.",
+        "task_identity": "All 131 task IDs, question text and starter code match the frozen local window.",
+        "effective_generation_budget": "not_reported",
+        "effective_sampling": "Filename configuration retained; provider-effective settings are not inferred.",
+        "test_mode_and_compute": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/LiveCodeBench/submissions/blob/6ca212e9c2039373f6e5069d37ffa9db66e23736/O3%20%28High%29/Scenario.codegeneration_1_0.2_eval_all.json",
+      "retrieved_at": "2026-11-12",
+      "notes": "Derived from immutable official per-question grades, not a model rerun. observed_at is the archival repository snapshot date, not a claimed inference date. Git blob and file SHA-256 verified."
+    },
+    "notes": "Historical 2025 model reference, not current frontier coverage. Same questions and date window; prompts, grading configuration, hardware and sampling may differ from the local deployment. DeepSeek R1 averages ten samples per task; the other retained submissions use one. Available only in the history view."
+  },
+  {
+    "schema_version": 1,
+    "id": "lcb-history-v6-31e9708848b9aa4156a9",
+    "kind": "external",
+    "observed_at": "2025-08-01",
+    "model": {
+      "name": "Gemini-2.5-Pro-06-05",
+      "provider": "Google",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "LiveCodeBench",
+      "revision": "release_v6",
+      "split": "published",
+      "task_set": "131 tasks; 2025-02-01 inclusive to 2025-05-01 exclusive"
+    },
+    "metric": {
+      "name": "pass@1",
+      "value": 72.5191,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 131
+    },
+    "protocol": {
+      "harness": "LiveCodeBench official archived submission",
+      "harness_revision": "not_reported",
+      "config": {
+        "comparison_group": "livecodebench-v6-feb-apr-2025-131",
+        "source_commit": "6ca212e9c2039373f6e5069d37ffa9db66e23736",
+        "source_file_git_blob": "31e9708848b9aa4156a99d31dada3dda89cb4a1b",
+        "source_file_sha256": "19be5460eda197621738c871cd496d79b1d1fa3c653a5a7742fd4985abfd2d39",
+        "source_filename": "Scenario.codegeneration_1_0.2_eval_all.json",
+        "source_snapshot_date": "2025-08-01",
+        "samples_per_task": 1,
+        "aggregation": "Unweighted mean of official per-task pass@1 across the exact 131-task window; each per-task value verified against graded_list.",
+        "task_identity": "All 131 task IDs, question text and starter code match the frozen local window.",
+        "effective_generation_budget": "not_reported",
+        "effective_sampling": "Filename configuration retained; provider-effective settings are not inferred.",
+        "test_mode_and_compute": "not_reported"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://github.com/LiveCodeBench/submissions/blob/6ca212e9c2039373f6e5069d37ffa9db66e23736/Gemini-2.5-Pro-06-05/Scenario.codegeneration_1_0.2_eval_all.json",
+      "retrieved_at": "2026-11-12",
+      "notes": "Derived from immutable official per-question grades, not a model rerun. observed_at is the archival repository snapshot date, not a claimed inference date. Git blob and file SHA-256 verified."
+    },
+    "notes": "Historical 2025 model reference, not current frontier coverage. Same questions and date window; prompts, grading configuration, hardware and sampling may differ from the local deployment. DeepSeek R1 averages ten samples per task; the other retained submissions use one. Available only in the history view."
+  }
+]

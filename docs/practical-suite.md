@@ -157,3 +157,24 @@ replaces an existing observation. Review the generated record before committing;
 raw traces, questions, answer text, endpoint configuration and credentials remain
 private. The published source link points to the sanitized result and its audit
 fingerprints. The artifact hash and hardware remain operator-verified metadata.
+
+## Historical coding context
+
+Five official archived submissions cover exactly the same 131 problems: o3
+(High), Claude Sonnet 4 Thinking, DeepSeek R1-0528, Qwen3-235B-A22B and Gemini
+2.5 Pro (June 2025). Their snapshot is pinned to submission-repository commit
+`6ca212e9c2039373f6e5069d37ffa9db66e23736` from August 1, 2025. Each observation
+links the immutable original file and records its Git blob hash and SHA-256.
+These are historical references, excluded from the latest reviewed cohort.
+Use “All references & history” to view them alongside local coding results.
+
+`python3 scripts/verify_lcb_history.py --archive-dir .local/livecodebench/references --dataset-dir .local/livecodebench/data --download`
+recomputes their scores without executing or regenerating model outputs. Cache
+files remain in ignored storage; `--download` fetches missing files directly from
+the pinned official commit and verifies their hashes before saving them.
+The verifier requires all task IDs, question text and starter code to match the
+frozen local window, and checks every pass@1 value against its completion grades.
+DeepSeek averages ten samples per task; the other four submissions use one.
+The source does not establish effective generation budgets, hardware or full/lite
+grading mode, so these remain contextual references rather than controlled
+comparisons. The source snapshot date is not a claimed inference date.

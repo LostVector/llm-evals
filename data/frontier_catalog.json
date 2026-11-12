@@ -24,9 +24,9 @@
     "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
   },
   {
-    "name": "τ³-Banking",
+    "name": "\u03c4\u00b3-Banking",
     "area": "Multi-turn tool retrieval",
-    "coverage": "Reviewed Qwen 3.8 Max text banking score. Other model imports pending; separate from τ².",
+    "coverage": "Reviewed Qwen 3.8 Max text banking score. Other model imports pending; separate from \u03c4\u00b2.",
     "url": "https://taubench.com/"
   },
   {
@@ -50,11 +50,11 @@
   {
     "name": "LiveCodeBench",
     "area": "Coding",
-    "coverage": "Frontier evaluations exist, but no numeric snapshot imported yet.",
+    "coverage": "Historical exact-window reference scores are available under All references & history. Current local measurements are in progress.",
     "url": "https://livecodebench.github.io/leaderboard.html"
   },
   {
-    "name": "τ²-bench",
+    "name": "\u03c4\u00b2-bench",
     "area": "Multi-turn tools",
     "coverage": "Reviewed text-track summary; exact upstream dataset pin not established.",
     "url": "https://taubench.com/"

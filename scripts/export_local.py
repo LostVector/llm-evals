@@ -50,6 +50,7 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
         config['client_phases'] = 'First nine checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are recomputed by the frozen audit.'
         metric = 'accuracy'
     elif lane == 'coding':
+        config['comparison_group'] = 'livecodebench-v6-feb-apr-2025-131'
         benchmark = {'name': 'LiveCodeBench', 'revision': protocol['release'],
                      'split': '2025-02-01 inclusive to 2025-05-01 exclusive',
                      'task_set': 'sha256:'+protocol['selected_rows_sha256']}

@@ -56,3 +56,12 @@ test('context never mixes metrics or uncurated benchmark versions', () => {
   assert.deepEqual(selectedRows([row,older,speed],trackKey(row),true).map(r=>r.id),[row.id]);
   assert.deepEqual(selectedRows([row],'missing',true),[]);
 });
+test('coding history is opt-in and shares only the exact curated window', () => {
+  const history=JSON.parse(fs.readFileSync('data/references/livecodebench-history-v6-2026-11-12.json','utf8'));
+  const local=structuredClone(history[0]);local.id='synthetic-local-coding';local.kind='local';
+  local.benchmark.task_set='local-window-hash';local.metric.unit='fraction';local.metric.value=0.5;
+  assert.deepEqual(selectedRows([local,...history],trackKey(local)).map(r=>r.id),[local.id]);
+  assert.equal(selectedRows([local,...history],trackKey(local),true).length,history.length+1);
+  assert.deepEqual(scoped([local,...history],policy,'featured').map(r=>r.id),[local.id]);
+  for (const row of history) assert.equal(require('../site/compare.js').providerFor(row,registry),row.model.provider);
+});
