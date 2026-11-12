@@ -15,9 +15,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def read_completion(response, progress=None):
     """Collect streaming final content and reasoning without grading partial text."""
+    headers = {key: response.headers[key] for key in (
+        'x-litellm-model-id', 'x-litellm-call-id', 'x-litellm-attempted-retries',
+        'x-litellm-attempted-fallbacks') if response.headers.get(key) is not None}
     if 'text/event-stream' not in response.headers.get('Content-Type', ''):
-        return json.load(response)
+        result = json.load(response)
+        if headers:
+            result['gateway_headers'] = headers
+        return result
     content, reasoning, usage, finish = [], [], {}, None
+    metadata = {}
     for line in response:
         if not line.startswith(b'data:'):
             continue
@@ -29,6 +36,11 @@ def read_completion(response, progress=None):
             raise ValueError('Streaming API returned an error; no score recorded')
         if event.get('usage'):
             usage = event['usage']
+        for key in ('id', 'model', 'created'):
+            if key in event:
+                if key == 'model' and key in metadata and metadata[key] != event[key]:
+                    raise ValueError('Model changed inside stream; no score recorded')
+                metadata[key] = event[key]
         for choice in event.get('choices', []):
             delta = choice.get('delta', {})
             if delta.get('content'):
@@ -41,7 +53,7 @@ def read_completion(response, progress=None):
             progress(sum(map(len, content)), sum(map(len, reasoning)))
     if finish is None:
         raise ValueError('Incomplete stream; no score recorded')
-    return {'choices': [{'finish_reason': finish, 'message': {'role': 'assistant',
+    return {**metadata, 'gateway_headers': headers, 'choices': [{'finish_reason': finish, 'message': {'role': 'assistant',
             'content': ''.join(content), 'reasoning_content': ''.join(reasoning)}}], 'usage': usage}
 
 

@@ -8,15 +8,25 @@ from scripts.gpqa_diamond import private_path, read_completion, summarize, tasks
 class GPQADiamondTests(unittest.TestCase):
     def test_stream_keeps_reasoning_out_of_final_answer(self):
         events = [
-            {'choices': [{'delta': {'reasoning_content': 'Answer: B is tempting.'}}]},
+            {'model': 'test-model', 'choices': [{'delta': {'reasoning_content': 'Answer: B is tempting.'}}]},
             {'choices': [{'delta': {'content': 'Answer: A'}, 'finish_reason': 'stop'}]},
             {'choices': [], 'usage': {'completion_tokens': 12}},
         ]
         stream = io.BytesIO(b''.join(b'data: ' + json.dumps(event).encode() + b'\n\n' for event in events) + b'data: [DONE]\n')
-        stream.headers = {'Content-Type': 'text/event-stream'}
+        stream.headers = {'Content-Type': 'text/event-stream', 'x-litellm-model-id': 'synthetic-route'}
         result = read_completion(stream)
         self.assertEqual(result['choices'][0]['message']['content'], 'Answer: A')
         self.assertEqual(result['usage']['completion_tokens'], 12)
+        self.assertEqual(result['model'], 'test-model')
+        self.assertEqual(result['gateway_headers']['x-litellm-model-id'], 'synthetic-route')
+
+    def test_model_switch_inside_stream_is_not_scored(self):
+        events = [{'model': 'one', 'choices': []},
+                  {'model': 'two', 'choices': [{'delta': {'content': 'Answer: A'}, 'finish_reason': 'stop'}]}]
+        stream = io.BytesIO(b''.join(b'data: ' + json.dumps(event).encode() + b'\n' for event in events))
+        stream.headers = {'Content-Type': 'text/event-stream'}
+        with self.assertRaises(ValueError):
+            read_completion(stream)
 
     def test_incomplete_stream_is_not_a_model_failure(self):
         stream = io.BytesIO(b'data: {"choices":[{"delta":{"content":"Answer: A"}}]}\n')
