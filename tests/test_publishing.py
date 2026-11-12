@@ -53,9 +53,20 @@ class PublishingTests(unittest.TestCase):
             with self.assertRaises(ValueError): public_check(value)
         public_check({'hardware':'Generic workstation; 64 GiB RAM','source':'https://example.org/results'})
 
+    def test_current_cohort_covers_required_providers_on_same_index_version(self):
+        payload=collect(ROOT)
+        featured=set(payload['reference_policy']['featured_observation_ids'])
+        records=[r for r in payload['observations'] if r['id'] in featured and r['benchmark']['name']=='AA Intelligence Index' and r['benchmark']['revision']=='5.0.1']
+        providers={m['provider'] for m in payload['model_registry'] if any(r['model']['name'] in m['source_labels'] for r in records)}
+        self.assertTrue(set(payload['reference_policy']['required_providers']).issubset(providers))
+        self.assertTrue(any('Fable 5.2' in r['model']['name'] for r in records))
+        self.assertTrue(any('Sol' in r['model']['name'] for r in records))
+        self.assertTrue(any('Opus 5.5' in r['model']['name'] for r in records))
+        self.assertTrue(all(r['metric']['unit']=='index' for r in records))
+
     def test_real_bundle_is_valid_and_complete(self):
         payload=collect(ROOT)
-        self.assertEqual(len(payload['catalog']),6)
+        self.assertGreaterEqual(len(payload['catalog']),6)
         self.assertGreater(len(payload['observations']),0)
         self.assertFalse(any(r['benchmark']['name']=='LiveCodeBench' for r in payload['observations']))
         with tempfile.TemporaryDirectory() as tmp:

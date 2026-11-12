@@ -56,3 +56,13 @@ node --check site/app.js
 Open `dist/index.html` in a browser. To serve it when socket access is available, use `python3 -m http.server 8765 --directory dist`.
 
 The publish build validates every local and external observation and checks for common leaks (home paths, email addresses, private endpoints, obvious credential fields/tokens). It is a partial guard, not a complete secret scanner. Review data and commit metadata before publishing. Git ignores do not redact tracked files. Git author name is public; the configured contributor email is a placeholder.
+
+## Current-model coverage
+
+The default page now uses an explicitly reviewed cohort from `data/reference_policy.json`. `data/model_registry.json` maps exact source labels to model families/providers without merging dated checkpoints or reasoning settings. All six requested provider groups have verified AA Intelligence Index v5.0.1 observations. Additional coding, knowledge, workflow, and multi-turn observations use their own source/version tracks; not every model is evaluated on every track.
+
+The new reviewed snapshot contains Sol 6.1/Astra, Fable 5.2/5.1, Opus 5.5, DeepSeek V4.1 Flash 1017, Qwen3.8 Max (0902)/Flash-Next, Kimi K3.1 Pro, GLM-5.3/Flash, and other source-backed labels. Exact settings and source caveats remain attached to each observation. Historical records are retained under “All references & history”. Scores missing from a source remain absent, and the coverage table makes that visible. The common AA index uses points, not percentages. AA-Omniscience net scores can be negative and are plotted with a signed axis.
+
+**Automatic sync still covers only the historical BBEH/SuperGPQA tables.** It does not update this current cohort. The page displays the separate review date and flags a review overdue after 30 days. Update the dated current snapshot and featured IDs after source review; do not advance the review date simply because a build or historical sync ran.
+
+For a more sustainable current-model feed, [Artificial Analysis documents an authenticated data API](https://artificialanalysis.ai/data-api/docs/reference). Its free endpoint requires a valid API key and exposes headline indices, while per-benchmark scores require a higher tier. No API key is configured or committed here, and public-page extraction has not been presented as a reliable automatic feed.

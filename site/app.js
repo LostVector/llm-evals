@@ -1,16 +1,16 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const node = (tag, text, className) => { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (className) el.className = className; return el; };
-const trackKey = r => JSON.stringify([r.benchmark, r.metric.name, r.metric.unit, r.metric.direction]);
-const identity = r => JSON.stringify([trackKey(r), r.model, r.protocol.harness, r.protocol.harness_revision, r.kind]);
+const {trackKey, latestRows, scoped, providerFor, coverageRows, axis} = Comparison;
 const score = r => r.metric.unit === 'fraction' ? r.metric.value * 100 : r.metric.value;
 const scoreLabel = r => `${Number(score(r).toFixed(2))}${['fraction', 'percent'].includes(r.metric.unit) ? '%' : ` ${r.metric.unit}`}`;
 const safeURL = value => { try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; } catch { return null; } };
 let data, latest;
+const visibleRows = () => scoped(latest, data.reference_policy, $('reference-view').value);
 function option(value, text) { const el = node('option', text); el.value = value; return el; }
 function selectBenchmark(name) { $('benchmark').value = name; tracks(); render(); }
 function tracks() {
-  const records = latest.filter(r => r.benchmark.name === $('benchmark').value);
+  const records = visibleRows().filter(r => r.benchmark.name === $('benchmark').value);
   const groups = new Map(records.map(r => [trackKey(r), r]));
   $('track').replaceChildren(...[...groups].sort((a,b) => a[1].metric.name.localeCompare(b[1].metric.name)).map(([key,r]) => option(key, `${r.benchmark.revision} · ${r.benchmark.task_set} · ${r.metric.name} (${r.metric.unit})`)));
   if (!groups.size) $('track').append(option('', 'No numeric observations imported'));
@@ -21,21 +21,25 @@ function render() {
   const catalog = data.catalog.find(c => c.name === selected);
   document.querySelectorAll('.coverage button').forEach(button => { const active = button.dataset.name === selected; button.classList.toggle('active',active); button.setAttribute('aria-pressed',String(active)); });
   const query = $('search').value.toLowerCase();
-  const records = latest.filter(r => r.benchmark.name === selected && trackKey(r) === $('track').value && r.model.name.toLowerCase().includes(query) && ($('origin').value === 'all' || r.kind === $('origin').value));
+  const trackRows = visibleRows().filter(r => r.benchmark.name === selected && trackKey(r) === $('track').value);
+  const records = trackRows.filter(r => ($('provider').value === 'all' || providerFor(r,data.model_registry) === $('provider').value) && r.model.name.toLowerCase().includes(query) && ($('origin').value === 'all' || r.kind === $('origin').value));
   records.sort((a,b) => (a.metric.direction === 'lower' ? 1 : -1) * (score(a)-score(b)) || a.model.name.localeCompare(b.model.name));
   $('chart').replaceChildren(); $('rows').replaceChildren();
   $('chart-title').textContent = records.length ? `${selected} · ${records[0].metric.name}` : selected;
   $('count').textContent = `${records.length} observations`;
   $('empty').hidden = records.length > 0;
-  $('empty').textContent = latest.some(r => r.benchmark.name === selected) ? 'No observations match these filters.' : `${catalog?.coverage || 'No observations recorded.'} Missing scores are not zero.`;
-  const percent = records.every(r => ['percent','fraction'].includes(r.metric.unit));
-  const max = percent ? 100 : Math.max(...records.map(score),1);
+  $('empty').textContent = visibleRows().some(r => r.benchmark.name === selected) ? 'No observations match these filters.' : `${catalog?.coverage || 'No observations recorded.'} ${latest.some(r => r.benchmark.name === selected) ? 'Historical observations are available under All references & history.' : ''} Missing scores are not zero.`;
+  const {min,max,span,percent}=axis(trackRows);
+  $('axis-label').textContent = records.length ? `Axis: ${min} to ${max}${percent ? '%' : ` ${records[0].metric.unit} (relative scale)`}` : '';
+  const coverage=coverageRows(trackRows,data.model_registry,$('provider').value);
+  $('model-coverage-summary').textContent=`Model coverage on this track: ${coverage.filter(m=>m.observations.length).length} / ${coverage.length} tracked families have a verified score`;
+  $('model-coverage').replaceChildren(...coverage.map(m=>{ const tr=node('tr'); tr.append(node('td',m.provider),node('td',m.name),node('td',m.observations.length ? m.observations.map(scoreLabel).join(' · ') : 'No verified score on this track')); return tr; }));
   for (const r of records) {
     const row = node('div',undefined,'bar-row'); row.setAttribute('role','listitem');
     const label = node('div',r.model.name,'bar-label');
-    label.append(node('small',`${r.kind === 'local' ? r.model.quantization : 'Published reference'} · ${r.protocol.harness}`));
+    label.append(node('small',`${providerFor(r,data.model_registry)} · ${r.kind === 'local' ? r.model.quantization : 'Published reference'} · ${r.protocol.harness}`));
     const track = node('div',undefined,'bar-track'); const bar = node('div',undefined,`bar${r.kind === 'external' ? ' reference' : ''}`);
-    bar.style.width = `${Math.max(0,Math.min(100,score(r)/max*100))}%`; track.append(bar); track.setAttribute('aria-hidden','true');
+    bar.style.width = `${Math.abs(score(r))/span*100}%`; bar.style.left = `${((score(r)<0 ? score(r) : 0)-min)/span*100}%`; track.append(bar); if(min<0) { const zero=node('i',undefined,'zero-line');zero.style.left=`${-min/span*100}%`;track.append(zero); } track.setAttribute('aria-hidden','true');
     row.append(label,track,node('span',scoreLabel(r),'bar-score')); $('chart').append(row);
     const tr = node('tr'); const modelCell = node('td',r.model.name); modelCell.append(node('small',r.model.quantization));
     const source = node('td'); const href = safeURL(r.provenance.location);
@@ -50,22 +54,32 @@ async function start() {
     const embedded=$('evaluation-data');
     if (embedded) data=JSON.parse(embedded.textContent);
     else { const response=await fetch('data.json'); if (!response.ok) throw new Error(`HTTP ${response.status}`); data=await response.json(); }
-    const dedup=new Map();
-    for (const r of data.observations) { const key=identity(r), old=dedup.get(key); if (!old || r.provenance.retrieved_at >= old.provenance.retrieved_at) dedup.set(key,r); }
-    latest=[...dedup.values()];
+    latest=latestRows(data.observations);
     const names=[...new Set([...data.catalog.map(c=>c.name),...latest.map(r=>r.benchmark.name)])];
     $('benchmark').replaceChildren(...names.map(name=>option(name,name)));
+    $('provider').append(...[...new Set(data.model_registry.map(m=>m.provider))].sort().map(p=>option(p,p)));
     const localCount=latest.filter(r=>r.kind==='local').length;
-    $('status').textContent=`${names.length} benchmark families · ${latest.filter(r=>r.kind==='external').length} reference metrics · ${localCount} local measurements`;
+    $('status').textContent=`${data.model_registry.length} tracked model families · ${data.reference_policy.required_providers.length} required provider groups · ${latest.filter(r=>r.kind==='external').length} reference metrics · ${localCount} local measurements`;
     $('build-date').textContent=`Built ${data.built_at}`;
-    for (const c of data.catalog) {
-      const count=latest.filter(r=>r.benchmark.name===c.name).length;
-      const button=node('button'); button.type='button'; button.dataset.name=c.name;
-      button.append(node('span',c.area,'category'),node('span',c.name,'name'),node('span',count ? `${count} metric observations` : 'Numeric import pending','availability'),node('span',c.coverage,'coverage-note'));
-      button.addEventListener('click',()=>selectBenchmark(c.name)); $('coverage').append(button);
+    const reviewed=new Date(`${data.reference_policy.reviewed_at}T00:00:00Z`);
+    const age=Math.max(0,Math.floor((Date.now()-reviewed.getTime())/86400000));
+    const overdue=age>data.reference_policy.review_interval_days;
+    $('cohort-review').textContent=`Reference cohort reviewed ${data.reference_policy.reviewed_at} · ${overdue ? 'Review overdue; do not assume current frontier coverage.' : 'Selected verified sources; model and source coverage is incomplete.'}`;
+    $('cohort-review').classList.toggle('overdue',overdue);
+    function coverage() {
+      $('coverage').replaceChildren();
+      for (const c of data.catalog) {
+        const count=visibleRows().filter(r=>r.benchmark.name===c.name).length;
+        const historical=latest.filter(r=>r.benchmark.name===c.name).length;
+        const button=node('button'); button.type='button'; button.dataset.name=c.name;
+        button.append(node('span',c.area,'category'),node('span',c.name,'name'),node('span',count ? `${count} visible metric observations` : historical ? 'Historical coverage only in this view' : 'Numeric import pending','availability'),node('span',c.coverage,'coverage-note'));
+        button.addEventListener('click',()=>selectBenchmark(c.name)); $('coverage').append(button);
+      }
     }
+    coverage();
+    $('reference-view').addEventListener('change',()=>{coverage();tracks();render();});
     $('benchmark').addEventListener('change',()=>{ tracks(); render(); });
-    for (const id of ['track','origin']) $(id).addEventListener('change',render);
+    for (const id of ['track','origin','provider']) $(id).addEventListener('change',render);
     $('search').addEventListener('input',render);
     selectBenchmark(names[0]);
   } catch(error) { $('status').textContent='Could not load evaluation data. Please reload or check the data.json artifact.'; $('empty').hidden=false; $('empty').textContent=error.message; }

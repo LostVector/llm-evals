@@ -30,6 +30,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 -m unittest discover -s tests -v
+      - run: node --test tests/test_comparison.cjs
       - name: Refresh public tables
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.sync)
         run: python3 scripts/sync_frontier.py

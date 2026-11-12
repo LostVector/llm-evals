@@ -53,13 +53,42 @@ def collect(root):
         public_check(record)
     catalog=json.loads((root/'data/frontier_catalog.json').read_text())
     public_check(catalog)
-    return dict(schema_version=1,built_at=date.today().isoformat(),catalog=catalog,observations=records)
+    policy=json.loads((root/'data/reference_policy.json').read_text())
+    date.fromisoformat(policy['reviewed_at'])
+    featured=policy['featured_observation_ids']
+    if not isinstance(featured,list) or not featured or any(not isinstance(i,str) for i in featured):
+        raise ValueError('Reference policy needs an explicit nonempty observation ID list')
+    if len(featured)!=len(set(featured)) or set(featured)-ids:
+        raise ValueError('Reference policy has duplicate or missing observation IDs')
+    if type(policy.get('review_interval_days')) is not int or policy['review_interval_days']<=0:
+        raise ValueError('Reference review interval must be positive')
+    public_check(policy)
+    registry=json.loads((root/'data/model_registry.json').read_text())
+    if not isinstance(registry,list) or not registry:
+        raise ValueError('Model registry must be a nonempty list')
+    family_ids=set(); labels=set()
+    for model in registry:
+        if not all(isinstance(model.get(k),str) and model[k] for k in ('id','name','provider')):
+            raise ValueError('Invalid model registry identity')
+        aliases=model.get('source_labels')
+        if not isinstance(aliases,list) or any(not isinstance(a,str) or not a for a in aliases):
+            raise ValueError('Invalid model registry source labels')
+        if model['id'] in family_ids or labels.intersection(aliases):
+            raise ValueError('Duplicate model family or ambiguous source label')
+        family_ids.add(model['id']); labels.update(aliases)
+    featured_rows=[r for r in records if r['id'] in featured]
+    for provider in policy['required_providers']:
+        aliases={a for m in registry if m['provider']==provider for a in m['source_labels']}
+        if not any(r['model']['name'] in aliases for r in featured_rows):
+            raise ValueError(f'Required provider has no featured observations: {provider}')
+    public_check(registry)
+    return dict(schema_version=1,built_at=date.today().isoformat(),catalog=catalog,reference_policy=policy,model_registry=registry,observations=records)
 
 
 def build(root, output):
     data=collect(root)  # Fail before touching an existing successful build.
     output.mkdir(parents=True,exist_ok=True)
-    for name in ('styles.css','app.js'):
+    for name in ('styles.css','compare.js','app.js'):
         shutil.copyfile(root/'site'/name,output/name)
     payload=json.dumps(data,ensure_ascii=False,indent=2)
     (output/'data.json').write_text(payload+'\n')

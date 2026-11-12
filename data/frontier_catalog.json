@@ -1,14 +1,56 @@
 [
   {
+    "name": "AA Intelligence Index",
+    "area": "Broad capability reference",
+    "coverage": "Reviewed current composite scores; provider/model gaps shown explicitly. Index v5.0.1 is not a percentage.",
+    "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  },
+  {
+    "name": "Terminal-Bench",
+    "area": "Agentic coding",
+    "coverage": "Reviewed 4.0 AA-protocol scores across current models; historical 2.1 remains separate.",
+    "url": "https://www.tbench.ai/"
+  },
+  {
+    "name": "MultiChallenge",
+    "area": "Multi-turn conversation",
+    "coverage": "Current published Sol 6.1, Gemini 4 and other model rows; no inferred scores for absent models.",
+    "url": "https://labs.scale.com/leaderboard/multichallenge"
+  },
+  {
+    "name": "HLE-Diamond",
+    "area": "Reasoning and knowledge",
+    "coverage": "Reviewed Fable 5.2, Opus 5.5, Sol and other rows; Scale and AA protocols are separate.",
+    "url": "https://labs.scale.com/leaderboard/hle-diamond"
+  },
+  {
+    "name": "AutomationBench-AA",
+    "area": "Agentic workflows",
+    "coverage": "Reviewed Sol 6.1, Fable 5.1 and Opus 5.5 workflow scores.",
+    "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  },
+  {
+    "name": "τ³-Banking",
+    "area": "Multi-turn tool retrieval",
+    "coverage": "Reviewed Qwen 3.8 Max text banking score. Other model imports pending; separate from τ².",
+    "url": "https://taubench.com/"
+  },
+  {
+    "name": "AA-Omniscience",
+    "area": "Knowledge reference",
+    "coverage": "Reviewed v1.1 published index scores; not a percentage.",
+    "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  },
+  {
     "name": "SuperGPQA",
     "area": "General capability",
-    "coverage": "Historical published results; automatic upstream table refresh configured.",
+    "coverage": "Historical anchor only. Daily source refresh does not establish current-model coverage.",
     "url": "https://github.com/SuperGPQA/SuperGPQA"
   },
   {
     "name": "BBEH",
     "area": "General reasoning",
-    "coverage": "Historical published results; automatic upstream table refresh configured.",
+    "coverage": "Historical anchor only. Daily source refresh does not establish current-model coverage.",
     "url": "https://github.com/google-deepmind/bbeh/blob/main/leaderboard.md"
   },
   {
@@ -18,21 +60,9 @@
     "url": "https://livecodebench.github.io/leaderboard.html"
   },
   {
-    "name": "Terminal-Bench",
-    "area": "Agentic coding",
-    "coverage": "Reviewed 2.1 snapshot; newer suite versions exist and remain separate.",
-    "url": "https://www.tbench.ai/"
-  },
-  {
     "name": "τ²-bench",
     "area": "Multi-turn tools",
     "coverage": "Reviewed text-track summary; exact upstream dataset pin not established.",
     "url": "https://taubench.com/"
-  },
-  {
-    "name": "MultiChallenge",
-    "area": "Multi-turn conversation",
-    "coverage": "Reviewed selected published rows; rubric and judge affect comparison.",
-    "url": "https://labs.scale.com/leaderboard/multichallenge"
   }
 ]

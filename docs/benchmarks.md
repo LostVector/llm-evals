@@ -53,3 +53,9 @@ These are project heuristics, not statistical guarantees:
 5. Retain a benchmark for model discrimination when it separates relevant candidates beyond measurement noise. Retain it for quant comparisons only when paired differences can be measured at useful precision. A model-ranking benchmark need not detect a small quantization effect. A nondetectable delta is inconclusive, not proof of equivalence.
 6. Freeze a reporting suite after the pilot; do not remove tasks based on which candidate failed. Document invalid-task exclusions before scoring held-out reports. Publish task IDs, failures and caveats subject to upstream terms. Never pool development subsets with full official scores.
 7. Review at each major model-generation change or quarterly. Add a fresh version/window when the old one loses signal, while preserving old observations and a stable overlap set for trend continuity.
+
+## Frontier reference coverage requirement
+
+Track major model families from OpenAI, Anthropic, DeepSeek, Alibaba/Qwen, Moonshot/Kimi and Z.ai/GLM. Maintain exact source-name mappings in the model registry, include distinct dated checkpoints/reasoning settings, and expose missing results per track. Do not equate a hosted model with an available local artifact. Current frontier reference coverage is a separate selection criterion from local-run practicality: historical BBEH/SuperGPQA rows alone do not satisfy it.
+
+The current published-reference layer includes AA Intelligence Index v5.0.1 across all six provider groups, Terminal-Bench 4.0 under AA's protocol, HLE-Diamond with separate AA/Scale tracks, workflow and knowledge metrics, and current MultiChallenge rows. The AA composite includes private components and supplements rather than replaces our local suite. Source observation/review dates must not be used as model evaluation dates. Benchmark choices should be revisited if current comparable coverage disappears.

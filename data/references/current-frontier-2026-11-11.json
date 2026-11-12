@@ -1,0 +1,2926 @@
+[
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-08017c19cfd03cbb6cb3",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6.1 Sol (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 55,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-347cc842355bcf40d7ef",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6.1 Sol (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 56.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-3a9f55bb9bc664387fa8",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6.1 Sol (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 64.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e7aa5886634e1e362779",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6.1 Sol (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 58.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-2f0b54183b581ff2f24b",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6.1 Sol (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 42,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-a8748a4a3fa0987b78d5",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.1 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 49,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-722200111d9590fe3144",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.1 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 52.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e297c2a2725923c46481",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.1 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 59.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-2ed14ba82bfc2ddb6d9d",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.1 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 60.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-98b678124ee76810ffa9",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.1 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 46,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-fable-5-1",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-cf00ddbe51eb2122f414",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Opus 5.5 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 59,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-opus-5-5",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-661b17d2f13bc5fe7432",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Opus 5.5 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 59.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-opus-5-5",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-197bb75a1cb376ad881b",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Opus 5.5 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 69.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-opus-5-5",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-2234e76f910154f0faf9",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Opus 5.5 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 67.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-opus-5-5",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e5ea4e5aff4f9a82a7fb",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Opus 5.5 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 48,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max; preserve full model label including fallback policy"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-claude-opus-5-5",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Independent Artificial Analysis measurement. Composite/index values are not percentages. Some index components are private. Match source methodology and input modality before any local comparison; source-specific tracks remain separate from official benchmark leaderboards. Evaluation date and exact task/code pin not established here."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-1a870d2c5fa863914643",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "claude-fable-5-2",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 72.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Published overall score across reasoning and knowledge partitions. Tool setting, exact judge/run pin, and input modality must be established before local comparison. This is a different source protocol from the AA HLE-Diamond track. Current Sol 6.1 row was not present in this source; gpt-6-sol is retained under its exact older-generation label.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 2.68
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-ecae4757d9eb406a2a8a",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "gpt-6-astra",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 60.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Published overall score across reasoning and knowledge partitions. Tool setting, exact judge/run pin, and input modality must be established before local comparison. This is a different source protocol from the AA HLE-Diamond track. Current Sol 6.1 row was not present in this source; gpt-6-sol is retained under its exact older-generation label.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 3.0
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-ae826f97f1f618604c1c",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "claude-opus-5-5",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 55.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Published overall score across reasoning and knowledge partitions. Tool setting, exact judge/run pin, and input modality must be established before local comparison. This is a different source protocol from the AA HLE-Diamond track. Current Sol 6.1 row was not present in this source; gpt-6-sol is retained under its exact older-generation label.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 3.1
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e37c0e4182f306223d5e",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "gemini-4-argon",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 53.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Published overall score across reasoning and knowledge partitions. Tool setting, exact judge/run pin, and input modality must be established before local comparison. This is a different source protocol from the AA HLE-Diamond track. Current Sol 6.1 row was not present in this source; gpt-6-sol is retained under its exact older-generation label.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 3.07
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-d1cb7605ae4636956658",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "claude-fable-5-1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 51.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Published overall score across reasoning and knowledge partitions. Tool setting, exact judge/run pin, and input modality must be established before local comparison. This is a different source protocol from the AA HLE-Diamond track. Current Sol 6.1 row was not present in this source; gpt-6-sol is retained under its exact older-generation label.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 3.1
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-f727967692303f9d0081",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "gpt-6-sol",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 33.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Published overall score across reasoning and knowledge partitions. Tool setting, exact judge/run pin, and input modality must be established before local comparison. This is a different source protocol from the AA HLE-Diamond track. Current Sol 6.1 row was not present in this source; gpt-6-sol is retained under its exact older-generation label.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 2.9
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-3ec4a2a79cabe93e1993",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "deepseek-v4p1-flash-1017",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 20.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Published overall score across reasoning and knowledge partitions. Tool setting, exact judge/run pin, and input modality must be established before local comparison. This is a different source protocol from the AA HLE-Diamond track. Current Sol 6.1 row was not present in this source; gpt-6-sol is retained under its exact older-generation label.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 2.5
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-481263591ecb7d32909a",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "gpt 6.1 Sol",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "published",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 81.95,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Current published row; ± uncertainty preserved as reported. Precise task revision, rollout and judge configuration must be pinned for local comparisons. Do not infer missing Fable or latest Opus scores from this table.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 4.16
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-deff5f095ffa90c85c5d",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Argon",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "published",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 78.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Current published row; ± uncertainty preserved as reported. Precise task revision, rollout and judge configuration must be pinned for local comparisons. Do not infer missing Fable or latest Opus scores from this table.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 5.3
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-131af294de359da750c5",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Muse Spark 1.1",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "published",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 75.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Current published row; ± uncertainty preserved as reported. Precise task revision, rollout and judge configuration must be pinned for local comparisons. Do not infer missing Fable or latest Opus scores from this table.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 0.6
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-108d496b2cd9b0f8c1e1",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Deepseek V4p1 Flash 1017",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "published",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 74.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Current published row; ± uncertainty preserved as reported. Precise task revision, rollout and judge configuration must be pinned for local comparisons. Do not infer missing Fable or latest Opus scores from this table.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 5.3
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-46b453f8d2ebf991f87c",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT 6.1 Terra",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "published",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 74.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Current published row; ± uncertainty preserved as reported. Precise task revision, rollout and judge configuration must be pinned for local comparisons. Do not infer missing Fable or latest Opus scores from this table.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 5.4
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-fe110748576dca275820",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Haiku 5.5",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "MultiChallenge",
+      "revision": "revised-source-track",
+      "split": "published",
+      "task_set": "full"
+    },
+    "metric": {
+      "name": "published_score",
+      "value": 67.67,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/multichallenge",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Current published row; ± uncertainty preserved as reported. Precise task revision, rollout and judge configuration must be pinned for local comparisons. Do not infer missing Fable or latest Opus scores from this table.",
+    "measurements": {
+      "published_plus_minus_percentage_points": 5.34
+    }
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-1e08625ab02904ec9b18",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.2 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 65,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-3a9f4863bf3183de265e",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.2 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 59.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-62aedab703cc0e5cc563",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.2 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 76.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-49810f20bfff79ee9e0d",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.2 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 80.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-aa5a8646b76e66950a99",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Claude Fable 5.2 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 67,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-7f5349b0948d54f7a832",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Carbon (High)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 60,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e2f1f7d291fd1f578ddb",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Carbon (High)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 65.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-ba0167a45d695cb01a73",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Carbon (High)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 77.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-722cc301ffeae81f9d14",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Carbon (High)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 69.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-3e739949245fc0490edd",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Gemini 4 Carbon (High)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 54,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-9658c4d8cf9da0f04636",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6 Astra (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 57,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-09f252a03ecb20f5150f",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6 Astra (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 59.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-d8a6e1237e76f722bd32",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6 Astra (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 68.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-04b015d800e73731d9ad",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6 Astra (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 63.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-abb173c98787e248b492",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GPT-6 Astra (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 42,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified rendered comparison-table column and exact model label. Independent AA protocol; composite includes private components. Do not equate to official benchmark runs or a different reasoning setting."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-f66fe20c491dcd2db200",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Kimi K3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 12.6,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-kimi-k3",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-f51ebd9e642141f497de",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Kimi K3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 58.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-kimi-k3",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-3edb551e715a288836ba",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Kimi K3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 26.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-kimi-k3",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-cb43e4b43a7d7a15883a",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek V4.1 Flash (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 26.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-deepseek-v4-1-flash",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-5ed8ef2ee45044193254",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek V4.1 Flash (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 68.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-deepseek-v4-1-flash",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-bcd5778d594bc465d2ac",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek V4.1 Flash (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 19.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-sol-vs-deepseek-v4-1-flash",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e2ee58629f6cb743f2d8",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GLM-5.3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 32,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/releases/glm-5-3",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Rounded headline score from release page; original model source is Z AI. No per-benchmark values inferred from the composite."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e8fd67326546ad34c5ff",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "kimi-k3",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 22.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-57127c816a2605e9ea65",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "glm-5.3",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 16.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-a5e7185cc5cf49429dd3",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen 3.8 Max",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "τ³-Banking",
+      "revision": "source-track-not-pinned",
+      "split": "published",
+      "task_set": "banking text knowledge retrieval"
+    },
+    "metric": {
+      "name": "pass^1",
+      "value": 55.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://taubench.com/",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Verified τ³-Banking homepage summary. Different task suite from τ² airline/retail/telecom. Source dataset commit, simulator and run recipe not established. This result does not establish open-weight availability for this model."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-41afbf8cb27a25b5d000",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GLM-5.3-Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 28,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/glm-5-3-flash-vs-glm-5-2-non-reasoning",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-9dde98f12b136b71147d",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GLM-5.3-Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 32.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/glm-5-3-flash-vs-glm-5-2-non-reasoning",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-f72e934a7094063e6e81",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GLM-5.3-Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 60.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/glm-5-3-flash-vs-glm-5-2-non-reasoning",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-ca084ae3e532372dd677",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GLM-5.3-Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 18.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/glm-5-3-flash-vs-glm-5-2-non-reasoning",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-4acf175dbe3fe603126b",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "GLM-5.3-Flash",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 1,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/glm-5-3-flash-vs-glm-5-2-non-reasoning",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-47e445b4527b499b8adf",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8 Max (0902)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 34,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-2b22fb0bbb725bb6cb73",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8 Max (0902)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 38.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-315b5bd0d27bc8fa09d4",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8 Max (0902)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 56.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-90ce2561767e37c6eb05",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8 Max (0902)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 24.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-a7abd585cab5868fe9de",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8 Max (0902)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": 10,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-b27e70718cab18edef59",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 29,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-2d0ee930bd40e35978b2",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "Terminal-Bench",
+      "revision": "4.0",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 25.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-c5ffc0d632a4b5a23a4d",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AutomationBench-AA",
+      "revision": "source-version-not-pinned",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "completion_score",
+      "value": 55.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-e99a898a45f73c5c89fe",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "AA methodology 5.0.1",
+      "split": "published",
+      "task_set": "AA evaluation protocol"
+    },
+    "metric": {
+      "name": "published_accuracy",
+      "value": 16.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-0e2222ecb9fe732c48e3",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA-Omniscience",
+      "revision": "1.1",
+      "split": "published",
+      "task_set": "AA published score"
+    },
+    "metric": {
+      "name": "net_score",
+      "value": -12,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-qwen3-8-max",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-47af93a4add7ae2771d3",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "Kimi K3.1 Pro",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 46,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Rounded headline index score from the model page under v5.0.1; not a percentage or a different-version index score."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-15cb3106b458511ea985",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "DeepSeek V4.1 Flash 1017 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "AA Intelligence Index",
+      "revision": "5.0.1",
+      "split": "published",
+      "task_set": "composite"
+    },
+    "metric": {
+      "name": "intelligence_index",
+      "value": 33,
+      "unit": "index",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Rounded headline index score from the model page under v5.0.1; not a percentage or a different-version index score."
+  },
+  {
+    "schema_version": 1,
+    "id": "frontier-review-2026-11-11-0a7c9a065152462f5f62",
+    "kind": "external",
+    "observed_at": "2026-11-11",
+    "model": {
+      "name": "claude-sonnet-5-5",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "HLE-Diamond",
+      "revision": "Scale frozen 1000-question release",
+      "split": "published",
+      "task_set": "Scale published protocol"
+    },
+    "metric": {
+      "name": "overall_accuracy",
+      "value": 37.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 1000
+    },
+    "protocol": {
+      "harness": "not_reported",
+      "harness_revision": "not_reported",
+      "config": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "benchmark_official",
+      "location": "https://labs.scale.com/leaderboard/hle-diamond",
+      "retrieved_at": "2026-11-11",
+      "notes": "Selected source row manually verified on 2026-11-11. Source observation date is not the evaluation date; no score is inferred or estimated."
+    },
+    "notes": "Selected reviewed published row. Preserve exact source model label and reasoning setting. Missing task/evaluator pins prevent asserting direct local comparability."
+  }
+]

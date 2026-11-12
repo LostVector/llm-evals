@@ -4,16 +4,18 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Local LLM and quantization evaluations alongside attributed frontier-model reference scores.">
 <title>LLM Evals · Local meets frontier</title>
-<link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+<link rel="stylesheet" href="styles.css"><script src="compare.js" defer></script><script src="app.js" defer></script>
 </head>
 <body>
 <header><a class="brand" href="./"><span class="mark">E</span> LLM Evals</a><a href="data.json" download>Download observations ↗</a></header>
 <main>
-<section class="intro"><p class="eyebrow">OPEN MODEL EVALUATION NOTEBOOK</p><h1>Local models.<br><span>A wider frame of reference.</span></h1><p class="lede">Compare local checkpoints and quants with published model results across reasoning, coding, and multi-turn work.</p><p class="status" id="status" role="status">Loading observations…</p></section>
-<section aria-labelledby="coverage-title"><div class="section-title"><h2 id="coverage-title">Six lenses on capability</h2><span>Coverage, not a composite score</span></div><div class="coverage" id="coverage"></div></section>
+<section class="intro"><p class="eyebrow">OPEN MODEL EVALUATION NOTEBOOK</p><h1>Local models.<br><span>A wider frame of reference.</span></h1><p class="lede">Compare local checkpoints and quants with published model results across reasoning, coding, and multi-turn work.</p><p class="status" id="status" role="status">Loading observations…</p><p class="review" id="cohort-review"></p></section>
+<section aria-labelledby="coverage-title"><div class="section-title"><h2 id="coverage-title">Capability and frontier references</h2><span>Source-specific tracks; composite labeled separately</span></div><div class="coverage" id="coverage"></div></section>
 <section class="workspace" aria-labelledby="comparison-title">
 <div class="section-title"><h2 id="comparison-title">Explore the evidence</h2><span class="pill">One benchmark track at a time</span></div>
 <div class="controls">
+<label>Reference coverage<select id="reference-view"><option value="featured">Latest reviewed cohort</option><option value="all">All references &amp; history</option></select></label>
+<label>Provider<select id="provider"><option value="all">All providers</option></select></label>
 <label>Benchmark<select id="benchmark"></select></label>
 <label class="track">Version · task set · metric<select id="track"></select></label>
 <label>Model name<input id="search" type="search" placeholder="Filter models…"></label>
@@ -22,10 +24,13 @@
 <div class="notice"><strong>Published references are context.</strong> A matching benchmark name does not establish matching prompts, harnesses, budgets, or task versions. Review the protocol before interpreting a score difference. Missing results are never zero.</div>
 <div class="chart-heading"><h3 id="chart-title">Scores</h3><span id="count"></span></div>
 <div class="legend"><span><i class="local-swatch"></i>Local measurement</span><span><i class="reference-swatch"></i>Published reference</span></div>
+<p class="axis-label" id="axis-label"></p>
 <div id="chart" class="chart" role="list" aria-label="Model scores"></div>
 <p id="empty" class="empty" hidden>No observations for this selection.</p>
+<details class="coverage-details"><summary id="model-coverage-summary">Model coverage on this track</summary><div class="table-scroll"><table><caption>Tracked model families, including missing results</caption><thead><tr><th scope="col">Provider</th><th scope="col">Model family</th><th scope="col">Coverage on selected track</th></tr></thead><tbody id="model-coverage"></tbody></table></div></details>
 <div class="table-scroll"><table><caption>Observation details and original sources</caption><thead><tr><th scope="col">Model / quant</th><th scope="col">Score</th><th scope="col">Harness</th><th scope="col">Origin</th><th scope="col">Retrieved / recorded</th><th scope="col">Evidence</th></tr></thead><tbody id="rows"></tbody></table></div>
 </section>
-<section class="method"><div><p class="eyebrow">READ THE FINE PRINT</p><h2>Comparable inputs.<br>Honest conclusions.</h2></div><div><p>Results retain the reported benchmark version, score scale, model label, harness, and provenance. Older frontier models remain useful historical anchors; they do not represent today’s frontier.</p><p>BBEH and SuperGPQA upstream tables are configured for daily refresh. Other scores are reviewed snapshots. LiveCodeBench has no numeric import yet. A recent retrieval date does not mean a recent model evaluation.</p><p>The chart shows the latest observation for each model/quant/harness within the selected track. Full snapshot history stays in the downloadable data. Local results appear when validated run records are added.</p></div></section>
+<section class="method"><div><p class="eyebrow">READ THE FINE PRINT</p><h2>Comparable inputs.<br>Honest conclusions.</h2></div><div><p>Results retain the reported benchmark version, score scale, model label, harness, and provenance. Older frontier models remain useful historical anchors; they do not represent today’s frontier.</p><p>The default view tracks major OpenAI, Anthropic, DeepSeek, Alibaba/Qwen, Moonshot/Kimi and Z.ai/GLM families, with additional providers where sourced. A model listed in scope can still lack a score on a particular track. The view uses an explicitly reviewed current-model cohort. Select “All references &amp; history” for older models. BBEH and SuperGPQA refresh daily but contain historical anchors; they do not keep current frontier coverage fresh. Current-source snapshots require review. LiveCodeBench numeric import remains pending.</p><p>The Artificial Analysis Intelligence Index is an independent composite, includes private components, and is shown in index points—not percent accuracy. It supplements our locally runnable suite.
+</p><p>The chart shows the latest observation for each model/quant/harness within the selected track. Full snapshot history stays in the downloadable data. Local results appear when validated run records are added.</p></div></section>
 </main><footer>LLM Evals · Evidence before rankings.<span id="build-date"></span></footer>
 </body></html>

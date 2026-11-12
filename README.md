@@ -43,6 +43,8 @@ Keep private run configuration and raw output in the ignored `.local/`, `raw-res
 
 ## Comparison page and GitHub Pages
 
-Run `python3 scripts/build_site.py`, then open `dist/index.html`. The page includes benchmark/metric/model filters, score bars, protocol details, source links, and a full JSON download. It starts with 30 reviewed reference metrics across five benchmark families; LiveCodeBench numeric import is pending. There are no local measurements yet.
+Run `python3 scripts/build_site.py`, then open `dist/index.html`. The page includes benchmark/metric/model filters, score bars, protocol details, source links, and a full JSON download. It includes 101 stored observations and a reviewed current cohort covering major OpenAI, Anthropic, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, and Z.ai/GLM families. Provider filters and a model-coverage table show missing scores explicitly. Historical tables are available in a separate view; LiveCodeBench numeric import is pending. There are no local measurements yet.
 
 [Publishing and sync instructions](docs/publishing.md) cover the public GitHub repo, Pages deployment, daily BBEH/SuperGPQA refresh, snapshot history, and data-review requirements. After GitHub login, `./scripts/publish_github.sh` creates the public repo and enables Pages.
+
+The default reference view is controlled by `data/reference_policy.json`, with exact source labels mapped in `data/model_registry.json`. Current references supplement the locally runnable benchmark plan: external composites and private benchmarks do not become local evaluation requirements. A review-date warning prevents a new site build or historical-table fetch from implying a fresh frontier-model evaluation.

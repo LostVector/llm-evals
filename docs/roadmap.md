@@ -7,6 +7,7 @@ Select exact checkpoints after confirming available RAM/VRAM, target runtime, an
 - [Qwen](https://huggingface.co/Qwen): include a general instruction model and a coding-focused checkpoint when available.
 - [Mistral](https://huggingface.co/mistralai): include a size that fits the same local hardware budget.
 - [DeepSeek](https://huggingface.co/deepseek-ai): consider locally feasible distilled or smaller checkpoints; distinguish distillation from quantization.
+- Include locally available Kimi and GLM checkpoints from Moonshot and Z.ai; verify exact artifacts and memory requirements. Track major OpenAI/Anthropic and hosted-only models as frontier references.
 - Expand with other widely used local families based on dated download/use evidence and relevant tool-use support. Do not select exclusively on a single leaderboard.
 
 For each selected base checkpoint, aim for a high-precision reference plus approximately 8-, 6-, and 4-bit variants where supported. GGUF labels such as Q8_0, Q6_K, and Q4_K_M are separate artifacts, not interchangeable generic bit widths. AWQ/GPTQ/MLX comparisons require their own artifact and backend metadata. [llama.cpp](https://github.com/ggml-org/llama.cpp) is one possible runtime; no backend is required yet.

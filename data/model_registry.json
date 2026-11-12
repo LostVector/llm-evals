@@ -1,0 +1,192 @@
+[
+  {
+    "id": "openai-sol-6.1",
+    "name": "GPT-6.1 Sol",
+    "provider": "OpenAI",
+    "source_labels": [
+      "GPT-6.1 Sol (Max)",
+      "gpt 6.1 Sol"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "openai-astra-6",
+    "name": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "source_labels": [
+      "GPT-6 Astra (Max)",
+      "gpt-6-astra"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "openai-terra-6.1",
+    "name": "GPT-6.1 Terra",
+    "provider": "OpenAI",
+    "source_labels": [
+      "GPT 6.1 Terra"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "anthropic-fable-5.2",
+    "name": "Claude Fable 5.2",
+    "provider": "Anthropic",
+    "source_labels": [
+      "Claude Fable 5.2 (Max, Default Fallback)",
+      "claude-fable-5-2"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "anthropic-fable-5.1",
+    "name": "Claude Fable 5.1",
+    "provider": "Anthropic",
+    "source_labels": [
+      "Claude Fable 5.1 (Max, Default Fallback)",
+      "claude-fable-5-1"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "anthropic-opus-5.5",
+    "name": "Claude Opus 5.5",
+    "provider": "Anthropic",
+    "source_labels": [
+      "Claude Opus 5.5 (Max, Default Fallback)",
+      "claude-opus-5-5"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "anthropic-sonnet-5.5",
+    "name": "Claude Sonnet 5.5",
+    "provider": "Anthropic",
+    "source_labels": [
+      "claude-sonnet-5-5"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "anthropic-haiku-5.5",
+    "name": "Claude Haiku 5.5",
+    "provider": "Anthropic",
+    "source_labels": [
+      "Claude Haiku 5.5"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash",
+    "provider": "DeepSeek",
+    "source_labels": [
+      "DeepSeek V4.1 Flash (Max)"
+    ],
+    "notes": "Keep the undated source variant separate from the 1017 checkpoint."
+  },
+  {
+    "id": "deepseek-v4.1-flash-1017",
+    "name": "DeepSeek V4.1 Flash 1017",
+    "provider": "DeepSeek",
+    "source_labels": [
+      "deepseek-v4p1-flash-1017",
+      "Deepseek V4p1 Flash 1017",
+      "DeepSeek V4.1 Flash 1017 (Max)"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "qwen-3.8-max",
+    "name": "Qwen 3.8 Max",
+    "provider": "Alibaba / Qwen",
+    "source_labels": [
+      "Qwen 3.8 Max"
+    ],
+    "notes": "Published hosted model reference; open-weight availability not assumed."
+  },
+  {
+    "id": "qwen-3.8-flash-next",
+    "name": "Qwen3.8-Flash-Next",
+    "provider": "Alibaba / Qwen",
+    "source_labels": [
+      "Qwen3.8-Flash-Next"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "kimi-k3",
+    "name": "Kimi K3",
+    "provider": "Moonshot / Kimi",
+    "source_labels": [
+      "Kimi K3 (Max)",
+      "kimi-k3"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "kimi-k3.1-pro",
+    "name": "Kimi K3.1 Pro",
+    "provider": "Moonshot / Kimi",
+    "source_labels": [
+      "Kimi K3.1 Pro"
+    ],
+    "notes": "Exact score source and dataset version retained; local artifact availability requires separate verification."
+  },
+  {
+    "id": "glm-5.3",
+    "name": "GLM-5.3",
+    "provider": "Z.ai / GLM",
+    "source_labels": [
+      "GLM-5.3 (Max)",
+      "glm-5.3"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "glm-5.3-flash",
+    "name": "GLM-5.3 Flash",
+    "provider": "Z.ai / GLM",
+    "source_labels": [
+      "GLM-5.3-Flash"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "google-gemini-4-carbon",
+    "name": "Gemini 4 Carbon",
+    "provider": "Google",
+    "source_labels": [
+      "Gemini 4 Carbon (High)"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "google-gemini-4-argon",
+    "name": "Gemini 4 Argon",
+    "provider": "Google",
+    "source_labels": [
+      "Gemini 4 Argon",
+      "gemini-4-argon"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "meta-muse-spark-1.1",
+    "name": "Muse Spark 1.1",
+    "provider": "Meta",
+    "source_labels": [
+      "Muse Spark 1.1"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "qwen-3.8-max-0902",
+    "name": "Qwen3.8 Max (0902)",
+    "provider": "Alibaba / Qwen",
+    "source_labels": [
+      "Qwen3.8 Max (0902)"
+    ],
+    "notes": "Keep this dated AA variant separate from undated τ banking model label."
+  }
+]

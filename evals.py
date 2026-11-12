@@ -103,7 +103,7 @@ def validate(record):
         unit = metric.get('unit')
         if not isinstance(unit, str) or unit not in UNITS:
             errors.append(f'metric.unit must be one of {sorted(UNITS)}')
-        if numeric and (value < 0 or (unit == 'fraction' and value > 1) or (unit == 'percent' and value > 100)):
+        if numeric and ((value < 0 and unit != 'index') or (unit == 'fraction' and value > 1) or (unit == 'percent' and value > 100)):
             errors.append('metric.value outside unit range')
         if metric.get('direction') not in ('higher', 'lower'):
             errors.append('metric.direction must be higher or lower')

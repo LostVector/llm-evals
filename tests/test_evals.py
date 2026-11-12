@@ -43,6 +43,11 @@ class ValidationTests(unittest.TestCase):
         r['provenance']['location'] = '/local/file'
         self.assertTrue(validate(r))
 
+    def test_signed_index_score(self):
+        r=fixture()
+        r['metric'].update(name='net_knowledge_score',unit='index',value=-12)
+        self.assertEqual(validate(r),[])
+
     def test_invalid_unit_type(self):
         r = fixture()
         r['metric']['unit'] = []
