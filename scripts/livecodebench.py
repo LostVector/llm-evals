@@ -1,8 +1,8 @@
 import argparse,ast,hashlib,json,sys,urllib.request,time,subprocess,uuid
 try:
- from scripts.gpqa_diamond import private_path
+ from scripts.gpqa_diamond import private_path,read_completion
 except ModuleNotFoundError:
- from gpqa_diamond import private_path
+ from gpqa_diamond import private_path,read_completion
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -44,13 +44,13 @@ def main():
     for i,row in enumerate(rows[:args.limit]):
      responsepath=out/f'{i:03}-response.json'
      if not responsepath.exists():
-      reqbody={'model':config['model'],'messages':[{'role':'system','content':ns['PromptConstants'].SYSTEM_MESSAGE_GENERIC},{'role':'user','content':ns['get_generic_question_template_answer'](SimpleNamespace(**row))}],**settings}
+      reqbody={'stream':True,'stream_options':{'include_usage':True},'model':config['model'],'messages':[{'role':'system','content':ns['PromptConstants'].SYSTEM_MESSAGE_GENERIC},{'role':'user','content':ns['get_generic_question_template_answer'](SimpleNamespace(**row))}],**settings}
       headers={'Content-Type':'application/json'}
       if config.get('api_key'):headers['Authorization']='Bearer '+config['api_key']
       req=urllib.request.Request(config['base_url'].rstrip('/')+'/chat/completions',data=json.dumps(reqbody).encode(),headers=headers)
       start=time.monotonic()
       opener=urllib.request.build_opener(urllib.request.ProxyHandler({})) if config.get('bypass_proxy') else urllib.request.build_opener()
-      with opener.open(req,timeout=1500) as r: response=json.load(r)
+      with opener.open(req,timeout=1500) as r: response=read_completion(r)
       responsepath.write_text(json.dumps({'seconds':time.monotonic()-start,'response':response},indent=2)+'\n')
       print('generated',i,flush=True)
      record=json.loads(responsepath.read_text());content=record['response']['choices'][0]['message'].get('content') or ''

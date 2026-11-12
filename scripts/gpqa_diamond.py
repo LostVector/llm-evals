@@ -13,6 +13,38 @@ from urllib.request import Request, build_opener, ProxyHandler
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def read_completion(response, progress=None):
+    """Collect streaming final content and reasoning without grading partial text."""
+    if 'text/event-stream' not in response.headers.get('Content-Type', ''):
+        return json.load(response)
+    content, reasoning, usage, finish = [], [], {}, None
+    for line in response:
+        if not line.startswith(b'data:'):
+            continue
+        data = line[5:].strip()
+        if data == b'[DONE]':
+            break
+        event = json.loads(data)
+        if event.get('error'):
+            raise ValueError('Streaming API returned an error; no score recorded')
+        if event.get('usage'):
+            usage = event['usage']
+        for choice in event.get('choices', []):
+            delta = choice.get('delta', {})
+            if delta.get('content'):
+                content.append(delta['content'])
+            if delta.get('reasoning_content'):
+                reasoning.append(delta['reasoning_content'])
+            if choice.get('finish_reason'):
+                finish = choice['finish_reason']
+        if progress:
+            progress(sum(map(len, content)), sum(map(len, reasoning)))
+    if finish is None:
+        raise ValueError('Incomplete stream; no score recorded')
+    return {'choices': [{'finish_reason': finish, 'message': {'role': 'assistant',
+            'content': ''.join(content), 'reasoning_content': ''.join(reasoning)}}], 'usage': usage}
+
+
 def private_path(value):
     path = Path(value).resolve()
     if not path.is_relative_to((ROOT / '.local').resolve()):
@@ -87,14 +119,15 @@ def main():
         path = args.output / f"{task['index']:03}.json"
         if path.exists():
             continue
-        request = {'model': config['model'], 'messages': [{'role': 'user', 'content': task['prompt']}], **protocol['generation']}
+        request = {'model': config['model'], 'messages': [{'role': 'user', 'content': task['prompt']}],
+                   'stream': True, 'stream_options': {'include_usage': True}, **protocol['generation']}
         headers = {'Content-Type': 'application/json'}
         if config.get('api_key'):
             headers['Authorization'] = 'Bearer ' + config['api_key']
         start = time.monotonic()
         req = Request(config['base_url'].rstrip('/') + '/chat/completions', data=json.dumps(request).encode(), headers=headers)
         with opener.open(req, timeout=1500) as response:
-            body = json.load(response)
+            body = read_completion(response)
         choice = body['choices'][0]
         match = re.search(protocol['answer_pattern'], choice['message'].get('content') or '')
         answer = match.group(1) if match else None

@@ -1,9 +1,29 @@
 import unittest
+import io
+import json
 
-from scripts.gpqa_diamond import private_path, summarize, tasks
+from scripts.gpqa_diamond import private_path, read_completion, summarize, tasks
 
 
 class GPQADiamondTests(unittest.TestCase):
+    def test_stream_keeps_reasoning_out_of_final_answer(self):
+        events = [
+            {'choices': [{'delta': {'reasoning_content': 'Answer: B is tempting.'}}]},
+            {'choices': [{'delta': {'content': 'Answer: A'}, 'finish_reason': 'stop'}]},
+            {'choices': [], 'usage': {'completion_tokens': 12}},
+        ]
+        stream = io.BytesIO(b''.join(b'data: ' + json.dumps(event).encode() + b'\n\n' for event in events) + b'data: [DONE]\n')
+        stream.headers = {'Content-Type': 'text/event-stream'}
+        result = read_completion(stream)
+        self.assertEqual(result['choices'][0]['message']['content'], 'Answer: A')
+        self.assertEqual(result['usage']['completion_tokens'], 12)
+
+    def test_incomplete_stream_is_not_a_model_failure(self):
+        stream = io.BytesIO(b'data: {"choices":[{"delta":{"content":"Answer: A"}}]}\n')
+        stream.headers = {'Content-Type': 'text/event-stream'}
+        with self.assertRaises(ValueError):
+            read_completion(stream)
+
     def test_choice_shuffle_preserves_correct_answers(self):
         rows = [{'Record ID': str(i), 'High-level domain': 'synthetic', 'Question': 'Synthetic task',
                  'Correct Answer': 'correct', 'Incorrect Answer 1': 'wrong1',
