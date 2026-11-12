@@ -21,6 +21,8 @@ For a published score, use `python3 evals.py template external`. Unfilled templa
 
 Our primary general-capability metric is **HLE-Diamond full-set accuracy at pass@1 without tools**, with reasoning/knowledge breakdowns. [Run it locally](docs/general-capability.md). **SuperGPQA + BBEH** provide supporting diagnostics, alongside **LiveCodeBench + Terminal-Bench** (coding and terminal agents), and **τ-bench + MultiChallenge** (interactive tools and conversation). [Selection rationale and pilot gates](docs/benchmarks.md) explain how we will check ceilings, floors, uncertainty, and local run cost before freezing the suite.
 
+The [practical local suite](docs/practical-suite.md) starts with a complete 198-question GPQA Diamond pass, a pinned LiveCodeBench window, and Terminal-Bench. It excludes full SuperGPQA and uses timing pilots to keep a deployment evaluation within a few days. This local starting suite is separate from the harder frontier reference view.
+
 ## Repository
 
 | Path | Purpose |

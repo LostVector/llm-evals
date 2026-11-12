@@ -1,0 +1,32 @@
+{
+  "id": "gpqa-diamond-one-pass-v1",
+  "benchmark": "GPQA Diamond",
+  "dataset": {
+    "repository": "Idavidrein/gpqa",
+    "revision": "83022cefff930aea54f654c0b282e74b9eeda5c6",
+    "file": "gpqa_diamond.csv",
+    "count": 198,
+    "sha256": "41d1213cd7a4998605a26c2798500652572007161b3a92817ba46b35befcd305"
+  },
+  "epochs": 1,
+  "expected_tasks": 198,
+  "answer_shuffle_seed": 0,
+  "generation": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 0,
+    "frequency_penalty": 0,
+    "repetition_penalty": 1.0,
+    "seed": 42,
+    "reasoning_effort": "xhigh",
+    "max_tokens": 32768
+  },
+  "prompt_source": "https://github.com/openai/simple-evals/blob/main/common.py",
+  "prompt_source_sha256": "84616c52821a30ae3f55f153a763153fd833cb41b547b09f547b46e6337f8f35",
+  "prompt": "Answer the following multiple choice question. The last line of your response should be of the following format: 'Answer: $LETTER' (without quotes) where LETTER is one of ABCD. Think step by step before answering.\n\n{Question}\n\nA) {A}\nB) {B}\nC) {C}\nD) {D}",
+  "answer_pattern": "(?i)Answer[ \\t]*:[ \\t]*\\$?([A-D])\\$?",
+  "scoring": "Exact answer-letter match on final content; unparsed answers count as incorrect. Report truncations and forced reasoning closures separately. Infrastructure errors do not count as model failures and must be resolved before a complete score.",
+  "comparability": "One-pass local evaluation, not the default four-repeat simple-evals protocol. External scores require matching prompt, task set, reasoning and generation settings before treating differences as controlled.",
+  "privacy": "Dataset, raw traces, endpoint URLs and route aliases remain in ignored local storage."
+}
