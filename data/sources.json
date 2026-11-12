@@ -34,9 +34,57 @@
   {
     "id": "artificial-analysis",
     "name": "Artificial Analysis methodology",
-    "url": "https://artificialanalysis.ai/methodology",
+    "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
     "type": "independent",
     "reviewed_at": "2026-11-11",
     "notes": "Broader intelligence, endpoint performance and price context; indexes are not agentic success rates."
+  },
+  {
+    "id": "supergpqa",
+    "name": "SuperGPQA",
+    "url": "https://github.com/SuperGPQA/SuperGPQA",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Broad graduate-level knowledge; core candidate, current discrimination requires pilot."
+  },
+  {
+    "id": "bbeh",
+    "name": "BIG-Bench Extra Hard",
+    "url": "https://github.com/google-deepmind/bbeh",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "General reasoning; Mini/full and harmonic/micro aggregates must stay distinct."
+  },
+  {
+    "id": "livecodebench",
+    "name": "LiveCodeBench",
+    "url": "https://github.com/LiveCodeBench/LiveCodeBench",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Coding; pin dated task window, release and evaluator."
+  },
+  {
+    "id": "multichallenge",
+    "name": "MultiChallenge",
+    "url": "https://labs.scale.com/leaderboard/multichallenge",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Multi-turn conversation; pin revised dataset, rollout and judge."
+  },
+  {
+    "id": "ifbench",
+    "name": "IFBench",
+    "url": "https://github.com/allenai/IFBench",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Verifiable instruction-following diagnostic; distinguish single/two-turn protocols."
+  },
+  {
+    "id": "longbench-v2",
+    "name": "LongBench v2",
+    "url": "https://github.com/THUDM/LongBench",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Long-context extension; fixed context tiers and KV configuration."
   }
 ]

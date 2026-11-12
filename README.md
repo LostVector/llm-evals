@@ -19,6 +19,8 @@ python3 -m unittest discover -s tests -v
 
 For a published score, use `python3 evals.py template external`. Unfilled templates intentionally fail validation. Results are one JSON file per observation, with globally unique IDs. The report sorts by benchmark and model, never invents a combined ranking, and separates local runs from external references. No scores have been seeded or benchmarks run.
 
+The proposed core spans **SuperGPQA + BBEH** (general capability), **LiveCodeBench + Terminal-Bench** (coding and terminal agents), and **τ-bench + MultiChallenge** (interactive tools and conversation). [Selection rationale and pilot gates](docs/benchmarks.md) explain how we will check ceilings, floors, uncertainty, and local run cost before freezing the suite.
+
 ## Repository
 
 | Path | Purpose |

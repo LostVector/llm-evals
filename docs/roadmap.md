@@ -16,10 +16,10 @@ Use memory tiers defined by the actual host, measuring total working memory incl
 ## Next milestones
 
 1. Inventory hardware and choose runtime; select a small exact checkpoint matrix and license-compatible artifacts.
-2. Pin a BFCL slice and runner; persist config, task manifest, original output, and artifact hashes. Run a high-precision baseline and one quant before expanding.
-3. Add a reviewed adapter that converts runner output into the existing observation format. Add task-level analysis for paired comparisons.
-4. Add a multi-turn τ²-bench protocol with a fixed simulator, then terminal/coding suites as resources allow.
-5. Manually capture a few source-backed frontier baselines on matching benchmark versions. Automate ingestion only after stable data access and terms are confirmed.
+2. Use the [suite selection and pilot policy](benchmarks.md): SuperGPQA, BBEH, LiveCodeBench, Terminal-Bench, τ-bench text, and MultiChallenge. Start with text-only general/coding pilots and IFBench/BFCL diagnostics, then the interactive pilots. Verify current score spread before fixing the reporting suite.
+3. Pin runner revisions, dataset/task manifests, prompts, budgets and evaluators. Add reviewed output adapters and preserve task-level outcomes for paired model/quant comparisons.
+4. Budget interactive simulator/judge calls explicitly; no paid endpoint use is enabled by this plan. Freeze simulator and judge recipes, and isolate version-incompatible historical references.
+5. Capture source-backed frontier observations with matching benchmark versions and original provenance. Reassess broad coverage, ceilings, floors and task quality before expanding into long-context or repository patching tracks.
 6. Add charts for success versus memory, latency, and energy once real observations exist.
 
 No hardware assumptions, downloaded weights, remote repository, or paid API usage are part of the initial setup.
