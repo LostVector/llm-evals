@@ -106,3 +106,8 @@ Private test decompression/unpickling occurs only inside that container. An oute
 per-test timeout. Infrastructure errors stop the run rather than becoming wrong
 answers. The runner records its scorer image ID and refuses a manifest change
 when resuming. Raw responses, extracted programs and grader details stay private.
+
+Current version-4.0 frontier references remain a separate external track. Its
+66 task budgets total 528 hours and include three GPU tasks; this practical run
+therefore uses [the frozen version-2.0 protocol](../protocols/terminal-bench-2.json).
+Do not combine scores across those versions.

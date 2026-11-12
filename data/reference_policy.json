@@ -87,7 +87,14 @@
     "qwen-review-2026-11-12-34ac71c54061ecdeeb3c",
     "qwen-review-2026-11-12-33da6ac67f8f5955e4f8",
     "qwen-review-2026-11-12-f40ed8bfed138700fd63",
-    "qwen-review-2026-11-12-c053124fdc2f31bf9b61"
+    "qwen-review-2026-11-12-c053124fdc2f31bf9b61",
+    "gpqa-aa-2026-11-12-gpt-6-astra",
+    "gpqa-aa-2026-11-12-claude-fable-5-1",
+    "gpqa-aa-2026-11-12-qwen3-8-max",
+    "gpqa-aa-2026-11-12-glm-5-3",
+    "gpqa-aa-2026-11-12-qwen3-8-flash-next",
+    "gpqa-aa-2026-11-12-qwen3-8-27b",
+    "gpqa-aa-2026-11-12-kimi-k3"
   ],
   "review_interval_days": 30,
   "required_providers": [

@@ -1,0 +1,324 @@
+[
+  {
+    "schema_version": 1,
+    "id": "gpqa-aa-2026-11-12-gpt-6-astra",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "GPT-6 Astra (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AA published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set; AA published protocol"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 96.1,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max",
+        "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
+        "repeat_count": "not_reported in per-model source",
+        "generation_budget": "not_reported in per-model source"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+      "retrieved_at": "2026-11-12",
+      "notes": "Read the public page-embedded model data and numeric gpqa field. Null/missing scores are omitted. Observation date is the source review date; actual evaluation dates and artifacts are not reported."
+    },
+    "notes": "Published endpoint result for context, not a controlled comparison to the local quant. n is unique questions, not independent repeated samples. Preserve exact source model and reasoning labels; do not substitute this result for newer family variants."
+  },
+  {
+    "schema_version": 1,
+    "id": "gpqa-aa-2026-11-12-claude-fable-5-1",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Claude Fable 5.1 (Max, Default Fallback)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AA published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set; AA published protocol"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 93.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max, Default Fallback",
+        "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
+        "repeat_count": "not_reported in per-model source",
+        "generation_budget": "not_reported in per-model source"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+      "retrieved_at": "2026-11-12",
+      "notes": "Read the public page-embedded model data and numeric gpqa field. Null/missing scores are omitted. Observation date is the source review date; actual evaluation dates and artifacts are not reported."
+    },
+    "notes": "Published endpoint result for context, not a controlled comparison to the local quant. n is unique questions, not independent repeated samples. Preserve exact source model and reasoning labels; do not substitute this result for newer family variants."
+  },
+  {
+    "schema_version": 1,
+    "id": "gpqa-aa-2026-11-12-qwen3-8-max",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 Max (0902)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AA published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set; AA published protocol"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 92.8,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "not_reported",
+        "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
+        "repeat_count": "not_reported in per-model source",
+        "generation_budget": "not_reported in per-model source"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+      "retrieved_at": "2026-11-12",
+      "notes": "Read the public page-embedded model data and numeric gpqa field. Null/missing scores are omitted. Observation date is the source review date; actual evaluation dates and artifacts are not reported."
+    },
+    "notes": "Published endpoint result for context, not a controlled comparison to the local quant. n is unique questions, not independent repeated samples. Preserve exact source model and reasoning labels; do not substitute this result for newer family variants."
+  },
+  {
+    "schema_version": 1,
+    "id": "gpqa-aa-2026-11-12-glm-5-3",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "GLM-5.3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AA published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set; AA published protocol"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 91.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max",
+        "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
+        "repeat_count": "not_reported in per-model source",
+        "generation_budget": "not_reported in per-model source"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+      "retrieved_at": "2026-11-12",
+      "notes": "Read the public page-embedded model data and numeric gpqa field. Null/missing scores are omitted. Observation date is the source review date; actual evaluation dates and artifacts are not reported."
+    },
+    "notes": "Published endpoint result for context, not a controlled comparison to the local quant. n is unique questions, not independent repeated samples. Preserve exact source model and reasoning labels; do not substitute this result for newer family variants."
+  },
+  {
+    "schema_version": 1,
+    "id": "gpqa-aa-2026-11-12-qwen3-8-flash-next",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AA published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set; AA published protocol"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 92.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "not_reported",
+        "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
+        "repeat_count": "not_reported in per-model source",
+        "generation_budget": "not_reported in per-model source"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+      "retrieved_at": "2026-11-12",
+      "notes": "Read the public page-embedded model data and numeric gpqa field. Null/missing scores are omitted. Observation date is the source review date; actual evaluation dates and artifacts are not reported."
+    },
+    "notes": "Published endpoint result for context, not a controlled comparison to the local quant. n is unique questions, not independent repeated samples. Preserve exact source model and reasoning labels; do not substitute this result for newer family variants."
+  },
+  {
+    "schema_version": 1,
+    "id": "gpqa-aa-2026-11-12-qwen3-8-27b",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Qwen3.8 27B (Xhigh)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AA published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set; AA published protocol"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 90.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Xhigh",
+        "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
+        "repeat_count": "not_reported in per-model source",
+        "generation_budget": "not_reported in per-model source"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+      "retrieved_at": "2026-11-12",
+      "notes": "Read the public page-embedded model data and numeric gpqa field. Null/missing scores are omitted. Observation date is the source review date; actual evaluation dates and artifacts are not reported."
+    },
+    "notes": "Published endpoint result for context, not a controlled comparison to the local quant. n is unique questions, not independent repeated samples. Preserve exact source model and reasoning labels; do not substitute this result for newer family variants."
+  },
+  {
+    "schema_version": 1,
+    "id": "gpqa-aa-2026-11-12-kimi-k3",
+    "kind": "external",
+    "observed_at": "2026-11-12",
+    "model": {
+      "name": "Kimi K3 (Max)",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AA published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set; AA published protocol"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 93.5,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Artificial Analysis evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "reasoning_setting": "Max",
+        "prompt_and_parser": "AA multiple-choice prompt and multistage extraction; differs from the local simple-evals prompt/parser",
+        "repeat_count": "not_reported in per-model source",
+        "generation_budget": "not_reported in per-model source"
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+      "retrieved_at": "2026-11-12",
+      "notes": "Read the public page-embedded model data and numeric gpqa field. Null/missing scores are omitted. Observation date is the source review date; actual evaluation dates and artifacts are not reported."
+    },
+    "notes": "Published endpoint result for context, not a controlled comparison to the local quant. n is unique questions, not independent repeated samples. Preserve exact source model and reasoning labels; do not substitute this result for newer family variants."
+  }
+]
