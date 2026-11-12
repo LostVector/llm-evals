@@ -5,6 +5,18 @@ const {trackKey, latestRows, scoped, providerFor, coverageRows, axis} = Comparis
 const score = r => r.metric.unit === 'fraction' ? r.metric.value * 100 : r.metric.value;
 const scoreLabel = r => `${Number(score(r).toFixed(2))}${['fraction', 'percent'].includes(r.metric.unit) ? '%' : ` ${r.metric.unit}`}`;
 const safeURL = value => { try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; } catch { return null; } };
+function scoreElement(record, className) {
+  const href = safeURL(record.provenance.location);
+  const el = node(href ? 'a' : 'span', scoreLabel(record), className);
+  if (href) {
+    el.href = href;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+    el.title = `Original source for ${record.model.name}`;
+    el.setAttribute('aria-label', `${record.model.name}: ${scoreLabel(record)} — open original source`);
+  }
+  return el;
+}
 let data, latest;
 const visibleRows = () => scoped(latest, data.reference_policy, $('reference-view').value);
 function option(value, text) { const el = node('option', text); el.value = value; return el; }
@@ -38,20 +50,28 @@ function render() {
   $('axis-label').textContent = records.length ? `Axis: ${min} to ${max}${percent ? '%' : ` ${records[0].metric.unit} (relative scale)`}` : '';
   const coverage=coverageRows(trackRows,data.model_registry,$('provider').value);
   $('model-coverage-summary').textContent=`Model coverage on this track: ${coverage.filter(m=>m.observations.length).length} / ${coverage.length} tracked families have a verified score`;
-  $('model-coverage').replaceChildren(...coverage.map(m=>{ const tr=node('tr'); tr.append(node('td',m.provider),node('td',m.name),node('td',m.observations.length ? m.observations.map(scoreLabel).join(' · ') : 'No verified score on this track')); return tr; }));
+  $('model-coverage').replaceChildren(...coverage.map(m=>{
+    const tr=node('tr');
+    const scores=node('td');
+    if (!m.observations.length) scores.textContent='No verified score on this track';
+    m.observations.forEach((r,i)=>{ if(i) scores.append(document.createTextNode(' · ')); scores.append(scoreElement(r)); });
+    tr.append(node('td',m.provider),node('td',m.name),scores);
+    return tr;
+  }));
   for (const r of records) {
     const row = node('div',undefined,'bar-row'); row.setAttribute('role','listitem');
     const label = node('div',r.model.name,'bar-label');
     label.append(node('small',`${providerFor(r,data.model_registry)} · ${r.kind === 'local' ? r.model.quantization : 'Published reference'} · ${r.protocol.harness}`));
     const track = node('div',undefined,'bar-track'); const bar = node('div',undefined,`bar${r.kind === 'external' ? ' reference' : ''}`);
     bar.style.width = `${Math.abs(score(r))/span*100}%`; bar.style.left = `${((score(r)<0 ? score(r) : 0)-min)/span*100}%`; track.append(bar); if(min<0) { const zero=node('i',undefined,'zero-line');zero.style.left=`${-min/span*100}%`;track.append(zero); } track.setAttribute('aria-hidden','true');
-    row.append(label,track,node('span',scoreLabel(r),'bar-score')); $('chart').append(row);
+    row.append(label,track,scoreElement(r,'bar-score')); $('chart').append(row);
     const tr = node('tr'); const modelCell = node('td',r.model.name); modelCell.append(node('small',r.model.quantization));
     const source = node('td'); const href = safeURL(r.provenance.location);
     if (href) { const a = node('a','Original source ↗'); a.href=href; a.target='_blank'; a.rel='noopener noreferrer'; source.append(a); }
     const details = node('details'); details.append(node('summary','Protocol & caveats'),node('pre',JSON.stringify(r,null,2))); source.append(details);
     const dateCell = node('td',r.provenance.retrieved_at); dateCell.append(node('small','Retrieval, not evaluation date'));
-    tr.append(modelCell,node('td',scoreLabel(r)),node('td',r.protocol.harness),node('td',r.kind === 'local' ? 'Local measurement' : r.provenance.type),dateCell,source); $('rows').append(tr);
+    const scoreCell=node('td'); scoreCell.append(scoreElement(r));
+    tr.append(modelCell,scoreCell,node('td',r.protocol.harness),node('td',r.kind === 'local' ? 'Local measurement' : r.provenance.type),dateCell,source); $('rows').append(tr);
   }
 }
 async function start() {

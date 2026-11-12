@@ -3,3 +3,5 @@
 .review{font-size:12px;color:var(--teal);border-left:3px solid var(--teal);padding:7px 12px;background:#eaf0e5}.review.overdue{border-color:#9c6034;background:#fff0dd;color:#855126}.axis-label{font:10px ui-monospace,monospace;color:var(--muted);text-align:right;margin:-12px 0 15px}
 
 .bar-track{position:relative}.bar{position:absolute;top:0}.zero-line{position:absolute;top:0;bottom:0;border-left:1px solid #45605a}.coverage-details{margin:24px 0;background:var(--paper);padding:12px 16px;border-radius:6px}.coverage-details>summary{font-size:12px;font-weight:600}
+
+a.bar-score{font-weight:650;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:4px}a.bar-score:hover{text-decoration-style:solid}a:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
