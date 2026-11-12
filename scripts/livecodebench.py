@@ -1,8 +1,8 @@
 import argparse,ast,hashlib,json,sys,urllib.request,time,subprocess,uuid
 try:
- from scripts.gpqa_diamond import private_path,read_completion
+ from scripts.gpqa_diamond import private_path,request_completion
 except ModuleNotFoundError:
- from gpqa_diamond import private_path,read_completion
+ from gpqa_diamond import private_path,request_completion
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -62,7 +62,7 @@ def main():
       req=urllib.request.Request(config['base_url'].rstrip('/')+'/chat/completions',data=json.dumps(reqbody).encode(),headers=headers)
       start=time.monotonic()
       opener=urllib.request.build_opener(urllib.request.ProxyHandler({})) if config.get('bypass_proxy') else urllib.request.build_opener()
-      with opener.open(req,timeout=1500) as r: response=read_completion(r)
+      response=request_completion(opener,req,out/'infrastructure-events.jsonl')
       responsepath.write_text(json.dumps({'seconds':time.monotonic()-start,'response':response},indent=2)+'\n')
       print('generated',i,flush=True)
      record=json.loads(responsepath.read_text());content=record['response']['choices'][0]['message'].get('content') or ''

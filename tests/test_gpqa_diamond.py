@@ -1,11 +1,35 @@
 import unittest
 import io
 import json
+from unittest.mock import patch
+from urllib.error import HTTPError
 
-from scripts.gpqa_diamond import private_path, read_completion, summarize, tasks
+from scripts.gpqa_diamond import private_path, read_completion, request_completion, summarize, tasks
 
 
 class GPQADiamondTests(unittest.TestCase):
+    def test_admission_retry_honors_server_delay(self):
+        response=io.BytesIO(b'{"choices":[]}')
+        response.headers={'Content-Type':'application/json'}
+        outcomes=[HTTPError('http://example.invalid',429,'busy',{'Retry-After':'7'},None),response]
+        class Opener:
+            def open(self, request, timeout):
+                outcome=outcomes.pop(0)
+                if isinstance(outcome,Exception):raise outcome
+                return outcome
+        with patch('scripts.gpqa_diamond.time.sleep') as sleep:
+            result=request_completion(Opener(),object())
+        sleep.assert_called_once_with(7.0)
+        self.assertEqual(result['transport_attempts'],2)
+
+    def test_invalid_request_is_not_retried(self):
+        class Opener:
+            def open(self, request, timeout):
+                raise HTTPError('http://example.invalid',400,'bad request',{},None)
+        with patch('scripts.gpqa_diamond.time.sleep') as sleep:
+            with self.assertRaises(HTTPError):request_completion(Opener(),object())
+        sleep.assert_not_called()
+
     def test_stream_keeps_reasoning_out_of_final_answer(self):
         events = [
             {'model': 'test-model', 'choices': [{'delta': {'reasoning_content': 'Answer: B is tempting.'}}]},

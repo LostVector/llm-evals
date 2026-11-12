@@ -8,6 +8,8 @@ from pathlib import Path
 import random
 import re
 import time
+from email.utils import parsedate_to_datetime
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, build_opener, ProxyHandler
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,6 +70,41 @@ def save(path, value):
     temporary = path.with_suffix('.tmp')
     temporary.write_text(json.dumps(value, indent=2) + '\n')
     temporary.replace(path)
+
+
+def request_completion(opener, request, log_path=None, progress=None):
+    """Retry admission/transient failures without creating a failed task score."""
+    for attempt in range(8):
+        try:
+            with opener.open(request, timeout=1500) as response:
+                result = read_completion(response, progress)
+                result['transport_attempts'] = attempt + 1
+                return result
+        except (HTTPError, URLError, TimeoutError) as error:
+            status = error.code if isinstance(error, HTTPError) else None
+            if status is not None and status not in (429, 502, 503, 504):
+                error.close()
+                raise
+            delay = min(5 * 2**attempt, 60)
+            if isinstance(error, HTTPError):
+                retry_after = error.headers.get('Retry-After')
+                if retry_after:
+                    try:
+                        delay = max(delay, float(retry_after))
+                    except ValueError:
+                        try:
+                            delay = max(delay, parsedate_to_datetime(retry_after).timestamp() - time.time())
+                        except (TypeError, ValueError):
+                            pass
+            if log_path:
+                with log_path.open('a') as log:
+                    log.write(json.dumps({'attempt': attempt+1, 'status': status,
+                                          'retry_seconds': delay, 'time': time.time()})+'\n')
+            if isinstance(error, HTTPError):
+                error.close()
+            if attempt == 7:
+                raise
+            time.sleep(delay)
 
 
 def tasks(rows, protocol):
@@ -138,8 +175,15 @@ def main():
             headers['Authorization'] = 'Bearer ' + config['api_key']
         start = time.monotonic()
         req = Request(config['base_url'].rstrip('/') + '/chat/completions', data=json.dumps(request).encode(), headers=headers)
-        with opener.open(req, timeout=1500) as response:
-            body = read_completion(response)
+        save(args.output / 'progress.json', {'index': task['index'], 'stage': 'requesting'})
+        last_progress = [0.0]
+        def progress(content_chars, reasoning_chars):
+            now = time.monotonic()
+            if now - last_progress[0] >= 5:
+                save(args.output / 'progress.json', {'index': task['index'], 'stage': 'streaming',
+                     'seconds': now-start, 'answer_characters': content_chars, 'reasoning_characters': reasoning_chars})
+                last_progress[0] = now
+        body = request_completion(opener, req, args.output / 'infrastructure-events.jsonl', progress)
         choice = body['choices'][0]
         match = re.search(protocol['answer_pattern'], choice['message'].get('content') or '')
         answer = match.group(1) if match else None
