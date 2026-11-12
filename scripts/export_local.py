@@ -63,7 +63,9 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
                      'split': 'full', 'task_set': 'sha256:'+protocol['snapshot_tree_sha256']}
         harness = protocol['harness']
         revision = protocol['harness_version']
-        config['calibration'] = 'Version-2.0 calibration outcomes are excluded; all 89 version-2.1 tasks use the frozen medium/8192 profile.'
+        config['calibration'] = protocol['calibration']
+        config['task_environment'] = protocol['environment']
+        config['environment_config'] = protocol.get('environment_config', {})
         metric = 'task_resolution'
     allowed = ('completed', 'total', 'correct', 'wilson_95', 'elapsed_request_seconds',
                'truncated', 'unparsed', 'forced_reasoning_closures', 'agent_timeouts', 'artifact_fingerprints')

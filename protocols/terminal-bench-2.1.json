@@ -200,10 +200,10 @@
     "presence_penalty": 0,
     "frequency_penalty": 0
   },
-  "environment": "Docker; standard per-task CPU/memory and verifier budgets",
+  "environment": "Docker; native ARM64 source builds of unchanged upstream task Dockerfiles; standard per-task CPU/memory and verifier budgets",
   "comparability": "Compare only 2.1 datasets. AA references use Terminus-2 in e2b and average pass@1 over three repeats; this local run uses Docker and one attempt. Generation settings, resources and harness versions may differ.",
   "scope_rationale": "Corrected 89-task release with published Flash Next and frontier references. Standard agent budgets total about 42.2 hours serially; no GPU tasks. Version 4.0 is excluded because its budgets total 528 hours and include GPU tasks.",
-  "calibration": "Version 2.0 was used for harness/profile calibration only. Its outcomes are excluded from this complete 2.1 cohort. The medium/8192 profile is frozen before the 2.1 main run.",
+  "calibration": "Version 2.0 was used for harness/profile calibration only. Its outcomes are excluded from this complete 2.1 cohort. The medium/8192 profile is frozen before the 2.1 main run. Initial x86/QEMU 2.1 execution is invalidated because seven of its first eight verifiers crashed before tests; none of those trials are pooled into the fresh native run.",
   "comparison_group": "terminal-bench-2.1-89",
   "task_checksums": {
     "adaptive-rejection-sampler": "a4726253ad23c3fc46b5cb9c3d21025874e367b18643a3920f636a1fa89e1207",
@@ -295,5 +295,9 @@
     "vulnerable-secret": "08ff9cb3cd416576bed330e9b92191ce0acbf5322f64714b6955ea6638361256",
     "winning-avg-corewars": "ef26211fb0bfc03ae2fddb937acce4df425861a40090d627a267edb3fb15e356",
     "write-compressor": "17ff45a3beaa04e5f08eb4f3c6136f4b56602bdcca52ade0896cfd341f374e99"
+  },
+  "environment_config": {
+    "type": "docker",
+    "force_build": true
   }
 }

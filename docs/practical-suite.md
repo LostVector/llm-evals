@@ -125,9 +125,24 @@ lane and an ignored `--input` run directory. GPQA also requires `--dataset`.
 Use `--require-complete` for a final export: partial runs are rejected.
 The audit recomputes scores, checks task identity and generation profiles, and
 emits aggregates plus artifact hashes, without questions, answers or traces.
-Terminal-Bench content checksums must match the pinned 2.1 snapshot. A normal
-agent timeout with a verifier outcome counts as a failed task; setup failures
-and other unresolved exceptions require review before publication.
+Terminal-Bench content checksums must match the pinned 2.1 snapshot. Every task
+in this snapshot requests a pytest CTRF report. The audit requires a nonempty,
+consistent report and a reward matching the executed tests, and rejects known
+verifier emulation crashes. A reward file alone does not prove grading ran.
+A normal agent timeout with successfully executed verifier tests counts as a
+failed task; setup failures and other unresolved exceptions require review.
+
+The initial local Docker run was invalidated after seven of its first eight
+verifiers crashed in `uvx` under x86 QEMU emulation before pytest started. Its
+reported zero rewards are not model scores and must not be published. Preserve
+those artifacts privately. Validate the replacement execution environment with
+an upstream oracle solution and actual test reports before another measured run.
+Two native ARM64 source-build oracle preflights subsequently passed: all nine
+tests for `bn-fit-modify` and all six for `cancel-async-tasks`. The replacement
+89-task cohort uses Harbor's `force_build: true` to build unchanged upstream
+Dockerfiles natively; the oracle image architecture was checked with Docker.
+All measured tasks restart fresh under that environment. Model generation
+settings and task budgets stay fixed, and invalid emulated trials are excluded.
 
 Admission and transient HTTP failures are logged separately. The runners make
 up to eight transport attempts with backoff and honor `Retry-After`. Invalid

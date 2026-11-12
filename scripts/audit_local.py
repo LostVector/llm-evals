@@ -130,6 +130,9 @@ def audit_terminal(folder, protocol):
         if r['task_checksum'] != protocol['task_checksums'][name]:
             raise ValueError('Terminal task content/version mismatch')
         config = r['config']
+        if any(config.get('environment', {}).get(key) != value
+               for key, value in protocol.get('environment_config', {}).items()):
+            raise ValueError('Terminal execution environment mismatch')
         options = config['agent']['kwargs']
         requested = {'temperature': options.get('temperature'), 'reasoning_effort': options.get('reasoning_effort'),
                      'max_tokens': options['llm_call_kwargs'].get('max_tokens'),
@@ -144,9 +147,36 @@ def audit_terminal(folder, protocol):
         reward = ((r.get('verifier_result') or {}).get('rewards') or {}).get('reward')
         if type(reward) not in (int, float) or reward not in (0, 1):
             raise ValueError('Missing or nonbinary terminal verifier outcome')
+        verifier = path.parent/'verifier'
+        output = verifier/'test-stdout.txt'
+        if not output.is_file():
+            raise ValueError('Missing terminal verifier execution log')
+        log = output.read_text(errors='replace')
+        if re.search(r'qemu: uncaught target signal|Segmentation fault.*uvx|uvx.*Segmentation fault', log):
+            raise ValueError('Terminal verifier emulation crash; reward is invalid')
+        # Every task in the frozen 2.1 snapshot requests a pytest CTRF report.
+        # test.sh may write reward=0 even when uvx crashes before pytest starts.
+        report = verifier/'ctrf.json'
+        if not report.is_file():
+            raise ValueError('Missing terminal verifier test report; manual infrastructure review required')
+        results = read(report)['results']
+        tests_run = results.get('tests', [])
+        summary = results.get('summary', {})
+        if results.get('tool', {}).get('name') != 'pytest' or not tests_run:
+            raise ValueError('Terminal verifier did not record executed tests')
+        counts = {status: sum(t.get('status') == status for t in tests_run)
+                  for status in ('passed', 'failed', 'skipped')}
+        if (sum(counts.values()) != len(tests_run)
+                or summary.get('tests') != len(tests_run)
+                or any(summary.get(k) != v for k, v in counts.items())
+                or not counts['passed'] + counts['failed']):
+            raise ValueError('Incomplete or inconsistent terminal verifier test report')
+        if reward != int(counts['failed'] == 0):
+            raise ValueError('Terminal reward disagrees with executed tests')
         names.add(name)
         values.append(int(reward))
-        hashes.append(fingerprint(path))
+        hashes.append({'result': fingerprint(path), 'verifier_report': fingerprint(report),
+                       'verifier_log': fingerprint(output)})
         timeouts += error == 'AgentTimeoutError'
     result = binary_summary(values, len(protocol['task_names']))
     result.update(agent_timeouts=timeouts, artifact_fingerprints=hashes)

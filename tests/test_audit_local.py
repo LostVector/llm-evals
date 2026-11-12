@@ -66,9 +66,31 @@ class LocalAuditTests(unittest.TestCase):
                     'agent':{'kwargs':{'reasoning_effort':'medium','llm_call_kwargs':{'max_tokens':8192}}}},
                     'exception_info':{'exception_type':'AgentTimeoutError'},'verifier_result':{'rewards':{'reward':0.0}}}
             write(trial/'result.json',record)
+            verifier=trial/'verifier';verifier.mkdir()
+            (verifier/'test-stdout.txt').write_text('1 failed\n')
+            report={'results':{'tool':{'name':'pytest'},
+                    'summary':{'tests':1,'passed':0,'failed':1,'skipped':0},
+                    'tests':[{'status':'failed'}]}}
+            write(verifier/'ctrf.json',report)
             result=audit_terminal(folder,protocol)
             self.assertTrue(result['complete']);self.assertEqual(result['correct'],0)
             self.assertEqual(result['agent_timeouts'],1)
+            (verifier/'test-stdout.txt').write_text('qemu: uncaught target signal 11 (Segmentation fault)\n')
+            with self.assertRaisesRegex(ValueError,'emulation crash'):audit_terminal(folder,protocol)
+            (verifier/'test-stdout.txt').write_text('uvx failed before tests\n')
+            (verifier/'ctrf.json').unlink()
+            with self.assertRaisesRegex(ValueError,'Missing terminal verifier test report'):audit_terminal(folder,protocol)
+            write(verifier/'ctrf.json',report)
+            report['results']['summary'].update(passed=1,failed=0)
+            report['results']['tests']=[{'status':'passed'}]
+            write(verifier/'ctrf.json',report)
+            with self.assertRaisesRegex(ValueError,'reward disagrees'):audit_terminal(folder,protocol)
+            report['results']['summary'].update(passed=0,failed=1)
+            report['results']['tests']=[{'status':'failed'}]
+            write(verifier/'ctrf.json',report)
+            protocol['environment_config']={'force_build':True}
+            with self.assertRaisesRegex(ValueError,'environment mismatch'):audit_terminal(folder,protocol)
+            record['config']['environment']={'force_build':True};write(trial/'result.json',record)
             record['task_checksum']='older-version';write(trial/'result.json',record)
             with self.assertRaises(ValueError):audit_terminal(folder,protocol)
             record['task_checksum']='correct-version';record['exception_info']['exception_type']='EnvironmentStartError'
