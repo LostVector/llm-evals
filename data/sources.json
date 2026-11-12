@@ -1,0 +1,42 @@
+[
+  {
+    "id": "bfcl",
+    "name": "Berkeley Function Calling Leaderboard",
+    "url": "https://gorilla.cs.berkeley.edu/leaderboard",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Tool use; preserve version, category, and FC/prompt mode."
+  },
+  {
+    "id": "tau2",
+    "name": "tau2-bench",
+    "url": "https://github.com/sierra-research/tau2-bench",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Multi-turn interaction; pin domain and simulator."
+  },
+  {
+    "id": "terminal-bench",
+    "name": "Terminal-Bench",
+    "url": "https://www.tbench.ai/",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Terminal agents; suite and harness must match."
+  },
+  {
+    "id": "swe-bench",
+    "name": "SWE-bench",
+    "url": "https://www.swebench.com/",
+    "type": "benchmark_official",
+    "reviewed_at": "2026-11-11",
+    "notes": "Repository issues; preserve split and agent."
+  },
+  {
+    "id": "artificial-analysis",
+    "name": "Artificial Analysis methodology",
+    "url": "https://artificialanalysis.ai/methodology",
+    "type": "independent",
+    "reviewed_at": "2026-11-11",
+    "notes": "Broader intelligence, endpoint performance and price context; indexes are not agentic success rates."
+  }
+]

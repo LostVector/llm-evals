@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+artifacts/
+reports/
+*.gguf
+*.safetensors
+# Local configuration, credentials, and raw evaluation output
+.local/
+*.local.json
+*.local.toml
+*.pem
+*.key
+credentials*.json
+raw-results/
+logs/

@@ -1,0 +1,40 @@
+# llm-evals
+
+Track how well local LLMs and their quantization variants perform, especially as agents. Keep published frontier-model results nearby as attributed reference points.
+
+The unit of evaluation is **model artifact + inference configuration + agent harness + task set + budget**. A quant label alone is insufficient to reproduce a result. Published scores are reference observations, not automatically comparable measurements.
+
+## Start here
+
+Python 3.11+; no third-party dependencies.
+
+```sh
+python3 evals.py validate
+python3 evals.py template local > data/results/my-run.json
+# Fill every TODO using the run configuration and original evaluation output.
+python3 evals.py validate
+python3 evals.py report > reports.md
+python3 -m unittest discover -s tests -v
+```
+
+For a published score, use `python3 evals.py template external`. Unfilled templates intentionally fail validation. Results are one JSON file per observation, with globally unique IDs. The report sorts by benchmark and model, never invents a combined ranking, and separates local runs from external references. No scores have been seeded or benchmarks run.
+
+## Repository
+
+| Path | Purpose |
+| --- | --- |
+| `data/results/` | Validated observations, including provenance and protocol |
+| `data/sources.json` | Curated online reference catalog |
+| `templates/` | Local and external observation templates |
+| `docs/benchmarks.md` | Agentic benchmark priorities and caveats |
+| `docs/methodology.md` | Reproducibility and comparison rules; field reference |
+| `docs/roadmap.md` | Initial model/quant matrix and next implementation steps |
+| `evals.py` | Offline validation and Markdown reporting |
+
+This starts as a tracking repository. Benchmark runners, automated leaderboard importers, and a dashboard are future work. Source links are discovery aids, not live integrations. Store large logs and task traces outside Git and reference immutable artifacts; never commit model weights or credentials.
+
+## Public repository hygiene
+
+All tracked content and commit metadata are public. Use relative paths and generic machine labels; record hardware specifications without usernames, hostnames, serial numbers, or device IDs. Result provenance must point to shareable artifacts. Redact credentials, private endpoints, account/project identifiers, personal data, and private task content from configurations, notes, logs, and traces before adding them. The report preserves supplied metadata, so review observations before committing. Validation checks structure, not the absence of secrets.
+
+Keep private run configuration and raw output in the ignored `.local/`, `raw-results/`, or `logs/` directories. Ignore rules do not protect files already tracked. Review `git diff --cached` and commit author metadata before publishing; use a public identity or a hosting-provider noreply address for contributions.

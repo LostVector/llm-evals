@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "TODO-unique-observation-id",
+  "kind": "external",
+  "observed_at": "TODO-YYYY-MM-DD",
+  "model": {
+    "name": "TODO-owner/model",
+    "revision": "not_reported",
+    "quantization": "not_reported",
+    "artifact": "TODO-artifact-location"
+  },
+  "benchmark": {
+    "name": "TODO-benchmark",
+    "revision": "TODO-commit-or-version",
+    "split": "TODO-split",
+    "task_set": "TODO-manifest-hash"
+  },
+  "metric": {
+    "name": "TODO-exact-metric",
+    "value": null,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": null
+  },
+  "protocol": {
+    "harness": "TODO-agent",
+    "harness_revision": "TODO-commit",
+    "config": "TODO-immutable-config-artifact",
+    "backend": "TODO-runtime",
+    "backend_revision": "TODO-version",
+    "hardware": "TODO-cpu-gpu-ram-vram-os"
+  },
+  "provenance": {
+    "type": "benchmark_official",
+    "location": "https://TODO-exact-source-row",
+    "retrieved_at": "TODO-YYYY-MM-DD",
+    "notes": "TODO-how-to-locate-output"
+  },
+  "notes": "TODO-limitations"
+}
