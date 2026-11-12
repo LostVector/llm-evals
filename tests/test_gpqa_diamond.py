@@ -34,7 +34,7 @@ class GPQADiamondTests(unittest.TestCase):
         events = [
             {'model': 'test-model', 'choices': [{'delta': {'reasoning_content': 'Answer: B is tempting.'}}]},
             {'choices': [{'delta': {'content': 'Answer: A'}, 'finish_reason': 'stop'}]},
-            {'choices': [], 'usage': {'completion_tokens': 12}},
+            {'choices': [], 'usage': {'completion_tokens': 12}, 'timings': {'predicted_ms': 25}},
         ]
         stream = io.BytesIO(b''.join(b'data: ' + json.dumps(event).encode() + b'\n\n' for event in events) + b'data: [DONE]\n')
         stream.headers = {'Content-Type': 'text/event-stream', 'x-litellm-model-id': 'synthetic-route'}
@@ -42,6 +42,7 @@ class GPQADiamondTests(unittest.TestCase):
         self.assertEqual(result['choices'][0]['message']['content'], 'Answer: A')
         self.assertEqual(result['usage']['completion_tokens'], 12)
         self.assertEqual(result['model'], 'test-model')
+        self.assertEqual(result['timings']['predicted_ms'], 25)
         self.assertEqual(result['gateway_headers']['x-litellm-model-id'], 'synthetic-route')
 
     def test_model_switch_inside_stream_is_not_scored(self):

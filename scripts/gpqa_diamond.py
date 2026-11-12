@@ -38,7 +38,7 @@ def read_completion(response, progress=None):
             raise ValueError('Streaming API returned an error; no score recorded')
         if event.get('usage'):
             usage = event['usage']
-        for key in ('id', 'model', 'created'):
+        for key in ('id', 'model', 'created', 'system_fingerprint', 'timings'):
             if key in event:
                 if key == 'model' and key in metadata and metadata[key] != event[key]:
                     raise ValueError('Model changed inside stream; no score recorded')
