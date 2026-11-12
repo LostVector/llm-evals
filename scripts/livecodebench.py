@@ -6,6 +6,16 @@ except ModuleNotFoundError:
 from pathlib import Path
 from types import SimpleNamespace
 
+def scorer_infrastructure_error(value):
+    """Do not turn upstream TestRunnerError metadata into a wrong answer."""
+    if isinstance(value,str):
+        try:value=json.loads(value)
+        except ValueError:return False
+    if isinstance(value,dict):
+        return value.get('error_code')==-5 or any(scorer_infrastructure_error(v) for v in value.values() if isinstance(v,(dict,list)))
+    if isinstance(value,list):return any(scorer_infrastructure_error(v) for v in value)
+    return False
+
 def main():
     parser=argparse.ArgumentParser(description='Pinned LiveCodeBench v6 window; generation plus isolated official grading.')
     parser.add_argument('--config',type=private_path,required=True)
@@ -13,9 +23,10 @@ def main():
     parser.add_argument('--upstream',type=private_path,required=True)
     parser.add_argument('--output',type=private_path,required=True)
     parser.add_argument('--limit',type=int,default=131)
+    parser.add_argument('--start-index',type=int,default=0,help='Disjoint worker range; caller must avoid overlap')
     parser.add_argument('--image',default='llm-evals-lcb:local')
     args=parser.parse_args()
-    if not 1<=args.limit<=131: raise ValueError('Limit must be between 1 and 131')
+    if not 0<=args.start_index<args.limit<=131: raise ValueError('Require 0 <= start-index < limit <= 131')
     root=Path(__file__).resolve().parents[1]
     config=json.loads(args.config.read_text())
     protocol=json.loads((root/'protocols/livecodebench-v6-window.json').read_text())
@@ -42,6 +53,7 @@ def main():
     if manifest_path.exists() and json.loads(manifest_path.read_text())!=manifest:raise ValueError('Existing output has a different manifest')
     manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
     for i,row in enumerate(rows[:args.limit]):
+     if i<args.start_index:continue
      responsepath=out/f'{i:03}-response.json'
      if not responsepath.exists():
       reqbody={'stream':True,'stream_options':{'include_usage':True},'model':config['model'],'messages':[{'role':'system','content':ns['PromptConstants'].SYSTEM_MESSAGE_GENERIC},{'role':'user','content':ns['get_generic_question_template_answer'](SimpleNamespace(**row))}],**settings}
@@ -67,7 +79,9 @@ def main():
        subprocess.run(['docker','rm','-f',container],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=30)
       (out/f'{i:03}-grader.log').write_text(run.stderr)
       if run.returncode: raise RuntimeError('Scorer infrastructure error: '+str(run.returncode))
-      result=json.loads(run.stdout);scorepath.write_text(json.dumps({'index':i,'task':ids[i],'result':result},indent=2)+'\n')
+      result=json.loads(run.stdout)
+      if scorer_infrastructure_error(result[2]):raise RuntimeError('Official scorer reported TestRunnerError; no task score recorded')
+      scorepath.write_text(json.dumps({'index':i,'task':ids[i],'result':result},indent=2)+'\n')
       print('scored',i,result[0]['pass@1'],flush=True)
 
 if __name__=='__main__':main()
