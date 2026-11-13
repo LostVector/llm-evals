@@ -51,7 +51,8 @@
         "evaluation_period_continuity": "unverified",
         "public_artifact_source_revision": "unknown"
       },
-      "client_phases": "First nine checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are recomputed by the frozen audit."
+      "client_phases": "First nine checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are recomputed by the frozen audit.",
+      "kv_cache_precision": "BF16"
     },
     "backend": "Halogen",
     "backend_revision": "0.20.3 / 54a488ef3224",

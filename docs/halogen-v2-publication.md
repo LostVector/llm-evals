@@ -3,7 +3,7 @@
 The measured suite is complete and audited. This change tracks the remaining
 deployment metadata and publication of sanitized local observations.
 
-Server metadata was supplied in [the PR comment](https://github.com/LostVector/llm-evals/pull/1#issuecomment-6861695568). The current file SHA-256 is `71246c6ab3fc1de2cf06326f18e275fe9c2a18366d646ed3357d194c884fc687`. The server uses an AMD Ryzen AI Max+ 395, one integrated Radeon 8060S, and 128 GiB shared memory. Public artifact source/revision is unknown. The hash and backend were verified after evaluation; continuity throughout the evaluation period remains unverified. All three result records preserve this limitation.
+Server metadata was supplied in [the PR comment](https://github.com/LostVector/llm-evals/pull/1#issuecomment-6861695568). The current file SHA-256 is `71246c6ab3fc1de2cf06326f18e275fe9c2a18366d646ed3357d194c884fc687`. The server uses an AMD Ryzen AI Max+ 395, one integrated Radeon 8060S, and 128 GiB shared memory. KV cache precision for these runs was BF16 (confirmed by the deployment owner). Public artifact source/revision is unknown. The hash and backend were verified after evaluation; continuity throughout the evaluation period remains unverified. All three result records preserve this limitation.
 
 | Evaluation | Fixed scope | Result | Wilson 95% interval |
 | --- | --- | --- | --- |

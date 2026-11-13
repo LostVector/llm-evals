@@ -51,7 +51,8 @@
       },
       "execution_environment": "Docker Desktop 29.9.3; native ARM64 Linux task builds; 20 virtual CPUs, approximately 16 GB VM RAM; standard per-task resources. Terminal-Bench source builds validated with two passing upstream oracle preflights.",
       "comparison_group": "livecodebench-v6-feb-apr-2025-131",
-      "client_phases": "First five checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are checked against official per-test results."
+      "client_phases": "First five checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are checked against official per-test results.",
+      "kv_cache_precision": "BF16"
     },
     "backend": "Halogen",
     "backend_revision": "0.20.3 / 54a488ef3224",

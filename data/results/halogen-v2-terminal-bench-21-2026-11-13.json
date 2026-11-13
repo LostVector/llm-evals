@@ -87,7 +87,8 @@
           "oracle_tests_passed": 1,
           "description": "Bootstrap CA bundle from existing coding sandbox image, switch security mirror to HTTPS archive.debian.org; retain original task instructions, solution, verifier and resource budgets. Original oracle failed its 30-second expect wait; a separate diagnostic oracle with a 300-second expect wait passed the unchanged verifier. Measured task retains original solution and time budget."
         }
-      }
+      },
+      "kv_cache_precision": "BF16"
     },
     "backend": "Halogen",
     "backend_revision": "0.20.3 / 54a488ef3224",

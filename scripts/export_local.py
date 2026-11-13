@@ -38,6 +38,8 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
               'generation': protocol['generation'], 'attempts_per_task': 1,
               'audit_revision': audit_revision,
               'runtime_context': 'Shared inference service; suite lanes ran concurrently. Request times include queue/retry time.'}
+    if metadata.get('kv_cache_precision'):
+        config['kv_cache_precision'] = metadata['kv_cache_precision']
     if protocol.get('comparison_group'):
         config['comparison_group'] = protocol['comparison_group']
     if metadata.get('artifact_verification'):
