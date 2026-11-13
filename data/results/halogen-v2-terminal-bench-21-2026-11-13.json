@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "id": "halogen-v2-terminal-bench-21-2026-11-13",
+  "kind": "local",
+  "observed_at": "2026-11-13",
+  "model": {
+    "name": "Qwen3.8-Flash-Next",
+    "revision": "unknown; public source/revision not independently verified",
+    "quantization": "Halogen v2 native HGN",
+    "artifact": "qwen38-flash-next-v2.hgn",
+    "artifact_sha256": "71246c6ab3fc1de2cf06326f18e275fe9c2a18366d646ed3357d194c884fc687"
+  },
+  "benchmark": {
+    "name": "Terminal-Bench",
+    "revision": "2.1",
+    "split": "full",
+    "task_set": "sha256:176f00ad027c483bbad8b36bce3aea6ebc479bfc52cd2c905fb349467459dce2"
+  },
+  "metric": {
+    "name": "task_resolution",
+    "value": 0.5842696629213483,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 89
+  },
+  "protocol": {
+    "harness": "Harbor / Terminus-2",
+    "harness_revision": "0.25.0",
+    "config": {
+      "protocol_id": "terminal-bench-2.1-terminus2-medium8k-one-attempt-v1",
+      "protocol_file": "protocols/terminal-bench-2.1.json",
+      "generation": {
+        "temperature": 1.0,
+        "reasoning_effort": "medium",
+        "max_tokens": 8192,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 0,
+        "frequency_penalty": 0
+      },
+      "attempts_per_task": 1,
+      "audit_revision": "9d5d315437e008f5b092c2481939fdaeca53cd4a",
+      "runtime_context": "Shared inference service; suite lanes ran concurrently. Request times include queue/retry time.",
+      "comparison_group": "terminal-bench-2.1-89",
+      "artifact_verification": {
+        "source": "https://github.com/LostVector/llm-evals/pull/1#issuecomment-6861695568",
+        "verified_at": "2026-11-13",
+        "scope": "Current loaded file digest and backend verified by inference-server session after evaluation",
+        "evaluation_period_continuity": "unverified",
+        "public_artifact_source_revision": "unknown"
+      },
+      "execution_environment": "Docker Desktop 29.9.3; native ARM64 Linux task builds; 20 virtual CPUs, approximately 16 GB VM RAM; standard per-task resources. Terminal-Bench source builds validated with two passing upstream oracle preflights.",
+      "calibration": "Version 2.0 was used for harness/profile calibration only. Its outcomes are excluded from this complete 2.1 cohort. The medium/8192 profile is frozen before the 2.1 main run. Initial x86/QEMU 2.1 execution is invalidated because seven of its first eight verifiers crashed before tests; none of those trials are pooled into the fresh native run.",
+      "task_environment": "Docker; native ARM64 source builds; standard per-task resources and budgets; fix-git restores original image Git state because source repository is unavailable",
+      "environment_config": {
+        "type": "docker",
+        "force_build": true
+      },
+      "environment_repairs": {
+        "fix-git": {
+          "original_task_checksum": "d3220d70bc668ec6f4034fab51e62873dff724a61f824d764fd201d6f5e7a88a",
+          "recovered_task_checksum": "7a45fb66abd12280b175b734ab96769782ca7e0df9b5b80570f43cec6404d2ae",
+          "source_image": "docker.io/alexgshaw/fix-git@sha256:389b9c8247610c2c5be080b1ac00429007c2c69bf57f7f26c79f0f75ba2d5c74",
+          "dockerfile_sha256": "86867d73f259d47aef2f9067aac70cba5ff3b7ff7af43bb2db597d253ca8ddbf",
+          "excluded_setup_result_sha256": "cccf45d118689066e2436e2bf808ce4aee44dd5f21deb9d0f3082d8f27f94d44",
+          "recovery_result_sha256": "7f90f25c4c7b9b255cd1d7db4a3a36de93736477205f5e8e2ed52a218c7d2137",
+          "oracle_tests_passed": 2,
+          "description": "Original remote clone returned 404 before agent setup/execution. Restore complete /app/personal-site including .git from stopped pinned image; preserve original dummy Git identity. Instructions, tests, solution and budgets unchanged. Official oracle passed 2/2 before one measured attempt. Source snapshot hash describes upstream files; repaired task checksum is explicit."
+        },
+        "qemu-startup": {
+          "original_task_checksum": "bd03967ee678917f663b6e6b6957432d5cc136a01693275ba26519e38b7821dc",
+          "recovered_task_checksum": "d820941a50533c726b259117d484565a9194c06cd327c2661b141a635e87b9f4",
+          "dockerfile_sha256": "64b71781dd81ec43dad1ccf91af04bcc984b74f40c9dff6ec956aa69b5fd4ece",
+          "excluded_setup_result_sha256": "acd9f10cff9b115708f53723396ec6a0ee71e986a6b5f740db2b4ea9d66efdcd",
+          "recovery_result_sha256": "43f0711c31b21f5ef3e5700a0f607d88b5eb2cafce07e74418c79267f5774794",
+          "ca_source_image": "sha256:f0ac8dafab7d689f2bb65c34cf71bf5c27341887578b1b62cdf010092bd7e981",
+          "oracle_tests_passed": 1,
+          "description": "Bootstrap CA bundle from existing coding sandbox image, switch security mirror to HTTPS archive.debian.org; retain original task instructions, solution, verifier and resource budgets. Original oracle passed unchanged verifier before one measured attempt."
+        },
+        "qemu-alpine-ssh": {
+          "original_task_checksum": "48bb495efc325f96892d45c341d8997c4a13b71bbe7051119f28dcaa7970df4f",
+          "recovered_task_checksum": "9b80d6fc7fc051ab6f3a9832241252b2dcac75b7cd2766a6a9aa85510c5f11b0",
+          "dockerfile_sha256": "64b71781dd81ec43dad1ccf91af04bcc984b74f40c9dff6ec956aa69b5fd4ece",
+          "excluded_setup_result_sha256": "13d33dc1ccbace5ebc5a479a4e7043194db32e5691ea0019ecd6680b691cffed",
+          "recovery_result_sha256": "9bbabb50eda04a944b5a386d65687eccf4d16eb7473d2097b6d3543a76d992e5",
+          "ca_source_image": "sha256:f0ac8dafab7d689f2bb65c34cf71bf5c27341887578b1b62cdf010092bd7e981",
+          "oracle_tests_passed": 1,
+          "description": "Bootstrap CA bundle from existing coding sandbox image, switch security mirror to HTTPS archive.debian.org; retain original task instructions, solution, verifier and resource budgets. Original oracle failed its 30-second expect wait; a separate diagnostic oracle with a 300-second expect wait passed the unchanged verifier. Measured task retains original solution and time budget."
+        }
+      }
+    },
+    "backend": "Halogen",
+    "backend_revision": "0.20.3 / 54a488ef3224",
+    "hardware": "AMD Ryzen AI Max+ 395 (16 cores / 32 threads); 1 integrated AMD Radeon 8060S; 128 GiB shared system/unified memory, no separate dedicated GPU memory pool"
+  },
+  "provenance": {
+    "type": "measured",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/halogen-v2-terminal-bench-21-2026-11-13.json",
+    "retrieved_at": "2026-11-13",
+    "notes": "Sanitized complete-run audit. Raw task content and traces remain private; artifact fingerprints permit later integrity checks."
+  },
+  "measurements": {
+    "completed": 89,
+    "total": 89,
+    "correct": 52,
+    "wilson_95": [
+      0.4804710436601586,
+      0.6810947071427201
+    ],
+    "agent_timeouts": 27,
+    "elapsed_trial_seconds": 86610.5694,
+    "elapsed_agent_seconds": 80738.661371,
+    "elapsed_verifier_seconds": 2890.226399000001,
+    "artifact_fingerprints": [
+      {
+        "result": "28e7b42728e3e1edb8f040f50f381b36b27645de9023482d8440fd244231e637",
+        "verifier_report": "cd791cd4a5a19cc75d243ac6f4d58e0cb26aeb6dce1f39977c240d6e577a416f",
+        "verifier_log": "ba809c5df9279762e34ec2d308e79b9a6572bafa3587d590584a83c7aa089ed2"
+      },
+      {
+        "result": "1b4b4f9b26ba6d2f7a2c4b63a7d9ddc24024318936c2bf4c34cc11e680b41fcf",
+        "verifier_report": "79db001f77677b2260226a26e1111b61380dc0076aa6f52902300cc97dd154ec",
+        "verifier_log": "696c9f6dec49cf3a55b3ba835636d94e60adf502b93e997e6d317029d4b60fe9"
+      },
+      {
+        "result": "e4d8de6f090967a2d3e344ea555889d2295f16eef3501f8f2a7d6c2473146e34",
+        "verifier_report": "42b7933617f37efba20b52b7ef8977193e7524bcc8daa73f35db33ce78e1fb79",
+        "verifier_log": "6b23cc5ebf9314f903ec23a8a050b31895664910b43fb290a0cca7c5e3008e33"
+      },
+      {
+        "result": "d6a093ec572323d9d2d95fef3e99e37a8e3d0676d70e2c09882811071ce3a681",
+        "verifier_report": "5ff8070289ad67b75e00109dbe8503531f4b38dea2a2275a95b40ae7dbbe1864",
+        "verifier_log": "bf288b944570c5fb058e480d49d847b8c60afa7fdc26045255f08bfaedb43ffc"
+      },
+      {
+        "result": "e0fca94f357ac01d3bb5eaaea3dcd3b93f29979f622dd493738cd5316db7f279",
+        "verifier_report": "f7ea6427e58a58971bdd492f747e057a79f2ebb193993aa02f08077516b82aef",
+        "verifier_log": "9347c065259e95d1539eb885bd27813dbb6ebd822f6bbf541710938312df25e8"
+      },
+      {
+        "result": "221835fbe9c003d22ee5169a5745d6573cb8417443ebb95d7ff9691ff6b90464",
+        "verifier_report": "8f6e8b14620b7f7d9afaf16a07a44fd3092999901409edf001de4a11d364fc9e",
+        "verifier_log": "6059660b3f4bcb268f0fd292dd55fe133f70b54f75e8f8cdb556b88fbaaf73d7"
+      },
+      {
+        "result": "52b8f4080a985f7cb7b9449610eab4c28aa3713722e63792a1547294667ec6cc",
+        "verifier_report": "b5c61fbc4adba9b2bfda4e5df5d95eae9d07fc612767e1d0edb2801cc4c2368b",
+        "verifier_log": "0195db9582023bde37d077e252ac8761186cf559f30d2f5e4112354935f88092"
+      },
+      {
+        "result": "ffcfb130c21c03499fe80636d4d33a572245362ef505602cd9b930d1bc6f8ce9",
+        "verifier_report": "f759823da22ea1510f8337d30bc536b97ea5c29bdc88aa8284bb99181f2202f2",
+        "verifier_log": "155374440cf80e594f38291e066048e8bab409ee281451c07d9a5dad0a556274"
+      },
+      {
+        "result": "629af73e5162c8e0e5630195c31eb6b74dd8e0f3f6ed1d4b71c17299c901530b",
+        "verifier_report": "13cc4e4e820378c01d21c58394dec091aa6ed1cf6de4561fd76aa138bed2eb0b",
+        "verifier_log": "c28dd843cbbd355349ea5ca0957c53e48388092186c3c84ae6f097e39678b7b2"
+      },
+      {
+        "result": "f3f0aec79616d2263c4c166b445448e65f818b31106f769c2436302c02a8fac5",
+        "verifier_report": "e52aaa667096bafad0108799d2ea68dba027e9acca4cea1357d6b8d8e807f2bf",
+        "verifier_log": "cd16aaf7103cddb88c5249443a877b399d241fd5692ccfe6310cab6c7fdf7abc"
+      },
+      {
+        "result": "84259936d0c44c902a4ea1c40c557316e9107ad73a0e4b32aed8cca06155dd0d",
+        "verifier_report": "6c4e60bdfc66cc3c10f60d8661aa6051757b93f3d05207c9f6cde602be063f96",
+        "verifier_log": "fdff8f5915da0179b344a49bf87ec0ceb6b9746c00c4f91d2d7a3942e57bb3ea"
+      },
+      {
+        "result": "7cece17bdcf45ca12081f96f09ed3559610546c8e318fdfe9a1bfc44f99367fb",
+        "verifier_report": "d9a8658dd6e5b910bb7f1ac675e40331bb26b6ade3aee6abaa643a90228db49e",
+        "verifier_log": "a084806a00270af01c6533f20e73056c4bfa9837c33b049bdcc92ecfa453a68d"
+      },
+      {
+        "result": "41ca1107c0d38332d08075aa91a335879e2f59c5673f55c86c291b65983d320b",
+        "verifier_report": "52541082a6df584a2b3a48771f16f0df83ae4ecac28c6dfaafcaecbb8f22aab5",
+        "verifier_log": "d24d84ad71d49b42b7bcf433d8207821a59758e40a361c1b33b17b0990789c51"
+      },
+      {
+        "result": "1ecb0dd173fc40ab145987d433590f55a327bce8b713c739e52d60026f0ebcbe",
+        "verifier_report": "cf0b2897557b77ad843c610720706004caa270e02d8dfa01c64f2eeccd1c44b2",
+        "verifier_log": "32b2e3e9fc688c431e98122181685faf0750d9abab7439881ae29f4ecfa621fd"
+      },
+      {
+        "result": "c97033b2c3e7dc70ddd8baa370911a8fe132708d1039c15424cf5a4d2008d41b",
+        "verifier_report": "617cd99b259f315b6919bef7f26f8b803b3ef59852dc64c324ddb35018c041ac",
+        "verifier_log": "36928e41bce79355984cfe487f53203eb674c34818ffc1f8feb462e75a2bf9ca"
+      },
+      {
+        "result": "5868c0221bf8c690a3996b8e1e4d95c3ca9ea16344f8ad766a61dc7f8999be93",
+        "verifier_report": "8eecc802941b18dd8d016f90f3a063a4f72ab224e16e325007eb9df5f1bcb374",
+        "verifier_log": "a080f9687d64d14dd143ec3e84de50425451d247cae2582f225b98d73d9714a9"
+      },
+      {
+        "result": "3ece7a0a26654037b1af2363c56f7c262858daad17977742ac19a611ca0a8174",
+        "verifier_report": "837745cb08c92f27544a2fd4fcb0046149d12c33ef16d320d4ad3e7b1490768e",
+        "verifier_log": "21623b06c6f8ea8c56673209498fe66e20f1223fdecf5ebea48517db470fb407"
+      },
+      {
+        "result": "2d7f7493c1014d3aa6a0d3078f86be17045b15bd1a5fbffbb0d55a880b1a0fc5",
+        "verifier_report": "6b09caaaa272aead8af5da14ba8de90976e712757fe775c18209e608ecc16fa3",
+        "verifier_log": "ab30c67e6d10560ec28d0b0ae9a3bd191b58701f8d1a21edbda12cfb9f2f85ee"
+      },
+      {
+        "result": "4347c9c05b96dcdf3cc726ceff940c448e5027b0be55c2dc564164df93075f25",
+        "verifier_report": "ace664e96fdb64d305433922131a6ffd34053418326554622082b48a979eda51",
+        "verifier_log": "97ea6f1c31c371a47185812d39db7dae4e11f45f3c223b7e7059598899307838"
+      },
+      {
+        "result": "dd8f8c9e39ca28e70103b43221dc6098e95db44f6e81073fb38e4c0f42ed128b",
+        "verifier_report": "95251936b3bde50429ca2f04bc1ac3f17bf639fdfc6ec0fd5295a26829558d62",
+        "verifier_log": "c1fc0ceee7140bf5ab97f75153ee6af5d55bef3931b3c9cc3c9fdbc769451d2f"
+      },
+      {
+        "result": "cac7097e64344a8c05a7572571d11f2a8654fed6adbfc7e6789c82d6920e6cc0",
+        "verifier_report": "b0bca09e7d7455c42c5b58b2a7bebd6376aec42e54967fd9fb5b1e775c208065",
+        "verifier_log": "4e745372b3463feef24bfedf30c511f6fbf0798b3fc6c2c05d050330e72144a7"
+      },
+      {
+        "result": "4e77827e9d79130c606b63039d0ee0cc48c2a94376413fcb6e5227b7e8477412",
+        "verifier_report": "859c0c5b61855a787e4336a5553c57e1fbac5a2b524311d82f196e6503e66392",
+        "verifier_log": "55b42429974f7fd5f17dd8774e3e3609efa34bab533915fb161e4097b737e4cd"
+      },
+      {
+        "result": "6efc2c63ad265ec3312780d90e8a73ddf15219a68fe770264bff965f1a525e9e",
+        "verifier_report": "59f3fbcb35df24470cc583c04605ac9497ff5d6372ac0eba636dea956b89b6a5",
+        "verifier_log": "567ae559240f31fe79c43ced03c3df7fa2c727c4f8593099fe58477533b49976"
+      },
+      {
+        "result": "7da318c89dfc2e82bab31974b397b35f7effaa6a496a31ce4dfe6d001729e0cf",
+        "verifier_report": "0acad2afdb3cd654b342670f69bfee8165070bf784d257efaadbead53f2b5b66",
+        "verifier_log": "0a82a05ee6583d4b8d9961d97569bb358aee9f764ffe30aad25790806aec94e5"
+      },
+      {
+        "result": "1b77889d8869ccb75f07b7a4cf49440374f2beeab9322f729953d5a097dd9f1d",
+        "verifier_report": "5c5bc0a0e0ce60bdacf524a5f2f02aef281bb9176f01878c2a824c8580dd59cb",
+        "verifier_log": "9b3277ad94ab59e6e3688c6f44c390aa58d0bc3c44425e15c96d4b72bc5d08f6"
+      },
+      {
+        "result": "7b97e9b4e6481ba1cc85ca6ca493f6dcd1f2e58e37d7506a0ee6f7523a66826f",
+        "verifier_report": "03621a0ca281908e2ad4dc5dc2a40ee7d8951898686e90d1ac5e724eaa859290",
+        "verifier_log": "a8b765062157be9112f0868aa18a888de4a809086289de5a2f8e8bb971df1c78"
+      },
+      {
+        "result": "a70eb0835896dcf456045232a8509f847d3cbd94ca1ec3fed3da22378d4f0f3e",
+        "verifier_report": "ff33a51b57e5090d37a7cd9ed567b2cc4a241dbe024d39f77e42cb38f881d16e",
+        "verifier_log": "b0d67ed9e70670f8255b1c5783e612661b0cc3890b78abd0455aff872149084f"
+      },
+      {
+        "result": "fcdb2d8bcc369294c6e586c6a4032a7d3602201776ca1bac5996236917e92a08",
+        "verifier_report": "d6055842b2c1cfc08be35d11ea122a27cef5f04a670154b2d6bc3bdfd70ae073",
+        "verifier_log": "177af058624c9efdc65bc55c60d3b28634e159a3ce74f2f7ffa2c579523e5fd4"
+      },
+      {
+        "result": "447a7ddac5e644f95c5554a85383904b8ff1a717a95b1b1aaa2c571924103d4b",
+        "verifier_report": "2e91b014b77f00b4f466a74c4c628219d7d5bf739b715150de148b648735226d",
+        "verifier_log": "4ac040a88cf06b286aa7563da7199018f547aef267e3b2bfc30bd084e3ea4cf1"
+      },
+      {
+        "result": "7f90f25c4c7b9b255cd1d7db4a3a36de93736477205f5e8e2ed52a218c7d2137",
+        "verifier_report": "94c85a70dc6dde29f2121962cc905c11a4c9a462c90f7e869456b1ec542704af",
+        "verifier_log": "2438b0970f50c4f5758b4e995d4cd78ccac892be3cf8e714eeac39c08bad538b"
+      },
+      {
+        "result": "9abdd80591e6fb301c3656fada802047837c49e9c94d546f54c159442a5586c7",
+        "verifier_report": "1ec00bdeda4c487ee1830e25b28b14aec320570dd270ef97efc1c3c3bebddb8c",
+        "verifier_log": "cf489e985b8657a43f959edd980a6b679ecdab09dafdf7e02d049418dfb2c9e6"
+      },
+      {
+        "result": "69df4d02be47abc44282b20030448a4049d369e71366147c29b6877a35b462dc",
+        "verifier_report": "350a9bd0d06703a070b88c5398a230ba858839f13d80abe84dcbf257340c8acc",
+        "verifier_log": "befdcb04f4a36658b919f29c0b2bba6a3e6de557872557a0dbbedba30a3e800b"
+      },
+      {
+        "result": "52a7195e4931744a2e92f510b69c3e71a43d31dd7af3dc775911928e9ab27c2b",
+        "verifier_report": "26d9887d1cdc1198a555eb9166e6212ba4e438763e04f3be0c63448b2a63215d",
+        "verifier_log": "7bb6274d16c4dfc1248428bd6ff314daa936d49bb5a70de349aafce977619258"
+      },
+      {
+        "result": "a67f9e8187ae1e47e581b5888e9574ecca2126fad42e7256751c8ea55d1f7735",
+        "verifier_report": "fde25614c61594f6d8450692543c80be9bead870ff487ed905ec5662a6e2159d",
+        "verifier_log": "02b42da6f02a7b82e77dabb7718099dfad9103796f7ce868221f03b44b43af1a"
+      },
+      {
+        "result": "555db1a309d207d3278c7b3160bfe47cfda90ebb607b9f8925f389cddf0b5bd5",
+        "verifier_report": "0a1761ceaaa8fe63a5623bd86365c1cb5ecd9c81c93203a605a23ee5be31f21e",
+        "verifier_log": "e0f793590974b7f5f4f4fa0715480332f06629e419c2c6e30a7185ae5d04c29f"
+      },
+      {
+        "result": "2d024afab381d24199f2f68e1b1cda05da51f7f7ed9989d1c1e985d0ce85640a",
+        "verifier_report": "08136d23d6cc5525d2f0d18d9a3567d3cfce4f68281957be9fdca2958fb8679a",
+        "verifier_log": "a9a4a2ec31de169e7fcd8010c3a1c712d6b4bdb632250469e95421f648769b68"
+      },
+      {
+        "result": "7b551ea429dd2364d4be1a75ad51f86cd0d4eeeb024305676a067ad3d06b3647",
+        "verifier_report": "ef2ea317acc32de1530e52573e3df0d6d49229ed7f0365b3aa740627d8505d96",
+        "verifier_log": "39bbe383a46eaa94b02a6b12a26186b02aec347a142df54997765a19a9bc70e2"
+      },
+      {
+        "result": "46b32c6df2826ec8b1ea851eafa403e8a7e01f2c583fda941e567b01b800ee47",
+        "verifier_report": "a3b8657a21faa185f2160152040b5764e79ada37c8f1ccf0d3428957cabffcb2",
+        "verifier_log": "a090b5db9af1ddb26a3a2ac2e54e62bb4259f808dd192ab488aae5ea9df5a1e9"
+      },
+      {
+        "result": "81db3d283ca7399e3382fc8498dca3d89ace8796911e9adf0b3accba6c2680c8",
+        "verifier_report": "200204694d59cd789e4e9da50b74e49817002d5a6a5158ba2d08af159103eb2c",
+        "verifier_log": "f0ba6ae99982b1b1fe094ec234e98784ca6b24f86230a9fc621857e8c8a4f081"
+      },
+      {
+        "result": "c262f7ab0618f41fd21409584b80fefc83967205b8aac771876ee6a4b7b6ee9c",
+        "verifier_report": "954fc8b16a2fbdd7c7050103711d5adf99a1f8d35a5fb51d5f87ba2205ce1222",
+        "verifier_log": "f3b4b952df98a6f153ac738c099135d2c104b7d3a43cd52ffde6be1338f3542a"
+      },
+      {
+        "result": "c357f1361046edd51d8e13fb5932247be4bbea35f9719eb1826ad53061f143fa",
+        "verifier_report": "0c5930218d54b619d910baace99515b70b89cd82454c1b7e720ac0222449279c",
+        "verifier_log": "f771b0ac68a9ddffff57a8be34aed32210feecfe7c69511fe38b2050718ac0ec"
+      },
+      {
+        "result": "128caddd8eabea2f2df3a147cd1f5ddda93c21f32906a388cc9633ab18abd745",
+        "verifier_report": "0ae0261808305b6dfe2bcd5920be76b5c9245f03c6e8fc9324b72c7dc04f7928",
+        "verifier_log": "f6c13cd76d7ae9a1f808a5cff2a9c3a06f9f8149cd35d047a5d5c473279b58c6"
+      },
+      {
+        "result": "56f51a672df8a7c6705c876433959e662d4d8ab6f89c134ad242f5044b414861",
+        "verifier_report": "a5d497329422c775ff012d9a00508b9bef60c890021d6985c28015c359bdcbd6",
+        "verifier_log": "648447364a59b9df1e19cb033aab83022fe56702325eb23474abefa996fd1621"
+      },
+      {
+        "result": "8019fb821f1b634d6d66d1293c58c9f5491fa93d9e125dfb2237f6483dc5ee98",
+        "verifier_report": "c65b9561d5ce3fa16c649ad36138e8fa8c5c75ef3b0689e685ccc5ebc12edb0a",
+        "verifier_log": "7e5b8ebf07feb4be60e4aaecfe79ce7fdd0cb18972d8f2785a262fb20a0b0a92"
+      },
+      {
+        "result": "759ac5b329fad727a00bdbedc72e32d6159b898134d16ac6e645d4a738852ee3",
+        "verifier_report": "13399affcc5cf62b15a4e55e01e7a6ff9c131f489ea0436fb2aa825b4a9ec4bf",
+        "verifier_log": "e4aeedae86f4b5ce31e312c0ed1f88f0e65bd1418f6b34d250aab99274907735"
+      },
+      {
+        "result": "9ec437dbf321c0ac470572089a1a4425dd3d900f49c51ef13a2fac8a4f07f00a",
+        "verifier_report": "757fb1edd9f01a209b0c1645f35df523b9d22696934bc5565c900229b3edb4a8",
+        "verifier_log": "861d67d804c30048b3a0f729a68ee898bbdbe3053ea62bc70dc49faf5f76abbd"
+      },
+      {
+        "result": "96606359305d542b0ea35f9a745d7d099615744baff1340667b53212790c6f6d",
+        "verifier_report": "9e0d0d9d071a80edc18ae04c901c983f07526fc89b7646c8876ee1fa359af855",
+        "verifier_log": "4ea3224a23b2d8946d4e823460c35433de33d149f931c5ae0f6d925cee57439e"
+      },
+      {
+        "result": "f526c30b37ebf319d4f4fe5ec18a9981c71bfb67eceaf0569fa8087a5e16ba90",
+        "verifier_report": "d72c0e83506c1368e9eec0ab5267a3b6cb40242b79821934da622411d8ad7207",
+        "verifier_log": "fca9b4123db7e6c91e0697d4344b11eda59a5a7cffbf2464a82091c9db624d89"
+      },
+      {
+        "result": "b3d8b39b490bbb1f21b3b5ec5a2743a6c2f9e8c4d952185b002f5ad1daba71b1",
+        "verifier_report": "229c25ff87345cdb97cf8caa513e9bf392aee835cb75febe2d0232b117c08488",
+        "verifier_log": "a0f21fb8fac2fa1eeba8ef3ac69683994ec96822cf6312e1723a6241e528e30a"
+      },
+      {
+        "result": "f664e20a59480d9783144357244a3f5c25b07bb2ae34ba470153a9967a19b765",
+        "verifier_report": "9637cb6cb47d693da55cfba46e73de56efdee79d876cf1698882baec4361e2e7",
+        "verifier_log": "260939ba68edbf1e2e9e5233ebe7e5e36835e1538aa00b455f1082d6540f415b"
+      },
+      {
+        "result": "ce202bf218b4b6a53175e4420ce0d5d9cd56ea2c73a4a7347f66609b2d0d29b0",
+        "verifier_report": "1694244ffd0eb4ab49763a1c56204774133a3c1f192dee6cedb752e1d0c8186f",
+        "verifier_log": "f851dcd846fa18914dc1cce7dffe60c6745f82b10054cd42af6c35baffb30393"
+      },
+      {
+        "result": "f5367070cf865d9883ff8805d8b2e366acbb0d667dda51acf0430c1551bb8bb0",
+        "verifier_report": "e4d25c33f96f5667dce63f4aa03462fa9044c11d35859b44e9c698a9c21ca1c6",
+        "verifier_log": "6b9a8e9c7ba4d371f01af55c71bd8fa666bb1a9312c6896aebe70143771cc9e4"
+      },
+      {
+        "result": "425de89f7ec0fe43eee9980072d5b4ef4b5ed12717145136af85eaca255f78f1",
+        "verifier_report": "32d792894da0ef14adee788faf55676dbc9b85fde81bfc0cfb6da6e890350fa3",
+        "verifier_log": "106445300c9bcfc22d38c10d463d831a120ca9d6ede6a2139fc0170efc111f52"
+      },
+      {
+        "result": "c08d4548753e646061ddd9c61381166b79409ec696b524f2ffbb809cec045b30",
+        "verifier_report": "e759a9e19baf3b9bcf20efcd3b542cb7366658df597b21227446423a1c36a478",
+        "verifier_log": "87bf7705b9482ab1f1dbf2d7f1e1e92bc9fd3c321981d5549c9a8b744a48652e"
+      },
+      {
+        "result": "999992fdb19f28acfe480c87a46e434ea5e75bf84734066e0b5bc005e3bf2c23",
+        "verifier_report": "8f73701c86b48103db35c8bf17421139dfd298c09510a7629d9e99e5cdbce20b",
+        "verifier_log": "bde5343a914f9501ab3df1660d8401475b3a7779210b94519c76e602a28f8640"
+      },
+      {
+        "result": "98201ae49ec512ecc8417a31f31dd341c57c481a6b8f4a27f2deeb6193530d44",
+        "verifier_report": "934a49ce4077912a332a3b6e0955a03963dd56d6ee8e0246573af8db60a99477",
+        "verifier_log": "22c72e527f002bd18833558fcf65c8d677eeb056557a1ba80d6ef027584c0193"
+      },
+      {
+        "result": "7c446fa726767c56b41cc528b47e540d1eed2e24cecb1c70098d0ad4b372c438",
+        "verifier_report": "72310cfe07d5082fd2cb869a8c7dd75c37ea37bc8dd09f30e3f01e7e1b66186f",
+        "verifier_log": "6f399760a68829d74ab34a9077a68ce5d24d9f3b7461152751a9e7fff600db65"
+      },
+      {
+        "result": "dadbc3ecae97c615904522d1261101a0bedaa7aaa76d0f9ae12e40c01c681b4b",
+        "verifier_report": "03e1b66748db062c64d0077cb4b6a9df14f006cde83e182d9024fc0e4786cd86",
+        "verifier_log": "34c30a23101e703b3cd7b939f759a748d19029692d406f78598245b48c829ff9"
+      },
+      {
+        "result": "9f229471b60d1a5de20dfaf78e7d368f4acdee203dfc9b90bceecf1f063556ce",
+        "verifier_report": "6fb5bc1c3436bf1a2d174c61fb8efc77b344b6ea8427c2b29840301ffcc46a01",
+        "verifier_log": "c10cd7918c0a3053873e78e4b887812645661b754433b8e7e96d355bbec113d4"
+      },
+      {
+        "result": "7d32aae33eed9ad83b132e7b02a75c0c23d51023d1d387ce61cc538ab41feae9",
+        "verifier_report": "f5313902e00b85a93ff82e26c32150d66fc05407ce455d398f2b4a8f8fc62741",
+        "verifier_log": "7df735337bb0c09ad50eb64ea06655197c4274b9ad18d89eff771c44fc4b9780"
+      },
+      {
+        "result": "ff682dc24cdd21e6f254eed18340c55d86a4141a88cab7ca6b5ec0b8239be508",
+        "verifier_report": "6c417b93a79887a4a76c9e958c6854c297b0c9124a70998e2bfb660097794f03",
+        "verifier_log": "796baeabed0ae8261329ffb8a0d68ca11f5130c56298e8919a1f011232bd0c80"
+      },
+      {
+        "result": "d153fc22b883026244fd5d34a77c3a20a9b920cce0c7d8a7026c1a1920370c73",
+        "verifier_report": "e2692464f1bbc45cb13fb9eb30fbba22871c43e19ff87fe9d72fc81228f40c37",
+        "verifier_log": "8cc1312e52c87b96add2b9cf8d2fb60e9a9af176e0c4533a058444428a865a6f"
+      },
+      {
+        "result": "576476bf664122b2d3864ca9b0868b3058c6f486bfc849c4329e80e32ef11a8b",
+        "verifier_report": "12d67a3150507789b23f93736cfdaa892c2d738b1ea9dea546d2afa3f052bb19",
+        "verifier_log": "7687a1072cd98985512077846d9c724e8a58b5d61b5f7dcef77cf57191c59ebd"
+      },
+      {
+        "result": "3181d41610d385e0736d309fb32f24f10beaf97c37f8e18a0139ccd72a8c7c49",
+        "verifier_report": "f7e9c730815ac71e31ea6a779845b2ebafe8d25a99da7b46cd0bd9d4b613795c",
+        "verifier_log": "49aa1e72395c62d003575603c2b8c7e1a3129dade2778f01a16215dba14419e3"
+      },
+      {
+        "result": "f974acae1ca1da5a339377e2837563fea700976dce8efedbf35ba4df58888591",
+        "verifier_report": "b2bce4792955f32d3c9332b27cfca90e6919cdd1c50a94311dd99c4673999ccb",
+        "verifier_log": "d3fe700d7f8d189c6c6a26a533dc785a29bf901b6a003beab1ba0d82179c28ed"
+      },
+      {
+        "result": "c80e2627f27e4cfb983eedc6e88c8bde10825fdfda7a20a519357d5b02a20fa3",
+        "verifier_report": "4ef4cec7f88a1621629cb6a183a15ced9bfffb048036e43d2398f1764615d178",
+        "verifier_log": "8aa5bb5bca494a5de52adfe4c3c4d620ba4f537422d1257b6f0553094b518a84"
+      },
+      {
+        "result": "a6a1534be1734abc86f5b12500dfbb97d3d7067e4be5e95c566838038243c4a6",
+        "verifier_report": "ba4a9c5b7e05e5fe24b2251a8353b8123d7201843f873b70514d54eaeacd491d",
+        "verifier_log": "5ead7be5f8b97e46312b219ac84d73b8cde0e637ff0cc15e1622d13c1e886a62"
+      },
+      {
+        "result": "9bbabb50eda04a944b5a386d65687eccf4d16eb7473d2097b6d3543a76d992e5",
+        "verifier_report": "c5126431ade6cfa748fe6942ea9a632e9f0c48d524e092de95cc7b1d2ae7c0c3",
+        "verifier_log": "4ed6f7e1eaf326f1d151258041ad160dd197ccabed5bf9dc282dc93021b29997"
+      },
+      {
+        "result": "43f0711c31b21f5ef3e5700a0f607d88b5eb2cafce07e74418c79267f5774794",
+        "verifier_report": "4d8d80ab23e8562dbf4f4a109da090260c8f74f72296dc6f637e1fc45f6360a9",
+        "verifier_log": "6644cc01c75c2af071031f843a5766f5531517e36831af8f98bad3e285638a4d"
+      },
+      {
+        "result": "b2886966f0e8efcdf6192290d457a56d887c1b0b2a52e26409ba34fcc9ccb1bc",
+        "verifier_report": "190aaed486cbb596ec4ee7ecd0c7748fd453c6b5a6883c9a55e4db7196fe4951",
+        "verifier_log": "b8a09774eb21cb1852d8d610fa62a9f86f2b4f0eb13a85a4d68f7f126019cbb7"
+      },
+      {
+        "result": "968652350c2463eaa8aa099b974d839a9ef1522e8ec85c56287e7de3dbcfe255",
+        "verifier_report": "ae0ade5fa0216ca96dc644de5feb6b20afcc6abb5f564d8586ef9a5409469da6",
+        "verifier_log": "64f75c5e79b1ef6eed0a506b42481b255b76b0fa3c3a44f375d26f87d6ac44e7"
+      },
+      {
+        "result": "17bec8208ec84f90d6ada2c2815dd1f71b9bef2217359c95cb9741d05ced4e4f",
+        "verifier_report": "0bd80d7d168aa1e698983d66c4f191d4b61b3284d55f2eed7e914e05cc89b959",
+        "verifier_log": "b84b375b625dcaf71c252cdf51e64c73089b949fb6c47baf21b2be4774e41736"
+      },
+      {
+        "result": "2c010488860f108b6118e92bafb3e20e5696b6c334dfd5c22b3a36dd388c9a5d",
+        "verifier_report": "9be442857737e2fd7b47f967b3cd95d4d5ba8f459b94dc69d40b469444d40790",
+        "verifier_log": "51915e886113c95a635e38bb105b6d35e5205ed79a281c62869a7a7bf6c2f904"
+      },
+      {
+        "result": "241c04ce721ffcf343aa875642b366900f7f2415e2d22df0b444f258ade169e1",
+        "verifier_report": "5f03bbabed74cb004a3f58fed406887f3c980d5098e849ca405579b9e4bdb43d",
+        "verifier_log": "907ad40edffa83cb0c7cef57a05dcfaae0d9e7c3cf0417e475d73702ad8ebbb5"
+      },
+      {
+        "result": "aa603f310aead690808e52d503a33a9a21c4b80e448fc83fc3554f918390bf99",
+        "verifier_report": "506322716a6dead9b3338c175d955e7489991238eefb5d7c96ba86f27bb49b1e",
+        "verifier_log": "51e943074db959aebe9b67d4f186de5e03b087b993e0a43ef856dfce46786db3"
+      },
+      {
+        "result": "4d09439992a879b97f5670c6781eaf5cae87137b30f06163446c96b56546ef5a",
+        "verifier_report": "f54582409e29fa4363ddb6e47d649344daa48c3162520253a5e26b073b0bde74",
+        "verifier_log": "9363cabcc08c66c449c6f0b01fe02c0e6c3763cf61ccc149931135c48b84e31a"
+      },
+      {
+        "result": "22f1a04e58afdfab224c198f0cc9c3dc17701686517b431736020e9aeb024d86",
+        "verifier_report": "743420bf68aab96d0ea6cd634856f2aa369b5ddd74a90379fe09077b5fb937d2",
+        "verifier_log": "ac88668d39994fdc5ff4dbb291277fd5759b6be8899046e5d01ae8af63b7238b"
+      },
+      {
+        "result": "3e4396dec6f538c32b18390ae842e40849d3b3f44d9a72961e8c47e29660a36a",
+        "verifier_report": "21c1d10967fa16e92577883b710c0ae3bc379df0e9145f173fa72b5b98f8e5b7",
+        "verifier_log": "5760acafe475063b69f78e5b70f0afbc1b0b2e59737c5e7339ccb6b0c95f9f17"
+      },
+      {
+        "result": "d787e7f3cfefdb7910e766a3cc083a8a0cdc2c8f1e204dd25e85c387fdce3a8b",
+        "verifier_report": "eb697a85fd6948c4379d7eb778c68bde91c1efc92d61a4c83aa2feb6bac10b2f",
+        "verifier_log": "f195202fbcea44d2c9a18e213355d9c55c33d47d8e4cb77070bb21b6735f8270"
+      },
+      {
+        "result": "b99cc6353348902a7885076c9b2765efede32fa56b00ea89d688b924d41ab161",
+        "verifier_report": "6d4a61fa7263618d650bdd79bcd74bd5a33ee505efcb800e9cdfad71540e5395",
+        "verifier_log": "504f2e7f2286f6f0dc893aaffd39d10d79b2311fda9df14e80f16e4277e012ee"
+      },
+      {
+        "result": "a3dfaf7c230dac99f92024c6f2e8fcce721adf0b24cddf3cde9fdb24624e2cf6",
+        "verifier_report": "172620c221df22532326cd74d54d55a4b78bb840ad95ec777c2fec219e83b3c3",
+        "verifier_log": "6b406d14cf959e5e65831682a18766f3ee16aedbc034c47fd20914402498084d"
+      },
+      {
+        "result": "7f64341821289cdc1da18b7fe16c4f3683a10decb612b08264a7f9c2dd926a4f",
+        "verifier_report": "db06406ff9ea165c9ca2c0a65b1ec446b2f05f041961635aa7f31043ffe78988",
+        "verifier_log": "979b43dd6d56106fe52b59190bf37fb1436b0b17c856a310b652f3c206e65afa"
+      },
+      {
+        "result": "e5700086627ebd1e659013878e6d059517bf6fdbf9d4224884317d6ba70722e1",
+        "verifier_report": "40105e096795861f7b5270ae0fea09fa960195f039cc030cf01ca25916040fa0",
+        "verifier_log": "5a334e52614f5ea0c19b5f450766a89ad1c5d4dd23b3a4e598bd1f49843837c1"
+      },
+      {
+        "result": "e4d4ea1a0c4fe177316e09e909fb9135ca2d7cf34c5f8902830eefa71bbdb260",
+        "verifier_report": "46883e9e1f86f832ccc3f310fd5ea71fed2c45fc5522bd3e54e7216aed3a96b0",
+        "verifier_log": "8135d551d9ed9bc48f4e59aae19d8d1e75b91c8ef55d9e46953b69c4cb1a58ff"
+      },
+      {
+        "result": "76ec284d7b0a53ade6dc9085c2f33b8929190496bf85975762364dd9eedf618c",
+        "verifier_report": "f882f298fba6e43bf9e60159be1a1035704e2d4d7a91bf9a784b0c35a02cfd56",
+        "verifier_log": "f6f842bb25c2648fd5a820a299a2c05ffe07882c0b5cc6670483b1466267a150"
+      },
+      {
+        "result": "514b7118faaf5dcdd114f585fe2575c1e09b5953c51ebc3a30eca38a6b3eaed1",
+        "verifier_report": "659ad0c8056ff7cfe365e000466ce7b677fad2e6206eb9420467a6048245ae3c",
+        "verifier_log": "1daff74f2c98b3f0066ad7d7e2ae79c439d5778b031ed62cad7f6dc9141a22e1"
+      },
+      {
+        "result": "472031ff753d72556eda2e42a92d1c8bf1f2be9f58d96f99dec4948d9b74b7a2",
+        "verifier_report": "f8203a37df8e1fff34ca90fd58ff44f9ad02d23668f0e0cf66457035d2bc11f7",
+        "verifier_log": "c8a37e993b69410b442e5837aab42183649375ea0ae8e836995f3014d03cb013"
+      },
+      {
+        "result": "d96053c869b0a3dcd2b6e5ba0dc70532285ce9e812d416f6da5f7d9442f3a26e",
+        "verifier_report": "1dce648989ed0510e1bedb1e64fd850e7980b26830e2b900df278bf00ac4bfc4",
+        "verifier_log": "75ed2af7dbde85dd531e2c49df088cae635d5ff309e68feac886f658f15cde04"
+      },
+      {
+        "result": "65988f9d7a494f0fa5279969a5b65af26ae0bb73ac6eebf8088117065be96981",
+        "verifier_report": "b0518c22fa4b01f1bad97c088e908b5e4d2c81bb4d3bb5d56652a18a3e2d9bfc",
+        "verifier_log": "0167934282c36066487d077ae3ed93c95b0aed407d53d24a1f35dbfc7eab8832"
+      }
+    ]
+  },
+  "notes": "One attempt per task. Wilson intervals describe question-sampling uncertainty, not all model variability. Published references have different generation and harness profiles; they provide context rather than a controlled quant comparison. Artifact SHA-256 was verified on the server after evaluation; continuity of this exact artifact/backend throughout the evaluation period is unverified. Public artifact source/revision is unknown."
+}
