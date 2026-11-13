@@ -273,8 +273,8 @@
     "pypi-server": "9eb21236249d5b42ee64c7229bb1e5a3b3c0be7ed5ee9801bdd0d16ca575941a",
     "pytorch-model-cli": "e8438573f503c2d98ad71905862638bfa485470010d15d5b092821e0096b9daa",
     "pytorch-model-recovery": "e321c0e7501b3f021cfca26520574b343dff3dee6919f2e9dd5ff9e28ffc3725",
-    "qemu-alpine-ssh": "48bb495efc325f96892d45c341d8997c4a13b71bbe7051119f28dcaa7970df4f",
-    "qemu-startup": "bd03967ee678917f663b6e6b6957432d5cc136a01693275ba26519e38b7821dc",
+    "qemu-alpine-ssh": "9b80d6fc7fc051ab6f3a9832241252b2dcac75b7cd2766a6a9aa85510c5f11b0",
+    "qemu-startup": "d820941a50533c726b259117d484565a9194c06cd327c2661b141a635e87b9f4",
     "query-optimize": "593405b6a2f6970f0f4c2ca2aff455a3b32bce3eecf8b506cfeeb0fe93b14838",
     "raman-fitting": "73157911d2f6196d30097f9b7e3388771a0a843500ad23ea31b66ca9ae5b5118",
     "regex-chess": "64993ab339d437cea9397a033e825663a77d5527a42ef3c2fb2ad25133dcbd4e",
@@ -310,6 +310,26 @@
       "recovery_result_sha256": "7f90f25c4c7b9b255cd1d7db4a3a36de93736477205f5e8e2ed52a218c7d2137",
       "oracle_tests_passed": 2,
       "description": "Original remote clone returned 404 before agent setup/execution. Restore complete /app/personal-site including .git from stopped pinned image; preserve original dummy Git identity. Instructions, tests, solution and budgets unchanged. Official oracle passed 2/2 before one measured attempt. Source snapshot hash describes upstream files; repaired task checksum is explicit."
+    },
+    "qemu-startup": {
+      "original_task_checksum": "bd03967ee678917f663b6e6b6957432d5cc136a01693275ba26519e38b7821dc",
+      "recovered_task_checksum": "d820941a50533c726b259117d484565a9194c06cd327c2661b141a635e87b9f4",
+      "dockerfile_sha256": "64b71781dd81ec43dad1ccf91af04bcc984b74f40c9dff6ec956aa69b5fd4ece",
+      "excluded_setup_result_sha256": "acd9f10cff9b115708f53723396ec6a0ee71e986a6b5f740db2b4ea9d66efdcd",
+      "recovery_result_sha256": "43f0711c31b21f5ef3e5700a0f607d88b5eb2cafce07e74418c79267f5774794",
+      "ca_source_image": "sha256:f0ac8dafab7d689f2bb65c34cf71bf5c27341887578b1b62cdf010092bd7e981",
+      "oracle_tests_passed": 1,
+      "description": "Bootstrap CA bundle from existing coding sandbox image, switch security mirror to HTTPS archive.debian.org; retain original task instructions, solution, verifier and resource budgets. Original oracle passed unchanged verifier before one measured attempt."
+    },
+    "qemu-alpine-ssh": {
+      "original_task_checksum": "48bb495efc325f96892d45c341d8997c4a13b71bbe7051119f28dcaa7970df4f",
+      "recovered_task_checksum": "9b80d6fc7fc051ab6f3a9832241252b2dcac75b7cd2766a6a9aa85510c5f11b0",
+      "dockerfile_sha256": "64b71781dd81ec43dad1ccf91af04bcc984b74f40c9dff6ec956aa69b5fd4ece",
+      "excluded_setup_result_sha256": "13d33dc1ccbace5ebc5a479a4e7043194db32e5691ea0019ecd6680b691cffed",
+      "recovery_result_sha256": "9bbabb50eda04a944b5a386d65687eccf4d16eb7473d2097b6d3543a76d992e5",
+      "ca_source_image": "sha256:f0ac8dafab7d689f2bb65c34cf71bf5c27341887578b1b62cdf010092bd7e981",
+      "oracle_tests_passed": 1,
+      "description": "Bootstrap CA bundle from existing coding sandbox image, switch security mirror to HTTPS archive.debian.org; retain original task instructions, solution, verifier and resource budgets. Original oracle failed its 30-second expect wait; a separate diagnostic oracle with a 300-second expect wait passed the unchanged verifier. Measured task retains original solution and time budget."
     }
   }
 }

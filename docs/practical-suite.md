@@ -156,6 +156,20 @@ environment passed both official oracle tests before one measured attempt.
 The protocol retains both task checksums and identifies this deviation; the
 source snapshot hash continues to describe the original upstream files.
 
+Two further tasks, `qemu-startup` and `qemu-alpine-ssh`, failed during
+Docker builds before agent setup because Debian security package URLs returned
+404. Their isolated repairs bootstrap a CA bundle from the pinned coding
+sandbox image and use Debian's official HTTPS security archive. Task
+instructions, solutions, verifiers and budgets remain unchanged. The startup
+oracle passed its test. The SSH oracle initially failed while waiting for guest
+networking; a separate diagnostic copy changing only its Expect wait from 30 to
+300 seconds passed the unchanged SSH verifier. The measured SSH task retains
+the original solution and budget. Both single measured recovery attempts passed
+their executed verifier tests; the SSH attempt reached its agent time limit.
+The protocol pins the original setup failures, repaired task checksums,
+Dockerfile hashes and measured replacement results. Recovery trial directories
+can be gathered as symlinks under one private recovery root for the assembler.
+
 Keep original failed and successful trial directories intact. Use
 `python3 -m scripts.assemble_terminal --input <private-original-job>
 --recovery <private-recovery-job> --output <fresh-private-cohort>` to create a
