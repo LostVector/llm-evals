@@ -40,6 +40,10 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
               'runtime_context': 'Shared inference service; suite lanes ran concurrently. Request times include queue/retry time.'}
     if protocol.get('comparison_group'):
         config['comparison_group'] = protocol['comparison_group']
+    if metadata.get('artifact_verification'):
+        config['artifact_verification'] = {key: metadata['artifact_verification'][key]
+            for key in ('source', 'verified_at', 'scope', 'evaluation_period_continuity',
+                        'public_artifact_source_revision') if key in metadata['artifact_verification']}
     if lane != 'gpqa' and metadata.get('execution_environment'):
         config['execution_environment'] = metadata['execution_environment']
     if lane == 'gpqa':
@@ -86,6 +90,8 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
                              'notes': 'Sanitized complete-run audit. Raw task content and traces remain private; artifact fingerprints permit later integrity checks.'},
               'measurements': {key: summary[key] for key in allowed if key in summary},
               'notes': 'One attempt per task. Wilson intervals describe question-sampling uncertainty, not all model variability. Published references have different generation and harness profiles; they provide context rather than a controlled quant comparison.'}
+    if metadata.get('artifact_verification', {}).get('evaluation_period_continuity') == 'unverified':
+        record['notes'] += ' Artifact SHA-256 was verified on the server after evaluation; continuity of this exact artifact/backend throughout the evaluation period is unverified. Public artifact source/revision is unknown.'
     errors = validate(record)
     if errors:
         raise ValueError('; '.join(errors))

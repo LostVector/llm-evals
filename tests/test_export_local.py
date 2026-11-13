@@ -42,6 +42,14 @@ class LocalExportTests(unittest.TestCase):
         self.metadata['model']['name']='private-endpoint-alias'
         with self.assertRaises(ValueError):self.export()
 
+    def test_post_run_hash_discloses_unverified_continuity(self):
+        self.metadata['artifact_verification']={'evaluation_period_continuity':'unverified',
+            'source':'https://github.com/example/evals/pull/1', 'api_key':'synthetic-secret'}
+        result=self.export()
+        self.assertIn('continuity',result['notes'])
+        self.assertIn('unverified',result['notes'])
+        self.assertNotIn('synthetic-secret',json.dumps(result))
+
     def test_wrong_task_count_or_path_like_identifier_is_rejected(self):
         self.summary['total']=self.summary['completed']=2
         with self.assertRaises(ValueError):self.export()
