@@ -80,7 +80,12 @@ class PublishingTests(unittest.TestCase):
         self.assertGreater(len(payload['observations']),0)
         coding=[r for r in payload['observations'] if r['benchmark']['name']=='LiveCodeBench']
         self.assertGreaterEqual(len(coding),5)
-        historical=[r for r in coding if r['kind']=='external']
+        historical=[r for r in coding if r['id'].startswith('lcb-history-')]
+        self.assertGreaterEqual(len(historical),5)
+        vendor=[r for r in coding if r['provenance']['type']=='vendor_reported']
+        self.assertTrue(vendor)
+        self.assertTrue(all(r['metric']['n'] is None for r in vendor))
+        self.assertTrue(all('comparison_group' not in r['protocol']['config'] for r in vendor))
         self.assertTrue(all(r['metric']['n']==131 for r in historical))
         self.assertTrue(all(r['id'] not in payload['reference_policy']['featured_observation_ids'] for r in historical))
         with tempfile.TemporaryDirectory() as tmp:

@@ -101,7 +101,9 @@
     "terminal21-aa-2026-11-12-glm-5-3",
     "terminal21-aa-2026-11-12-qwen3-8-flash-next",
     "terminal21-aa-2026-11-12-qwen3-8-27b",
-    "terminal21-aa-2026-11-12-kimi-k3"
+    "terminal21-aa-2026-11-12-kimi-k3",
+    "qwen-vendor-2026-11-13-flash-next-gpqa",
+    "qwen-vendor-2026-11-13-flash-next-lcb"
   ],
   "review_interval_days": 30,
   "required_providers": [

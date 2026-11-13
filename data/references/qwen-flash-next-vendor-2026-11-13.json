@@ -1,0 +1,94 @@
+[
+  {
+    "schema_version": 1,
+    "id": "qwen-vendor-2026-11-13-flash-next-gpqa",
+    "kind": "external",
+    "observed_at": "2026-11-13",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "Qwen model-card protocol",
+      "split": "diamond",
+      "task_set": "Diamond set; vendor prompt, repeats and generation budget not specified"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 91.7,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "protocol": {
+      "harness": "Qwen vendor evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_setting": "not_reported",
+        "generation_budget": "not_reported",
+        "prompt_and_parser": "not_reported",
+        "repeat_count": "not_reported",
+        "task_identity_verified_against_local": false
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "vendor_reported",
+      "location": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next#benchmark-results",
+      "retrieved_at": "2026-11-13",
+      "notes": "Read the official Qwen model-card benchmark table. No exact LCB task list/date window or per-benchmark generation settings are supplied."
+    },
+    "notes": "Vendor-reported context only. Do not interpret the difference from local results as quantization loss. Exact evaluation protocol and artifact precision are not reported; LCB v6 task identity against the local 131-problem window is unverified."
+  },
+  {
+    "schema_version": 1,
+    "id": "qwen-vendor-2026-11-13-flash-next-lcb",
+    "kind": "external",
+    "observed_at": "2026-11-13",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "LiveCodeBench",
+      "revision": "v6; Qwen model-card protocol",
+      "split": "not_reported",
+      "task_set": "Vendor v6 label only; exact problem IDs/date window not disclosed"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 91.9,
+      "unit": "percent",
+      "direction": "higher",
+      "n": null
+    },
+    "protocol": {
+      "harness": "Qwen vendor evaluation",
+      "harness_revision": "not_reported",
+      "config": {
+        "reasoning_setting": "not_reported",
+        "generation_budget": "not_reported",
+        "prompt_and_parser": "not_reported",
+        "repeat_count": "not_reported",
+        "task_identity_verified_against_local": false
+      },
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported"
+    },
+    "provenance": {
+      "type": "vendor_reported",
+      "location": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next#benchmark-results",
+      "retrieved_at": "2026-11-13",
+      "notes": "Read the official Qwen model-card benchmark table. No exact LCB task list/date window or per-benchmark generation settings are supplied."
+    },
+    "notes": "Vendor-reported context only. Do not interpret the difference from local results as quantization loss. Exact evaluation protocol and artifact precision are not reported; LCB v6 task identity against the local 131-problem window is unverified."
+  }
+]
