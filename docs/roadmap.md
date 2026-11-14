@@ -23,4 +23,28 @@ Use memory tiers defined by the actual host, measuring total working memory incl
 5. Capture source-backed frontier observations with matching benchmark versions and original provenance. Reassess broad coverage, ceilings, floors and task quality before expanding into long-context or repository patching tracks.
 6. Add charts for success versus memory, latency, and energy once real observations exist.
 
-No hardware assumptions, downloaded weights, remote repository, or paid API usage are part of the initial setup.
+## Future goal: harness effects on local agentic performance
+
+After the current quant comparison finishes, measure how much changing the agent
+harness improves the same open-weight deployment on Terminal-Bench 2.1.
+Use Terminus-2 as the existing baseline and mini-SWE-agent as the first candidate;
+better performance is a hypothesis, not an assumed outcome.
+
+- Freeze the exact model artifact, quant, backend, KV cache precision, sampling,
+  task environments, and total reasoning/output and wall-clock budgets. Pin both
+  harness revisions and document any interface differences.
+- Select a fixed 15–20-task pilot before examining candidate outcomes, spanning
+  coding, configuration, debugging, and data tasks. Include baseline successes
+  and failures; do not select only tasks Terminus-2 missed.
+- Run the harnesses separately with the same concurrency and comparable server
+  load, avoiding contention that favors either arm. Verify sandbox execution
+  before running generated commands.
+- Report paired task outcomes, wins and regressions, completion time, token use,
+  formatting/tool errors, loops, and timeouts. A pilot remains explicitly partial;
+  use its runtime and uncertainty to decide whether to run all 89 tasks.
+- If the pilot supports a useful improvement within the practical runtime budget,
+  perform the full comparison. Keep fixed-harness quant comparisons separate from
+  fixed-model harness comparisons in the data and charts.
+
+This is planned future work, not an additional run authorized or started by
+recording the plan. No paid endpoint usage is enabled by this milestone.
