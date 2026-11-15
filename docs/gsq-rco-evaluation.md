@@ -34,3 +34,5 @@ Terminal-Bench is not assigned the new GPQA/coding thinking budget: its original
 - Export only aggregate results, public model metadata, policy disclosures, and integrity hashes. Questions, reasoning, endpoints, machine identifiers, and credentials remain private.
 
 `scripts/export_local.py --recovery-plan <private-plan> --original-input <private-original>` performs the additional lineage audit before exporting GPQA or coding. See [reasoning policy](reasoning-policy.md) for the metadata fields.
+
+The existing-trace analysis of deadlines, recorded agent turns, and timing limitations is documented in [Terminal-Bench comparability](terminal-bench-comparability.md).
