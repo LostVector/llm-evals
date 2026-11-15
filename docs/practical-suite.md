@@ -234,3 +234,5 @@ DeepSeek averages ten samples per task; the other four submissions use one.
 The source does not establish effective generation budgets, hardware or full/lite
 grading mode, so these remain contextual references rather than controlled
 comparisons. The source snapshot date is not a claimed inference date.
+
+Reasoning budget and closure handling are explicit run parameters; see [reasoning policy](reasoning-policy.md). Freeze server-side policy before starting a run and use a fresh run identity for changes.

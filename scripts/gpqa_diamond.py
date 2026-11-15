@@ -8,9 +8,15 @@ from pathlib import Path
 import random
 import re
 import time
+import tempfile
 from email.utils import parsedate_to_datetime
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, build_opener, ProxyHandler
+
+try:
+    from scripts.reasoning import reasoning_policy, request_parameters
+except ModuleNotFoundError:
+    from reasoning import reasoning_policy, request_parameters
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -67,8 +73,9 @@ def private_path(value):
 
 
 def save(path, value):
-    temporary = path.with_suffix('.tmp')
-    temporary.write_text(json.dumps(value, indent=2) + '\n')
+    with tempfile.NamedTemporaryFile(mode='w', dir=path.parent, prefix=path.name+'.', suffix='.tmp', delete=False) as stream:
+        temporary = Path(stream.name)
+        stream.write(json.dumps(value, indent=2) + '\n')
     temporary.replace(path)
 
 
@@ -145,6 +152,8 @@ def main():
     parser.add_argument('--dataset', required=True, type=private_path)
     parser.add_argument('--output', required=True, type=private_path)
     parser.add_argument('--limit', type=int, help='Pilot prefix only; never label as the full score')
+    parser.add_argument('--start-index', type=int, default=0, help='Disjoint worker range; caller must avoid overlap')
+    parser.add_argument('--indices-file', type=private_path, help='Private list of task indices for a disjoint worker')
     args = parser.parse_args()
     protocol = json.loads((ROOT / 'protocols/gpqa-diamond.json').read_text())
     config = json.loads(args.config.read_text())
@@ -155,21 +164,35 @@ def main():
     all_tasks = tasks(rows, protocol)
     if args.limit is not None and not 1 <= args.limit <= len(all_tasks):
         raise ValueError('Pilot limit must be between 1 and 198')
+    if not 0 <= args.start_index < (args.limit or len(all_tasks)):
+        raise ValueError('Invalid GPQA worker range')
+    reasoning_request = request_parameters(config)
     args.output.mkdir(parents=True, exist_ok=True)
     manifest = {'protocol': protocol, 'dataset_sha256': dataset_sha256,
                 'model': config['model'], 'deployment': config['deployment'],
                 'tasks_sha256': hashlib.sha256(json.dumps(all_tasks, sort_keys=True).encode()).hexdigest()}
+    if 'reasoning' in config:
+        manifest['reasoning'] = reasoning_policy(config['reasoning'])
+    if reasoning_request:
+        manifest['reasoning_request'] = reasoning_request
     manifest_path = args.output / 'manifest.json'
     if manifest_path.exists() and json.loads(manifest_path.read_text()) != manifest:
         raise ValueError('Existing output belongs to a different configuration; choose another directory')
     save(manifest_path, manifest)
     opener = build_opener(ProxyHandler({})) if config.get('bypass_proxy') else build_opener()
-    for task in all_tasks[:args.limit]:
+    selected_indices = None
+    if args.indices_file:
+        selected_indices = json.loads(args.indices_file.read_text())
+        if not isinstance(selected_indices, list) or any(type(i) is not int or not 0 <= i < len(all_tasks) for i in selected_indices) or len(set(selected_indices)) != len(selected_indices):
+            raise ValueError('Invalid worker task indices')
+    for task in all_tasks[args.start_index:args.limit]:
+        if selected_indices is not None and task['index'] not in selected_indices:
+            continue
         path = args.output / f"{task['index']:03}.json"
         if path.exists():
             continue
         request = {'model': config['model'], 'messages': [{'role': 'user', 'content': task['prompt']}],
-                   'stream': True, 'stream_options': {'include_usage': True}, **protocol['generation']}
+                   'stream': True, 'stream_options': {'include_usage': True}, **protocol['generation'], **reasoning_request}
         headers = {'Content-Type': 'application/json'}
         if config.get('api_key'):
             headers['Authorization'] = 'Bearer ' + config['api_key']
