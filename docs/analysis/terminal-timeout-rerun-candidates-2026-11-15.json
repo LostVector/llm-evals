@@ -1,0 +1,333 @@
+{
+  "status": "prepared_awaiting_engine_and_timeout_profile",
+  "purpose": "Failure-selected diagnostic rerun; not an unbiased estimate of full-suite performance and not a best-of replacement score.",
+  "selection": "All tasks solved by Halogen whose selected original GSQ-RCO trial failed with AgentTimeoutError.",
+  "count": 22,
+  "tasks": [
+    {
+      "task": "circuit-fibsqrt",
+      "task_checksum": "dc4c18df98c940d9ec11336861e07f7f5ca2a13b9e8e0f95e886c20f3d61bc0d",
+      "gsq_result_sha256": "ec95f5d04f7bcf7efb88be5e412ce587f53a5f298edbf7d870ac4ff49f66626f",
+      "halogen_result_sha256": "f3f0aec79616d2263c4c166b445448e65f818b31106f769c2436302c02a8fac5",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 3600.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "cobol-modernization",
+      "task_checksum": "5e3806427eaaaa9f0f756a2a87d4f7f50ec1c8a0d329b26bab7dc09657b937cf",
+      "gsq_result_sha256": "41503fe109f12d4528ccf1895deb432b28a75ecddc23b2838b4ffbcfafadf1d6",
+      "halogen_result_sha256": "84259936d0c44c902a4ea1c40c557316e9107ad73a0e4b32aed8cca06155dd0d",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "crack-7z-hash",
+      "task_checksum": "22789e2dc5cc9b54c430b61556ac8ad3cddb9052d1c7ef349f25acd6f0d1db28",
+      "gsq_result_sha256": "cba18ec7f3f34d173b29e6e79b9eb4edb5b5954b4bf56a82a7870ff89a9ff7d0",
+      "halogen_result_sha256": "3ece7a0a26654037b1af2363c56f7c262858daad17977742ac19a611ca0a8174",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1800.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 4096,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "task_checksum": "a0db695f342c1b72f1b3d0b6c234eb802e970c4758931355e4ceeea4c9e73c37",
+      "gsq_result_sha256": "be383df43193239eb351cd8e7546c87413626c30c3af674f5a3f3f1e513564aa",
+      "halogen_result_sha256": "2d7f7493c1014d3aa6a0d3078f86be17045b15bd1a5fbffbb0d55a880b1a0fc5",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1800.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "distribution-search",
+      "task_checksum": "b92a6ca622e24a97dce2720f090562d729f8423aa03b8e77875c1a217c71ea4c",
+      "gsq_result_sha256": "80eb486c30c762b82580154c07ef5c7de386f60f8d7617311ff0f35a985cb255",
+      "halogen_result_sha256": "dd8f8c9e39ca28e70103b43221dc6098e95db44f6e81073fb38e4c0f42ed128b",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 3600.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "feal-differential-cryptanalysis",
+      "task_checksum": "edacb57935c0b4181a115ac309d3b0e7c26c7cf49ccadf69762822068445df78",
+      "gsq_result_sha256": "9d82205a9d8267dcb9185d503592d258cb132022406bf06085c2979dda340f26",
+      "halogen_result_sha256": "1b77889d8869ccb75f07b7a4cf49440374f2beeab9322f729953d5a097dd9f1d",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1800.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "financial-document-processor",
+      "task_checksum": "312889565426c3a4ed49c11531586aa8b7ba947b1507a846347280f44185cdba",
+      "gsq_result_sha256": "0f691a89e22bddd569210140584f7560a2f220cc61b2d6e7058d813431702251",
+      "halogen_result_sha256": "fcdb2d8bcc369294c6e586c6a4032a7d3602201776ca1bac5996236917e92a08",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1200.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 4096,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "headless-terminal",
+      "task_checksum": "d1324ce5d4734d79b4569b569d2aa826dbfce6eadc6ac406f137d21446ac8d1a",
+      "gsq_result_sha256": "3d21617873d36fa937d800db9de2d58e694cbdc55eee9f66586758a9fa06eeaa",
+      "halogen_result_sha256": "2d024afab381d24199f2f68e1b1cda05da51f7f7ed9989d1c1e985d0ce85640a",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "large-scale-text-editing",
+      "task_checksum": "e2851ab29f9dc799ae4ba2ad8f7495ccd1625476a3954dde8cec09771e41208a",
+      "gsq_result_sha256": "978eeac0fa3deef4c847390a8c57f7cc735334a61917969862b7382e4dd53c9b",
+      "halogen_result_sha256": "c262f7ab0618f41fd21409584b80fefc83967205b8aac771876ee6a4b7b6ee9c",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1200.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "task_checksum": "c19d5af0dc6e54b45f66e3d8f25bfa783c51df3e1844253aa60c20ca0a827046",
+      "gsq_result_sha256": "d22f5525f4dea5ea80bbabe05f0e0a60ba22f56230baaa070d6dbb913e679884",
+      "halogen_result_sha256": "128caddd8eabea2f2df3a147cd1f5ddda93c21f32906a388cc9633ab18abd745",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1800.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "mailman",
+      "task_checksum": "ab0557da8fe78e716eecfa52622c0c3f5ae8ab68aa22dc3b532b54520b279413",
+      "gsq_result_sha256": "6f56e18a599b9120ce3ec32121dfe1d30ae4966e410655caae2226db3d6b53f9",
+      "halogen_result_sha256": "8019fb821f1b634d6d66d1293c58c9f5491fa93d9e125dfb2237f6483dc5ee98",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1800.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "password-recovery",
+      "task_checksum": "a8b12d116b3a8e03e946f0db92b77e789cfa26ecb49a56be5723ff47a03a532d",
+      "gsq_result_sha256": "5c417478b94bb365162a45625ccb13bb2e0eb1b6d3bcdcb92608f4fad3768dd5",
+      "halogen_result_sha256": "7c446fa726767c56b41cc528b47e540d1eed2e24cecb1c70098d0ad4b372c438",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "polyglot-c-py",
+      "task_checksum": "d1e52e6139c57528762bbb163dc3f89edb967511d897ac5e7859398d3f44eb3c",
+      "gsq_result_sha256": "4a0d6d0fe1990e3bd8033781312b382e7c484c0505a67e7c697e2508d8f12bc1",
+      "halogen_result_sha256": "7d32aae33eed9ad83b132e7b02a75c0c23d51023d1d387ce61cc538ab41feae9",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "polyglot-rust-c",
+      "task_checksum": "aabe829791a3d41a79deb775717a64fab08f286349cb07640e50dcfff6f497be",
+      "gsq_result_sha256": "1e4cf22119876fc73a61fa1e350018f3563b179b431f1df1bf9452b6f989aaf8",
+      "halogen_result_sha256": "ff682dc24cdd21e6f254eed18340c55d86a4141a88cab7ca6b5ec0b8239be508",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "pytorch-model-cli",
+      "task_checksum": "e8438573f503c2d98ad71905862638bfa485470010d15d5b092821e0096b9daa",
+      "gsq_result_sha256": "470000ef50f78e7006a2447dfccea16b2c344fb54763ee22225fb318124c06d4",
+      "halogen_result_sha256": "c80e2627f27e4cfb983eedc6e88c8bde10825fdfda7a20a519357d5b02a20fa3",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "pytorch-model-recovery",
+      "task_checksum": "e321c0e7501b3f021cfca26520574b343dff3dee6919f2e9dd5ff9e28ffc3725",
+      "gsq_result_sha256": "5d72756e7deb73e58d129fcaf67c13009f3cf52e5d15b748f0b194828179c34d",
+      "halogen_result_sha256": "a6a1534be1734abc86f5b12500dfbb97d3d7067e4be5e95c566838038243c4a6",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "qemu-alpine-ssh",
+      "task_checksum": "9b80d6fc7fc051ab6f3a9832241252b2dcac75b7cd2766a6a9aa85510c5f11b0",
+      "gsq_result_sha256": "174007cf36f954ec542e42d14b1687b5e3e7c4bca9c2b819ceca051d9a9f1cfc",
+      "halogen_result_sha256": "9bbabb50eda04a944b5a386d65687eccf4d16eb7473d2097b6d3543a76d992e5",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 4096,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "reshard-c4-data",
+      "task_checksum": "89d8d86b48c2619328d2eb1a86c33a93d1f641fbfb59c4e0626535e246715b65",
+      "gsq_result_sha256": "749e9a298b266e7a3e25707195a61c0250a0dbd1ee46b557eeb143264467dd68",
+      "halogen_result_sha256": "241c04ce721ffcf343aa875642b366900f7f2415e2d22df0b444f258ade169e1",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 3600.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "rstan-to-pystan",
+      "task_checksum": "2083c5878b9e8232e5a52244781bc31c677e0f39bed2503cf9a246b0b12578c6",
+      "gsq_result_sha256": "96f1b3e9b06af41122a8fe9d9c61a0af44fd2608203211357dd975e260ef16b8",
+      "halogen_result_sha256": "aa603f310aead690808e52d503a33a9a21c4b80e448fc83fc3554f918390bf99",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 1800.0,
+      "task_resources": {
+        "cpus": 4,
+        "memory_mb": 8192,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "schemelike-metacircular-eval",
+      "task_checksum": "e4525988ae20585b6b90a2f1af2fcc9d18d6363d3cfcdd7be5305199428883d2",
+      "gsq_result_sha256": "7c421f780f4c48bb378162ea864eaa38e37fb76a63b04c41e8c6c66f0f8a189e",
+      "halogen_result_sha256": "3e4396dec6f538c32b18390ae842e40849d3b3f44d9a72961e8c47e29660a36a",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 2400.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "sparql-university",
+      "task_checksum": "9c12586c19816f24b248cb8843f317cfef98804c8a6f4fe3717133db79ffca25",
+      "gsq_result_sha256": "eec2b595e17044c2a9db49dbebf95b955bfeb93629235cb1aa9fcd1168071f28",
+      "halogen_result_sha256": "d787e7f3cfefdb7910e766a3cc083a8a0cdc2c8f1e204dd25e85c387fdce3a8b",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    },
+    {
+      "task": "sqlite-db-truncate",
+      "task_checksum": "673cdff46735ca0b8d83c6c82c0a4e252149d31629e80da9d8439a05d771351c",
+      "gsq_result_sha256": "34b61d6964a3a8895c449549eb96f4f4e982683a1085af0371d364bb26fe813d",
+      "halogen_result_sha256": "b99cc6353348902a7885076c9b2765efede32fa56b00ea89d688b924d41ab161",
+      "original_gsq_reward": 0,
+      "halogen_reward": 1,
+      "original_agent_timeout_seconds": 900.0,
+      "task_resources": {
+        "cpus": 1,
+        "memory_mb": 2048,
+        "storage_mb": 10240
+      }
+    }
+  ],
+  "dataset_version": "Terminal-Bench 2.1",
+  "harness": "Harbor 0.25.0 / Terminus-2",
+  "original_generation": {
+    "temperature": 1.0,
+    "reasoning_effort": "medium",
+    "max_tokens": 8192,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 0,
+    "frequency_penalty": 0
+  },
+  "original_timeout_multiplier": 1,
+  "original_task_resources": "Unchanged task.toml resources and verifier; same repaired native Docker snapshots.",
+  "execution_preference": null,
+  "new_results_directory": "Must be fresh; original selected cohort remains immutable.",
+  "publication": "Report selected-cohort recovery and paired outcomes separately. A full score under a new engine/profile requires evaluating the remaining tasks under that profile too.",
+  "concurrency": "At most four inference trials; admission must also respect each unchanged task resource requirement and Docker VM capacity."
+}

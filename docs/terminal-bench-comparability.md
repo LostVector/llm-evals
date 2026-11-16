@@ -36,3 +36,9 @@ Recorded successful turns and command calls are useful measures of interaction o
 Keep the current frozen deadlines when comparing deployment effectiveness. A slower deployment producing fewer useful turns before timeout is part of that result. Shared-service contention and the concurrency schedule must remain disclosed. The common per-turn output cap also does not prove identical thinking/answer allocation; the numeric GPQA/coding reasoning-budget fix does not establish per-turn Terminal-Bench closure equivalence.
 
 For a future model-focused diagnostic, preselect a task subset and match the harness, task environments, sampling, total generated-token budget (including reasoning across all turns), tool-call budget, and reasoning closure policy. Run without competing evaluation traffic and allow enough wall-clock headroom that decoding speed is not the primary limit. Report that token-budgeted diagnostic separately from the frozen-deadline score.
+
+## Prepared timeout rerun cohort
+
+The [22-task candidate manifest](analysis/terminal-timeout-rerun-candidates-2026-11-15.json) contains every task Halogen solved whose selected GSQ-RCO trial failed with an agent timeout. It freezes task checksums, source-result fingerprints, original deadlines and resources. The runtime choice is pending: a faster compatible engine with the original deadlines, or the current engine under a separately labeled extended-time profile.
+
+This failure-selected cohort measures recovery on those cases; it does not estimate full-suite accuracy. Rerun outcomes will be reported separately from the original 89-task result. Execution will use at most four inference slots while respecting unchanged task resources and Docker capacity.
