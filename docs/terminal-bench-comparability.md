@@ -39,6 +39,6 @@ For a future model-focused diagnostic, preselect a task subset and match the har
 
 ## Prepared timeout rerun cohort
 
-The [22-task candidate manifest](analysis/terminal-timeout-rerun-candidates-2026-11-15.json) contains every task Halogen solved whose selected GSQ-RCO trial failed with an agent timeout. It freezes task checksums, source-result fingerprints, original deadlines and resources. The runtime choice is pending: a faster compatible engine with the original deadlines, or the current engine under a separately labeled extended-time profile.
+The [22-task candidate manifest](analysis/terminal-timeout-rerun-candidates-2026-11-15.json) contains every task Halogen solved whose selected GSQ-RCO trial failed with an agent timeout. It freezes task checksums, source-result fingerprints, original deadlines and resources. The selected profile is a faster compatible Gufo/Maya engine with the original deadlines (timeout multiplier 1). Harness settings and the 8,192-token per-turn cap stay fixed; min-p is explicitly 0.05 to match the observed original llama.cpp setting. Engine readiness and exact mixed-quant support remain pending.
 
 This failure-selected cohort measures recovery on those cases; it does not estimate full-suite accuracy. Rerun outcomes will be reported separately from the original 89-task result. Execution will use at most four inference slots while respecting unchanged task resources and Docker capacity.
