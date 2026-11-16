@@ -1,0 +1,174 @@
+{
+  "analysis_schema_version": 1,
+  "status": "evaluations_complete_and_audited_artifact_verification_pending",
+  "observed_at": "2026-11-15",
+  "model": {
+    "name": "Qwen3.8-Flash-Next",
+    "quantization": "GSQ-RCO IQ3_S",
+    "backend": "llama.cpp",
+    "backend_revision": "b12370-b79696f1f",
+    "artifact_verified": false,
+    "expected_public_source": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/tree/ed59f92082b1e93c0e96d60a8b11aab089b52f09/IQ3_S",
+    "expected_public_source_revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "artifact_parts": [
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+        "source_path": "IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+        "source_sha256": "4c1eb2ceb4915e1192f4f386021897bde56a97f40a0bb78bb86465e0f7d2aca3",
+        "loaded_sha256": null
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+        "source_path": "IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+        "source_sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113",
+        "loaded_sha256": null
+      }
+    ],
+    "kv_cache_precision": null
+  },
+  "reasoning_policy_gpqa_coding": {
+    "budget_tokens": 27853,
+    "budget_scope": "per_request",
+    "budget_enforcement": "server",
+    "budget_exhaustion": "force_close_then_answer",
+    "final_answer_reserve_tokens": 4915,
+    "output_cap_includes_reasoning": true,
+    "parser": "llama.cpp",
+    "chat_template_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+    "verification": "configured"
+  },
+  "observed_sampling_defaults": {
+    "min_p": 0.05,
+    "scope": "Observed llama.cpp server default; request/gateway did not explicitly override it. Halogen v0.20.3 documents min_p disabled by default; its evaluation-period override was not captured."
+  },
+  "results": {
+    "gpqa": {
+      "completed": 198,
+      "total": 198,
+      "correct": 170,
+      "accuracy": 0.8585858585858586,
+      "wilson_95": [
+        0.8032084179566921,
+        0.9003140438292472
+      ],
+      "truncated": 0,
+      "unparsed": 0,
+      "elapsed_request_seconds": 149306.07964813057,
+      "response_recovery": {
+        "policy": "partial_regeneration",
+        "selection": "Regenerate missing responses and every original response with length finish reason, unknown token usage, or total output tokens >= the reasoning threshold; selection ignores correctness.",
+        "reasoning_budget_tokens": 27853,
+        "retained_responses": 105,
+        "regenerated_responses": 25,
+        "previously_missing_responses": 68,
+        "selection_plan_sha256": "6ca3197442a046ae6aec1fc8f04350311c677a54884bb361e4b5f07ef380c623",
+        "original_evidence_sha256": "e2992ef9a48908f4f33039618f9875827c62884749c37b5dd261cd4dbb05d8d5",
+        "discarded_original_request_seconds": 59151.37482941849,
+        "retained_request_seconds": 52251.57535599684,
+        "new_request_seconds": 97054.50429213373,
+        "limitations": "Not a fresh uniform full run. Reused responses came from the earlier server policy; identical counterfactual outputs and exact Halogen closing-message equivalence are unverified. Times omit incomplete/interrupted requests and probe requests."
+      }
+    },
+    "coding": {
+      "completed": 131,
+      "total": 131,
+      "correct": 108,
+      "accuracy": 0.8244274809160306,
+      "wilson_95": [
+        0.7503075877011014,
+        0.880062335195009
+      ],
+      "truncated": 1,
+      "unparsed": 1,
+      "elapsed_request_seconds": 166882.25712054176,
+      "response_recovery": {
+        "policy": "partial_regeneration",
+        "selection": "Regenerate missing responses and every original response with length finish reason, unknown token usage, or total output tokens >= the reasoning threshold; selection ignores correctness.",
+        "reasoning_budget_tokens": 27853,
+        "retained_responses": 85,
+        "regenerated_responses": 46,
+        "previously_missing_responses": 0,
+        "selection_plan_sha256": "6ca3197442a046ae6aec1fc8f04350311c677a54884bb361e4b5f07ef380c623",
+        "original_evidence_sha256": "fe4bebfe99be22ea1e3217a23ec9936f08655f1cb24d409f4fc12fd498b8a8b4",
+        "discarded_original_request_seconds": 120484.49397116667,
+        "retained_request_seconds": 58356.21568741975,
+        "new_request_seconds": 108526.04143312201,
+        "limitations": "Not a fresh uniform full run. Reused responses came from the earlier server policy; identical counterfactual outputs and exact Halogen closing-message equivalence are unverified. Times omit incomplete/interrupted requests and probe requests."
+      }
+    },
+    "terminal": {
+      "completed": 89,
+      "total": 89,
+      "correct": 35,
+      "accuracy": 0.39325842696629215,
+      "wilson_95": [
+        0.29821544438248115,
+        0.49713460460053904
+      ],
+      "agent_timeouts": 52,
+      "elapsed_agent_seconds": 109705.83046500002,
+      "elapsed_trial_seconds": 115528.64925899998
+    }
+  },
+  "paired_regenerated_responses": {
+    "gpqa": {
+      "both_correct": 3,
+      "original_only_correct": 1,
+      "regenerated_only_correct": 9,
+      "both_incorrect": 12
+    },
+    "coding": {
+      "both_correct": 4,
+      "original_only_correct": 1,
+      "regenerated_only_correct": 27,
+      "both_incorrect": 14
+    }
+  },
+  "terminal_infrastructure_recovery": {
+    "transport_failed_tasks": 5,
+    "transport_failures_after_agent_actions": 2,
+    "interrupted_pre_agent_tasks": 1,
+    "user_interrupted_recovery_attempts": 1,
+    "selected_replacements": 6,
+    "additional_transport_failed_recoveries": 0
+  },
+  "remaining_coding_cap": {
+    "responses": 1,
+    "total_output_tokens": 32768,
+    "reported_reasoning_tokens": 27610,
+    "reported_text_tokens": 5158,
+    "scoring": "Final content had only one code fence; frozen extraction returned no complete code block. It remains a failed task, without a further budget change or best-of-attempt selection."
+  },
+  "original_coding": {
+    "completed": 131,
+    "correct": 82,
+    "accuracy": 0.6259541984732825,
+    "truncated": 39,
+    "unparsed": 39
+  },
+  "original_gpqa": {
+    "completed": 130,
+    "expected": 198,
+    "correct": 101,
+    "truncated": 20,
+    "unparsed": 20,
+    "status": "Incomplete original subset; not a full Diamond score."
+  },
+  "evidence_sha256": {
+    "gpqa-audit.json": "7e6b7a15a9e839d26fabf6d5e6e7a06a81fc5dc338dcc8851b95086e0b8fb4bf",
+    "coding-audit.json": "02fc49be8108848a9aa1261a5731e6888f0a1019b0b37a5333ee26bde41b04a4",
+    "terminal-audit.json": "c7f6e6f9e697d662eb322941d0b4f32a0dc503f1d335dc02bd0813f3f3357880",
+    "gpqa-recovery-audit.json": "da2d970b6bddf1b71cf749262aab9f020d9d8dfc68fc31c885d710cd1a0d451d",
+    "coding-recovery-audit.json": "c4f39c40aa28df3a82edce47cb5d0e86426fbdf364e9cd5f7b631257fa2ddc0b",
+    "selection-plan.json": "6ca3197442a046ae6aec1fc8f04350311c677a54884bb361e4b5f07ef380c623"
+  },
+  "limitations": [
+    "GPQA and coding are partial-regeneration results: original short responses were retained; all preselected long/capped and missing responses were generated under the recorded policy. They are not fresh uniform full runs.",
+    "Regeneration selection ignored correctness. One formerly correct response became incorrect in each lane; the new outcomes were retained rather than selecting the better attempt.",
+    "Actual loaded-file hashes and KV precision remain unverified. Public source hashes do not prove the loaded files; formal local chart observations are not exported until artifact verification.",
+    "Inference engines, effective server defaults, and reasoning closure handling differ from Halogen. Terminal-Bench is a deadline-limited deployment comparison with service contention, not a controlled quant-only comparison.",
+    "Timing fields are cumulative over selected requests/trials. They omit excluded transport/user-interrupted attempts and probe requests; discarded-original request time is itemized separately.",
+    "Native responses do not report forced-closure markers; absent markers are not interpreted as zero forced closures.",
+    "Wilson intervals describe task-sampling uncertainty, not all model or run variability."
+  ]
+}

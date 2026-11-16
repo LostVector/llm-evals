@@ -32,6 +32,8 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
         raise ValueError('Actual loaded-artifact SHA-256 has not been verified')
     model = {key: metadata['model'][key] for key in (
         'name', 'revision', 'quantization', 'artifact', 'artifact_sha256')}
+    if 'artifact_parts' in metadata:
+        model['artifact_parts'] = metadata['artifact_parts']
     labels = {label for family in json.loads((ROOT/'data/model_registry.json').read_text())
               for label in family['source_labels']}
     if model['name'] not in labels:

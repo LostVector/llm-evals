@@ -70,3 +70,7 @@ For a more sustainable current-model feed, [Artificial Analysis documents an aut
 ## Primary general metric
 
 The chart now defaults to HLE-Diamond full-set no-tool accuracy, using its reviewed AA reference track first. [The local execution guide](general-capability.md) documents the pinned public dataset/evaluator and runner. AA Intelligence Index remains a separate external composite. Do not execute the gated dataset or model/judge inference in the Pages workflow; it publishes only reviewed aggregate observations. Raw dataset-derived artifacts stay under ignored `.local/`.
+
+## Split GGUF artifacts
+
+A local result for a split GGUF must list every shard in `model.artifact_parts`, each with a public `filename` and the SHA-256 of the actual loaded file. `model.artifact` and `model.artifact_sha256` identify the entry shard and must agree with that list. The exporter reads `artifact_parts` from public metadata. Missing shards, duplicate names, path-like filenames, mismatched primary hashes and unexpected fields are rejected. Published repository hashes identify expected source blobs; they do not by themselves verify files on the serving machine.

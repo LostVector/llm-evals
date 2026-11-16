@@ -92,3 +92,22 @@ class LocalExportTests(unittest.TestCase):
         self.assertNotIn('forced_reasoning_closures',self.export()['measurements'])
         self.summary['forced_reasoning_closures']=1
         with self.assertRaises(ValueError):self.export()
+
+    def test_split_artifact_exports_all_verified_parts(self):
+        name='synthetic-00001-of-00002.gguf'
+        self.metadata['model']['artifact']=name
+        with self.assertRaisesRegex(ValueError,'split GGUF'):self.export()
+        self.metadata['artifact_parts']=[{'filename':name,'sha256':'a'*64},
+            {'filename':'synthetic-00002-of-00002.gguf','sha256':'b'*64}]
+        self.assertEqual(len(self.export()['model']['artifact_parts']),2)
+        self.metadata['artifact_parts'][1]['filename']='../private.gguf'
+        with self.assertRaises(ValueError):self.export()
+
+    def test_split_artifact_rejects_missing_duplicate_and_mismatched_parts(self):
+        self.metadata['model']['artifact']='synthetic-00001-of-00002.gguf'
+        first={'filename':'synthetic-00001-of-00002.gguf','sha256':'a'*64}
+        second={'filename':'synthetic-00002-of-00002.gguf','sha256':'b'*64}
+        for parts in ([first], [first,first], [dict(first,sha256='b'*64),second],
+                      [first,dict(second,api_key='secret')], [first,dict(second,filename=123)]):
+            self.metadata['artifact_parts']=parts
+            with self.assertRaises(ValueError):self.export()

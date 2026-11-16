@@ -79,3 +79,9 @@ test('partial reruns and backend revisions remain distinct observations', () => 
   backend.protocol.config={}; backend.protocol.backend_revision='different-test-build';
   assert.equal(latestRows([fresh,partial,backend]).length,3);
 });
+test('a changed secondary model shard remains a distinct observation', () => {
+  const a=structuredClone(records[0]), b=structuredClone(a);
+  a.model.artifact_parts=[{filename:'second.gguf',sha256:'a'.repeat(64)}];
+  b.model.artifact_parts=[{filename:'second.gguf',sha256:'b'.repeat(64)}];
+  assert.equal(latestRows([a,b]).length,2);
+});

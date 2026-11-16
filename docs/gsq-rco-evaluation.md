@@ -1,6 +1,20 @@
 # GSQ-RCO IQ3_S evaluation
 
-This suite uses the existing 198-question GPQA Diamond, 131-problem February–April 2025 LiveCodeBench window, and 89-task Terminal-Bench 2.1 protocols. Results are still running; this document is a recipe and disclosure, not a completed score.
+This suite uses the existing 198-question GPQA Diamond, 131-problem February–April 2025 LiveCodeBench window, and 89-task Terminal-Bench 2.1 protocols. All three evaluations and their result/lineage audits are complete. Actual loaded GGUF shard hashes and KV-cache precision still await server verification; formal chart observations have not been exported. The [public-safe aggregate report](analysis/gsq-rco-suite-summary-2026-11-15.json) preserves scores, uncertainty, response lineage, infrastructure recovery counts and audit fingerprints.
+
+## Audited results
+
+| Evaluation | GSQ-RCO IQ3_S | Halogen v2 reference | Difference |
+| --- | ---: | ---: | ---: |
+| GPQA Diamond, 198 questions | 170/198 (85.86%) | 180/198 (90.91%) | -5.05 percentage points |
+| LiveCodeBench, 131 fixed problems | 108/131 (82.44%) | 103/131 (78.63%) | +3.82 percentage points |
+| Terminal-Bench 2.1, 89 tasks | 35/89 (39.33%) | 52/89 (58.43%) | -19.10 percentage points |
+
+GPQA has zero truncated or unparsed final answers. Coding has one of each: reasoning finished, but final content then exhausted the total cap before a closing code fence. It remains a failed task under the frozen extractor. There were 52 Terminal-Bench agent timeouts; all verifier outcomes were checked against executed test reports.
+
+These are deployment comparisons. The current GPQA/coding cohorts retain short responses from the original policy, as disclosed below. Terminal-Bench's fixed deadlines expose engine speed and shared-service contention as well as task-solving behavior; see the [trace audit](terminal-bench-comparability.md).
+
+The 95% Wilson intervals are 80.32–90.03% for GPQA, 75.03–88.01% for coding, and 29.82–49.71% for Terminal-Bench. They describe task-sampling uncertainty rather than all run variability.
 
 ## Reasoning-policy continuation
 
