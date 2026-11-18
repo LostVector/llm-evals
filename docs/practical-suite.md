@@ -97,13 +97,13 @@ Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protoco
 
 Reuse the [audited Gufo IQ3_S results](analysis/gufo-controlled-suite-summary-2026-11-18.json) and [Halogen v2 results](halogen-v2-publication.md) for the two completed lanes, with their recorded runtime and sampling differences. BFCL uses the pinned bfcl-eval 2026.3.23 dataset and scorer. The local profile requests medium effort and 8,192 output tokens per turn. Gufo sets a 6,963-token reasoning cutoff explicitly. Halogen uses its server policy, and effective cutoff equivalence needs verification. Report the Base score with the tool-call mode and generation settings. HARD-51 remains a separate repository-coding follow-up.
 
-The original Gufo build served IQ3_S. Its loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Candidate `73c2064f` loaded IQ3_XXS, then hit an unsupported embedding format during the cached native-MTP smoke test. Candidate `085aa5cc` passed the smoke test on IQ3_XXS, IQ2_XS, and Q2_0 and produced their BFCL scores using four 262,144-token slots. The published IQ3_S score used the original build, so that comparison includes a runtime difference.
+The original Gufo build served IQ3_S. Its loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Candidate `73c2064f` loaded IQ3_XXS, then hit an unsupported embedding format during the cached native-MTP smoke test. Candidate `085aa5cc` passed the smoke test on IQ3_XXS, IQ2_XS, and Q2_0 and produced their BFCL scores using four 262,144-token slots. The builds matched all five IQ3_S full-model regression responses and decoding work counts, so the matrix carries forward the completed IQ3_S run.
 
 ## SWE-bench Pro V2 HARD-51 follow-up
 
 After the BFCL runs, try Scale's official HARD-51 subset as the repository-level coding evaluation. Pin the V2 release, the 51 task IDs, image digests, and agent configuration. Use the V2 verifier to regrade each captured patch in a pristine environment. [Upstream protocol and task list](https://github.com/scaleapi/SWE-bench_Pro-os/blob/main/v2/README.md#hard-51)
 
-Start with a small timing and verifier pilot. The official images are Linux amd64, so verify that the target runner can execute the images and verifier reliably before scoring. Scale's protocol gives the agent 50 minutes per task. Record runtime and how often that deadline binds. If it materially limits either deployment, use matched step and reasoning budgets with a generous safety timeout for the quant comparison, and label the changed protocol alongside its score.
+The [three-task timing pilot](analysis/hard51-timing-pilot.md) validated the container grader. The wall-clock budget stopped one of three trials at 50 minutes and all three at 15 minutes. Use the pilot's matched-work profile for a quant comparison, with separate reporting for wall-clock deployment scores.
 
 ## Reproduce the coding window
 
