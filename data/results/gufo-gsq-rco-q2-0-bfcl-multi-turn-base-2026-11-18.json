@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "gufo-gsq-rco-q2-0-bfcl-multi-turn-base-2026-11-18",
+  "kind": "local",
+  "observed_at": "2026-11-18",
+  "model": {
+    "name": "Qwen3.8-Flash-Next",
+    "revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "quantization": "GSQ-RCO Q2_0",
+    "artifact": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+    "artifact_sha256": "69820c02ec7d0b45ef2ebb19d6620299db749fe2aded7f39f93c6b88b199b720",
+    "artifact_parts": [
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+        "sha256": "69820c02ec7d0b45ef2ebb19d6620299db749fe2aded7f39f93c6b88b199b720"
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+        "sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113"
+      }
+    ]
+  },
+  "benchmark": {
+    "name": "BFCL V4",
+    "revision": "bfcl-eval 2026.3.23",
+    "split": "Multi-Turn Base",
+    "task_set": "sha256:c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288"
+  },
+  "metric": {
+    "name": "accuracy",
+    "value": 0.63,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 200
+  },
+  "protocol": {
+    "harness": "BFCL native function calling with guarded simulated tools",
+    "harness_revision": "bfcl-eval 2026.3.23",
+    "config": {
+      "comparison_group": "bfcl-v4-multi-turn-base-local-fc-medium8k",
+      "attempts_per_task": 1,
+      "generation": {
+        "temperature": 0.001,
+        "reasoning_effort": "medium",
+        "max_tokens": 8192
+      },
+      "reasoning": {
+        "budget_tokens": 6963,
+        "budget_scope": "per_request",
+        "budget_enforcement": "server",
+        "budget_exhaustion": "force_close_then_answer",
+        "final_answer_reserve_tokens": 1229,
+        "output_cap_includes_reasoning": true,
+        "parser": "Gufo",
+        "chat_template_sha256": null,
+        "verification": "configured"
+      },
+      "tool_mode": "native FC",
+      "step_limit_per_user_turn": 20,
+      "artifact_verification": {
+        "source": "Server-computed shard hashes match published ISTA-DASLab blobs",
+        "scope": "Both shard hashes checked before scoring; served artifact path and settings checked at every model switch.",
+        "verified_at": "2026-11-18",
+        "public_artifact_source_revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09"
+      },
+      "audit_summary": "docs/analysis/bfcl-gufo-q2-0.json",
+      "runtime": {
+        "slots": 4,
+        "context_tokens_per_slot": 262144,
+        "tensor_parallelism": 1,
+        "speculative_decoding": "Native MTP",
+        "binary_sha256": "2b72a5e6b16e93fe78ddf70d2d17a55205561a11771696887c02275e37d1b1bf",
+        "runtime_sequence": "Four concurrent cases on one deployment; suite lanes ran sequentially."
+      }
+    },
+    "backend": "Gufo",
+    "backend_revision": "085aa5cc5be56090698e1dfbffc8f092628aea5f",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/gufo-gsq-rco-q2-0-bfcl-multi-turn-base-2026-11-18.json",
+    "retrieved_at": "2026-11-18",
+    "notes": "Sanitized complete-run audit. Raw task content and traces remain private; artifact fingerprints permit later integrity checks."
+  },
+  "measurements": {
+    "completed": 200,
+    "total": 200,
+    "correct": 126,
+    "wilson_95": [
+      0.5612262992405018,
+      0.6938739159014088
+    ]
+  },
+  "notes": "All 200 Base cases. Every verdict was replayed with the pinned native-function scorer. The local generation profile can differ from published BFCL profiles."
+}

@@ -89,7 +89,7 @@ Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protoco
 
 | Deployment | GPQA Diamond | LiveCodeBench | BFCL Base |
 | --- | --- | --- | --- |
-| Gufo Q2_0 | Pending | Pending | Pending |
+| Gufo Q2_0 | Pending | Pending | [126/200 (63.0%)](analysis/bfcl-gufo-q2-0.json) |
 | Gufo IQ2_XS | Pending | Pending | [132/200 (66.0%)](analysis/bfcl-gufo-iq2-xs.json) |
 | Gufo IQ3_XXS | Pending | Pending | [134/200 (67.0%)](analysis/bfcl-gufo-iq3-xxs.json) |
 | Gufo IQ3_S | 182/198 | 109/131 | [120/200 (60.0%)](analysis/bfcl-gufo-iq3-s.json) |
@@ -97,7 +97,7 @@ Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protoco
 
 Reuse the [audited Gufo IQ3_S results](analysis/gufo-controlled-suite-summary-2026-11-18.json) and [Halogen v2 results](halogen-v2-publication.md) for the two completed lanes, with their recorded runtime and sampling differences. BFCL uses the pinned bfcl-eval 2026.3.23 dataset and scorer. The local profile requests medium effort and 8,192 output tokens per turn. Gufo sets a 6,963-token reasoning cutoff explicitly. Halogen uses its server policy, and effective cutoff equivalence needs verification. Report the Base score with the tool-call mode and generation settings. HARD-51 remains a separate repository-coding follow-up.
 
-The original Gufo build served IQ3_S. Its loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Candidate `73c2064f` loaded IQ3_XXS, then hit an unsupported embedding format during the cached native-MTP smoke test. Candidate `085aa5cc` passed the smoke test and produced the IQ3_XXS score above using four 262,144-token slots. The published IQ3_S score used the original build, so that comparison includes a runtime difference.
+The original Gufo build served IQ3_S. Its loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Candidate `73c2064f` loaded IQ3_XXS, then hit an unsupported embedding format during the cached native-MTP smoke test. Candidate `085aa5cc` passed the smoke test on IQ3_XXS, IQ2_XS, and Q2_0 and produced their BFCL scores using four 262,144-token slots. The published IQ3_S score used the original build, so that comparison includes a runtime difference.
 
 ## SWE-bench Pro V2 HARD-51 follow-up
 
