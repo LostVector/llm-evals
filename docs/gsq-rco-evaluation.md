@@ -50,3 +50,11 @@ Terminal-Bench is not assigned the new GPQA/coding thinking budget: its original
 `scripts/export_local.py --recovery-plan <private-plan> --original-input <private-original>` performs the additional lineage audit before exporting GPQA or coding. See [reasoning policy](reasoning-policy.md) for the metadata fields.
 
 The existing-trace analysis of deadlines, recorded agent turns, and timing limitations is documented in [Terminal-Bench comparability](terminal-bench-comparability.md).
+
+## Fresh controlled Gufo suite
+
+A fresh full evaluation completed on the operator-optimized Gufo deployment: 198 GPQA Diamond questions, the frozen 131-problem LiveCodeBench window, and all 89 Terminal-Bench 2.1 tasks. Previous results and subset retries remain separate. GPQA/coding request a 27,853-token reasoning budget within 32,768 total output tokens; Terminal-Bench requests 6,963 reasoning tokens within 8,192 output tokens per turn. A small unscored probe confirmed 64 reported reasoning tokens under a 64-token budget and produced final content. The first scored GPQA request completed successfully and remains part of the cohort.
+
+The run uses up to four concurrent requests, resource-aware Docker admission, original task deadlines, and min-p 0.05. Gufo reports its build as development/unknown; exact build, loaded artifact hashes, KV precision and historical Halogen closure equivalence remain unverified. The 6,963 Terminal-Bench cutoff is derived from Halogen’s documented default reserve formula, not an observed historical cutoff. This is a deadline-limited deployment evaluation, not a matched token-budgeted quantization experiment.
+
+The [audited full Gufo summary](analysis/gufo-controlled-suite-summary-2026-11-18.json) records GPQA 182/198 (91.92%), LiveCodeBench 109/131 (83.21%) and Terminal-Bench 42/89 (47.19%). GPQA and coding both have zero truncated/unparsed responses. Terminal-Bench verifier reports, task checksums, deadline settings and explicit reasoning budgets passed the audit. Full chart export remains gated on loaded-artifact verification.

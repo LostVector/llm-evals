@@ -1,0 +1,65 @@
+{
+  "status": "complete",
+  "profile": "Fresh full Gufo deployment evaluation with explicit per-request reasoning budgets; original Terminal-Bench deadlines.",
+  "quantization": "GSQ-RCO IQ3_S",
+  "backend": "Gufo",
+  "backend_revision": "development (unknown)",
+  "reasoning": {
+    "gpqa_coding_budget_tokens": 27853,
+    "gpqa_coding_total_output_tokens": 32768,
+    "terminal_budget_tokens_per_turn": 6963,
+    "terminal_total_output_tokens_per_turn": 8192,
+    "budget_enforcement_probe": "64-token reasoning request returned 64 reported reasoning tokens and final content",
+    "closure_telemetry": "not_reported",
+    "historical_halogen_terminal_cutoff_verified": false
+  },
+  "sampling_min_p": 0.05,
+  "results": {
+    "gpqa": {
+      "completed": 198,
+      "total": 198,
+      "correct": 182,
+      "accuracy": 0.9191919191919192,
+      "wilson_95": [
+        0.8727779672527037,
+        0.9496496993421267
+      ],
+      "complete": true,
+      "truncated": 0,
+      "unparsed": 0
+    },
+    "coding": {
+      "completed": 131,
+      "total": 131,
+      "correct": 109,
+      "accuracy": 0.8320610687022901,
+      "wilson_95": [
+        0.7588015983551506,
+        0.8864005580208685
+      ],
+      "complete": true,
+      "truncated": 0,
+      "unparsed": 0
+    },
+    "terminal": {
+      "completed": 89,
+      "total": 89,
+      "correct": 42,
+      "accuracy": 0.47191011235955055,
+      "wilson_95": [
+        0.37152022402743146,
+        0.5746245257049423
+      ],
+      "complete": true,
+      "agent_timeouts": 45
+    }
+  },
+  "artifact_verified": false,
+  "loaded_artifact_hashes_verified": false,
+  "limitations": [
+    "Unknown exact engine revision and loaded-file hashes.",
+    "Historical Halogen reasoning closure and effective sampling are not fully verified.",
+    "Terminal-Bench measures deployment performance under wall-clock deadlines; not a token-budgeted quant-only comparison.",
+    "Previous llama and Gufo subset runs remain separate; no best-of selection."
+  ]
+}

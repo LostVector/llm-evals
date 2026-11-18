@@ -1,5 +1,5 @@
 {
-  "status": "prepared_awaiting_compatible_faster_engine",
+  "status": "complete_multiple_gufo_configurations",
   "purpose": "Failure-selected diagnostic rerun; not an unbiased estimate of full-suite performance and not a best-of replacement score.",
   "selection": "All tasks solved by Halogen whose selected original GSQ-RCO trial failed with AgentTimeoutError.",
   "count": 22,
@@ -342,5 +342,19 @@
     "min_p": 0.05
   },
   "reasoning_handling": "Match the original Terminal-Bench per-turn behavior; its 8192-token total cap had no separately enforced earlier thinking cutoff. Record any engine-specific difference before execution.",
-  "engine_readiness": "Confirm the exact GSQ-RCO IQ3_S mixed-precision GGUF is supported, identify engine/build and runtime settings, preserve the same files, and verify the serving route before launching diagnostic trials."
+  "engine_readiness": "Confirm the exact GSQ-RCO IQ3_S mixed-precision GGUF is supported, identify engine/build and runtime settings, preserve the same files, and verify the serving route before launching diagnostic trials.",
+  "engine_optimization": {
+    "status": "unoptimized",
+    "source": "operator_report",
+    "note": "Gufo deployment still needs tuning; deadline-limited outcomes are throughput-sensitive.",
+    "build_verified": false,
+    "loaded_artifact_hashes_verified": false
+  },
+  "optimized_resume": {
+    "unfinished_tasks": 9,
+    "prior_completed_tasks_preserved": 13,
+    "optimization_source": "operator_report",
+    "exact_build_verified": false,
+    "separate_configuration": true
+  }
 }
