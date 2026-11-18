@@ -1,0 +1,56 @@
+{
+  "completed": 200,
+  "total": 200,
+  "complete": true,
+  "correct": 120,
+  "accuracy": 0.6,
+  "wilson_95": [
+    0.53083672039262,
+    0.6653942143319266
+  ],
+  "profile": {
+    "harness": "2026.3.23",
+    "category": "multi_turn_base",
+    "temperature": 0.001,
+    "max_tokens": 8192,
+    "reasoning_effort": "medium",
+    "tool_mode": "native FC",
+    "step_limit": 20,
+    "artifact": "GSQ-RCO-IQ3_S",
+    "engine": "gufo",
+    "reasoning_budget_tokens": 6963
+  },
+  "dataset_sha256": "c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288",
+  "reference_sha256": "7cfd433df6b3e7bbeed6f915290c4c05b351ec6258f06d0b7ed198ffa2ebbccf",
+  "checkpoint_inventory_sha256": "e139f6274c6d984b3b37fa25a251268226ff7bda0e3d0f7c75b98db7256b5a2d",
+  "benchmark": "BFCL V4 Multi-Turn Base",
+  "tool_execution": "BFCL simulated backends, restricted to public methods with literal arguments; all 200 reference trajectories pass offline.",
+  "runtime_disclosure": {
+    "backend": "Gufo",
+    "backend_revision": "development (unknown)",
+    "reported_artifact": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "slots": 4,
+    "loaded_artifact_sha256_verified": true,
+    "artifact_verification_scope": "Post-run hashes of the two shards at the artifact location observed during scoring. Hashes match the published revision. Continuous deployment attestation is unavailable.",
+    "public_artifact_revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "artifact_parts": [
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+        "sha256": "4c1eb2ceb4915e1192f4f386021897bde56a97f40a0bb78bb86465e0f7d2aca3"
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+        "sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113"
+      }
+    ]
+  },
+  "scope": "All 200 official base cases, one scored attempt per case, scored with the pinned BFCL checker and verified by offline replay; local generation profile.",
+  "run_telemetry": {
+    "wall_seconds_from_run_log": 8572,
+    "recorded_model_requests": 2234,
+    "reported_input_tokens": 15778220,
+    "reported_output_tokens": 329531,
+    "median_reported_output_tokens_per_case": 1616.0,
+    "accounting": "Backend-reported usage for model calls recorded by BFCL. Wall time from the created run log through the final summary includes the staged four cases."
+  }
+}

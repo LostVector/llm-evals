@@ -17,7 +17,7 @@ Use memory tiers defined by the actual host, measuring total working memory incl
 ## Next milestones
 
 1. Inventory hardware and choose runtime; select a small exact checkpoint matrix and license-compatible artifacts.
-2. Use the [suite selection and pilot policy](benchmarks.md): HLE-Diamond as primary general capability; SuperGPQA/BBEH as supporting tests; LiveCodeBench, Terminal-Bench, τ-bench text, and MultiChallenge. Use the pinned HLE runner and verify dataset/model/judge access before inference. Start with text-only general/coding pilots and IFBench/BFCL diagnostics, then the interactive pilots. Verify current score spread before fixing the reporting suite.
+2. Use the [suite selection and pilot policy](benchmarks.md): HLE-Diamond as primary general capability; SuperGPQA/BBEH as supporting tests; LiveCodeBench, BFCL V4 Multi-Turn Base, and MultiChallenge. τ²-bench Airline is an optional simulator-based comparison. Future Terminal-Bench runs are on hold until a cumulative per-task token policy is agreed. Use the pinned HLE runner and verify dataset/model/judge access before inference. Start with text-only general/coding pilots and IFBench/BFCL diagnostics, then the interactive pilots. Verify current score spread before fixing the reporting suite. After BFCL, pilot [SWE-bench Pro V2 HARD-51](practical-suite.md#swe-bench-pro-v2-hard-51-follow-up) for repository-level coding.
 3. Pin runner revisions, dataset/task manifests, prompts, budgets and evaluators. Add reviewed output adapters and preserve task-level outcomes for paired model/quant comparisons.
 4. Budget interactive simulator/judge calls explicitly; no paid endpoint use is enabled by this plan. Freeze simulator and judge recipes, and isolate version-incompatible historical references.
 5. Capture source-backed frontier observations with matching benchmark versions and original provenance. Reassess broad coverage, ceilings, floors and task quality before expanding into long-context or repository patching tracks.
@@ -25,8 +25,7 @@ Use memory tiers defined by the actual host, measuring total working memory incl
 
 ## Future goal: harness effects on local agentic performance
 
-After the current quant comparison finishes, measure how much changing the agent
-harness improves the same open-weight deployment on Terminal-Bench 2.1.
+Once we agree on a cumulative per-task token policy, revisit how changing the agent harness affects the same open-weight deployment on Terminal-Bench.
 Use Terminus-2 as the existing baseline and mini-SWE-agent as the first candidate;
 better performance is a hypothesis, not an assumed outcome.
 

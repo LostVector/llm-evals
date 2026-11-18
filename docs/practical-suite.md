@@ -12,7 +12,7 @@ a task set or budget produce a distinct protocol, never a silently comparable sc
 | --- | --- | --- |
 | Reasoning | GPQA Diamond, no tools | All 198 questions, one pass; [frozen protocol](../protocols/gpqa-diamond.json) |
 | Coding | LiveCodeBench code-generation-lite, pass@1 | 131 tasks from February–April 2025; [frozen protocol](../protocols/livecodebench-v6-window.json) |
-| Agentic / multi-turn | Terminal-Bench 2.1 with Terminus-2 | All 89 tasks, one attempt; medium reasoning / 8192 tokens per turn, standard task timeouts |
+| Agentic / multi-turn | BFCL V4 Multi-Turn Base | All 200 base cases. Native function calling with the pinned BFCL scorer, scripted user turns, and the upstream step limit. |
 
 GPQA uses the simple-evals prompt and answer regex, deterministic choice shuffling,
 explicit sampling, xhigh reasoning, and a 32,768-token completion budget. This is
@@ -69,11 +69,41 @@ May 1, 2025 date filter, yielding 131 tasks. It retains all difficulties (31 eas
 prompts, last fenced code extraction and the unmodified upstream test grader are
 pinned by the harness commit. A five-task prefix is only a runtime/harness pilot.
 
+## Terminal-Bench run history
+
+Future runs are on hold until we agree on a cumulative per-task token limit, what counts toward it, and how the harness enforces it. Existing deadline-based scores remain historical deployment results.
+
 Terminal-Bench 2.1 contains 89 tasks in the downloaded official snapshot. Its
 standard agent time budgets total about 42.2 hours serially. Pilot latency and sandbox build time determine feasible
 concurrency; a full one-attempt run should remain within a few days without
 shortening the official task budgets. Generated commands run only in task
 containers, and local endpoint credentials remain with the host-side agent.
+
+## Optional τ²-bench Airline comparison
+
+Use the full English text Airline domain and the same simulator, grading settings, inference step limit and reasoning policy for every quant. Leave the per-task wall-clock cutoff unset for scoring. Track latency and transport failures separately. Compare against the Airline leaderboard column for the same task release and simulator protocol. [Upstream runner guide](https://github.com/sierra-research/tau2-bench/blob/main/docs/running-the-benchmark.md) · [Leaderboard](https://taubench.com/leaderboard/)
+
+## Flash-Next GSQ-RCO coverage
+
+Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protocols for all four [ISTA-DASLab GSQ-RCO variants](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF). Use one Gufo build and matching settings where supported, confirm the loaded artifact after each model switch, and record any runtime differences. Run the Halogen v2 build as a separate reference.
+
+| Deployment | GPQA Diamond | LiveCodeBench | BFCL Base |
+| --- | --- | --- | --- |
+| Gufo Q2_0 | Pending | Pending | Pending |
+| Gufo IQ2_XS | Pending | Pending | Pending |
+| Gufo IQ3_XXS | Pending | Pending | Pending |
+| Gufo IQ3_S | 182/198 | 109/131 | [120/200 (60.0%)](analysis/bfcl-gufo-iq3-s.json) |
+| Halogen v2 | 180/198 | 103/131 | [127/200 (63.5%)](analysis/bfcl-halogen-v2.json) |
+
+Reuse the [audited Gufo IQ3_S results](analysis/gufo-controlled-suite-summary-2026-11-18.json) and [Halogen v2 results](halogen-v2-publication.md) for the two completed lanes, with their recorded runtime and sampling differences. BFCL uses the pinned bfcl-eval 2026.3.23 dataset and scorer. The local profile requests medium effort and 8,192 output tokens per turn. Gufo sets a 6,963-token reasoning cutoff explicitly. Halogen uses its server policy, and effective cutoff equivalence needs verification. Report the Base score with the tool-call mode and generation settings. HARD-51 remains a separate repository-coding follow-up.
+
+The original Gufo build serves IQ3_S. Its Flash-Next loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Static inspection found expert tensor formats in IQ2_XS outside the provider's supported list. Candidate `73c2064f` loaded IQ3_XXS with four 262,144-token slots, then returned an unsupported embedding format error on the cached native-MTP smoke request. That attempt ended before any benchmark cases were scored, and the service returned to IQ3_S.
+
+## SWE-bench Pro V2 HARD-51 follow-up
+
+After the BFCL runs, try Scale's official HARD-51 subset as the repository-level coding evaluation. Pin the V2 release, the 51 task IDs, image digests, and agent configuration. Use the V2 verifier to regrade each captured patch in a pristine environment. [Upstream protocol and task list](https://github.com/scaleapi/SWE-bench_Pro-os/blob/main/v2/README.md#hard-51)
+
+Start with a small timing and verifier pilot. The official images are Linux amd64, so verify that the target runner can execute the images and verifier reliably before scoring. Scale's protocol gives the agent 50 minutes per task. Record runtime and how often that deadline binds. If it materially limits either deployment, use matched step and reasoning budgets with a generous safety timeout for the quant comparison, and label the changed protocol alongside its score.
 
 ## Reproduce the coding window
 

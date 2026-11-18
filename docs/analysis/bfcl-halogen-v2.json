@@ -1,0 +1,48 @@
+{
+  "completed": 200,
+  "total": 200,
+  "complete": true,
+  "correct": 127,
+  "accuracy": 0.635,
+  "wilson_95": [
+    0.566317026527406,
+    0.698594735350732
+  ],
+  "profile": {
+    "harness": "2026.3.23",
+    "category": "multi_turn_base",
+    "temperature": 0.001,
+    "max_tokens": 8192,
+    "reasoning_effort": "medium",
+    "tool_mode": "native FC",
+    "step_limit": 20,
+    "artifact": "halogen-flash-next-v2",
+    "engine": "halogen",
+    "reasoning_budget_tokens": null
+  },
+  "dataset_sha256": "c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288",
+  "reference_sha256": "7cfd433df6b3e7bbeed6f915290c4c05b351ec6258f06d0b7ed198ffa2ebbccf",
+  "checkpoint_inventory_sha256": "5aeffb5a57b623d71f264a901a04fb592eb30e88d5866d3bdbc71ee2e8a3ecaf",
+  "benchmark": "BFCL V4 Multi-Turn Base",
+  "runtime_disclosure": {
+    "backend": "Halogen",
+    "backend_revision": "0.20.3 (live props)",
+    "slots": 4,
+    "artifact_identity": "Halogen v2 reference designated by operator; exact current HGN hash was not independently verified for this run.",
+    "reasoning_budget": "Server policy; effective cutoff and equivalence to Gufo unverified."
+  },
+  "run_telemetry": {
+    "wall_seconds_from_run_log": 5047,
+    "recorded_model_requests": 2214,
+    "reported_input_tokens": 15706418,
+    "reported_output_tokens": 341103,
+    "median_reported_output_tokens_per_case": 1626.0
+  },
+  "paired_with_gufo_iq3_s": {
+    "both_passed": 109,
+    "halogen_only": 18,
+    "gufo_only": 11,
+    "both_failed": 62
+  },
+  "scope": "All 200 official Base cases, local native function-calling settings, one scored attempt per case with offline replay of all verdicts. The result compares serving deployments."
+}
