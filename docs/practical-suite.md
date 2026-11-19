@@ -10,16 +10,16 @@ a task set or budget produce a distinct protocol, never a silently comparable sc
 
 | Lane | Planned measurement | Scope |
 | --- | --- | --- |
-| Reasoning | GPQA Diamond, no tools | All 198 questions, one pass; [frozen protocol](../protocols/gpqa-diamond.json) |
+| Science reasoning regression | GPQA Diamond, no tools | All 198 questions, one pass for the Flash-Next matrix. [Frozen protocol](../protocols/gpqa-diamond.json) |
 | Coding | LiveCodeBench code-generation-lite, pass@1 | 131 tasks from February–April 2025; [frozen protocol](../protocols/livecodebench-v6-window.json) |
 | Agentic / multi-turn | BFCL V4 Multi-Turn Base | All 200 base cases. Native function calling with the pinned BFCL scorer, scripted user turns, and the upstream step limit. |
 
-GPQA uses the simple-evals prompt and answer regex, deterministic choice shuffling,
-explicit sampling, xhigh reasoning, and a 32,768-token completion budget. This is
-one pass rather than the upstream default four repeats. Report a confidence
-interval and avoid interpreting small quant differences as established rankings.
-GPQA measures graduate science reasoning and knowledge, not all general intelligence.
-It supplements the harder HLE-Diamond reference view.
+GPQA uses the simple-evals prompt and answer regex, fixed choice shuffling,
+xhigh reasoning, and a 32,768-token completion budget. The initial Flash-Next
+deployments scored 176–182 out of 198. Retain those runs as science reasoning
+regression checks. For future model or quant selection, reuse existing GPQA
+references and prioritize [HLE-Diamond](general-capability.md) for general
+capability. Run GPQA again when a deployment regression needs investigation.
 
 LiveCodeBench generation and scoring are separate. Code must execute in isolated,
 resource-limited containers without host credentials or broad host mounts. Terminal

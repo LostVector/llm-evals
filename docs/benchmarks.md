@@ -43,7 +43,7 @@ The intended balance is one primary general-capability evaluation, two supportin
 
 HumanEval, MBPP, GSM8K, original MMLU, BBH, and MT-Bench are legacy compatibility/smoke-test candidates only. Do not spend the main evaluation budget on them. This is a portfolio choice, not a claim that every local model saturates every one: BBEH's authors describe BBH saturation, and MultiChallenge's authors describe MT-Bench saturation in frontier models. Smaller models may still benefit from easier development checks.
 
-GPQA Diamond and MMLU-Pro can remain attributed external reference metrics, but do not make them the sole general-capability evidence. A small, science-heavy test gives weaker coverage and less power for small quantization deltas than a broad, adequately sampled suite. Assess current ceiling before promoting either to core.
+Keep GPQA Diamond as a science reasoning regression check. The initial Flash-Next deployments clustered at 176–182 correct out of 198, so future runs should prioritize HLE-Diamond for broader general-capability comparisons. Keep published GPQA Diamond and MMLU-Pro scores as attributed references.
 
 HLE-Diamond is now the primary general track. Original HLE and ARC-AGI remain separate possible stretch/reference tracks, subject to data access, tool/modality protocol and cost. Hardness alone does not establish local discriminatory value; avoid spending the core budget on a floor-dominated test. Private evaluations and composites such as the [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/methodology/intelligence-benchmarking) provide frontier context, but cannot substitute for reproducible local runs. Preserve index versions and do not assume all components are public or locally runnable.
 
