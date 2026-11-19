@@ -89,7 +89,7 @@ Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protoco
 
 | Deployment | GPQA Diamond | LiveCodeBench | BFCL Base |
 | --- | --- | --- | --- |
-| Gufo Q2_0 | Pending | Pending | [126/200 (63.0%)](analysis/bfcl-gufo-q2-0.json) |
+| Gufo Q2_0 | [176/198](../data/results/gufo-gsq-rco-q2-0-gpqa-diamond-2026-11-18.json) | Pending | [126/200 (63.0%)](analysis/bfcl-gufo-q2-0.json) |
 | Gufo IQ2_XS | Pending | Pending | [132/200 (66.0%)](analysis/bfcl-gufo-iq2-xs.json) |
 | Gufo IQ3_XXS | Pending | Pending | [134/200 (67.0%)](analysis/bfcl-gufo-iq3-xxs.json) |
 | Gufo IQ3_S | 182/198 | 109/131 | [120/200 (60.0%)](analysis/bfcl-gufo-iq3-s.json) |
