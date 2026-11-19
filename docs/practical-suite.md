@@ -93,7 +93,7 @@ Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protoco
 | --- | --- | --- | --- |
 | Gufo Q2_0 | [176/198](../data/results/gufo-gsq-rco-q2-0-gpqa-diamond-2026-11-18.json) | [100/131](../data/results/gufo-gsq-rco-q2-0-livecodebench-window-2026-11-19.json) | [126/200 (63.0%)](analysis/bfcl-gufo-q2-0.json) |
 | Gufo IQ2_XS | [173/198](../data/results/gufo-gsq-rco-iq2-xs-gpqa-diamond-2026-11-19.json) | Pending | [132/200 (66.0%)](analysis/bfcl-gufo-iq2-xs.json) |
-| Gufo IQ3_XXS | Pending | Pending | [134/200 (67.0%)](analysis/bfcl-gufo-iq3-xxs.json) |
+| Gufo IQ3_XXS | [183/198](../data/results/gufo-gsq-rco-iq3-xxs-gpqa-diamond-2026-11-19.json) | Pending | [134/200 (67.0%)](analysis/bfcl-gufo-iq3-xxs.json) |
 | Gufo IQ3_S | 182/198 | 109/131 | [120/200 (60.0%)](analysis/bfcl-gufo-iq3-s.json) |
 | Halogen v2 | 180/198 | 103/131 | [127/200 (63.5%)](analysis/bfcl-halogen-v2.json) |
 
