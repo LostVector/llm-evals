@@ -99,6 +99,12 @@ Reuse the [audited Gufo IQ3_S results](analysis/gufo-controlled-suite-summary-20
 
 The original Gufo build served IQ3_S. Its loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Candidate `73c2064f` loaded IQ3_XXS, then hit an unsupported embedding format during the cached native-MTP smoke test. Candidate `085aa5cc` passed the smoke test on IQ3_XXS, IQ2_XS, and Q2_0 and produced their BFCL scores using four 262,144-token slots. The builds matched all five IQ3_S full-model regression responses and decoding work counts, so the matrix carries forward the completed IQ3_S run.
 
+### Published higher-precision references
+
+AMD reports **92.12% GPQA Diamond** and **88.09% LiveCodeBench** for Flash-Next BF16 with the original n-gram table. Its 198-question GPQA set and 131-problem LiveCodeBench v6 date window align with ours. AMD averaged five `xhigh` runs and used a **253,952-token output cap** within a **262,144-token context window**. The local single-turn runs use a **32,768-token output cap**. Both scores are available in the chart's context view. [AMD results and protocol](https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#appendix-b-exact-benchmark-results)
+
+AMD's **66.21% BFCL v4** is a weighted no-web-search aggregate. The local BFCL track covers the 200-case Multi-Turn Base split. A published **87/100** LiveCodeBench result for the 8-bit oQ8e MLX build used a stratified 100-problem sample with thinking disabled. [AMD BFCL results](https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#qwen-results-with-xhigh-thinking) · [oMLX 8-bit result](https://omlx.ai/benchmarks/intelligence/dc87mf9x)
+
 ## SWE-bench Pro V2 HARD-51 follow-up
 
 After the BFCL runs, try Scale's official HARD-51 subset as the repository-level coding evaluation. Pin the V2 release, the 51 task IDs, image digests, and agent configuration. Use the V2 verifier to regrade each captured patch in a pristine environment. [Upstream protocol and task list](https://github.com/scaleapi/SWE-bench_Pro-os/blob/main/v2/README.md#hard-51)
