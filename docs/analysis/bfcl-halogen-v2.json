@@ -26,10 +26,19 @@
   "benchmark": "BFCL V4 Multi-Turn Base",
   "runtime_disclosure": {
     "backend": "Halogen",
-    "backend_revision": "0.20.3 (live props)",
+    "backend_revision": "0.20.3 / 54a488ef3224",
     "slots": 4,
-    "artifact_identity": "Halogen v2 reference designated by operator; exact current HGN hash was not independently verified for this run.",
-    "reasoning_budget": "Server policy; effective cutoff and equivalence to Gufo unverified."
+    "artifact_identity": "Halogen v2 reference designated by operator and verified on the running service after evaluation.",
+    "reasoning_budget": "Server policy; effective cutoff and equivalence to Gufo unverified.",
+    "artifact": "qwen38-flash-next-v2.hgn",
+    "artifact_sha256": "71246c6ab3fc1de2cf06326f18e275fe9c2a18366d646ed3357d194c884fc687",
+    "artifact_verification": {
+      "source": "Post-run inspection by the inference-server session",
+      "scope": "Loaded HGN filename and file digest plus backend revision verified on the running Halogen service after the evaluation.",
+      "verified_at": "2026-11-19",
+      "evaluation_period_continuity": "unverified",
+      "public_artifact_source_revision": "unknown"
+    }
   },
   "run_telemetry": {
     "wall_seconds_from_run_log": 5047,
