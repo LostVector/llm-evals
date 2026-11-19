@@ -1,6 +1,20 @@
 # Evaluation suite selection
 
-Decision updated 2026-11-11. HLE-Diamond full-set no-tool pass@1 accuracy is the primary general-capability metric, with supporting general diagnostics, coding and multi-turn evaluations. Selection is provisional until a local-model pilot establishes actual discrimination. No benchmark measures general intelligence in full, and no current score spread has been independently reproduced here.
+Decision updated 2026-11-19. The suite reports separate general-capability, coding, and multi-turn scores. Local pilots establish runtime and verify the grader before full cohorts run.
+
+## Comparison suite
+
+Use these three tracks for new model comparisons. Freeze the task IDs, prompt, grader, and work budget before running the first deployment. Run hosted baselines on the same profile when a published result uses a different setup. Keep published scores visible with their original source and protocol.
+
+| Capability | Fixed track | Published anchors and headroom |
+| --- | --- | --- |
+| General capability | **HLE-Diamond**, all 1,000 questions, no tools, official prompt and one fixed judge. Use the same image treatment within a comparison cohort. | Artificial Analysis reports Flash-Next **16.3%**, GLM-5.3 **17.9%**, GLM-5.3-Flash **18.2%**, DeepSeek V4.1 Flash 1017 **25.3%**, and Claude Fable 5.2 **80.2%** on the full set. [Scores](https://artificialanalysis.ai/evaluations/hle-diamond) · [Method](https://artificialanalysis.ai/methodology/intelligence-benchmarking#hle-diamond) · [Local recipe](general-capability.md) |
+| Coding | **LiveCodeBench release_v6**, the frozen 131 problems from February through April 2025, one completion per problem, upstream tests. | AMD's Flash-Next BF16 scores **88.09%** on the matching date window with five repeats and a larger output budget. Gufo IQ3_S scored **83.21%** with the local recipe. Published GLM and DeepSeek scores use different or undisclosed task sets. [AMD results](https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#appendix-b-exact-benchmark-results) · [Local recipe](../protocols/livecodebench-v6-window.json) |
+| Multi-turn agency | **τ³-Banking**, all 97 English text `banking_knowledge` tasks, Sierra v1.0.1, BM25 plus grep, fixed simulator and judge, and a 200-step task budget. | Artificial Analysis reports Flash-Next **45.36%**, GLM-5.3 **50.31%**, and GLM-5.3-Flash **47.22%**. Its method specifies GPT-5.4 Mini at medium for simulation and judge, with five runs per task. Its exact 1017 score is missing. [Scores](https://artificialanalysis.ai/evaluations/tau3-banking) · [Method](https://artificialanalysis.ai/methodology/intelligence-benchmarking#tau3-banking) · [Upstream release](https://github.com/sierra-research/tau2-bench/releases/tag/v1.0.1) |
+
+Run a fixed small pilot for HLE-Diamond and Banking before scheduling full cohorts. Use the same pilot tasks for the local candidate and a hosted baseline to measure runtime and confirm grading. For matched results, use the same task list, prompt, tools, and budget with GLM-5.3, GLM-5.3-Flash, and the exact DeepSeek 1017 checkpoint. A pilot score applies to its pilot tasks. Full published scores apply to their full cohorts.
+
+Keep GPQA for science regression and BFCL Multi-Turn Base for native-tool compatibility. The current Flash-Next matrix retains these measurements. Banking is the multi-turn capability track for new comparisons.
 
 ## Primary general-capability decision
 
@@ -8,19 +22,15 @@ Use **HLE-Diamond full-set no-tool pass@1 accuracy (%)**, with separate reasonin
 
 Do not treat task subsets, missing images, different judges or different token/reasoning budgets as identical protocols. Use the 728-question text-only slice only as a separately labeled diagnostic. Retain SuperGPQA/BBEH for local model and quant discrimination if Diamond is too hard for a target tier; their historical source tables are not the current frontier baseline.
 
-## Core and supporting suite
+## Supporting and historical benchmarks
 
 | Area | Benchmark and proposed track | Why include it | Local cost and scoring |
 | --- | --- | --- | --- |
-| Primary general capability | [HLE-Diamond](https://huggingface.co/datasets/cais/hle-diamond), full-set without tools | Broad expert knowledge and reasoning, complete released task set and recent frontier baselines. | Gated dataset access plus model generation and fixed-judge inference. Headline overall accuracy with 500/500 reasoning and knowledge partition breakdowns. [Run protocol](general-capability.md). |
 | Supporting broad knowledge and reasoning | [SuperGPQA](https://github.com/SuperGPQA/SuperGPQA), all disciplines | Graduate-level questions across 285 disciplines; much broader than a science-only or math-only test. Original results show substantial model separation below ceiling. | Many independent text generations; deterministic answer scoring. Start with a fixed discipline-stratified pilot, then expand. Report sample accuracy and discipline macro accuracy separately. |
 | Supporting general reasoning | [BIG-Bench Extra Hard (BBEH)](https://github.com/google-deepmind/bbeh), Mini pilot then full | Diverse reasoning beyond code/math. Explicitly designed to replace saturated BBH tasks; includes an official 460-example Mini and 4,520-example full set. | No interactive environment or paid judge required. Use upstream evaluator; preserve per-task results and official aggregate, including distinction between harmonic and micro averages. Watch for floors in small models. |
-| Coding fundamentals | [LiveCodeBench](https://github.com/LiveCodeBench/LiveCodeBench), code generation | Executable tests, difficulty labels, and dated contest problems let us separate coding ability from agent tooling. A pinned recent problem window is preferable to a fixed legacy code exercise set. | Code execution environment plus generations; pass@1 by difficulty and overall. Pin the actual available release and exact dates; verify that date filters select the intended task IDs. No assumption that a fresh window is available. |
 | Agentic coding and computer work | [Terminal-Bench](https://www.tbench.ai/), future runs on hold pending an agreed cumulative per-task token limit | Multi-step terminal work tests planning, tool use, debugging, and recovery. Complements isolated programming questions. | High: containers, tools, long trajectories. Report task resolution, wall time, tokens, cost and failure categories with one fixed agent. Freeze suite, images and resource/step budgets. |
-| Multi-turn tool-driven agency | [τ²-bench Airline](https://github.com/sierra-research/tau2-bench), full 50-task English text domain | Stateful interaction, policy adherence and tool use with a simulated user; measures sustained success rather than isolated function-call syntax. | Interactive runs plus simulator and judge inference. Use pass¹ as the headline and report pass^k reliability if trials are repeated. Fix the simulator, judge and step limit across candidates. |
+| Optional simulator check | [τ²-bench Airline](https://github.com/sierra-research/tau2-bench), full 50-task English text domain | Stateful interaction, policy adherence, and tool use with a simulated user. | Interactive runs plus simulator and judge inference. Fix the simulator, judge and step limit across candidates. |
 | Multi-turn conversation | [MultiChallenge](https://labs.scale.com/leaderboard/multichallenge), revised dataset | Tests instruction retention, inference memory, coherent responses and iterative editing. Covers a gap that coding agents and tool-call tests do not. | Moderate generation cost plus rubric judging. Pin dataset revision, conversation rollout protocol, rubric, judge/version and answer extraction. Report each of the four axes separately. |
-
-The intended balance is one primary general-capability evaluation, two supporting general tests, one active coding benchmark, and two interaction evaluations. Publish a profile of results rather than a single average. These cost labels are relative estimates, not measured run costs.
 
 ## Evidence and uncertainty
 
@@ -47,7 +57,7 @@ Keep GPQA Diamond as a science reasoning regression check. The initial Flash-Nex
 
 HLE-Diamond is now the primary general track. Original HLE and ARC-AGI remain separate possible stretch/reference tracks, subject to data access, tool/modality protocol and cost. Hardness alone does not establish local discriminatory value; avoid spending the core budget on a floor-dominated test. Private evaluations and composites such as the [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/methodology/intelligence-benchmarking) provide frontier context, but cannot substitute for reproducible local runs. Preserve index versions and do not assume all components are public or locally runnable.
 
-[SWE-bench Verified](https://www.swebench.com/) remains a historical reference rather than the primary coding target. [OpenAI's audit of SWE-Bench Pro](https://openai.com/index/separating-signal-from-noise-coding-evaluations/) also raises task-validity concerns about the audited version. Do not automatically select Pro just because it is harder; later revisions need their own audit. The active agentic lane is τ²-bench Airline. Future Terminal-Bench runs are on hold pending agreement on the cumulative token cap, accounting and enforcement. Repository-level patching remains a gap to revisit.
+[SWE-bench Verified](https://www.swebench.com/) remains a historical reference. [OpenAI's audit of SWE-Bench Pro](https://openai.com/index/separating-signal-from-noise-coding-evaluations/) raises task-validity concerns about the audited version. τ²-bench Airline remains an optional simulator check. Future Terminal-Bench runs are on hold pending agreement on the cumulative token cap, accounting and enforcement. The HARD-51 timing pilot covers repository-level patching separately.
 
 ## Pilot acceptance and refresh policy
 

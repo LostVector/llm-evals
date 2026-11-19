@@ -19,7 +19,7 @@ python3 -m unittest discover -s tests -v
 
 For a published score, use `python3 evals.py template external`. Unfilled templates intentionally fail validation. Results are one JSON file per observation, with globally unique IDs. The report sorts by benchmark and model, never invents a combined ranking, and separates local runs from external references. No scores have been seeded or benchmarks run.
 
-Our primary general-capability metric is **HLE-Diamond full-set accuracy at pass@1 without tools**, with reasoning/knowledge breakdowns. [Run it locally](docs/general-capability.md). **SuperGPQA + BBEH** provide supporting diagnostics, alongside **LiveCodeBench** (coding) and **τ²-bench Airline + MultiChallenge** (interactive tools and conversation). [Selection rationale and pilot gates](docs/benchmarks.md) explain how we will check ceilings, floors, uncertainty, and local run cost before freezing the suite.
+The [comparison suite](docs/benchmarks.md#comparison-suite) uses **HLE-Diamond** for general capability, **LiveCodeBench v6** for coding, and **τ³-Banking** for multi-turn agency. Each track pins the task set and grader. Published scores retain their original protocols, and matched comparisons use the same run profile on local and hosted models.
 
 The [practical local suite](docs/practical-suite.md) starts with a complete 198-question GPQA Diamond pass, a pinned LiveCodeBench window, and the 200-case BFCL V4 Multi-Turn Base category. Future Terminal-Bench runs are on hold pending agreement on a cumulative per-task token limit. It excludes full SuperGPQA and uses timing pilots to keep a deployment evaluation within a few days. This local starting suite is separate from the harder frontier reference view.
 
