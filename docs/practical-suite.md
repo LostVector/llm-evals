@@ -93,13 +93,13 @@ Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protoco
 | --- | --- | --- | --- |
 | Gufo Q2_0 | [176/198](../data/results/gufo-gsq-rco-q2-0-gpqa-diamond-2026-11-18.json) | [100/131](../data/results/gufo-gsq-rco-q2-0-livecodebench-window-2026-11-19.json) | [126/200 (63.0%)](analysis/bfcl-gufo-q2-0.json) |
 | Gufo IQ2_XS | [173/198](../data/results/gufo-gsq-rco-iq2-xs-gpqa-diamond-2026-11-19.json) | [100/131](../data/results/gufo-gsq-rco-iq2-xs-livecodebench-window-2026-11-19.json) | [132/200 (66.0%)](analysis/bfcl-gufo-iq2-xs.json) |
-| Gufo IQ3_XXS | [183/198](../data/results/gufo-gsq-rco-iq3-xxs-gpqa-diamond-2026-11-19.json) | Pending | [134/200 (67.0%)](analysis/bfcl-gufo-iq3-xxs.json) |
+| Gufo IQ3_XXS | [183/198](../data/results/gufo-gsq-rco-iq3-xxs-gpqa-diamond-2026-11-19.json) | [106/131](../data/results/gufo-gsq-rco-iq3-xxs-livecodebench-window-2026-11-20.json) | [134/200 (67.0%)](analysis/bfcl-gufo-iq3-xxs.json) |
 | Gufo IQ3_S | 182/198 | 109/131 | [120/200 (60.0%)](analysis/bfcl-gufo-iq3-s.json) |
 | Halogen v2 | 180/198 | 103/131 | [127/200 (63.5%)](analysis/bfcl-halogen-v2.json) |
 
 Reuse the [audited Gufo IQ3_S results](analysis/gufo-controlled-suite-summary-2026-11-18.json) and [Halogen v2 results](halogen-v2-publication.md) for the two completed lanes, with their recorded runtime and sampling differences. BFCL uses the pinned bfcl-eval 2026.3.23 dataset and scorer. The local profile requests medium effort and 8,192 output tokens per turn. Gufo sets a 6,963-token reasoning cutoff explicitly. Halogen uses its server policy, and effective cutoff equivalence needs verification. Report the Base score with the tool-call mode and generation settings. HARD-51 remains a separate repository-coding follow-up.
 
-On LiveCodeBench, one Q2_0 response and six IQ2_XS responses hit the 32,768-token output limit. All seven counted as misses under the frozen scoring protocol.
+On LiveCodeBench, one Q2_0 response, six IQ2_XS responses, and three IQ3_XXS responses hit the 32,768-token output limit. All ten counted as misses under the frozen scoring protocol.
 
 IQ2_XS and IQ3_XXS use separate hosts of the same Ryzen AI Max+ 395 hardware class for single-turn runs. Each host uses four inference slots and the verified Gufo `085aa5cc` binary and model shards from that quant's BFCL run.
 
