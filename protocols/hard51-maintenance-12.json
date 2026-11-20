@@ -1,0 +1,128 @@
+{
+  "id": "hard51-maintenance-12-v1",
+  "source_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+  "work_protocol": "swe-bench-pro-v2-hard51-matched-work-v1",
+  "selection": "Twelve ordinary maintenance tasks across repository families, including the three calibration tasks. The cohort was frozen before running the nine additional tasks.",
+  "tasks": [
+    {
+      "task": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e@sha256:267632c93bae96eb120292b36e68227a41f2b6edd8e8ff5d7a3bdd7ef4af3b6b",
+      "sha256": {
+        "instruction.md": "52de1203b5077923e832ebc37bd73e5a51bff564f027fd89bb4a6558540a5971",
+        "task.toml": "db729b373648ee7f24d8dd66ed777c40aef55458562fb60d156b02d9e6d833cc",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf@sha256:74ef826866ce57312db8311f14ec0c2ce2d03570028b5951653607f0ed72fb79",
+      "sha256": {
+        "instruction.md": "b29415050a1a07795fb0c1440322e6c641c36176b53d339ad47578f06c3b5ebe",
+        "task.toml": "6f1785dcd2155ef84c9c66b621d6828b60645b84111ac170f8abf178e0edae49",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": true
+    },
+    {
+      "task": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59@sha256:4cf51f69dad7c8cb966fa2af791058ba72e3b4124461d7418239bda01b5a6a9f",
+      "sha256": {
+        "instruction.md": "5379b1581e024fcf9ba14d29f6b6a7821031a17e1ed0d20b4141aa50c3c282d2",
+        "task.toml": "1a3c8842c8c8a1d527a943c6a7464f3a51c6cda01a509060d02caff3c5d24034",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59@sha256:5886dc437c80fa58b347bf930c7e044b4bc9813b183ab01761b801907d82dfc0",
+      "sha256": {
+        "instruction.md": "e8538e435727e8f24bed64ba8ae84878fe6c876509d5176568c057777a8950b6",
+        "task.toml": "55393fa8edc09c1a4ed7b7db00bfae191e56d89ddab430f0212578be206a7d80",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan@sha256:d00b6d7d6ecd96aa73bf62ef1a1c4a17b4973e2aea335118d7492ff0f5ba9a24",
+      "sha256": {
+        "instruction.md": "99940e870b59ff2f25ed8f4dd3c0dd87b37934a7de94e30c088c9fd0b6ec019c",
+        "task.toml": "363c91019d044cb42d917e5f4ed194527477dd6eee3f6bf2f7463be76cbf8222",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15@sha256:3e22d74aee90feeb81e56bf39af968f91aed67da27dc192fa52486efac3c59be",
+      "sha256": {
+        "instruction.md": "2d4722ba7655e8d0ca06b89aff9ec597976324aea86b43dbd7af046b10658bbe",
+        "task.toml": "0efaf742f4ea48b5adc022ac17ebe33ad2d34246a619e8ca4c2c87b1f1fece27",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037@sha256:632578dca791946b2c223c944706656007d8c930eab510dd50d7553c827c48ff",
+      "sha256": {
+        "instruction.md": "dff482a373984c9be10d26066d44e6a742affbaa259e90835680b72250ec8ebe",
+        "task.toml": "81fb105e9ab1b4f4001736109c460797d6a3a5337cbaed2297ffff28996d9d6d",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59@sha256:e577f3213ab319585b714b4a534141576bcd4d2991a93bcbd862ae464e81804a",
+      "sha256": {
+        "instruction.md": "a45af577fe6f15631ac7aec4833f8486293e0ea37cffd203cd49c1b688abc920",
+        "task.toml": "de413e370676af2f2e63b3c91e5e4f2e7bef266bbcabdb70954bb8b83321b160",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": true
+    },
+    {
+      "task": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26@sha256:bc38d36c23ecc5f3a2d6db194dabcc1fb67146105629d0385ed1a9a3d67e6939",
+      "sha256": {
+        "instruction.md": "3402f67717d1903b935bc0f07ca16bb9e066cb42af0bc0c6e273168985334df3",
+        "task.toml": "85cf4d8d86aa6b47257b57774089b1bc585da72fbff10c1db5f2207f3c7391fd",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_navidrome__navidrome-bf2bcb12799b21069f137749e0c331f761d1f693",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_navidrome__navidrome-bf2bcb12799b21069f137749e0c331f761d1f693@sha256:bd1f52e0267398ec26f33e99dcec4c262f9aba6ba841aab3c723941fc8f36b2b",
+      "sha256": {
+        "instruction.md": "2c468f82fbfe9286a1ddafef05dc68284f132e75b727d2649179f56a350b5823",
+        "task.toml": "a94c62d3d2113988133a9cf835d5c6cf7cea0b3b68d6c05ec8ab368a51fadaa2",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367@sha256:9222ac9b8a480eff3f234f8e46361e81d78385da4aa3e03f8b796cf013324eba",
+      "sha256": {
+        "instruction.md": "03a6962f4beefca85fec7e9a2eca9b377f267ff8ea1a1cf6b9c31f90947eb5b6",
+        "task.toml": "fe89eb6adffe5106b942bf7842f73c8349cf97367a065751b87e2866e45bd175",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": false
+    },
+    {
+      "task": "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171@sha256:f2d98fc1a5c7fdb7a90fb16001e8b79a5a9ff86b0290bbcfbfd9c274b40c6ddb",
+      "sha256": {
+        "instruction.md": "8d42bdcc4b79b34a3f3e265f98901f4a5ee980cf76953ddde6e721a0b1f70411",
+        "task.toml": "5ce863f36fc4132e57b174538448a5cd239ce2fce93cc0aa612d3e00924dd027",
+        "tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0"
+      },
+      "reused_calibration_task": true
+    }
+  ]
+}
