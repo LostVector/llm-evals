@@ -103,9 +103,16 @@ class Hard51MatchedAgent(HostMiniSweAgent):
         if hashlib.sha256(config).hexdigest() != PROTOCOL["agent_config_sha256"]:
             raise ValueError("Upstream agent config differs from the pinned profile")
         profile = yaml.safe_load(config)
-        cwd = await self._detect_cwd(environment)
-        system = await environment.exec(command="uname -srm")
-        os_name, release, machine = system.stdout.strip().split()
+        probe = await environment.exec(command=(
+            'cd /app 2>/dev/null || cd /testbed 2>/dev/null || exit 1; '
+            'printf "HARD51_CWD=%s\\n" "$PWD"; printf "HARD51_UNAME="; uname -srm'
+        ))
+        if probe.return_code:
+            raise RuntimeError("Could not identify the task sandbox and repository")
+        facts = dict(line.removeprefix("HARD51_").split("=", 1)
+                     for line in probe.stdout.splitlines() if line.startswith("HARD51_"))
+        cwd = facts["CWD"]
+        os_name, release, machine = facts["UNAME"].split()
         started = time.monotonic()
         deadline = started + PROTOCOL["agent_wall_guard_seconds"]
         sandbox = GuardedSandbox(
