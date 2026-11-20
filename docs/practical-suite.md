@@ -115,7 +115,11 @@ AMD's **66.21% BFCL v4** is a weighted no-web-search aggregate. The local BFCL t
 
 After the BFCL runs, try Scale's official HARD-51 subset as the repository-level coding evaluation. Pin the V2 release, the 51 task IDs, image digests, and agent configuration. Use the V2 verifier to regrade each captured patch in a pristine environment. [Upstream protocol and task list](https://github.com/scaleapi/SWE-bench_Pro-os/blob/main/v2/README.md#hard-51)
 
-The [three-task timing pilot](analysis/hard51-timing-pilot.md) validated the container grader. The wall-clock budget stopped one of three trials at 50 minutes and all three at 15 minutes. Use the pilot's matched-work profile for a quant comparison, with separate reporting for wall-clock deployment scores.
+The [three-task timing pilot](analysis/hard51-timing-pilot.md) validated the container grader. The wall-clock budget stopped one of three trials at 50 minutes and all three at 15 minutes. The shorter trials captured usable patches on two tasks. Each profile ran a separate trajectory, so the pilot does not isolate the effect of the deadline on correctness.
+
+Scale's 50-minute protocol measures what a deployment can deliver in a fixed time. A faster deployment can generate more reasoning and take more turns before that deadline. For the local capability comparison, the [matched-work protocol](../protocols/hard51-matched-work.json) bounds loops by **128 model calls**, **150,000 cumulative completion tokens**, and **16,384 completion tokens per call**. Completion counts include generated reasoning, tool-call arguments, and visible text as reported by the endpoint. Prompt and tool-result input tokens are tracked separately from this budget. Clamp each request to the remaining task allowance and grade the patch after the last allowed response's valid actions. Use the pinned mini-SWE-agent prompt, offline commands, and the same pristine verifier.
+
+Keep a six-hour wall-clock guard for stalled runs. Publish a guard-limited outcome separately and track transport failures as infrastructure errors. A patch produced at a token or call limit receives its actual verifier result. The [Harbor adapter](../scripts/hard51_matched_agent.py) records each request's output cap, completion usage, and stop reason. Freeze the profile for both deployments on the three pilot tasks before expanding the cohort. Label it separately from Scale's 50-minute scores.
 
 ## Reproduce the coding window
 
