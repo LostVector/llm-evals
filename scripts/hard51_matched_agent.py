@@ -9,6 +9,7 @@ import json
 import math
 import os
 from pathlib import Path
+from secrets import token_hex
 import shlex
 import time
 
@@ -142,8 +143,14 @@ class Hard51MatchedAgent(HostMiniSweAgent):
                 "n_calls": len(model.requests), "completion_tokens": model.completion_tokens,
                 "requests": model.requests,
             }, indent=2) + "\n")
-        patch = await environment.exec(command=f"git -C {shlex.quote(cwd)} add -A && "
-                                       f"git -C {shlex.quote(cwd)} diff --cached --binary", timeout_sec=40)
+        repository = shlex.quote(cwd)
+        remote_patch = f"/tmp/hard51-{token_hex(8)}.patch"
+        patch = await environment.exec(command=(
+            f"git -C {repository} add -A && "
+            f"git --no-pager -C {repository} diff --cached --binary > {remote_patch}"
+        ), timeout_sec=120)
         if patch.return_code:
             raise RuntimeError("Could not capture the model patch")
-        (self.logs_dir / "model.patch").write_text(patch.stdout or "")
+        pending_patch = self.logs_dir / "model.patch.pending"
+        await asyncio.wait_for(environment.download_file(remote_patch, pending_patch), timeout=90)
+        pending_patch.replace(self.logs_dir / "model.patch")
