@@ -1,0 +1,144 @@
+{
+  "status": "complete",
+  "scope": "Failure-selected diagnostic; configurations and retries preserved separately. Not a full-suite or quantization-only score.",
+  "optimized_batches": [
+    {
+      "profile": "optimized_unfinished",
+      "count": 9,
+      "passes": 5,
+      "failed_timeouts": 4,
+      "tasks": [
+        {
+          "task": "distribution-search",
+          "task_checksum": "b92a6ca622e24a97dce2720f090562d729f8423aa03b8e77875c1a217c71ea4c",
+          "reward": 1.0,
+          "exception": null,
+          "result_sha256": "20d7ab33a411d080633e4eda4d88166175a1113fe928e0fdf7f0b931d3cc844c"
+        },
+        {
+          "task": "feal-differential-cryptanalysis",
+          "task_checksum": "edacb57935c0b4181a115ac309d3b0e7c26c7cf49ccadf69762822068445df78",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "2c2e7f7eee93725287d9a26580fb318e9290a429fe1947be019107ddb4c53482"
+        },
+        {
+          "task": "financial-document-processor",
+          "task_checksum": "312889565426c3a4ed49c11531586aa8b7ba947b1507a846347280f44185cdba",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "e0b1abfef1eeb9b831c86f5eb9590485e81df1dfb05d8e670507e63a4bd8cccd"
+        },
+        {
+          "task": "headless-terminal",
+          "task_checksum": "d1324ce5d4734d79b4569b569d2aa826dbfce6eadc6ac406f137d21446ac8d1a",
+          "reward": 1.0,
+          "exception": null,
+          "result_sha256": "25f6c48eaab6408801a281707c228d69b43b116ef55fca24688e4b373f26e708"
+        },
+        {
+          "task": "mailman",
+          "task_checksum": "ab0557da8fe78e716eecfa52622c0c3f5ae8ab68aa22dc3b532b54520b279413",
+          "reward": 1.0,
+          "exception": null,
+          "result_sha256": "d2e21f9f29339a9780a2c64fe8fa59cb97fa8d6e0cc568dae2df841d59aef6af"
+        },
+        {
+          "task": "pytorch-model-recovery",
+          "task_checksum": "e321c0e7501b3f021cfca26520574b343dff3dee6919f2e9dd5ff9e28ffc3725",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "5b0b00605de450a01c46bfe6979681e0be6e0a863fc4e8256da9e74184f3a76e"
+        },
+        {
+          "task": "qemu-alpine-ssh",
+          "task_checksum": "9b80d6fc7fc051ab6f3a9832241252b2dcac75b7cd2766a6a9aa85510c5f11b0",
+          "reward": 1.0,
+          "exception": null,
+          "result_sha256": "af1ec0416639770948afabb355789f7d9bedfd89f59f846da2dcc8fc0781b078"
+        },
+        {
+          "task": "reshard-c4-data",
+          "task_checksum": "89d8d86b48c2619328d2eb1a86c33a93d1f641fbfb59c4e0626535e246715b65",
+          "reward": 1.0,
+          "exception": null,
+          "result_sha256": "745847526380e979b85df0c19498c103a15c3bc5678ca052438aef9316ace562"
+        },
+        {
+          "task": "rstan-to-pystan",
+          "task_checksum": "2083c5878b9e8232e5a52244781bc31c677e0f39bed2503cf9a246b0b12578c6",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "19f640be83cb3c44cbb06a9ebe0c8b07417b203ffaab463ae8c6287dc0d358a0"
+        }
+      ]
+    },
+    {
+      "profile": "optimized_prior_timeout_retry",
+      "count": 7,
+      "passes": 3,
+      "failed_timeouts": 4,
+      "tasks": [
+        {
+          "task": "circuit-fibsqrt",
+          "task_checksum": "dc4c18df98c940d9ec11336861e07f7f5ca2a13b9e8e0f95e886c20f3d61bc0d",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "0db941c875db4d25bebf63c3798db7e3853726e765de9052d4f06dfc99769a3c"
+        },
+        {
+          "task": "cobol-modernization",
+          "task_checksum": "5e3806427eaaaa9f0f756a2a87d4f7f50ec1c8a0d329b26bab7dc09657b937cf",
+          "reward": 1.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "2570dde35a88ab8c29490ea7409b8d81f129a7a455bc8255dfd6e0d13d94bc30"
+        },
+        {
+          "task": "password-recovery",
+          "task_checksum": "a8b12d116b3a8e03e946f0db92b77e789cfa26ecb49a56be5723ff47a03a532d",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "4bb0b7080aabc1e7e1dc8477f2bf305e29564918db4a84c44b8a645bba47397d"
+        },
+        {
+          "task": "polyglot-rust-c",
+          "task_checksum": "aabe829791a3d41a79deb775717a64fab08f286349cb07640e50dcfff6f497be",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "93a21211ae1023eac6f9f91c1b7a317b773697e51497130482ba0660d78df129"
+        },
+        {
+          "task": "schemelike-metacircular-eval",
+          "task_checksum": "e4525988ae20585b6b90a2f1af2fcc9d18d6363d3cfcdd7be5305199428883d2",
+          "reward": 1.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "3196eb92d7b7c292d42e420feedd9e748f7549843bb46f8610db46963dd6a4b9"
+        },
+        {
+          "task": "sparql-university",
+          "task_checksum": "9c12586c19816f24b248cb8843f317cfef98804c8a6f4fe3717133db79ffca25",
+          "reward": 1.0,
+          "exception": null,
+          "result_sha256": "e49a4fa242f437f0b62fa5cb486bda02c2eb78722801e104e811e991e02c5b9e"
+        },
+        {
+          "task": "sqlite-db-truncate",
+          "task_checksum": "673cdff46735ca0b8d83c6c82c0a4e252149d31629e80da9d8439a05d771351c",
+          "reward": 0.0,
+          "exception": "AgentTimeoutError",
+          "result_sha256": "9a8640fe099041a47349643365c4205bb76db80666dafb0a22162fa732b1abf3"
+        }
+      ]
+    }
+  ],
+  "optimized_passes": 8,
+  "optimized_tasks": 16,
+  "earlier_unoptimized_completed": 13,
+  "earlier_unoptimized_passes": 6,
+  "distinct_tasks_solved_across_attempts": 14,
+  "distinct_tasks": 22,
+  "infrastructure_failures": 0,
+  "engine_build_verified": false,
+  "loaded_artifact_hashes_verified": false,
+  "validation": "Finished results, frozen task checksums, original deadline multiplier, no agent deadline override, verifier reward files and CTRF presence checked."
+}

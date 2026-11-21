@@ -68,6 +68,12 @@ function render() {
     const row = node('div',undefined,'bar-row'); row.setAttribute('role','listitem');
     const label = node('div',r.model.name,'bar-label');
     label.append(node('small',`${providerFor(r,data.model_registry)} · ${r.kind === 'local' ? r.model.quantization : 'Published reference'} · ${r.protocol.harness}`));
+    if (r.kind === 'local') label.append(node('small', `${r.protocol.backend} · ${r.protocol.backend_revision}`));
+    if (r.protocol.config?.response_recovery) label.append(node('small', `Partial rerun · ${r.protocol.config.response_recovery.retained_responses} retained responses`));
+    if (r.protocol.config?.reasoning) {
+      const reasoning=r.protocol.config.reasoning;
+      label.append(node('small', `Reasoning: ${reasoning.budget_tokens === null ? 'budget unknown' : reasoning.budget_tokens === -1 ? 'unlimited' : reasoning.budget_tokens.toLocaleString()+' tokens'} · ${reasoning.budget_exhaustion.replaceAll('_',' ')}`));
+    }
     if ($('include-context').checked) {
       const config=typeof r.protocol.config==='object' ? r.protocol.config : {};
       const generation=config.generation || config;

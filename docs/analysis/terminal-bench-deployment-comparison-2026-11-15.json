@@ -1,0 +1,106 @@
+{
+  "scope": "Same 89 tasks, frozen medium/8192 local Harbor profile; descriptive comparison of deployments, not a controlled quant-only experiment.",
+  "all_tasks": {
+    "halogen": {
+      "tasks": 89,
+      "solved": 52.0,
+      "timeouts": 27,
+      "agent_hours": 22.427405936388894,
+      "recorded_completed_api_hours": 13.434380793571473,
+      "recorded_api_fraction_of_agent_time": 0.5990162585755819,
+      "reported_output_tokens": 1776988,
+      "recorded_api_calls": 1392,
+      "median_reported_output_tokens": 12540,
+      "median_agent_turns": 11,
+      "median_command_calls": 19,
+      "median_completed_api_fraction": 0.6929191617341889,
+      "no_command_turns": 123,
+      "parser_error_turns": 25,
+      "logged_output_length_events": 19,
+      "timeouts_with_zero_recorded_agent_turns": 0,
+      "timing_rows_api_above_wallclock": 0
+    },
+    "gsq_rco": {
+      "tasks": 89,
+      "solved": 35.0,
+      "timeouts": 52,
+      "agent_hours": 30.47384179583334,
+      "recorded_completed_api_hours": 18.91075902627574,
+      "recorded_api_fraction_of_agent_time": 0.6205571044495412,
+      "reported_output_tokens": 593498,
+      "recorded_api_calls": 843,
+      "median_reported_output_tokens": 6435,
+      "median_agent_turns": 8,
+      "median_command_calls": 13,
+      "median_completed_api_fraction": 0.7966093003808044,
+      "no_command_turns": 76,
+      "parser_error_turns": 15,
+      "logged_output_length_events": 0,
+      "timeouts_with_zero_recorded_agent_turns": 3,
+      "timing_rows_api_above_wallclock": 0
+    }
+  },
+  "both_timed_out_same_tasks": {
+    "halogen": {
+      "tasks": 24,
+      "solved": 3.0,
+      "timeouts": 24,
+      "agent_hours": 9.708409921666668,
+      "recorded_completed_api_hours": 6.183185283872817,
+      "recorded_api_fraction_of_agent_time": 0.636889597139233,
+      "reported_output_tokens": 873418,
+      "recorded_api_calls": 477,
+      "median_reported_output_tokens": 26954.5,
+      "median_agent_turns": 13.0,
+      "median_command_calls": 22.0,
+      "median_completed_api_fraction": 0.7024327415360847,
+      "no_command_turns": 15,
+      "parser_error_turns": 13,
+      "logged_output_length_events": 12,
+      "timeouts_with_zero_recorded_agent_turns": 0,
+      "timing_rows_api_above_wallclock": 0
+    },
+    "gsq_rco": {
+      "tasks": 24,
+      "solved": 0.0,
+      "timeouts": 24,
+      "agent_hours": 9.708444928333334,
+      "recorded_completed_api_hours": 4.777751443650987,
+      "recorded_api_fraction_of_agent_time": 0.49212324722649403,
+      "reported_output_tokens": 144640,
+      "recorded_api_calls": 172,
+      "median_reported_output_tokens": 6660.5,
+      "median_agent_turns": 4.0,
+      "median_command_calls": 8.5,
+      "median_completed_api_fraction": 0.49548329877536773,
+      "no_command_turns": 0,
+      "parser_error_turns": 0,
+      "logged_output_length_events": 0,
+      "timeouts_with_zero_recorded_agent_turns": 1,
+      "timing_rows_api_above_wallclock": 0
+    }
+  },
+  "paired_outcomes": {
+    "halogen_only_solved": 24,
+    "gsq_only_solved": 7,
+    "halogen_only_solved_with_gsq_timeout": 22
+  },
+  "limitations": [
+    "API duration metadata measures completed successful chat calls and some summaries; it includes queueing, prefill, network and decoding, not pure GPU decode time.",
+    "The harness records API duration after a successful chat return. Output-length exceptions, other failed requests, and the final in-flight request at timeout are not fully counted.",
+    "Reported token totals omit requests that raised before Chat updated usage. They are completed-return telemetry, not a complete compute budget.",
+    "Residual wall time cannot be assigned entirely to tools: it also includes omitted API waits, harness overhead and startup. Exact pure tool/LLM time and causal timeout attribution cannot be reconstructed.",
+    "Step timestamps are recorded after command execution, so adjacent step intervals do not separate model and tool time.",
+    "Concurrency, service contention, server defaults and reasoning closure handling were not controlled identically."
+  ],
+  "source_code_basis": {
+    "api_timing": "Harbor Terminus-2 _query_llm appends elapsed request time after successful chat.chat; run finally writes api_request_times_msec.",
+    "step_timing": "Harbor Terminus-2 records normal agent steps after _execute_commands.",
+    "usage": "Harbor LiteLLM raises on length before returning LLMResponse; Chat updates cumulative usage only after call returns."
+  },
+  "deployment_identity_status": "GSQ-RCO IQ3_S is identified by the serving model label/type and user confirmation. Actual loaded GGUF shard hashes and KV-cache precision are pending server verification; this analysis is not a fully verified local observation for the comparison chart.",
+  "source_evidence_sha256": {
+    "halogen": "b4b2aebcadf195769897a3ff9ba2fa3785c31ec4a5b1cd3056a1f44a3e50f345",
+    "gsq_rco": "9ff0d57cd9fd443521e868e4d09dbe98d0b4a3689cfafa12032af188cb87cd4a"
+  }
+}

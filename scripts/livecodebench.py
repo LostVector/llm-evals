@@ -1,8 +1,8 @@
 import argparse,ast,hashlib,json,sys,urllib.request,time,subprocess,uuid
 try:
- from scripts.gpqa_diamond import private_path,request_completion
+ from scripts.gpqa_diamond import private_path,request_completion,reasoning_policy,request_parameters,save
 except ModuleNotFoundError:
- from gpqa_diamond import private_path,request_completion
+ from gpqa_diamond import private_path,request_completion,reasoning_policy,request_parameters,save
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--limit',type=int,default=131)
     parser.add_argument('--start-index',type=int,default=0,help='Disjoint worker range; caller must avoid overlap')
     parser.add_argument('--image',default='llm-evals-lcb:local')
+    parser.add_argument('--indices-file',type=private_path,help='Private list of task indices for a disjoint worker')
     args=parser.parse_args()
     if not 0<=args.start_index<args.limit<=131: raise ValueError('Require 0 <= start-index < limit <= 131')
     root=Path(__file__).resolve().parents[1]
@@ -44,15 +45,22 @@ def main():
        row=json.loads(line)
        if protocol['window_start_inclusive']<=row['contest_date']<protocol['window_end_exclusive']:rows.append(row)
     rows.sort(key=lambda r:(r['contest_date'],r['platform'],r['question_id']))
-    settings=protocol['generation']
+    settings={**protocol['generation'],**request_parameters(config)}
     ids=[r['platform']+'/'+r['question_id'] for r in rows]
     if ids!=protocol['task_ids']:raise ValueError('Dataset does not match frozen task set')
     if hashlib.sha256(json.dumps(rows,sort_keys=True).encode()).hexdigest()!=protocol['selected_rows_sha256']:raise ValueError('Task content does not match pinned dataset')
     manifest={'protocol':protocol,'deployment':config['deployment'],'model':config['model'],'rows_sha256':hashlib.sha256(json.dumps(rows,sort_keys=True).encode()).hexdigest(),'scorer_image':subprocess.check_output(['docker','image','inspect',args.image,'--format','{{.Id}}'],text=True).strip()}
+    if 'reasoning' in config:manifest['reasoning']=reasoning_policy(config['reasoning'])
+    if request_parameters(config):manifest['reasoning_request']=request_parameters(config)
     manifest_path=out/'manifest.json'
     if manifest_path.exists() and json.loads(manifest_path.read_text())!=manifest:raise ValueError('Existing output has a different manifest')
-    manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
+    save(manifest_path,manifest)
+    selected_indices=None
+    if args.indices_file:
+     selected_indices=json.loads(args.indices_file.read_text())
+     if not isinstance(selected_indices,list) or any(type(i) is not int or not 0<=i<131 for i in selected_indices) or len(set(selected_indices))!=len(selected_indices):raise ValueError('Invalid worker task indices')
     for i,row in enumerate(rows[:args.limit]):
+     if selected_indices is not None and i not in selected_indices:continue
      if i<args.start_index:continue
      responsepath=out/f'{i:03}-response.json'
      if not responsepath.exists():

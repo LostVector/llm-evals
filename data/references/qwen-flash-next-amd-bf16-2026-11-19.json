@@ -1,0 +1,136 @@
+[
+  {
+    "schema_version": 1,
+    "kind": "external",
+    "observed_at": "2026-11-19",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "BF16",
+      "artifact": "Original Qwen3.8-Flash-Next checkpoint with original n-gram lookup"
+    },
+    "protocol": {
+      "harness": "AMD ROCm BF16 evaluation",
+      "harness_revision": "AMD study with lm-eval 0.4.13",
+      "config": {
+        "methodology": "https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#appendix-a-evaluation-details",
+        "generation": {
+          "reasoning_effort": "xhigh",
+          "max_tokens": 253952,
+          "context_tokens": 262144,
+          "temperature": 1.0,
+          "top_p": 0.95,
+          "top_k": 20,
+          "min_p": 0,
+          "presence_penalty": 0,
+          "repetition_penalty": 1.0
+        },
+        "repeat_count": 5,
+        "seeds": [
+          1234,
+          1235,
+          1236,
+          1237,
+          1238
+        ],
+        "aggregation": "Mean over five repeats",
+        "tensor_parallel_size": 4,
+        "comparison_group": "gpqa-diamond-198"
+      },
+      "backend": "vLLM",
+      "backend_revision": "AMD-modified 0.31.1rc1 with ROCm 7.2.3",
+      "hardware": "AMD Instinct MI355X"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#qwen-results-with-xhigh-thinking",
+      "retrieved_at": "2026-11-19",
+      "notes": "Transcribed from Appendix B, BF16 weight rows with the original n-gram table. The observation date is the source review date."
+    },
+    "id": "amd-bf16-2026-11-19-flash-next-gpqa",
+    "benchmark": {
+      "name": "GPQA Diamond",
+      "revision": "AMD published protocol",
+      "split": "diamond",
+      "task_set": "198-question Diamond set"
+    },
+    "metric": {
+      "name": "accuracy",
+      "value": 92.12,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 198
+    },
+    "measurements": {
+      "standard_error_percentage_points": 0.72
+    },
+    "notes": "Published BF16 reference on the full Diamond set. AMD uses a larger output allowance, five seeds, and a different evaluator."
+  },
+  {
+    "schema_version": 1,
+    "kind": "external",
+    "observed_at": "2026-11-19",
+    "model": {
+      "name": "Qwen3.8-Flash-Next",
+      "revision": "not_reported",
+      "quantization": "BF16",
+      "artifact": "Original Qwen3.8-Flash-Next checkpoint with original n-gram lookup"
+    },
+    "protocol": {
+      "harness": "AMD ROCm BF16 evaluation",
+      "harness_revision": "AMD study with lm-eval 0.4.13",
+      "config": {
+        "methodology": "https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#appendix-a-evaluation-details",
+        "generation": {
+          "reasoning_effort": "xhigh",
+          "max_tokens": 253952,
+          "context_tokens": 262144,
+          "temperature": 1.0,
+          "top_p": 0.95,
+          "top_k": 20,
+          "min_p": 0,
+          "presence_penalty": 0,
+          "repetition_penalty": 1.0
+        },
+        "repeat_count": 5,
+        "seeds": [
+          1234,
+          1235,
+          1236,
+          1237,
+          1238
+        ],
+        "aggregation": "Mean over five repeats",
+        "tensor_parallel_size": 4,
+        "comparison_group": "livecodebench-v6-feb-apr-2025-131"
+      },
+      "backend": "vLLM",
+      "backend_revision": "AMD-modified 0.31.1rc1 with ROCm 7.2.3",
+      "hardware": "AMD Instinct MI355X"
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#qwen-results-with-xhigh-thinking",
+      "retrieved_at": "2026-11-19",
+      "notes": "Transcribed from Appendix B, BF16 weight rows with the original n-gram table. The observation date is the source review date."
+    },
+    "id": "amd-bf16-2026-11-19-flash-next-lcb",
+    "benchmark": {
+      "name": "LiveCodeBench",
+      "revision": "release_v6; AMD published protocol",
+      "split": "2025-02-01 to 2025-05-01 inclusive",
+      "task_set": "131 problems in the AMD date-filtered release_v6 subset"
+    },
+    "metric": {
+      "name": "pass@1",
+      "value": 88.09,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 131
+    },
+    "measurements": {
+      "standard_error_percentage_points": 1.17
+    },
+    "notes": "Published BF16 reference. The release, window and task count align with the local cohort. AMD does not publish its individual task IDs. AMD uses a larger output allowance and five seeds."
+  }
+]

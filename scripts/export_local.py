@@ -11,6 +11,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from evals import validate
+from scripts.reasoning import reasoning_policy
+from scripts.audit_reasoning_recovery import audit_recovery
 from scripts.audit_local import audit_gpqa, audit_coding, audit_terminal
 from scripts.build_site import public_check
 from scripts.gpqa_diamond import private_path
@@ -30,6 +32,8 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
         raise ValueError('Actual loaded-artifact SHA-256 has not been verified')
     model = {key: metadata['model'][key] for key in (
         'name', 'revision', 'quantization', 'artifact', 'artifact_sha256')}
+    if 'artifact_parts' in metadata:
+        model['artifact_parts'] = metadata['artifact_parts']
     labels = {label for family in json.loads((ROOT/'data/model_registry.json').read_text())
               for label in family['source_labels']}
     if model['name'] not in labels:
@@ -38,6 +42,23 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
               'generation': protocol['generation'], 'attempts_per_task': 1,
               'audit_revision': audit_revision,
               'runtime_context': 'Shared inference service; suite lanes ran concurrently. Request times include queue/retry time.'}
+    config['reasoning'] = reasoning_policy(metadata.get('reasoning'))
+    telemetry = metadata.get('reasoning_closure_telemetry', 'backend_reported_markers_only')
+    if telemetry not in ('backend_reported_markers_only', 'not_reported'):
+        raise ValueError('Invalid reasoning closure telemetry description')
+    config['reasoning_closure_telemetry'] = telemetry
+    if metadata.get('response_recovery'):
+        config['response_recovery'] = metadata['response_recovery']
+        config['attempts_per_task'] = 'Variable; one retained or regenerated scored response per task; discarded originals preserved separately.'
+    if metadata.get('infrastructure_recovery'):
+        allowed_recovery = ('transport_failed_tasks', 'transport_failures_after_agent_actions', 'interrupted_pre_agent_tasks', 'user_interrupted_recovery_attempts', 'selected_replacements', 'additional_transport_failed_recoveries')
+        recovery = metadata['infrastructure_recovery']
+        if set(recovery) - set(allowed_recovery) or any(type(v) is not int or v < 0 for v in recovery.values()):
+            raise ValueError('Invalid public infrastructure recovery summary')
+        config['infrastructure_recovery'] = dict(recovery)
+        config['attempts_per_task'] = 'Variable due to infrastructure failures and user interruption; one audited verifier outcome per task.'
+    if metadata.get('observed_sampling_defaults'):
+        config['observed_sampling_defaults'] = {key: value for key, value in metadata['observed_sampling_defaults'].items() if key in ('min_p', 'repeat_penalty', 'source', 'scope')}
     if metadata.get('kv_cache_precision'):
         config['kv_cache_precision'] = metadata['kv_cache_precision']
     if protocol.get('comparison_group'):
@@ -53,7 +74,7 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
                      'split': 'diamond', 'task_set': '198 questions; fixed shuffle seed 0'}
         harness = 'simple-evals GPQA prompt/regex plus audited local client'
         revision = 'prompt-source-sha256:'+protocol['prompt_source_sha256']
-        config['client_phases'] = 'First nine checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are recomputed by the frozen audit.'
+        config['client_phases'] = 'Scores are recomputed from final content using the frozen prompt, answer permutation, and extraction rule.'
         metric = 'accuracy'
     elif lane == 'coding':
         config['comparison_group'] = 'livecodebench-v6-feb-apr-2025-131'
@@ -62,7 +83,7 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
                      'task_set': 'sha256:'+protocol['selected_rows_sha256']}
         harness = 'LiveCodeBench official prompt/scorer plus audited local client'
         revision = protocol['harness_revision']
-        config['client_phases'] = 'First five checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are checked against official per-test results.'
+        config['client_phases'] = 'Scores are checked against official per-test results using the frozen task set and grader.'
         metric = 'pass@1'
     else:
         benchmark = {'name': 'Terminal-Bench', 'revision': protocol['version'],
@@ -92,6 +113,14 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
                              'notes': 'Sanitized complete-run audit. Raw task content and traces remain private; artifact fingerprints permit later integrity checks.'},
               'measurements': {key: summary[key] for key in allowed if key in summary},
               'notes': 'One attempt per task. Wilson intervals describe question-sampling uncertainty, not all model variability. Published references have different generation and harness profiles; they provide context rather than a controlled quant comparison.'}
+    if telemetry == 'not_reported':
+        if summary.get('forced_reasoning_closures', 0):
+            raise ValueError('Closure markers present despite not-reported telemetry metadata')
+        record['measurements'].pop('forced_reasoning_closures', None)
+    if metadata.get('response_recovery'):
+        record['notes'] = ('Partial regeneration: original responses below the reasoning threshold were retained; missing and preselected long/capped responses were generated under the recorded budget. Selection ignored correctness. This is not a fresh uniform full run. Discarded original request time is reported separately; interrupted and probe requests are excluded from timing totals. Exact Halogen closing-message equivalence and identical counterfactual outputs are unverified. Wilson intervals describe question-sampling uncertainty only; external references remain contextual.')
+    if metadata.get('infrastructure_recovery'):
+        record['notes'] = ('One audited verifier outcome per task. Predetermined infrastructure-failed or user-interrupted trials were replaced; some transport failures followed prior agent actions. Originals and interrupted recoveries are preserved, and model failures/timeouts were not retried to improve scores. Timings cover selected trials only and omit excluded attempts. This is a deployment comparison with different backend/runtime settings; external references provide context. Wilson intervals describe task-sampling uncertainty only.')
     if metadata.get('artifact_verification', {}).get('evaluation_period_continuity') == 'unverified':
         record['notes'] += ' Artifact SHA-256 was verified on the server after evaluation; continuity of this exact artifact/backend throughout the evaluation period is unverified. Public artifact source/revision is unknown.'
     errors = validate(record)
@@ -110,6 +139,8 @@ def main():
     parser.add_argument('--dataset', type=private_path)
     parser.add_argument('--metadata', required=True, type=private_path)
     parser.add_argument('--id', required=True)
+    parser.add_argument('--recovery-plan', type=private_path, help='Frozen partial-regeneration plan; requires original input for lineage audit')
+    parser.add_argument('--original-input', type=private_path)
     parser.add_argument('--write', action='store_true', help='Write only a complete validated observation to data/results')
     args = parser.parse_args()
     protocol = json.loads((ROOT/'protocols'/PROTOCOLS[args.lane]).read_text())
@@ -120,6 +151,18 @@ def main():
     else:
         summary = (audit_coding if args.lane == 'coding' else audit_terminal)(args.input, protocol)
     metadata = json.loads(args.metadata.read_text())
+    manifest = args.input/'manifest.json'
+    if manifest.exists() and 'reasoning' in json.loads(manifest.read_text()):
+        recorded = reasoning_policy(json.loads(manifest.read_text())['reasoning'])
+        if metadata.get('reasoning') and reasoning_policy(metadata['reasoning']) != recorded:
+            raise ValueError('Export reasoning policy differs from run manifest')
+        metadata['reasoning'] = recorded
+    if args.recovery_plan:
+        if args.lane == 'terminal' or not args.original_input:
+            parser.error('--recovery-plan requires GPQA/coding and --original-input')
+        metadata['response_recovery'] = audit_recovery(args.original_input, args.input, args.recovery_plan, args.lane)
+    elif metadata.get('response_recovery'):
+        parser.error('Partial-regeneration export requires --recovery-plan and --original-input; metadata alone is insufficient')
     revision = subprocess.check_output(['git', '-C', str(ROOT), 'rev-parse', 'HEAD'], text=True).strip()
     record = observation(args.lane, summary, protocol, metadata, args.id,
                          datetime.now(timezone.utc).date().isoformat(), revision)

@@ -65,3 +65,23 @@ test('coding history is opt-in and shares only the exact curated window', () => 
   assert.deepEqual(scoped([local,...history],policy,'featured').map(r=>r.id),[local.id]);
   for (const row of history) assert.equal(require('../site/compare.js').providerFor(row,registry),row.model.provider);
 });
+test('reasoning profiles stay distinct and ignore metadata key order', () => {
+  const a=structuredClone(records[0]), b=structuredClone(a), c=structuredClone(a);
+  a.protocol.config={generation:{max_tokens:32768},reasoning:{budget_tokens:24576,verification:'configured'}};
+  b.protocol.config={generation:{max_tokens:32768},reasoning:{verification:'configured',budget_tokens:24576}};
+  c.protocol.config={generation:{max_tokens:32768},reasoning:{budget_tokens:16384,verification:'configured'}};
+  assert.equal(latestRows([a,b]).length,1);
+  assert.equal(latestRows([a,c]).length,2);
+});
+test('partial reruns and backend revisions remain distinct observations', () => {
+  const fresh=structuredClone(records[0]), partial=structuredClone(fresh), backend=structuredClone(fresh);
+  fresh.protocol.config={}; partial.protocol.config={response_recovery:{policy:'partial_regeneration',retained_responses:105,regenerated_responses:25,previously_missing_responses:68}};
+  backend.protocol.config={}; backend.protocol.backend_revision='different-test-build';
+  assert.equal(latestRows([fresh,partial,backend]).length,3);
+});
+test('a changed secondary model shard remains a distinct observation', () => {
+  const a=structuredClone(records[0]), b=structuredClone(a);
+  a.model.artifact_parts=[{filename:'second.gguf',sha256:'a'.repeat(64)}];
+  b.model.artifact_parts=[{filename:'second.gguf',sha256:'b'.repeat(64)}];
+  assert.equal(latestRows([a,b]).length,2);
+});

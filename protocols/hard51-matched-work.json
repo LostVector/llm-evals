@@ -1,0 +1,16 @@
+{
+  "id": "swe-bench-pro-v2-hard51-matched-work-v1",
+  "upstream_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+  "task_list_sha256": "6e35e84708a26443e1746ae928940555a3188654c90f3a2eb691f4f699482bd1",
+  "agent": "mini-swe-agent 2.4.6",
+  "agent_config_sha256": "7275afa9920a6fb1b9ec66ab74cee44121db9b0276bb9fa90f5ec0597e523a45",
+  "reasoning_effort": "high",
+  "max_model_calls_per_task": 128,
+  "max_completion_tokens_per_task": 150000,
+  "max_completion_tokens_per_call": 16384,
+  "agent_wall_guard_seconds": 21600,
+  "concurrent_trials_per_deployment": 2,
+  "attempts_per_task": 1,
+  "grading": "Apply the captured patch in a pristine pinned task image and run the upstream verifier. Grade model budget stops; report wall-guard and infrastructure stops separately.",
+  "initial_cohort": "Three ordinary maintenance tasks from the HARD-51 timing pilot. Report as calibration."
+}

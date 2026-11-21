@@ -52,7 +52,20 @@
         "public_artifact_source_revision": "unknown"
       },
       "client_phases": "First nine checkpoints used a verified prototype; subsequent checkpoints used the repository runner. All scores are recomputed by the frozen audit.",
-      "kv_cache_precision": "BF16"
+      "kv_cache_precision": "BF16",
+      "reasoning": {
+        "budget_tokens": 27853,
+        "budget_scope": "per_request",
+        "budget_enforcement": "server",
+        "budget_exhaustion": "force_close_then_answer",
+        "final_answer_reserve_tokens": 4915,
+        "output_cap_includes_reasoning": true,
+        "parser": "Halogen",
+        "chat_template_sha256": null,
+        "verification": "observed"
+      },
+      "reasoning_policy_evidence": "All reported answer_room closures occurred at generated-token position 27853: 31 GPQA responses and 49 coding responses. Exact injected message and model template identity were not captured.",
+      "reasoning_closure_telemetry": "backend_reported_markers_only"
     },
     "backend": "Halogen",
     "backend_revision": "0.20.3 / 54a488ef3224",

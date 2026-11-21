@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "halogen-v2-bfcl-multi-turn-base-2026-11-18",
+  "kind": "local",
+  "observed_at": "2026-11-18",
+  "model": {
+    "name": "Qwen3.8-Flash-Next",
+    "revision": "unknown; public source/revision not independently verified",
+    "quantization": "Halogen v2 native HGN",
+    "artifact": "qwen38-flash-next-v2.hgn",
+    "artifact_sha256": "71246c6ab3fc1de2cf06326f18e275fe9c2a18366d646ed3357d194c884fc687"
+  },
+  "benchmark": {
+    "name": "BFCL V4",
+    "revision": "bfcl-eval 2026.3.23",
+    "split": "Multi-Turn Base",
+    "task_set": "sha256:c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288"
+  },
+  "metric": {
+    "name": "accuracy",
+    "value": 0.635,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 200
+  },
+  "protocol": {
+    "harness": "BFCL native function calling with guarded simulated tools",
+    "harness_revision": "bfcl-eval 2026.3.23",
+    "config": {
+      "comparison_group": "bfcl-v4-multi-turn-base-local-fc-medium8k",
+      "attempts_per_task": 1,
+      "generation": {
+        "temperature": 0.001,
+        "reasoning_effort": "medium",
+        "max_tokens": 8192
+      },
+      "reasoning": {
+        "budget_tokens": null,
+        "budget_scope": "unknown",
+        "budget_enforcement": "server",
+        "budget_exhaustion": "unknown",
+        "final_answer_reserve_tokens": null,
+        "output_cap_includes_reasoning": null,
+        "parser": "Halogen",
+        "chat_template_sha256": null,
+        "verification": "unknown"
+      },
+      "tool_mode": "native FC",
+      "step_limit_per_user_turn": 20,
+      "artifact_verification": {
+        "source": "Post-run inspection by the inference-server session",
+        "scope": "Loaded HGN filename and file digest plus backend revision verified on the running Halogen service after the evaluation.",
+        "verified_at": "2026-11-19",
+        "evaluation_period_continuity": "unverified",
+        "public_artifact_source_revision": "unknown"
+      },
+      "audit_summary": "docs/analysis/bfcl-halogen-v2.json"
+    },
+    "backend": "Halogen",
+    "backend_revision": "0.20.3 / 54a488ef3224",
+    "hardware": "AMD Ryzen AI Max+ 395 (16 cores / 32 threads); 1 integrated AMD Radeon 8060S; 128 GiB shared system/unified memory, no separate dedicated GPU memory pool"
+  },
+  "provenance": {
+    "type": "measured",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/halogen-v2-bfcl-multi-turn-base-2026-11-18.json",
+    "retrieved_at": "2026-11-18",
+    "notes": "Sanitized complete-run audit. Raw task content and traces remain private; artifact fingerprints permit later integrity checks."
+  },
+  "measurements": {
+    "completed": 200,
+    "total": 200,
+    "correct": 127,
+    "wilson_95": [
+      0.566317026527406,
+      0.698594735350732
+    ]
+  },
+  "notes": "All 200 Multi-Turn Base cases, with offline replay of every verdict. Halogen used its server reasoning policy. The HGN digest and exact engine revision were verified after evaluation. Continuous artifact and build identity remain unverified."
+}

@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "id": "gufo-gsq-rco-q2-0-hard51-maintenance-12-2026-11-21",
+  "kind": "local",
+  "observed_at": "2026-11-21",
+  "model": {
+    "name": "Qwen3.8-Flash-Next",
+    "revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "quantization": "GSQ-RCO Q2_0",
+    "artifact": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+    "artifact_sha256": "69820c02ec7d0b45ef2ebb19d6620299db749fe2aded7f39f93c6b88b199b720",
+    "artifact_parts": [
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+        "sha256": "69820c02ec7d0b45ef2ebb19d6620299db749fe2aded7f39f93c6b88b199b720"
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+        "sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113"
+      }
+    ]
+  },
+  "benchmark": {
+    "name": "SWE-bench Pro V2 HARD-51",
+    "revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "split": "Frozen 12-task maintenance cohort",
+    "task_set": "sha256:26fc53b2ee532c3fcec211814806f9fc440d97106dc5d2993c4fd92d70f175c1"
+  },
+  "metric": {
+    "name": "task_resolution",
+    "value": 0.8333333333333334,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 12
+  },
+  "protocol": {
+    "harness": "mini-SWE-agent 2.4.6, Harbor 0.25.0 and upstream pristine verifier",
+    "harness_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "config": {
+      "comparison_group": "hard51-maintenance-12-v1",
+      "protocol_id": "swe-bench-pro-v2-hard51-matched-work-v1",
+      "protocol_file": "protocols/hard51-matched-work.json",
+      "cohort_file": "protocols/hard51-maintenance-12.json",
+      "reasoning_effort_requested": "high",
+      "max_model_calls_per_task": 128,
+      "max_completion_tokens_per_task": 150000,
+      "max_completion_tokens_per_call": 16384,
+      "agent_wall_guard_seconds": 21600,
+      "attempts_per_task": 1,
+      "reused_calibration_trials": 0,
+      "native_x86_trials": 11,
+      "emulated_amd64_trials": 1
+    },
+    "backend": "Gufo",
+    "backend_revision": "085aa5cc5be56090698e1dfbffc8f092628aea5f",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/docs/analysis/hard51-maintenance-12.md",
+    "retrieved_at": "2026-11-21",
+    "notes": "Audited task budget and fresh-container patch replay."
+  },
+  "measurements": {
+    "total": 12,
+    "completed": 12,
+    "correct": 10,
+    "outcomes": {
+      "Submitted": 10,
+      "CompletionTokenLimit": 1,
+      "ModelCallLimit": 1
+    },
+    "model_calls": 820,
+    "completion_tokens": 743525,
+    "response_length_stops": 4,
+    "recovered_patch_captures": 0,
+    "artifact_fingerprints": [
+      {
+        "task": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+        "patch": "cb3ca81fb7280869e48e9b7724bac1d46392852fdfe2a59407a887d2c3f93284"
+      },
+      {
+        "task": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+        "patch": "f14ebb8f4a8bbe90d1cb3e21d3c9c9f2612800275f321d1d7e2cea38e6012d84"
+      },
+      {
+        "task": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "645f4314090094788d3219a286407f56f77f3963c59a815b4f1339a3131f72e6"
+      },
+      {
+        "task": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "09d013b609444b35679a1ff38b80ad8232381797ac503966c5c4556f50e8a023"
+      },
+      {
+        "task": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+        "patch": "a8e192ea86961f51047fe1405b9a5742558ae88df71617defafadf4cf30aa0cf"
+      },
+      {
+        "task": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+        "patch": "1cf722350d0cea85f385b30950085978296cdf922a3f05ee0094fd0da6e27021"
+      },
+      {
+        "task": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+        "patch": "5de1b940aa9b5b9642174ce8763add428d0fa3599366d68de169633639830b5d"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+        "patch": "0febca32a3289d91f011f1b02dc033a00090e010c5987dff6d23f538a3d60d0f"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "patch": "b0aa5360a865b1b69902fb9676fe65b71285b509bb485f38d851416a42403c61"
+      },
+      {
+        "task": "instance_navidrome__navidrome-bf2bcb12799b21069f137749e0c331f761d1f693",
+        "patch": "81a4db36b63e5137f236baab9b34241f7eefee8f8b2aa58b000bb3b9f9ede25c"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+        "patch": "49abdff5bb22ba0656790223a2aab18c5794188d9297cfb9d8ce590f1e7de779"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+        "patch": "0bd310c507a6c04c09faccdfd0904562582c4f02cd2b9d7e7ebbf726fbe4f03d"
+      }
+    ]
+  },
+  "notes": "Matched-work scores cover the pinned 12-task maintenance cohort. The official HARD-51 leaderboard uses all 51 tasks and a 50-minute deadline."
+}

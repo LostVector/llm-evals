@@ -80,6 +80,33 @@ def validate(record):
     if kind == 'local' and isinstance(model, dict):
         if not re.fullmatch('[0-9a-fA-F]{64}', str(model.get('artifact_sha256', ''))):
             errors.append('local model.artifact_sha256 must be 64 hex characters')
+        split = re.fullmatch(r'(.+)-(\d{5})-of-(\d{5})\.gguf', str(model.get('artifact', '')))
+        parts = model.get('artifact_parts')
+        if split and int(split[3]) > 1 and parts is None:
+            errors.append('split GGUF requires hashes for every artifact part')
+        if parts is not None:
+            if not isinstance(parts, list) or not parts:
+                errors.append('model.artifact_parts must be a nonempty list')
+            else:
+                names = set()
+                for part in parts:
+                    if (not isinstance(part, dict) or set(part) != {'filename', 'sha256'}
+                            or not isinstance(part.get('filename'), str)
+                            or not isinstance(part.get('sha256'), str)
+                            or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.+-]{0,199}', str(part.get('filename', '')))
+                            or not re.fullmatch('[0-9a-fA-F]{64}', str(part.get('sha256', '')))):
+                        errors.append('invalid artifact part: public filename and SHA-256 required')
+                        continue
+                    if part['filename'] in names:
+                        errors.append('duplicate artifact part')
+                    names.add(part['filename'])
+                if not any(isinstance(p, dict) and p.get('filename') == model.get('artifact')
+                           and p.get('sha256') == model.get('artifact_sha256') for p in parts):
+                    errors.append('primary artifact hash differs from artifact parts')
+                if split:
+                    expected = {f'{split[1]}-{i:05}-of-{int(split[3]):05}.gguf' for i in range(1, int(split[3]) + 1)}
+                    if names != expected:
+                        errors.append('artifact parts do not cover every GGUF shard')
     provenance = record.get('provenance', {})
     if isinstance(provenance, dict):
         iso_date(provenance.get('retrieved_at'), 'provenance.retrieved_at')

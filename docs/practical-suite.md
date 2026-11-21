@@ -8,18 +8,20 @@ The target is a few days per deployment. Full SuperGPQA is excluded. Pilot runti
 must establish feasibility before committing to additional full runs. Changes to
 a task set or budget produce a distinct protocol, never a silently comparable score.
 
+The table below covers the current Flash-Next matrix. [The comparison suite for new benchmarks](benchmarks.md#comparison-suite) uses HLE-Diamond, this LiveCodeBench window, and τ³-Banking.
+
 | Lane | Planned measurement | Scope |
 | --- | --- | --- |
-| Reasoning | GPQA Diamond, no tools | All 198 questions, one pass; [frozen protocol](../protocols/gpqa-diamond.json) |
+| Science reasoning regression | GPQA Diamond, no tools | All 198 questions, one pass for the Flash-Next matrix. [Frozen protocol](../protocols/gpqa-diamond.json) |
 | Coding | LiveCodeBench code-generation-lite, pass@1 | 131 tasks from February–April 2025; [frozen protocol](../protocols/livecodebench-v6-window.json) |
-| Agentic / multi-turn | Terminal-Bench 2.1 with Terminus-2 | All 89 tasks, one attempt; medium reasoning / 8192 tokens per turn, standard task timeouts |
+| Agentic / multi-turn | BFCL V4 Multi-Turn Base | All 200 base cases. Native function calling with the pinned BFCL scorer, scripted user turns, and the upstream step limit. |
 
-GPQA uses the simple-evals prompt and answer regex, deterministic choice shuffling,
-explicit sampling, xhigh reasoning, and a 32,768-token completion budget. This is
-one pass rather than the upstream default four repeats. Report a confidence
-interval and avoid interpreting small quant differences as established rankings.
-GPQA measures graduate science reasoning and knowledge, not all general intelligence.
-It supplements the harder HLE-Diamond reference view.
+GPQA uses the simple-evals prompt and answer regex, fixed choice shuffling,
+xhigh reasoning, and a 32,768-token completion budget. The initial Flash-Next
+deployments scored 176–182 out of 198. Retain those runs as science reasoning
+regression checks. For future model or quant selection, reuse existing GPQA
+references and prioritize [HLE-Diamond](general-capability.md) for general
+capability. Run GPQA again when a deployment regression needs investigation.
 
 LiveCodeBench generation and scoring are separate. Code must execute in isolated,
 resource-limited containers without host credentials or broad host mounts. Terminal
@@ -69,11 +71,57 @@ May 1, 2025 date filter, yielding 131 tasks. It retains all difficulties (31 eas
 prompts, last fenced code extraction and the unmodified upstream test grader are
 pinned by the harness commit. A five-task prefix is only a runtime/harness pilot.
 
+## Terminal-Bench run history
+
+Future runs are on hold until we agree on a cumulative per-task token limit, what counts toward it, and how the harness enforces it. Existing deadline-based scores remain historical deployment results.
+
 Terminal-Bench 2.1 contains 89 tasks in the downloaded official snapshot. Its
 standard agent time budgets total about 42.2 hours serially. Pilot latency and sandbox build time determine feasible
 concurrency; a full one-attempt run should remain within a few days without
 shortening the official task budgets. Generated commands run only in task
 containers, and local endpoint credentials remain with the host-side agent.
+
+## Optional τ²-bench Airline comparison
+
+Use the full English text Airline domain and the same simulator, grading settings, inference step limit and reasoning policy for every quant. Leave the per-task wall-clock cutoff unset for scoring. Track latency and transport failures separately. Compare against the Airline leaderboard column for the same task release and simulator protocol. [Upstream runner guide](https://github.com/sierra-research/tau2-bench/blob/main/docs/running-the-benchmark.md) · [Leaderboard](https://taubench.com/leaderboard/)
+
+## Flash-Next GSQ-RCO coverage
+
+Run the same GPQA Diamond, LiveCodeBench window and BFCL Multi-Turn Base protocols for all four [ISTA-DASLab GSQ-RCO variants](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF). Use one Gufo build and matching settings where supported, confirm the loaded artifact after each model switch, and record any runtime differences. Run the Halogen v2 build as a separate reference.
+
+| Deployment | GPQA Diamond | LiveCodeBench | BFCL Base |
+| --- | --- | --- | --- |
+| Gufo Q2_0 | [176/198](../data/results/gufo-gsq-rco-q2-0-gpqa-diamond-2026-11-18.json) | [100/131](../data/results/gufo-gsq-rco-q2-0-livecodebench-window-2026-11-19.json) | [126/200 (63.0%)](analysis/bfcl-gufo-q2-0.json) |
+| Gufo IQ2_XS | [173/198](../data/results/gufo-gsq-rco-iq2-xs-gpqa-diamond-2026-11-19.json) | [100/131](../data/results/gufo-gsq-rco-iq2-xs-livecodebench-window-2026-11-19.json) | [132/200 (66.0%)](analysis/bfcl-gufo-iq2-xs.json) |
+| Gufo IQ3_XXS | [183/198](../data/results/gufo-gsq-rco-iq3-xxs-gpqa-diamond-2026-11-19.json) | [106/131](../data/results/gufo-gsq-rco-iq3-xxs-livecodebench-window-2026-11-20.json) | [134/200 (67.0%)](analysis/bfcl-gufo-iq3-xxs.json) |
+| Gufo IQ3_S | 182/198 | 109/131 | [120/200 (60.0%)](analysis/bfcl-gufo-iq3-s.json) |
+| Halogen v2 | 180/198 | 103/131 | [127/200 (63.5%)](analysis/bfcl-halogen-v2.json) |
+
+Reuse the [audited Gufo IQ3_S results](analysis/gufo-controlled-suite-summary-2026-11-18.json) and [Halogen v2 results](halogen-v2-publication.md) for the two completed lanes, with their recorded runtime and sampling differences. BFCL uses the pinned bfcl-eval 2026.3.23 dataset and scorer. The local profile requests medium effort and 8,192 output tokens per turn. Gufo sets a 6,963-token reasoning cutoff explicitly. Halogen uses its server policy, and effective cutoff equivalence needs verification. Report the Base score with the tool-call mode and generation settings. HARD-51 remains a separate repository-coding follow-up.
+
+On LiveCodeBench, one Q2_0 response, six IQ2_XS responses, and three IQ3_XXS responses hit the 32,768-token output limit. All ten counted as misses under the frozen scoring protocol.
+
+IQ2_XS and IQ3_XXS use separate hosts of the same Ryzen AI Max+ 395 hardware class for single-turn runs. Each host uses four inference slots and the verified Gufo `085aa5cc` binary and model shards from that quant's BFCL run.
+
+The original Gufo build served IQ3_S. Its loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Candidate `73c2064f` loaded IQ3_XXS, then hit an unsupported embedding format during the cached native-MTP smoke test. Candidate `085aa5cc` passed the smoke test on IQ3_XXS, IQ2_XS, and Q2_0 and produced their BFCL scores using four 262,144-token slots. The builds matched all five IQ3_S full-model regression responses and decoding work counts, so the matrix carries forward the completed IQ3_S run.
+
+### Published higher-precision references
+
+AMD reports **92.12% GPQA Diamond** and **88.09% LiveCodeBench** for Flash-Next BF16 with the original n-gram table. Its 198-question GPQA set and 131-problem LiveCodeBench v6 date window align with ours. AMD averaged five `xhigh` runs and used a **253,952-token output cap** within a **262,144-token context window**. The local single-turn runs use a **32,768-token output cap**. Both scores are available in the chart's context view. [AMD results and protocol](https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#appendix-b-exact-benchmark-results)
+
+AMD's **66.21% BFCL v4** is a weighted no-web-search aggregate. The local BFCL track covers the 200-case Multi-Turn Base split. A published **87/100** LiveCodeBench result for the 8-bit oQ8e MLX build used a stratified 100-problem sample with thinking disabled. [AMD BFCL results](https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#qwen-results-with-xhigh-thinking) · [oMLX 8-bit result](https://omlx.ai/benchmarks/intelligence/dc87mf9x)
+
+## SWE-bench Pro V2 HARD-51 follow-up
+
+After the BFCL runs, try Scale's official HARD-51 subset as the repository-level coding evaluation. Pin the V2 release, the 51 task IDs, image digests, and agent configuration. Use the V2 verifier to regrade each captured patch in a pristine environment. [Upstream protocol and task list](https://github.com/scaleapi/SWE-bench_Pro-os/blob/main/v2/README.md#hard-51)
+
+The [three-task timing pilot](analysis/hard51-timing-pilot.md) validated the container grader. The wall-clock budget stopped one of three trials at 50 minutes and all three at 15 minutes. The shorter trials captured usable patches on two tasks. Each profile ran a separate trajectory, so the pilot does not isolate the effect of the deadline on correctness.
+
+Scale's 50-minute protocol measures what a deployment can deliver in a fixed time. A faster deployment can generate more reasoning and take more turns before that deadline. For the local capability comparison, the [matched-work protocol](../protocols/hard51-matched-work.json) bounds loops by **128 model calls**, **150,000 cumulative completion tokens**, and **16,384 completion tokens per call**. Completion counts include generated reasoning, tool-call arguments, and visible text as reported by the endpoint. Prompt and tool-result input tokens are tracked separately from this budget. Clamp each request to the remaining task allowance and grade the patch after the last allowed response's valid actions. Use the pinned mini-SWE-agent prompt, offline commands, and the same pristine verifier.
+
+Keep a six-hour wall-clock guard for stalled runs. Publish a guard-limited outcome separately and track transport failures as infrastructure errors. A patch produced at a token or call limit receives its actual verifier result. The [Harbor adapter](../scripts/hard51_matched_agent.py) records each request's output cap, completion usage, and stop reason. Freeze the profile for both deployments on the three pilot tasks before expanding the cohort. Label it separately from Scale's 50-minute scores.
+
+The [12-task maintenance comparison](analysis/hard51-maintenance-12.md) is complete across Halogen v2 and all four Gufo quants. It uses a [frozen cohort](../protocols/hard51-maintenance-12.json) and reuses matching trials from the calibration. Reference and empty patches validated the pinned amd64 images on their assigned executors. Full HARD-51 leaderboard scores use a different task set and deadline.
 
 ## Reproduce the coding window
 
@@ -234,3 +282,5 @@ DeepSeek averages ten samples per task; the other four submissions use one.
 The source does not establish effective generation budgets, hardware or full/lite
 grading mode, so these remain contextual references rather than controlled
 comparisons. The source snapshot date is not a claimed inference date.
+
+Reasoning budget and closure handling are explicit run parameters; see [reasoning policy](reasoning-policy.md). Freeze server-side policy before starting a run and use a fresh run identity for changes.
