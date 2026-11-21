@@ -121,7 +121,7 @@ Scale's 50-minute protocol measures what a deployment can deliver in a fixed tim
 
 Keep a six-hour wall-clock guard for stalled runs. Publish a guard-limited outcome separately and track transport failures as infrastructure errors. A patch produced at a token or call limit receives its actual verifier result. The [Harbor adapter](../scripts/hard51_matched_agent.py) records each request's output cap, completion usage, and stop reason. Freeze the profile for both deployments on the three pilot tasks before expanding the cohort. Label it separately from Scale's 50-minute scores.
 
-The next comparison uses the [frozen 12-task maintenance cohort](../protocols/hard51-maintenance-12.json) from HARD-51 across Halogen v2 and all four Gufo quants. Reuse the three matched-work trials per deployment from the calibration where available. Verify the pinned amd64 images with reference and empty patches on the executor used for each task. Prefer native x86 after emulation crashes in the controls. This cohort measures local head-to-head results. Full HARD-51 leaderboard scores use a different task set and deadline.
+The [12-task maintenance comparison](analysis/hard51-maintenance-12.md) is complete across Halogen v2 and all four Gufo quants. It uses a [frozen cohort](../protocols/hard51-maintenance-12.json) and reuses matching trials from the calibration. Reference and empty patches validated the pinned amd64 images on their assigned executors. Full HARD-51 leaderboard scores use a different task set and deadline.
 
 ## Reproduce the coding window
 
