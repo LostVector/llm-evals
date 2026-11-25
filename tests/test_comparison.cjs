@@ -2,10 +2,31 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const {trackKey, latestRows, scoped, coverageRows, axis} = require('../site/compare.js');
-const {selectedRows} = require('../site/compare.js');
+const {selectedRows, suiteRows} = require('../site/compare.js');
 const records = JSON.parse(fs.readFileSync('data/references/current-frontier-2026-11-11.json','utf8'));
 const policy = JSON.parse(fs.readFileSync('data/reference_policy.json','utf8'));
 const registry = JSON.parse(fs.readFileSync('data/model_registry.json','utf8'));
+
+test('local suite includes full matched cohorts and leaves incomplete cells pending', () => {
+  const local = fs.readdirSync('data/results').filter(name => name.endsWith('.json')).map(name =>
+    JSON.parse(fs.readFileSync(`data/results/${name}`, 'utf8')));
+  const inkling = local.find(r => r.model.name === 'Inkling 2 Mini' && r.benchmark.name === 'LiveCodeBench');
+  const incomplete = structuredClone(inkling);
+  incomplete.id = 'qwen-lcb-incomplete';
+  incomplete.model.name = 'Qwen3.8 27B';
+  incomplete.model.quantization = 'UD-Q4_K_XL';
+  incomplete.measurements.completed = 5;
+  const external = structuredClone(inkling);
+  external.id = 'external-baseline';
+  external.kind = 'external';
+  const rows = suiteRows([...local, incomplete, external]);
+  const flash = rows.find(r => r.quant === 'GSQ-RCO IQ3_S');
+  assert.ok(flash.cells.slice(0, 4).every(cell => cell.length));
+  const inklingScores = rows.find(r => r.model === 'Inkling 2 Mini').cells[0];
+  assert.ok(inklingScores.some(r => r.id === inkling.id));
+  assert.ok(!inklingScores.some(r => r.id === external.id));
+  assert.ok(!rows.find(r => r.model === 'Qwen3.8 27B').cells[0].some(r => r.id === incomplete.id));
+});
 
 test('default cohort excludes historical records regardless of retrieval recency', () => {
   const archived=structuredClone(records[0]);archived.id='historical';archived.provenance.retrieved_at='2099-01-01';

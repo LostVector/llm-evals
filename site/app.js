@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const node = (tag, text, className) => { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (className) el.className = className; return el; };
-const {trackKey, contextGroup, selectedRows, latestRows, scoped, providerFor, coverageRows, axis} = Comparison;
+const {trackKey, contextGroup, selectedRows, latestRows, scoped, providerFor, coverageRows, axis, suiteTracks, suiteRows} = Comparison;
 const score = r => r.metric.unit === 'fraction' ? r.metric.value * 100 : r.metric.value;
 const scoreLabel = r => `${Number(score(r).toFixed(2))}${['fraction', 'percent'].includes(r.metric.unit) ? '%' : ` ${r.metric.unit}`}`;
 const safeURL = value => { try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; } catch { return null; } };
@@ -20,6 +20,30 @@ function scoreElement(record, className) {
 let data, latest;
 const visibleRows = () => scoped(latest, data.reference_policy, $('reference-view').value);
 function option(value, text) { const el = node('option', text); el.value = value; return el; }
+function renderSuite(records) {
+  for (const title of ['Model and quant', ...suiteTracks.map(t => t.label)]) {
+    const cell = node('th', title);
+    cell.scope = 'col';
+    $('suite-columns').append(cell);
+  }
+  for (const row of suiteRows(records)) {
+    const tr = node('tr');
+    const model = node('td', row.model);
+    model.append(node('small', row.quant));
+    tr.append(model);
+    for (const observations of row.cells) {
+      const cell = node('td');
+      if (!observations.length) cell.append(node('small', 'Pending'));
+      for (const record of observations) {
+        const result = node('div');
+        result.append(scoreElement(record), node('small', record.protocol.backend));
+        cell.append(result);
+      }
+      tr.append(cell);
+    }
+    $('suite-rows').append(tr);
+  }
+}
 function selectBenchmark(name) { $('benchmark').value = name; tracks(); render(); }
 function tracks() {
   $('include-context').checked = false;
@@ -98,6 +122,7 @@ async function start() {
     if (embedded) data=JSON.parse(embedded.textContent);
     else { const response=await fetch('data.json'); if (!response.ok) throw new Error(`HTTP ${response.status}`); data=await response.json(); }
     latest=latestRows(data.observations);
+    renderSuite(latest);
     const names=[...new Set([...data.catalog.map(c=>c.name),...latest.map(r=>r.benchmark.name)])];
     $('benchmark').replaceChildren(...names.map(name=>option(name,name)));
     $('provider').append(...[...new Set(data.model_registry.map(m=>m.provider))].sort().map(p=>option(p,p)));

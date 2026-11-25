@@ -105,7 +105,15 @@
     "qwen-vendor-2026-11-13-flash-next-gpqa",
     "qwen-vendor-2026-11-13-flash-next-lcb",
     "amd-bf16-2026-11-19-flash-next-gpqa",
-    "amd-bf16-2026-11-19-flash-next-lcb"
+    "amd-bf16-2026-11-19-flash-next-lcb",
+    "hard51-scale-2026-11-25-claude-opus-5",
+    "hard51-scale-2026-11-25-claude-fable-5-1",
+    "hard51-scale-2026-11-25-gemini-4-argon",
+    "hard51-scale-2026-11-25-gpt-6-astra",
+    "hard51-scale-2026-11-25-kimi-k3",
+    "hard51-scale-2026-11-25-inkling-2-small",
+    "hard51-scale-2026-11-25-glm-5-3",
+    "hard51-scale-2026-11-25-gpt-5-6-sol"
   ],
   "review_interval_days": 30,
   "required_providers": [

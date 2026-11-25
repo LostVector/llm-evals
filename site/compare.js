@@ -38,6 +38,31 @@ const Comparison = (() => {
     const max=percent ? 100 : Math.max(0,...values,1);
     return {min,max,percent,span:max-min};
   }
-  return {trackKey, identity, contextGroup, selectedRows, latestRows, scoped, modelInfo, providerFor, coverageRows, axis};
+  const suiteTracks = [
+    {name: 'LiveCodeBench', label: 'Coding (131)', group: 'livecodebench-v6-feb-apr-2025-131', n: 131},
+    {name: 'BFCL V4', label: 'Tool use (200)', group: 'bfcl-v4-multi-turn-base-local-fc-medium8k', n: 200},
+    {name: 'SWE-bench Pro V2 HARD-51', label: 'Repository work (12)', group: 'hard51-maintenance-12-v1', n: 12},
+    {name: 'GPQA Diamond', label: 'Science regression (198)', group: 'gpqa-diamond-198', n: 198},
+    {name: 'HLE-Diamond', label: 'HLE text pilot (40)', group: 'hle-diamond-text-pilot-v1', n: 40},
+  ];
+  const suiteLineup = [
+    ['Qwen3.8-Flash-Next', 'Halogen v2 native HGN'],
+    ...['IQ3_S', 'IQ3_XXS', 'IQ2_XS', 'Q2_0'].map(quant => ['Qwen3.8-Flash-Next', `GSQ-RCO ${quant}`]),
+    ['Inkling 2 Mini', 'Q8_0'],
+    ['Qwen3.8 27B', 'UD-Q4_K_XL'],
+    ['Qwen3.6 35B A3B', 'UD-Q4_K_XL'],
+  ];
+  function suiteRows(records) {
+    const local = latestRows(records.filter(r => r.kind === 'local'));
+    return suiteLineup.map(([model, quant]) => ({
+      model, quant,
+      cells: suiteTracks.map(track => local.filter(r =>
+        r.model.name === model && r.model.quantization === quant &&
+        r.benchmark.name === track.name && contextGroup(r) === track.group &&
+        r.metric.n === track.n && r.measurements?.completed === track.n &&
+        r.measurements?.total === track.n)),
+    }));
+  }
+  return {trackKey, identity, contextGroup, selectedRows, latestRows, scoped, modelInfo, providerFor, coverageRows, axis, suiteTracks, suiteRows};
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = Comparison;

@@ -1,0 +1,362 @@
+[
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-claude-opus-5",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "Claude Opus 5 (Claude Code) xhigh",
+      "provider": "Anthropic",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 98.0,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "Claude Code",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "xhigh",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  },
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-claude-fable-5-1",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "Claude Fable 5.1 (Claude Code) high",
+      "provider": "Anthropic",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 92.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "Claude Code",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "high",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  },
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-gemini-4-argon",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "Gemini 4 Argon (mini-swe-agent) high",
+      "provider": "Google",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 92.16,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "mini-swe-agent",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "high",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  },
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-gpt-6-astra",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "GPT 6 Astra (Codex) high",
+      "provider": "OpenAI",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 90.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "Codex",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "high",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  },
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-kimi-k3",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "Kimi K3 (mini-swe-agent) max",
+      "provider": "Moonshot / Kimi",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 88.2,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "mini-swe-agent",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "max",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  },
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-inkling-2-small",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "Inkling 2 Small (mini-swe-agent) xhigh",
+      "provider": "Reflection",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 86.27,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "mini-swe-agent",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "xhigh",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  },
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-glm-5-3",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "GLM 5.3 (mini-swe-agent) max",
+      "provider": "Z.ai / GLM",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 84.3,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "mini-swe-agent",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "max",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  },
+  {
+    "schema_version": 1,
+    "id": "hard51-scale-2026-11-25-gpt-5-6-sol",
+    "kind": "external",
+    "observed_at": "2026-11-25",
+    "model": {
+      "name": "GPT 5.6 Sol (Codex) xhigh",
+      "provider": "OpenAI",
+      "revision": "not_reported",
+      "quantization": "not_reported",
+      "artifact": "not_reported"
+    },
+    "benchmark": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "revision": "Scale published protocol",
+      "split": "HARD",
+      "task_set": "Scale HARD leaderboard, 51 tasks"
+    },
+    "metric": {
+      "name": "task_resolution",
+      "value": 82.4,
+      "unit": "percent",
+      "direction": "higher",
+      "n": 51
+    },
+    "protocol": {
+      "harness": "Codex",
+      "harness_revision": "not_reported",
+      "backend": "not_reported",
+      "backend_revision": "not_reported",
+      "hardware": "not_reported",
+      "config": {
+        "reasoning_setting": "xhigh",
+        "task_budget": "Scale leaderboard runs use different work limits from the local suite.",
+        "completion_token_cap": "not_reported"
+      }
+    },
+    "provenance": {
+      "type": "independent",
+      "location": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=hard",
+      "retrieved_at": "2026-11-25",
+      "notes": "Score and model label transcribed from the benchmark publisher’s HARD tab. The observation date is the review date."
+    },
+    "notes": "The local 12-task maintenance cohort uses its own task list and a fixed token and call budget. Treat this result as context from the publisher’s full 51-task track."
+  }
+]

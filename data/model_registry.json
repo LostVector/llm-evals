@@ -17,7 +17,8 @@
     "source_labels": [
       "GPT-6 Astra (Max)",
       "gpt-6-astra",
-      "GPT-6 Astra"
+      "GPT-6 Astra",
+      "GPT 6 Astra (Codex) high"
     ],
     "notes": ""
   },
@@ -47,7 +48,8 @@
     "provider": "Anthropic",
     "source_labels": [
       "Claude Fable 5.1 (Max, Default Fallback)",
-      "claude-fable-5-1"
+      "claude-fable-5-1",
+      "Claude Fable 5.1 (Claude Code) high"
     ],
     "notes": ""
   },
@@ -125,7 +127,8 @@
     "provider": "Moonshot / Kimi",
     "source_labels": [
       "Kimi K3 (Max)",
-      "kimi-k3"
+      "kimi-k3",
+      "Kimi K3 (mini-swe-agent) max"
     ],
     "notes": ""
   },
@@ -144,7 +147,8 @@
     "provider": "Z.ai / GLM",
     "source_labels": [
       "GLM-5.3 (Max)",
-      "glm-5.3"
+      "glm-5.3",
+      "GLM 5.3 (mini-swe-agent) max"
     ],
     "notes": ""
   },
