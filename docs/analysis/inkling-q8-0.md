@@ -21,6 +21,14 @@ These runtime measurements describe the serving build separately from
 the scores. [Batching evidence](https://github.com/LostVector/gufo/pull/24)
 [Cache evidence](https://github.com/gufo-org/gufo/pull/1408)
 
+The staged native Gufo build (`ada29e15ad50`) and llama.cpp b12600
+agreed on the highest-scoring token for the raw prefixes `[100]`,
+`[100, 200]`, and `[100, 200, 300]` using the same Q8_0 checkpoint.
+The respective predictions were `68014`, `198`, and `68014`. The largest
+absolute difference in the winning token's logit was 0.024. This smoke
+test covered three positions within one sequence. Broader parity checks
+across representative prompts remain pending.
+
 | Benchmark | Verified result | Evidence |
 | --- | ---: | --- |
 | GPQA Diamond | 170 / 198 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-gpqa-diamond-2026-11-23.json) |
@@ -30,5 +38,4 @@ the scores. [Batching evidence](https://github.com/LostVector/gufo/pull/24)
 The GPQA and LiveCodeBench rows record the earlier native Gufo build.
 BFCL retained 168 cases on the batched build and ran the final 32 after
 the cache update. The two builds and the checkpoint hash are recorded in
-the audit. The 12-task HARD-51 score and llama.cpp parity on the current
-native build are pending.
+the audit. The 12-task HARD-51 score is pending.
