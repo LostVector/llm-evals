@@ -103,6 +103,34 @@ On LiveCodeBench, one Q2_0 response, six IQ2_XS responses, and three IQ3_XXS res
 
 IQ2_XS and IQ3_XXS use separate hosts of the same Ryzen AI Max+ 395 hardware class for single-turn runs. Each host uses four inference slots and the verified Gufo `085aa5cc` binary and model shards from that quant's BFCL run.
 
+### Reproduce BFCL Multi-Turn Base
+
+Install `bfcl-eval==2026.3.23` in a Python 3.11 environment. The local
+adapter checks the installed dataset and reference fingerprints before
+generation or replay. It uses the official multi-turn scorer, executes
+only the benchmark's simulated tools, and caps each turn at 8,192
+completion tokens. Gufo and llama.cpp requests set a 6,963-token reasoning
+budget. Halogen uses its serving policy.
+
+From the repository root, set `BFCL_ENDPOINT` to the served `/v1` URL,
+`BFCL_MODEL` to its alias, `BFCL_ARTIFACT` to the loaded file's basename,
+and `BFCL_BUILD` to the exact build string returned by `/props`.
+
+```sh
+python3.11 -m venv .local/bfcl-venv
+.local/bfcl-venv/bin/python -m pip install 'bfcl-eval==2026.3.23'
+.local/bfcl-venv/bin/python -m scripts.bfcl_multi_turn run .local/bfcl/example \
+  --endpoint "$BFCL_ENDPOINT" --model "$BFCL_MODEL" --artifact "$BFCL_ARTIFACT" \
+  --engine gufo --build "$BFCL_BUILD" --slots 4 --context 262144 --workers 3
+.local/bfcl-venv/bin/python -m scripts.bfcl_multi_turn audit .local/bfcl/example
+```
+
+Run again with the same arguments after a transport failure to retain
+completed cases. The offline audit requires all 200 exact case IDs and
+replays each stored tool-call trajectory with the pinned scorer. Keep the
+case files private and publish only the aggregate and fingerprints.
+Use a different output directory for a limited smoke test.
+
 The original Gufo build served IQ3_S. Its loader rejected IQ3_XXS at provider selection and Q2_0 at the Q3_K embedding tensor. Candidate `73c2064f` loaded IQ3_XXS, then hit an unsupported embedding format during the cached native-MTP smoke test. Candidate `085aa5cc` passed the smoke test on IQ3_XXS, IQ2_XS, and Q2_0 and produced their BFCL scores using four 262,144-token slots. The builds matched all five IQ3_S full-model regression responses and decoding work counts, so the matrix carries forward the completed IQ3_S run.
 
 ### Published higher-precision references

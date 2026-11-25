@@ -204,6 +204,7 @@
     "name": "Qwen3.8 27B",
     "provider": "Alibaba / Qwen",
     "source_labels": [
+      "Qwen3.8 27B",
       "Qwen3.8 27B (Xhigh)"
     ],
     "notes": "Published Xhigh reference setting; exact local checkpoint and quantization variants remain separate observations."
@@ -213,6 +214,7 @@
     "name": "Qwen3.6 35B A3B",
     "provider": "Alibaba / Qwen",
     "source_labels": [
+      "Qwen3.6 35B A3B",
       "Qwen3.6 35B A3B (Reasoning)"
     ],
     "notes": "Published reasoning-mode reference. Current-version composite and net knowledge results are unreported in the verified source; older index scores are not substituted."
