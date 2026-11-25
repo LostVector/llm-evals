@@ -21,6 +21,13 @@ These runtime measurements describe the serving build separately from
 the scores. [Batching evidence](https://github.com/LostVector/gufo/pull/24)
 [Cache evidence](https://github.com/gufo-org/gufo/pull/1408)
 
+During the matched HARD-51 run, we sampled completed chat requests with
+at least 32,768 prompt tokens through 2026-11-25 22:47 UTC. All 68 requests
+in that completed sample reported cache reuse. Median reuse was **99.08%**
+of prompt tokens, with a median of **650 tokens** of fresh prefill.
+The longest completed prompt reused 131,822 of 132,333 tokens. The
+sample ends before later requests finish and describes runtime behavior.
+
 The staged native Gufo build (`ada29e15ad50`) and llama.cpp b12600
 agreed on the highest-scoring token for the raw prefixes `[100]`,
 `[100, 200]`, and `[100, 200, 300]` using the same Q8_0 checkpoint.
