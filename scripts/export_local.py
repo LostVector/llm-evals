@@ -38,10 +38,19 @@ def observation(lane, summary, protocol, metadata, identifier, observed_at, audi
               for label in family['source_labels']}
     if model['name'] not in labels:
         raise ValueError('Model name must be a registered public label, not an endpoint alias')
+    default_runtime_context = (
+        'Shared inference service; suite lanes ran concurrently. Request times include queue/retry time.'
+    )
     config = {'protocol_id': protocol['id'], 'protocol_file': 'protocols/'+PROTOCOLS[lane],
               'generation': protocol['generation'], 'attempts_per_task': 1,
               'audit_revision': audit_revision,
-              'runtime_context': 'Shared inference service; suite lanes ran concurrently. Request times include queue/retry time.'}
+              'runtime_context': metadata.get('runtime_context', default_runtime_context)}
+    if 'runtime' in metadata:
+        fields = ('context_tokens_per_slot', 'max_slots_per_host', 'max_active_tasks_per_host',
+                  'cache_ram_bytes_per_host', 'binary_sha256', 'speculative_decoding',
+                  'accelerator', 'template_reasoning_effort_support')
+        config['runtime'] = {key: metadata['runtime'][key] for key in fields
+                             if key in metadata['runtime']}
     config['reasoning'] = reasoning_policy(metadata.get('reasoning'))
     telemetry = metadata.get('reasoning_closure_telemetry', 'backend_reported_markers_only')
     if telemetry not in ('backend_reported_markers_only', 'not_reported'):

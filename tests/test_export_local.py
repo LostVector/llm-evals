@@ -35,6 +35,19 @@ class LocalExportTests(unittest.TestCase):
         self.assertEqual(result['metric']['n'],198)
         self.assertEqual(result['protocol']['config']['comparison_group'],'gpqa-diamond-198')
 
+    def test_verified_runtime_profile_is_retained(self):
+        context = 'One host with three concurrent requests per benchmark.'
+        self.metadata.update(runtime_context=context, runtime={
+            'context_tokens_per_slot': 262144, 'max_slots_per_host': 4,
+            'max_active_tasks_per_host': 3, 'binary_sha256': 'b' * 64,
+            'endpoint': 'http://127.0.0.1:4000/v1',
+        })
+        config = self.export()['protocol']['config']
+        self.assertEqual(config['runtime_context'], context)
+        self.assertEqual(config['runtime']['max_active_tasks_per_host'], 3)
+        self.assertEqual(config['runtime']['binary_sha256'], 'b' * 64)
+        self.assertNotIn('endpoint', config['runtime'])
+
     def test_private_addresses_and_endpoint_aliases_are_rejected(self):
         self.metadata['hardware']='Synthetic server at 10.0.0.1'
         with self.assertRaises(ValueError):self.export()
