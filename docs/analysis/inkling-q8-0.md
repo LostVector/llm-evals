@@ -1,0 +1,34 @@
+# Inkling 2 Mini Q8_0 deployment checks
+
+The model is the fixed-loop `Inkling-2-Mini-Q8_0.gguf` at
+`db61c5b492a6a034d986328d28274af0a439aa6c`. Its SHA-256 was
+`d57542f8aea5d7639beba5fc4ae7f584754916f63ac5d5a69328c27f652f45da`.
+The serving profile uses four 262,144-token slots and up to three active
+requests per host. [Model artifact](https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF/blob/db61c5b492a6a034d986328d28274af0a439aa6c/Inkling-2-Mini-Q8_0.gguf)
+
+The batched Gufo build with the same-slot checkpoint fix passed the native
+function-call round trip on three replicas. A 24-token completion reported
+23 reasoning tokens, and a separate request with a four-token reasoning
+budget finished thinking at four tokens. Three simultaneous conversations
+on each replica reused 2,290–2,314 prompt tokens independently. These requests
+tested three concurrent sessions configured at 256K with shorter prompts.
+[Preflight](../../scripts/inkling_gufo_preflight.py)
+
+The Q8_0 batching fix reached physical decode width three. The same-slot
+checkpoint fix reduced prefill from about 59K tokens to 11 in each of three
+synthetic long-prompt replays. All three outputs matched clean prefill.
+These runtime measurements describe the serving build separately from
+the scores. [Batching evidence](https://github.com/LostVector/gufo/pull/24)
+[Cache evidence](https://github.com/gufo-org/gufo/pull/1408)
+
+| Benchmark | Verified result | Evidence |
+| --- | ---: | --- |
+| GPQA Diamond | 170 / 198 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-gpqa-diamond-2026-11-23.json) |
+| LiveCodeBench frozen window | 92 / 131 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-livecodebench-window-2026-11-25.json) |
+| BFCL Multi-Turn Base | 112 / 200 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-bfcl-multi-turn-base-2026-11-25.json) · [Offline replay audit](bfcl-inkling-q8-0.json) |
+
+The GPQA and LiveCodeBench rows record the earlier native Gufo build.
+BFCL retained 168 cases on the batched build and ran the final 32 after
+the cache update. The two builds and the checkpoint hash are recorded in
+the audit. The 12-task HARD-51 score and llama.cpp parity on the current
+native build are pending.

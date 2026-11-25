@@ -1,0 +1,38 @@
+{
+  "completed": 200,
+  "total": 200,
+  "complete": true,
+  "correct": 112,
+  "accuracy": 0.56,
+  "wilson_95": [
+    0.4907167533465867,
+    0.6270218074881414
+  ],
+  "profile": {
+    "harness": "2026.3.23",
+    "category": "multi_turn_base",
+    "temperature": 0.001,
+    "max_tokens": 8192,
+    "reasoning_effort": "medium",
+    "tool_mode": "native FC",
+    "step_limit": 20,
+    "artifact": "Inkling-2-Mini-Q8_0.gguf",
+    "engine": "gufo",
+    "reasoning_budget_tokens": 6963
+  },
+  "dataset_sha256": "c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288",
+  "reference_sha256": "7cfd433df6b3e7bbeed6f915290c4c05b351ec6258f06d0b7ed198ffa2ebbccf",
+  "checkpoint_inventory_sha256": "8573868a40fd086e3cf287fc1ce9f6d1ff806e2fcac685f9deda29f81ee172bb",
+  "build_sequence": [
+    {
+      "revision": "development (inkling-q8-batching)",
+      "cases": 168,
+      "batching_source": "https://github.com/LostVector/gufo/pull/24"
+    },
+    {
+      "revision": "development (inkling-eval-ada29e15ad50)",
+      "cases": 32,
+      "cache_source": "https://github.com/LostVector/gufo/pull/25"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "gufo-inkling-2-mini-q8-0-bfcl-multi-turn-base-2026-11-25",
+  "kind": "local",
+  "observed_at": "2026-11-25",
+  "model": {
+    "name": "Inkling 2 Mini",
+    "revision": "db61c5b492a6a034d986328d28274af0a439aa6c",
+    "quantization": "Q8_0",
+    "artifact": "Inkling-2-Mini-Q8_0.gguf",
+    "artifact_sha256": "d57542f8aea5d7639beba5fc4ae7f584754916f63ac5d5a69328c27f652f45da"
+  },
+  "benchmark": {
+    "name": "BFCL V4",
+    "revision": "bfcl-eval 2026.3.23",
+    "split": "Multi-Turn Base",
+    "task_set": "sha256:c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288"
+  },
+  "metric": {
+    "name": "accuracy",
+    "value": 0.56,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 200
+  },
+  "protocol": {
+    "harness": "BFCL native function calling with guarded simulated tools",
+    "harness_revision": "bfcl-eval 2026.3.23",
+    "config": {
+      "comparison_group": "bfcl-v4-multi-turn-base-local-fc-medium8k",
+      "attempts_per_task": 1,
+      "generation": {
+        "temperature": 0.001,
+        "reasoning_effort": "medium",
+        "max_tokens": 8192
+      },
+      "reasoning": {
+        "budget_tokens": 6963,
+        "budget_scope": "per_request",
+        "budget_enforcement": "server",
+        "budget_exhaustion": "force_close_then_answer",
+        "final_answer_reserve_tokens": 1229,
+        "output_cap_includes_reasoning": true,
+        "parser": "Gufo Inkling",
+        "chat_template_sha256": "53a9035f3255945704b5857657cfb00c1165090c0641c4f782a0cbf268cc16dc",
+        "verification": "configured"
+      },
+      "tool_mode": "native FC",
+      "step_limit_per_user_turn": 20,
+      "artifact_verification": {
+        "source": "https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF/blob/db61c5b492a6a034d986328d28274af0a439aa6c/Inkling-2-Mini-Q8_0.gguf",
+        "scope": "Exact GGUF SHA-256 verified on both inference hosts before scoring."
+      },
+      "audit_summary": "docs/analysis/bfcl-inkling-q8-0.json",
+      "runtime": {
+        "builds": [
+          {
+            "revision": "development (inkling-q8-batching)",
+            "cases": 168,
+            "batching_source": "https://github.com/LostVector/gufo/pull/24"
+          },
+          {
+            "revision": "development (inkling-eval-ada29e15ad50)",
+            "cases": 32,
+            "cache_source": "https://github.com/LostVector/gufo/pull/25"
+          }
+        ],
+        "context_tokens_per_slot": 262144,
+        "max_slots_per_host": 4,
+        "max_active_tasks_per_host": 3,
+        "retained_ram_cache_bytes": 2147483648
+      }
+    },
+    "backend": "Gufo",
+    "backend_revision": "Two recorded Gufo builds",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/gufo-inkling-2-mini-q8-0-bfcl-multi-turn-base-2026-11-25.json",
+    "retrieved_at": "2026-11-25",
+    "notes": "Sanitized complete-run audit. Raw task content and traces remain private; artifact fingerprints permit later integrity checks."
+  },
+  "measurements": {
+    "completed": 200,
+    "total": 200,
+    "correct": 112,
+    "wilson_95": [
+      0.4907167533465867,
+      0.6270218074881414
+    ]
+  },
+  "notes": "All 200 cases were graded again offline. The run resumed across two Gufo builds with the same checkpoint and generation profile. The split score does not establish single-build accuracy."
+}

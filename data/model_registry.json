@@ -212,5 +212,14 @@
       "Qwen3.6 35B A3B (Reasoning)"
     ],
     "notes": "Published reasoning-mode reference. Current-version composite and net knowledge results are unreported in the verified source; older index scores are not substituted."
+  },
+  {
+    "id": "inkling-2-mini",
+    "name": "Inkling 2 Mini",
+    "provider": "Thinking Machines Lab",
+    "source_labels": [
+      "Inkling 2 Mini"
+    ],
+    "notes": "Local fixed-loop Q8_0 measurements on Gufo."
   }
 ]
