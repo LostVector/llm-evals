@@ -63,7 +63,7 @@ def prompts(path):
     return result
 
 
-def load_questions(mode, limit=None):
+def load_questions(mode, limit=None, *, pilot=False):
     try:
         from datasets import load_dataset
     except ImportError as exc:
@@ -72,7 +72,7 @@ def load_questions(mode, limit=None):
     questions=[dict(row) for row in dataset]
     for q in questions:q['partition']=str(q.get('partition','')).strip().lower()
     validate_questions(questions)
-    return select_questions(questions,mode,limit)
+    return select_questions(questions,mode,limit,pilot=pilot)
 
 
 def validate_questions(questions):
@@ -87,9 +87,21 @@ def validate_questions(questions):
         raise ValueError('Unexpected image-task count')
 
 
-def select_questions(questions,mode,limit=None):
+def select_questions(questions,mode,limit=None,*,pilot=False):
     if mode=='text-only-subset':
         questions=[q for q in questions if not q.get('image')]
+    if pilot:
+        if mode != PROTOCOL['pilot']['input_mode'] or limit is not None:
+            raise ValueError('The fixed pilot requires text-only-subset without a limit')
+        count = PROTOCOL['pilot']['questions_per_partition']
+        cohort = []
+        for partition in PROTOCOL['expected_partition_counts']:
+            ranked = sorted((q for q in questions if q['partition'] == partition),
+                            key=lambda q: digest(q['id']))
+            if len(ranked) < count:
+                raise ValueError(f'Not enough text-only pilot questions in {partition}')
+            cohort.extend(ranked[:count])
+        return cohort
     if limit is not None:
         if limit<=0: raise ValueError('limit must be positive')
         questions=questions[:limit]
@@ -162,9 +174,23 @@ def validate_judgment(value):
 def summarize(manifest,predictions,judgments):
     task_ids=manifest['task_ids']
     if len(set(task_ids))!=len(task_ids) or not task_ids:raise ValueError('Invalid manifest IDs')
-    if manifest['config']['limit'] is None:
-        expected=PROTOCOL['expected_tasks']-(PROTOCOL['expected_image_tasks'] if manifest['config']['input_mode']=='text-only-subset' else 0)
+    config = manifest['config']
+    mode = config['input_mode']
+    task_set = 'text-only-subset' if mode == 'text-only-subset' else 'full-1000'
+    if config.get('pilot'):
+        pilot = PROTOCOL['pilot']
+        counts = {partition: sum(manifest['partitions'][i] == partition for i in task_ids)
+                  for partition in PROTOCOL['expected_partition_counts']}
+        expected_counts = dict.fromkeys(PROTOCOL['expected_partition_counts'],
+                                        pilot['questions_per_partition'])
+        if mode != pilot['input_mode'] or counts != expected_counts or sum(counts.values()) != len(task_ids):
+            raise ValueError('Pilot task count or input mode differs from protocol')
+        task_set = pilot['id']
+    elif config['limit'] is None:
+        expected=PROTOCOL['expected_tasks']-(PROTOCOL['expected_image_tasks'] if mode=='text-only-subset' else 0)
         if len(task_ids)!=expected:raise ValueError('Full-track task count differs from protocol; do not label a partial run full')
+    else:
+        task_set = 'development-subset'
     if set(predictions)!=set(task_ids):raise ValueError('Prediction task IDs differ from frozen manifest')
     if any(predictions[i].get('status') not in ('answered','generation_error') for i in task_ids):raise ValueError('Unknown generation status')
     answered=[i for i in task_ids if predictions[i]['status']=='answered']
@@ -178,7 +204,7 @@ def summarize(manifest,predictions,judgments):
         mid=(p+z*z/(2*n))/den if n else 0
         half=z*math.sqrt(p*(1-p)/n+z*z/(4*n*n))/den if n else 0
         return dict(correct=correct,n=n,accuracy_percent=100*p,wilson_95_percent=[100*max(0,mid-half),100*min(1,mid+half)])
-    return dict(metric='pass@1_accuracy',input_mode=manifest['config']['input_mode'],task_set='development-subset' if manifest['config']['limit'] else ('text-only-subset' if manifest['config']['input_mode']=='text-only-subset' else 'full-1000'),overall=stats(task_ids),partitions={p:stats([i for i in task_ids if manifest['partitions'][i]==p]) for p in PROTOCOL['expected_partition_counts'] if any(manifest['partitions'][i]==p for i in task_ids)},generation_errors=len(task_ids)-len(answered),truncated_responses=sum(predictions[i].get('finish_reason')=='length' for i in answered))
+    return dict(metric='pass@1_accuracy',input_mode=mode,task_set=task_set,overall=stats(task_ids),partitions={p:stats([i for i in task_ids if manifest['partitions'][i]==p]) for p in PROTOCOL['expected_partition_counts'] if any(manifest['partitions'][i]==p for i in task_ids)},generation_errors=len(task_ids)-len(answered),truncated_responses=sum(predictions[i].get('finish_reason')=='length' for i in answered))
 
 
 def private_run_path(path):
@@ -200,7 +226,9 @@ def main():
     predict.add_argument('--max-tokens',type=int,default=16384);predict.add_argument('--temperature',type=float,default=0)
     predict.add_argument('--seed',type=int);predict.add_argument('--reasoning-effort')
     predict.add_argument('--token-parameter',choices=['max_tokens','max_completion_tokens'],default='max_tokens')
-    predict.add_argument('--limit',type=int)
+    cohort = predict.add_mutually_exclusive_group()
+    cohort.add_argument('--limit',type=int)
+    cohort.add_argument('--pilot',action='store_true',help='Use the fixed 40-question text pilot')
     predict.add_argument('--api-key-env',default='HLE_MODEL_API_KEY')
     judge=sub.add_parser('judge');judge.add_argument('--run',type=Path,required=True)
     judge.add_argument('--model',required=True);judge.add_argument('--base-url',required=True)
@@ -220,8 +248,8 @@ def main():
         if args.output.exists():raise ValueError('Output directory already exists; use a new run directory to prevent accidental retakes or overwrites')
         if args.limit is not None and args.limit<=0:raise ValueError('limit must be positive')
         if args.max_tokens<=0 or not math.isfinite(args.temperature) or args.temperature<0:raise ValueError('Invalid decoding budget')
-        config={k:getattr(args,k) for k in ('model','input_mode','max_tokens','temperature','seed','reasoning_effort','token_parameter','limit')}
-        questions=load_questions(args.input_mode,args.limit)
+        config={k:getattr(args,k) for k in ('model','input_mode','max_tokens','temperature','seed','reasoning_effort','token_parameter','limit','pilot')}
+        questions=load_questions(args.input_mode,args.limit,pilot=args.pilot)
         manifest=dict(protocol=PROTOCOL,config=config,task_ids=[q['id'] for q in questions],partitions={q['id']:q['partition'] for q in questions},prompts_sha256=digest(prompt),created_at=datetime.now(timezone.utc).isoformat())
         manifest['software_versions']={'python':sys.version.split()[0],'datasets':importlib.metadata.version('datasets')}
         manifest['run_fingerprint']=digest(manifest)
@@ -234,7 +262,8 @@ def main():
             print(f'{i}/{len(questions)} tasks attempted',flush=True)
         return
     manifest=json.loads((args.run/'manifest.json').read_text())
-    questions=load_questions(manifest['config']['input_mode'],manifest['config']['limit'])
+    questions=load_questions(manifest['config']['input_mode'],manifest['config']['limit'],
+                             pilot=manifest['config'].get('pilot',False))
     if [q['id'] for q in questions]!=manifest['task_ids']:raise ValueError('Task manifest no longer matches dataset')
     if digest(prompt)!=manifest['prompts_sha256']:raise ValueError('Prompt fingerprints differ from run')
     predictions=json.loads((args.run/'predictions.json').read_text())

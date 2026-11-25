@@ -1,24 +1,24 @@
 # Evaluation suite selection
 
-Decision updated 2026-11-19. The suite reports separate general-capability, coding, and multi-turn scores. Local pilots establish runtime and verify the grader before full cohorts run.
+Decision updated 2026-11-25. The suite reports separate coding, multi-turn tool-use, repository-work, and science-regression scores. The general-capability pilot will establish runtime and headroom before the full cohort runs.
 
 ## Comparison suite
 
-Use these three tracks for new model comparisons. Freeze the task IDs, prompt, grader, and work budget before running the first deployment. Run hosted baselines on the same profile when a published result uses a different setup. Keep published scores visible with their original source and protocol.
+Freeze the task IDs, prompt, grader, and work budget before running a comparison. Keep published scores visible with their original source and protocol. A hosted baseline on the same profile can fill a gap where no matching published score exists.
 
 | Capability | Fixed track | Published anchors and headroom |
 | --- | --- | --- |
-| General capability | **HLE-Diamond**, all 1,000 questions, no tools, official prompt and one fixed judge. Use the same image treatment within a comparison cohort. | Artificial Analysis reports Flash-Next **16.3%**, GLM-5.3 **17.9%**, GLM-5.3-Flash **18.2%**, DeepSeek V4.1 Flash 1017 **25.3%**, and Claude Fable 5.2 **80.2%** on the full set. [Scores](https://artificialanalysis.ai/evaluations/hle-diamond) · [Method](https://artificialanalysis.ai/methodology/intelligence-benchmarking#hle-diamond) · [Local recipe](general-capability.md) |
+| General capability pilot | **HLE Diamond**, no tools, official prompt and one fixed judge. Use a fixed pilot cohort and the same image treatment across candidates. | Frontier references cover all 1,000 questions. Local pilot results apply to the pilot cohort. [Scores](https://artificialanalysis.ai/evaluations/hle-diamond) · [Method](https://artificialanalysis.ai/methodology/intelligence-benchmarking#hle-diamond) · [Local recipe](general-capability.md) |
 | Coding | **LiveCodeBench release_v6**, the frozen 131 problems from February through April 2025, one completion per problem, upstream tests. | AMD's Flash-Next BF16 scores **88.09%** on the matching date window with five repeats and a larger output budget. Gufo IQ3_S scored **83.21%** with the local recipe. Published GLM and DeepSeek scores use different or undisclosed task sets. [AMD results](https://rocm.blogs.amd.com/artificial-intelligence/quark-qwen-ple/README.html#appendix-b-exact-benchmark-results) · [Local recipe](../protocols/livecodebench-v6-window.json) |
-| Multi-turn agency | **τ³-Banking**, all 97 English text `banking_knowledge` tasks, Sierra v1.0.1, BM25 plus grep, fixed simulator and judge, and a 200-step task budget. | Artificial Analysis reports Flash-Next **45.36%**, GLM-5.3 **50.31%**, and GLM-5.3-Flash **47.22%**. Its method specifies GPT-5.4 Mini at medium for simulation and judge, with five runs per task. Its exact 1017 score is missing. [Scores](https://artificialanalysis.ai/evaluations/tau3-banking) · [Method](https://artificialanalysis.ai/methodology/intelligence-benchmarking#tau3-banking) · [Upstream release](https://github.com/sierra-research/tau2-bench/releases/tag/v1.0.1) |
+| Multi-turn tool use | **BFCL Multi-Turn Base**, all 200 cases, native function calling, scripted user turns, and the pinned upstream step limit. | Match category, scorer revision, tool-call mode, and reasoning limits before treating an external result as directly comparable. [Local recipe](practical-suite.md#flash-next-gsq-rco-coverage) · [Leaderboard](https://gorilla.cs.berkeley.edu/leaderboard.html) |
+| Repository work | **HARD-51 maintenance**, the frozen 12 tasks with the matched-work token and turn budgets. | Record the actual result for patches produced at a work limit. The published 50-minute leaderboard provides deployment context. [Cohort](../protocols/hard51-maintenance-12.json) · [Matched limits](../protocols/hard51-matched-work.json) |
+| Science regression | **GPQA Diamond**, one pass over the same 198 questions with the pinned settings. | Flash-Next results cluster near the ceiling in this cohort. Keep GPQA for comparisons with the previous runs. [Local recipe](../protocols/gpqa-diamond.json) |
 
-Run a fixed small pilot for HLE-Diamond and Banking before scheduling full cohorts. Use the same pilot tasks for the local candidate and a hosted baseline to measure runtime and confirm grading. For matched results, use the same task list, prompt, tools, and budget with GLM-5.3, GLM-5.3-Flash, and the exact DeepSeek 1017 checkpoint. A pilot score applies to its pilot tasks. Full published scores apply to their full cohorts.
+Use the HLE pilot to measure runtime, confirm grading, and check that the local lineup scores above the floor. Retain τ³-Banking as a separate reference track with its published simulator and judge settings. [Banking methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking#tau3-banking)
 
-Keep GPQA for science regression and BFCL Multi-Turn Base for native-tool compatibility. The current Flash-Next matrix retains these measurements. Banking is the multi-turn capability track for new comparisons.
+## General-capability pilot
 
-## Primary general-capability decision
-
-Use **HLE-Diamond full-set no-tool pass@1 accuracy (%)**, with separate reasoning and knowledge accuracy. It resolves the public-runner/current-frontier gap: the complete named 1,000-question release is available behind a Hugging Face access gate, its evaluator/prompts are public, and current reference scores exist. The [pinned protocol and local runner](general-capability.md) specify data/evaluator revisions, input mode, fixed judge, failure handling and execution commands. AA's full composite is supplementary external context.
+If the pilot supports a full run, use **HLE Diamond full-set no-tool pass@1 accuracy (%)**, with separate reasoning and knowledge accuracy. The 1,000-question release is available through a Hugging Face access gate. The [pinned protocol and local runner](general-capability.md) specify data and evaluator revisions, input mode, judge, failure handling, and commands. Artificial Analysis's composite remains external context.
 
 Do not treat task subsets, missing images, different judges or different token/reasoning budgets as identical protocols. Use the 728-question text-only slice only as a separately labeled diagnostic. Retain SuperGPQA/BBEH for local model and quant discrimination if Diamond is too hard for a target tier; their historical source tables are not the current frontier baseline.
 

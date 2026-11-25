@@ -25,9 +25,30 @@ The staged native Gufo build (`ada29e15ad50`) and llama.cpp b12600
 agreed on the highest-scoring token for the raw prefixes `[100]`,
 `[100, 200]`, and `[100, 200, 300]` using the same Q8_0 checkpoint.
 The respective predictions were `68014`, `198`, and `68014`. The largest
-absolute difference in the winning token's logit was 0.024. This smoke
-test covered three positions within one sequence. Broader parity checks
-across representative prompts remain pending.
+absolute difference in the winning token's logit was 0.024.
+
+A second check used Gufo ROCm prefill and llama.cpp b12600
+(`29b52d398`) CPU decode on the same Q8_0 checkpoint. Both engines
+received the same teacher-forced token IDs. Gufo and llama.cpp agreed
+on the highest-logit token at **189 of 192 positions (98.44%)**.
+At the three disagreements, the llama.cpp first-to-second logit gaps
+were 0.0011, 0.0099, and 0.0048. Both engines ranked the other's
+winning token in their top 64 at those positions.
+
+| Synthetic fixture | Top-token agreement | Mean absolute logit difference on Gufo's top 64 | Mean KL divergence |
+| --- | ---: | ---: | ---: |
+| Prose | 46 / 48 | 0.1073 | 0.002695 |
+| Python | 48 / 48 | 0.2488 | 0.001464 |
+| Table | 95 / 96 | 0.2996 | 0.001780 |
+
+The KL comparison uses Gufo's top 64 plus a bucket for the remaining
+probability mass. llama.cpp CPU microbatches of 32 produced nonfinite logits
+in this oracle run. The reported comparison uses one CPU token per decode,
+with finite logits checked for every position. This establishes short-context
+numerical agreement with three near-tie changes in token rank. The tool-call,
+reasoning-budget, and cache tests cover the serving API separately.
+[Fixtures and reproduction](inkling-q8-oracle-fixtures.md)
+[llama.cpp source](https://github.com/ggml-org/llama.cpp/tree/29b52d398b294509746ec0a3f28948a3107c0213)
 
 | Benchmark | Verified result | Evidence |
 | --- | ---: | --- |

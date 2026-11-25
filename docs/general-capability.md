@@ -1,6 +1,6 @@
-# Primary general-capability evaluation: HLE-Diamond
+# General-capability pilot for HLE Diamond
 
-**Decision:** use **HLE-Diamond full-set no-tool pass@1 accuracy (%)** as our headline general-capability metric. Report its reasoning and knowledge partitions alongside the overall score. Artificial Analysis's composite index is external context, not our locally measured metric.
+Pilot **HLE Diamond** on a fixed cohort before deciding whether to use it as the headline general-capability metric. Promote it if the local lineup scored above the floor, the judge is reliable, and the estimated full run fits the evaluation budget. A full run reports no-tool pass@1 accuracy and the separate reasoning and knowledge partitions. Artificial Analysis's composite index remains external context.
 
 ## Why this resolves the gap
 
@@ -32,6 +32,13 @@ This is a broad expert knowledge/reasoning measure, not a complete measure of in
 | `text-only-subset` | 728 | Diagnostic restricted to tasks without images. Never overlay on full-set frontier accuracy or call it the full benchmark. A comparable frontier subset score requires its own task-level evaluation. |
 
 `--limit` creates a development/smoke subset and is labeled as such. It never produces a full-set headline score. Original `cais/hle` (2,500 tasks), HLE-Rolling, and Diamond are separate datasets.
+
+Use `--input-mode text-only-subset --pilot` for the fixed 40-question pilot.
+It selects 20 reasoning and 20 knowledge questions from the text-only slice
+by hashing the task IDs. Use the same cohort and judge for every candidate.
+Compare runtime and outcomes across the lineup before expanding. The pilot
+can reveal floor effects and grading problems. Small differences between
+quantizations need a larger cohort.
 
 ## Run locally
 

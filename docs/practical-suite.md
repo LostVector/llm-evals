@@ -8,7 +8,7 @@ The target is a few days per deployment. Full SuperGPQA is excluded. Pilot runti
 must establish feasibility before committing to additional full runs. Changes to
 a task set or budget produce a distinct protocol, never a silently comparable score.
 
-The table below covers the current Flash-Next matrix. [The comparison suite for new benchmarks](benchmarks.md#comparison-suite) uses HLE-Diamond, this LiveCodeBench window, and τ³-Banking.
+The table below covers the Flash-Next matrix. The [comparison suite](benchmarks.md#comparison-suite) carries these runs forward, adds matched HARD-51, and pilots HLE Diamond.
 
 | Lane | Planned measurement | Scope |
 | --- | --- | --- |

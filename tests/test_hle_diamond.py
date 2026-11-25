@@ -65,6 +65,25 @@ class HLETests(unittest.TestCase):
         c['input_mode']='text-input-full'
         with self.assertRaises(ValueError):summarize(manifest,predictions,{})
 
+    def test_pilot_is_fixed_balanced_and_labeled(self):
+        questions = [dict(question(f'{partition}-{i}', image='image' if i < 4 else ''),
+                          partition=partition)
+                     for partition in ('reasoning', 'knowledge') for i in range(30)]
+        mode = 'text-only-subset'
+        selected = select_questions(questions, mode, pilot=True)
+        self.assertEqual(selected, select_questions(list(reversed(questions)), mode, pilot=True))
+        partitions = {q['id']: q['partition'] for q in selected}
+        self.assertEqual(list(partitions.values()).count('reasoning'), 20)
+        self.assertEqual(list(partitions.values()).count('knowledge'), 20)
+        self.assertFalse(any(q['image'] for q in selected))
+        manifest = dict(task_ids=list(partitions), partitions=partitions,
+                        config=dict(config(), limit=None, input_mode=mode, pilot=True))
+        predictions = {i: dict(status='generation_error') for i in partitions}
+        self.assertEqual(summarize(manifest, predictions, {})['task_set'], PROTOCOL['pilot']['id'])
+        manifest['task_ids'].pop()
+        with self.assertRaises(ValueError):
+            summarize(manifest, predictions, {})
+
     def test_judge_uses_gold_but_validates_output(self):
         prompt='{question} / {correct_answer} / {response}'
         body=judge_payload(question(),{'response':'fixture'},prompt,'synthetic-judge','medium')

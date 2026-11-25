@@ -11,6 +11,12 @@
   "metric": "pass@1_accuracy",
   "primary_input_modes": ["multimodal", "text-input-full"],
   "diagnostic_input_modes": ["text-only-subset"],
+  "pilot": {
+    "id": "hle-diamond-text-pilot-v1",
+    "input_mode": "text-only-subset",
+    "questions_per_partition": 20,
+    "selection": "Sort each partition by SHA-256 of the JSON string for the task ID and take the first 20."
+  },
   "tools": false,
   "attempts_per_task": 1,
   "default_temperature": 0,
