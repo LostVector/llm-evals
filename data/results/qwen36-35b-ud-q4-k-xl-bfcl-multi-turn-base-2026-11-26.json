@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "qwen36-35b-ud-q4-k-xl-bfcl-multi-turn-base-2026-11-26",
+  "kind": "local",
+  "observed_at": "2026-11-26",
+  "model": {
+    "name": "Qwen3.6 35B A3B",
+    "revision": "a483e9e6cbd595906af30beda3187c2663a1118c",
+    "quantization": "UD-Q4_K_XL",
+    "artifact": "Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+    "artifact_sha256": "707a55a8a4397ecde44de0c499d3e68c1ad1d240d1da65826b4949d1043f4450"
+  },
+  "benchmark": {
+    "name": "BFCL V4",
+    "revision": "bfcl-eval 2026.3.23",
+    "split": "Multi-Turn Base",
+    "task_set": "sha256:c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288"
+  },
+  "metric": {
+    "name": "accuracy",
+    "value": 0.755,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 200
+  },
+  "protocol": {
+    "harness": "BFCL native function calling with guarded simulated tools",
+    "harness_revision": "bfcl-eval 2026.3.23",
+    "config": {
+      "comparison_group": "bfcl-v4-multi-turn-base-local-fc-medium8k",
+      "category": "multi_turn_base",
+      "native_function_calling": true,
+      "temperature": 0.001,
+      "max_tokens": 8192,
+      "reasoning_effort_requested": "medium",
+      "reasoning_budget_tokens": 6963,
+      "step_limit": 20,
+      "dataset_sha256": "c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288",
+      "reference_sha256": "7cfd433df6b3e7bbeed6f915290c4c05b351ec6258f06d0b7ed198ffa2ebbccf",
+      "kv_cache_precision": "FP16 attention K/V",
+      "runtime": {
+        "context_tokens_per_slot": 262144,
+        "max_slots_per_host": 4,
+        "max_active_tasks_per_host": 3,
+        "cache_ram_bytes_per_host": 2147483648,
+        "binary_sha256": "7bb3b3a50a3b9d36bc8ccabb037667fdb78c2bc84118cbfa2f488f455cdb16cb",
+        "speculative_decoding": false,
+        "accelerator": "Vulkan",
+        "template_reasoning_effort_support": false
+      },
+      "artifact_verification": {
+        "source": "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/blob/a483e9e6cbd595906af30beda3187c2663a1118c/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+        "scope": "Exact GGUF SHA-256 verified on the inference host before scoring."
+      },
+      "observed_sampling_defaults": {
+        "min_p": 0.05000000074505806,
+        "repeat_penalty": 1.0,
+        "source": "Serving API default generation settings",
+        "scope": "Defaults for request parameters the benchmark does not override."
+      }
+    },
+    "backend": "llama.cpp",
+    "backend_revision": "b12600-29b52d398",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/qwen36-35b-ud-q4-k-xl-bfcl-multi-turn-base-2026-11-26.json",
+    "retrieved_at": "2026-11-26",
+    "notes": "All 200 case verdicts verified by offline replay."
+  },
+  "measurements": {
+    "completed": 200,
+    "total": 200,
+    "correct": 151,
+    "wilson_95": [
+      0.6909575644379659,
+      0.8094313191096282
+    ],
+    "checkpoint_inventory_sha256": "248b7086665ebd503844c9a1600bae2346af0f22a4e2da723cd39b98db0107b5"
+  },
+  "notes": "Matches the frozen 200-case BFCL cohort. Runtime and reasoning parser details are recorded. The chat template does not act on the requested effort tier. The explicit per-turn reasoning token limit was used."
+}
