@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "qwen38-27b-ud-q4-k-xl-bfcl-multi-turn-base-2026-11-26",
+  "kind": "local",
+  "observed_at": "2026-11-26",
+  "model": {
+    "name": "Qwen3.8 27B",
+    "revision": "43f522df59109a037f64f1e29ab1eff5c00e8e1e",
+    "quantization": "UD-Q4_K_XL",
+    "artifact": "Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "artifact_sha256": "3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e"
+  },
+  "benchmark": {
+    "name": "BFCL V4",
+    "revision": "bfcl-eval 2026.3.23",
+    "split": "Multi-Turn Base",
+    "task_set": "sha256:c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288"
+  },
+  "metric": {
+    "name": "accuracy",
+    "value": 0.72,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 200
+  },
+  "protocol": {
+    "harness": "BFCL native function calling with guarded simulated tools",
+    "harness_revision": "bfcl-eval 2026.3.23",
+    "config": {
+      "comparison_group": "bfcl-v4-multi-turn-base-local-fc-medium8k",
+      "category": "multi_turn_base",
+      "native_function_calling": true,
+      "temperature": 0.001,
+      "max_tokens": 8192,
+      "reasoning_effort_requested": "medium",
+      "reasoning_budget_tokens": 6963,
+      "step_limit": 20,
+      "dataset_sha256": "c79d26cb042a2a0d319b2927df5b757a4d0ee12f6e629c92940e40494ffa2288",
+      "reference_sha256": "7cfd433df6b3e7bbeed6f915290c4c05b351ec6258f06d0b7ed198ffa2ebbccf",
+      "kv_cache_precision": "FP16 attention K/V",
+      "runtime": {
+        "context_tokens_per_slot": 262144,
+        "max_slots_per_host": 4,
+        "max_active_tasks_per_host": 3,
+        "cache_ram_bytes_per_host": 2147483648,
+        "binary_sha256": "cbe4d1554a299b00df576a487c05addbe008783beab0058be43fa5b76c4041c6",
+        "speculative_decoding": false,
+        "accelerator": "ROCm HIP",
+        "runtime_sequence": "Retained 60 completed cases after an inference host interruption. Ran the remaining 140 cases on a second Ryzen AI Max+ 395 host with the same verified checkpoint, Gufo binary, context and settings."
+      },
+      "artifact_verification": {
+        "source": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/blob/43f522df59109a037f64f1e29ab1eff5c00e8e1e/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "scope": "Exact GGUF SHA-256 verified on the inference host before scoring."
+      },
+      "observed_sampling_defaults": {
+        "min_p": 0,
+        "repeat_penalty": 1,
+        "source": "Serving API default generation settings",
+        "scope": "Defaults for request parameters the benchmark does not override."
+      }
+    },
+    "backend": "Gufo",
+    "backend_revision": "development (inkling-eval-ada29e15ad50)",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/qwen38-27b-ud-q4-k-xl-bfcl-multi-turn-base-2026-11-26.json",
+    "retrieved_at": "2026-11-26",
+    "notes": "All 200 case verdicts verified by offline replay."
+  },
+  "measurements": {
+    "completed": 200,
+    "total": 200,
+    "correct": 144,
+    "wilson_95": [
+      0.6540769541334929,
+      0.7776311022605097
+    ],
+    "checkpoint_inventory_sha256": "6b4fcc46b0d7f6415425649d07a13491217c2d8e7351a5489613ef8f58087d22"
+  },
+  "notes": "Matches the frozen 200-case BFCL cohort. Runtime and reasoning parser details are recorded."
+}
