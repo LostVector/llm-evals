@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "id": "qwen36-35b-ud-q4-k-xl-hard51-maintenance-12-2026-11-26",
+  "kind": "local",
+  "observed_at": "2026-11-26",
+  "model": {
+    "name": "Qwen3.6 35B A3B",
+    "revision": "a483e9e6cbd595906af30beda3187c2663a1118c",
+    "quantization": "UD-Q4_K_XL",
+    "artifact": "Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+    "artifact_sha256": "707a55a8a4397ecde44de0c499d3e68c1ad1d240d1da65826b4949d1043f4450"
+  },
+  "benchmark": {
+    "name": "SWE-bench Pro V2 HARD-51",
+    "revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "split": "Frozen 12-task maintenance cohort",
+    "task_set": "sha256:26fc53b2ee532c3fcec211814806f9fc440d97106dc5d2993c4fd92d70f175c1"
+  },
+  "metric": {
+    "name": "task_resolution",
+    "value": 0.3333333333333333,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 12
+  },
+  "protocol": {
+    "harness": "mini-SWE-agent 2.4.6, Harbor 0.25.0 and upstream pristine verifier",
+    "harness_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "config": {
+      "comparison_group": "hard51-maintenance-12-v1",
+      "protocol_id": "swe-bench-pro-v2-hard51-matched-work-v1",
+      "protocol_file": "protocols/hard51-matched-work.json",
+      "cohort_file": "protocols/hard51-maintenance-12.json",
+      "reasoning_effort_requested": "high",
+      "max_model_calls_per_task": 128,
+      "max_completion_tokens_per_task": 150000,
+      "max_completion_tokens_per_call": 16384,
+      "agent_wall_guard_seconds": 21600,
+      "attempts_per_task": "One verifier outcome per task. Recover infrastructure failures only.",
+      "native_x86_trials": 11,
+      "emulated_amd64_trials": 1,
+      "runtime": {
+        "context_tokens_per_slot": 262144,
+        "max_slots_per_host": 4,
+        "max_active_tasks_per_host": 3,
+        "cache_ram_bytes_per_host": 2147483648,
+        "binary_sha256": "7bb3b3a50a3b9d36bc8ccabb037667fdb78c2bc84118cbfa2f488f455cdb16cb",
+        "speculative_decoding": false,
+        "accelerator": "Vulkan",
+        "template_reasoning_effort_support": false
+      },
+      "kv_cache_precision": "FP16 attention K/V",
+      "observed_sampling_defaults": {
+        "min_p": 0.05000000074505806,
+        "repeat_penalty": 1.0,
+        "source": "Serving API default generation settings",
+        "scope": "Defaults for request parameters the benchmark does not override."
+      },
+      "artifact_verification": {
+        "source": "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/blob/a483e9e6cbd595906af30beda3187c2663a1118c/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+        "scope": "Exact GGUF SHA-256 verified on the inference host before scoring."
+      }
+    },
+    "backend": "llama.cpp",
+    "backend_revision": "b12600-29b52d398",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "retrieved_at": "2026-11-26",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/qwen36-35b-ud-q4-k-xl-hard51-maintenance-12-2026-11-26.json",
+    "notes": "Audited work budget and fresh-container replay for the native and fallback lanes."
+  },
+  "measurements": {
+    "completed": 12,
+    "total": 12,
+    "correct": 4,
+    "outcomes": {
+      "Submitted": 10,
+      "ModelCallLimit": 2
+    },
+    "model_calls": 973,
+    "completion_tokens": 312003,
+    "response_length_stops": 0,
+    "recovered_patch_captures": 0,
+    "artifact_fingerprints": [
+      {
+        "task": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+        "patch": "182f103e02b0690f63e2a975586d9d873a0c602fe4b53f25d1b41e7dc5833e97"
+      },
+      {
+        "task": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+        "patch": "3656e31221c0f0f09cc49d01308b62c3d28d309d77957d0f4f39a63a2a6558dd"
+      },
+      {
+        "task": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "86cea7b40fb472e1a254a224a7ea53b91de2b2b4974f94cb61a66d49d2451dcc"
+      },
+      {
+        "task": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "ed5d8792faedda026a9001519373d8715c4c92bc61cbab99ea6860f26376a566"
+      },
+      {
+        "task": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+        "patch": "ca71ce864ee201aa8d9a1370140f4997ff97f5e08da694c73cc461d5fb0e23f5"
+      },
+      {
+        "task": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+        "patch": "b265af3c23eb041e3ccc7b11bea5e1087d5d951636493b2514aa3ef5189ae038"
+      },
+      {
+        "task": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+        "patch": "1542d13e9bbd23eff82d0eb940b1406e06e0fdbfe1d91b219f0e9583d8135eec"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+        "patch": "c2b994bad32244beb85320c2bb24a4d238640a77600927befa1f397ea856d40d"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "patch": "fcad6a621bbc584c2e0fd45bc55e7fe94fb89703bda04341a8d575b1d912faab"
+      },
+      {
+        "task": "instance_navidrome__navidrome-bf2bcb12799b21069f137749e0c331f761d1f693",
+        "patch": "2ace0bff8d3acbf51f64e028386f6b713d9975a8aad5b3764606366b899d5cf4"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+        "patch": "385485d300e4b71b763882c78780276f99f8e1ae8a2f2a2976f1d849d6c710c7"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+        "patch": "7380de99dbb3cfe21b930a5af9dd360944efefed502add3b85e3174889916a4e"
+      }
+    ]
+  },
+  "notes": "The local maintenance cohort uses the frozen 12 tasks and fixed work budgets. The llama.cpp chat template does not act on the requested high effort tier. The harness enforced the same cumulative output and call limits as the other local HARD-51 runs."
+}
