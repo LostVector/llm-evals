@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "id": "gufo-inkling-2-mini-q8-0-hard51-maintenance-12-2026-11-26",
+  "kind": "local",
+  "observed_at": "2026-11-26",
+  "model": {
+    "name": "Inkling 2 Mini",
+    "revision": "db61c5b492a6a034d986328d28274af0a439aa6c",
+    "quantization": "Q8_0",
+    "artifact": "Inkling-2-Mini-Q8_0.gguf",
+    "artifact_sha256": "d57542f8aea5d7639beba5fc4ae7f584754916f63ac5d5a69328c27f652f45da"
+  },
+  "benchmark": {
+    "name": "SWE-bench Pro V2 HARD-51",
+    "revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "split": "Frozen 12-task maintenance cohort",
+    "task_set": "sha256:26fc53b2ee532c3fcec211814806f9fc440d97106dc5d2993c4fd92d70f175c1"
+  },
+  "metric": {
+    "name": "task_resolution",
+    "value": 0.4166666666666667,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 12
+  },
+  "protocol": {
+    "harness": "mini-SWE-agent 2.4.6, Harbor 0.25.0 and upstream pristine verifier",
+    "harness_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "config": {
+      "comparison_group": "hard51-maintenance-12-v1",
+      "protocol_id": "swe-bench-pro-v2-hard51-matched-work-v1",
+      "protocol_file": "protocols/hard51-matched-work.json",
+      "cohort_file": "protocols/hard51-maintenance-12.json",
+      "reasoning_effort_requested": "high",
+      "max_model_calls_per_task": 128,
+      "max_completion_tokens_per_task": 150000,
+      "max_completion_tokens_per_call": 16384,
+      "agent_wall_guard_seconds": 21600,
+      "attempts_per_task": "One verifier outcome per task. Recover infrastructure failures only.",
+      "native_x86_trials": 11,
+      "emulated_amd64_trials": 1,
+      "runtime": {
+        "model_architecture": "Fixed-loop Inkling 2 Mini",
+        "context_tokens_per_slot": 262144,
+        "max_slots_per_host": 4,
+        "max_active_tasks_per_host": 3,
+        "cache_ram_bytes_per_host": 2147483648,
+        "binary_sha256": "cbe4d1554a299b00df576a487c05addbe008783beab0058be43fa5b76c4041c6",
+        "speculative_decoding": false,
+        "accelerator": "ROCm HIP"
+      },
+      "kv_cache_precision": "FP16 attention K/V",
+      "artifact_verification": {
+        "source": "https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF/blob/db61c5b492a6a034d986328d28274af0a439aa6c/Inkling-2-Mini-Q8_0.gguf",
+        "scope": "Exact GGUF SHA-256 verified on both inference hosts before scoring."
+      }
+    },
+    "backend": "Gufo",
+    "backend_revision": "development (inkling-eval-ada29e15ad50)",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "retrieved_at": "2026-11-26",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/gufo-inkling-2-mini-q8-0-hard51-maintenance-12-2026-11-26.json",
+    "notes": "Audited work budget and fresh-container replay for the native and fallback lanes."
+  },
+  "measurements": {
+    "completed": 12,
+    "total": 12,
+    "correct": 5,
+    "outcomes": {
+      "ModelCallLimit": 1,
+      "CompletionTokenLimit": 5,
+      "Submitted": 4,
+      "RepeatedFormatError": 2
+    },
+    "model_calls": 941,
+    "completion_tokens": 1458297,
+    "response_length_stops": 44,
+    "recovered_patch_captures": 0,
+    "artifact_fingerprints": [
+      {
+        "task": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+        "patch": "40d121bba186566512c1cab6967acff5166c626054a223912cf2d247238d0c9e"
+      },
+      {
+        "task": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+        "patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "task": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "3e7ba93b7b2c9db63c3c01c28eb2ccd1f1522409ab2c4bc9254746ce87025b58"
+      },
+      {
+        "task": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "cdc50c9c4f63b53fe58e84c9e4c7c3a298b4ea844593ac6f626abae0da6e1204"
+      },
+      {
+        "task": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+        "patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "task": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+        "patch": "0cd9226b6da2d69ae2d2752ce5c22c85cfc3de6ec21b0632c168f4d4c8cdff6b"
+      },
+      {
+        "task": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+        "patch": "9b6b4db7fad6cd12e8a668a6151800f5bce1d83203e6a74b8f0edbe3e068c160"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+        "patch": "1975a86c039d9dd358292410f45bb1d26c4b41728ab321f9aa75b92743e4bb03"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "task": "instance_navidrome__navidrome-bf2bcb12799b21069f137749e0c331f761d1f693",
+        "patch": "c38420ce922ede0379653100b51147ad9c3703b742b6ddf930cb20bc2e3cba23"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+        "patch": "c0ae5dff5ac0abd06447b109a2e017f3909b27598074c083768b5a910c127334"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+        "patch": "5c29da7ec2c5f5fbf300788b43a568eeee3a5379156370bcdc86fb5cc31325d8"
+      }
+    ]
+  },
+  "notes": "The local maintenance cohort uses the frozen 12 tasks and fixed work budgets."
+}

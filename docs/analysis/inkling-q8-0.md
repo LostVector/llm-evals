@@ -62,8 +62,16 @@ reasoning-budget, and cache tests cover the serving API separately.
 | GPQA Diamond | 170 / 198 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-gpqa-diamond-2026-11-23.json) |
 | LiveCodeBench frozen window | 92 / 131 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-livecodebench-window-2026-11-25.json) |
 | BFCL Multi-Turn Base | 112 / 200 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-bfcl-multi-turn-base-2026-11-25.json) · [Offline replay audit](bfcl-inkling-q8-0.json) |
+| HARD-51 maintenance | 5 / 12 | [Score record](../../data/results/gufo-inkling-2-mini-q8-0-hard51-maintenance-12-2026-11-26.json) |
 
 The GPQA and LiveCodeBench rows record the earlier native Gufo build.
 BFCL retained 168 cases on the batched build and ran the final 32 after
 the cache update. The two builds and the checkpoint hash are recorded in
-the audit. The 12-task HARD-51 score is pending.
+the audit. HARD-51 used the cache-fix build for all 12 tasks. Eleven trials
+ran in native x86 containers and one used the established emulated-amd64
+fallback. All patches were replayed in fresh pinned verifiers.
+
+Four trials submitted, five reached the completion-token cap, one reached
+the model-call cap, and two stopped on repeated tool-format errors. No
+trial reached the six-hour wall guard. The cohort used 1,458,297 generated
+tokens across 941 model calls. [Matched-work protocol](../../protocols/hard51-matched-work.json)
