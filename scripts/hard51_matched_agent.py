@@ -9,11 +9,13 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 from secrets import token_hex
 import shlex
 import time
 
 from host_mini_swe import HarborSandboxEnvironment, HostMiniSweAgent
+from litellm import BadRequestError
 from minisweagent.agents.default import DefaultAgent
 from minisweagent.exceptions import LimitsExceeded, TimeExceeded
 from minisweagent.models.litellm_model import LitellmModel
@@ -52,9 +54,15 @@ class MatchedModel(LitellmModel):
             response = super()._query(messages, **(kwargs | {
                 "max_tokens": cap, "timeout": time_left, "num_retries": 0,
             }))
-        except Exception:
+        except Exception as error:
             if time.monotonic() >= self.deadline - 1:
                 raise stop("WallGuard", TimeExceeded) from None
+            if isinstance(error, BadRequestError) and re.search(
+                r"\bprompt exceeds the \d+-token context\b", str(error)
+            ):
+                # The server rejected the input before generating. Preserve
+                # the patch produced by the preceding completed calls.
+                raise stop("ContextWindowLimit") from None
             raise
 
         usage = response.usage
