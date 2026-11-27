@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "id": "qwen38-27b-ud-q4-k-xl-hard51-maintenance-12-2026-11-27",
+  "kind": "local",
+  "observed_at": "2026-11-27",
+  "model": {
+    "name": "Qwen3.8 27B",
+    "revision": "43f522df59109a037f64f1e29ab1eff5c00e8e1e",
+    "quantization": "UD-Q4_K_XL",
+    "artifact": "Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "artifact_sha256": "3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e"
+  },
+  "benchmark": {
+    "name": "SWE-bench Pro V2 HARD-51",
+    "revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "split": "Frozen 12-task maintenance cohort",
+    "task_set": "sha256:26fc53b2ee532c3fcec211814806f9fc440d97106dc5d2993c4fd92d70f175c1"
+  },
+  "metric": {
+    "name": "task_resolution",
+    "value": 0.5,
+    "unit": "fraction",
+    "direction": "higher",
+    "n": 12
+  },
+  "protocol": {
+    "harness": "mini-SWE-agent 2.4.6, Harbor 0.25.0 and upstream pristine verifier",
+    "harness_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "config": {
+      "comparison_group": "hard51-maintenance-12-v1",
+      "protocol_id": "swe-bench-pro-v2-hard51-matched-work-v1",
+      "protocol_file": "protocols/hard51-matched-work.json",
+      "cohort_file": "protocols/hard51-maintenance-12.json",
+      "reasoning_effort_requested": "high",
+      "max_model_calls_per_task": 128,
+      "max_completion_tokens_per_task": 150000,
+      "max_completion_tokens_per_call": 16384,
+      "agent_wall_guard_seconds": 21600,
+      "attempts_per_task": "One verifier outcome per task. Recover infrastructure failures only.",
+      "native_x86_trials": 11,
+      "emulated_amd64_trials": 1,
+      "runtime": {
+        "context_tokens_per_slot": 262144,
+        "max_slots_per_host": 4,
+        "max_active_tasks_per_host": 3,
+        "cache_ram_bytes_per_host": 2147483648,
+        "binary_sha256": "cbe4d1554a299b00df576a487c05addbe008783beab0058be43fa5b76c4041c6",
+        "speculative_decoding": false,
+        "accelerator": "ROCm HIP",
+        "runtime_sequence": "BFCL retained 60 cases from the original host and resumed the other 140 on a verified replica. GPQA uses that replica. HARD-51 native trials use two hosts on the identical hashed model and Gufo binary, with up to three active trials per host."
+      },
+      "kv_cache_precision": "FP16 attention K/V",
+      "observed_sampling_defaults": {
+        "min_p": 0,
+        "repeat_penalty": 1,
+        "source": "Serving API default generation settings",
+        "scope": "Defaults for request parameters the benchmark does not override."
+      },
+      "artifact_verification": {
+        "source": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/blob/43f522df59109a037f64f1e29ab1eff5c00e8e1e/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "scope": "Exact GGUF SHA-256 verified on the inference host before scoring."
+      }
+    },
+    "backend": "Gufo",
+    "backend_revision": "development (inkling-eval-ada29e15ad50)",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class"
+  },
+  "provenance": {
+    "type": "measured",
+    "retrieved_at": "2026-11-27",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/qwen38-27b-ud-q4-k-xl-hard51-maintenance-12-2026-11-27.json",
+    "notes": "Audited work budget and fresh-container replay for the native and fallback lanes."
+  },
+  "measurements": {
+    "completed": 12,
+    "total": 12,
+    "correct": 6,
+    "outcomes": {
+      "Submitted": 7,
+      "ModelCallLimit": 1,
+      "WallGuard": 3,
+      "RepeatedFormatError": 1
+    },
+    "wall_guard_trials": 3,
+    "wall_guard_resolved": 1,
+    "non_wall_guard_trials": 9,
+    "non_wall_guard_resolved": 5,
+    "model_calls": 889,
+    "completion_tokens": 944168,
+    "response_length_stops": 9,
+    "recovered_patch_captures": 0,
+    "artifact_fingerprints": [
+      {
+        "task": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+        "patch": "6f06a1bc5b5e17b15bb199091e6c4e2462c0a37a953958de125e79ec798baa8c"
+      },
+      {
+        "task": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+        "patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "task": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "64d370e3c360f40ef2392fbd42d303658c2b04f88153e3d486afa7d845d5c170"
+      },
+      {
+        "task": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "task": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+        "patch": "b8ad59b9b13190c600cfb4dbf1fbb2feb20790d90da703197d10864162f2b795"
+      },
+      {
+        "task": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+        "patch": "bd866f1375488e20f534898292853095e389a171bcf5a7110c1f3655ace5a59d"
+      },
+      {
+        "task": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+        "patch": "cb969179d0515b9630dad8f1a5513a4b70302b6713a5925b44557dceb6e779b6"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+        "patch": "93bcdeaa094eed6d9269b19e60e316e2c86068d7b0815cdcf22aa2285212f143"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "task": "instance_navidrome__navidrome-bf2bcb12799b21069f137749e0c331f761d1f693",
+        "patch": "774dde9aa9d3414d33b4a382b53db8fe8ccef677cf51622f1d2f66011fb0f316"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+        "patch": "d1a060c70ecc5d20eae890ae52579ec21b9b77f6f25c1a5cc61f215605d9ddaf"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+        "patch": "9834fc4b8c457f49663dc5466062f0e8c7c0743b79ddca094d400af6d1c80ca7"
+      }
+    ]
+  },
+  "notes": "The frozen maintenance cohort used fixed token and call budgets plus a six-hour wall guard. Three trials reached the guard. One of their captured patches passed the pristine verifier. The 6/12 score includes all captured patches and is sensitive to the wall guard. Five of the nine trials that finished before the guard passed. Two infrastructure failures left no patch and were retried under the original budgets. One lost its inference connection and one exceeded the serving context window before patch capture."
+}

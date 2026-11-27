@@ -4,6 +4,10 @@ const node = (tag, text, className) => { const el = document.createElement(tag);
 const {trackKey, contextGroup, selectedRows, latestRows, scoped, providerFor, coverageRows, axis, suiteTracks, suiteRows} = Comparison;
 const score = r => r.metric.unit === 'fraction' ? r.metric.value * 100 : r.metric.value;
 const scoreLabel = r => `${Number(score(r).toFixed(2))}${['fraction', 'percent'].includes(r.metric.unit) ? '%' : ` ${r.metric.unit}`}`;
+const wallGuardLabel = r => {
+  const count = r.measurements?.outcomes?.WallGuard;
+  return count ? `${count} ${count === 1 ? 'task' : 'tasks'} hit wall guard` : '';
+};
 const safeURL = value => { try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; } catch { return null; } };
 function scoreElement(record, className) {
   const href = safeURL(record.provenance.location);
@@ -37,6 +41,8 @@ function renderSuite(records) {
       for (const record of observations) {
         const result = node('div');
         result.append(scoreElement(record), node('small', record.protocol.backend));
+        const guard = wallGuardLabel(record);
+        if (guard) result.append(node('small', guard));
         cell.append(result);
       }
       tr.append(cell);
@@ -93,6 +99,8 @@ function render() {
     const label = node('div',r.model.name,'bar-label');
     label.append(node('small',`${providerFor(r,data.model_registry)} · ${r.kind === 'local' ? r.model.quantization : 'Published reference'} · ${r.protocol.harness}`));
     if (r.kind === 'local') label.append(node('small', `${r.protocol.backend} · ${r.protocol.backend_revision}`));
+    const guard = wallGuardLabel(r);
+    if (guard) label.append(node('small', guard));
     if (r.protocol.config?.response_recovery) label.append(node('small', `Partial rerun · ${r.protocol.config.response_recovery.retained_responses} retained responses`));
     if (r.protocol.config?.reasoning) {
       const reasoning=r.protocol.config.reasoning;
