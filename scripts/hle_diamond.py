@@ -3,7 +3,9 @@
 import argparse
 import ast
 from datetime import datetime, timezone
+import fcntl
 import hashlib
+from http.client import HTTPException
 import importlib.metadata
 import json
 import math
@@ -125,13 +127,13 @@ def validate_endpoint(base_url):
     return base_url.rstrip('/')+'/chat/completions'
 
 
-def request_completion(base_url, key_env, payload):
+def request_completion(base_url, key_env, payload, *, timeout=600):
     url=validate_endpoint(base_url)
     key=os.environ.get(key_env,'')
     headers={'Content-Type':'application/json'}
     if key:headers['Authorization']='Bearer '+key
     request=Request(url,data=json.dumps(payload).encode(),headers=headers,method='POST')
-    with urlopen(request,timeout=600) as response:
+    with urlopen(request,timeout=timeout) as response:
         return json.load(response)
 
 
@@ -149,6 +151,8 @@ def run_prediction(questions, system, config, request_fn):
             text=choice['message']['content']
             if not isinstance(text,str) or not text.strip():raise ValueError('Empty model response')
             result[q['id']]=dict(status='answered',response=text,finish_reason=choice.get('finish_reason'),usage=reply.get('usage'))
+        except (OSError, HTTPException) as exc:
+            raise ValueError('Prediction connection failed. Resume the same run after checking the endpoint.') from exc
         except Exception as exc:
             result[q['id']]=dict(status='generation_error',error_type=type(exc).__name__)
     return result
@@ -214,6 +218,45 @@ def private_run_path(path):
     return path
 
 
+def predict_cohort(output, questions, prompt, config, request_fn, *, resume=False):
+    identity = dict(protocol=PROTOCOL, config=config, task_ids=[q['id'] for q in questions],
+                    partitions={q['id']: q['partition'] for q in questions},
+                    prompts_sha256=digest(prompt),
+                    software_versions={'python': sys.version.split()[0],
+                                       'datasets': importlib.metadata.version('datasets')})
+    manifest_path = output / 'manifest.json'
+    predictions_path = output / 'predictions.json'
+    if not resume:
+        output.mkdir(parents=True, exist_ok=False)
+    elif not manifest_path.is_file():
+        raise ValueError('No prediction manifest to resume')
+
+    with (output / '.predict.lock').open('a') as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as exc:
+            raise ValueError('A prediction process already owns this run') from exc
+        if resume:
+            manifest = json.loads(manifest_path.read_text())
+            fingerprint = manifest.pop('run_fingerprint', None)
+            if fingerprint != digest(manifest) or any(manifest.get(k) != v for k, v in identity.items()):
+                raise ValueError('Prediction manifest differs from the selected protocol, tasks or settings')
+        else:
+            manifest = dict(identity, created_at=datetime.now(timezone.utc).isoformat())
+            manifest['run_fingerprint'] = digest(manifest)
+            save(manifest_path, manifest)
+
+        result = json.loads(predictions_path.read_text()) if predictions_path.exists() else {}
+        if not isinstance(result, dict) or not result.keys() <= set(identity['task_ids']):
+            raise ValueError('Saved predictions contain tasks outside the frozen manifest')
+        for question in questions:
+            if question['id'] in result:
+                continue
+            result.update(run_prediction([question], prompt['SYSTEM_PROMPT'], config, request_fn))
+            save(predictions_path, result)
+            print(f'{len(result)}/{len(questions)} tasks attempted', flush=True)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--upstream',type=Path,default=UPSTREAM)
@@ -222,6 +265,7 @@ def main():
     predict=sub.add_parser('predict')
     predict.add_argument('--model',required=True);predict.add_argument('--base-url',required=True)
     predict.add_argument('--output',type=Path,required=True)
+    predict.add_argument('--resume',action='store_true',help='Continue a matching prediction run from its saved attempts')
     predict.add_argument('--input-mode',choices=['multimodal','text-input-full','text-only-subset'],default='text-input-full')
     predict.add_argument('--max-tokens',type=int,default=16384);predict.add_argument('--temperature',type=float,default=0)
     predict.add_argument('--seed',type=int);predict.add_argument('--reasoning-effort')
@@ -245,21 +289,17 @@ def main():
         print(json.dumps(summarize(manifest,predictions,judgments),indent=2));return
     prompt=prompts(args.upstream)
     if args.command=='predict':
-        if args.output.exists():raise ValueError('Output directory already exists; use a new run directory to prevent accidental retakes or overwrites')
+        if args.output.exists() and not args.resume:
+            raise ValueError('Output directory already exists; use --resume or choose a new directory')
         if args.limit is not None and args.limit<=0:raise ValueError('limit must be positive')
         if args.max_tokens<=0 or not math.isfinite(args.temperature) or args.temperature<0:raise ValueError('Invalid decoding budget')
         config={k:getattr(args,k) for k in ('model','input_mode','max_tokens','temperature','seed','reasoning_effort','token_parameter','limit','pilot')}
+        config['endpoint_sha256'] = digest(validate_endpoint(args.base_url))
         questions=load_questions(args.input_mode,args.limit,pilot=args.pilot)
-        manifest=dict(protocol=PROTOCOL,config=config,task_ids=[q['id'] for q in questions],partitions={q['id']:q['partition'] for q in questions},prompts_sha256=digest(prompt),created_at=datetime.now(timezone.utc).isoformat())
-        manifest['software_versions']={'python':sys.version.split()[0],'datasets':importlib.metadata.version('datasets')}
-        manifest['run_fingerprint']=digest(manifest)
-        save(args.output/'manifest.json',manifest)
-        # Persist after every task so an interrupted run cannot lose successful answers.
-        result={}
-        for i,q in enumerate(questions,1):
-            result.update(run_prediction([q],prompt['SYSTEM_PROMPT'],config,lambda body:request_completion(args.base_url,args.api_key_env,body)))
-            save(args.output/'predictions.json',result)
-            print(f'{i}/{len(questions)} tasks attempted',flush=True)
+        predict_cohort(args.output, questions, prompt, config,
+                       lambda body: request_completion(args.base_url, args.api_key_env, body,
+                                                       timeout=PROTOCOL['prediction_timeout_seconds']),
+                       resume=args.resume)
         return
     manifest=json.loads((args.run/'manifest.json').read_text())
     questions=load_questions(manifest['config']['input_mode'],manifest['config']['limit'],

@@ -21,6 +21,7 @@
   "attempts_per_task": 1,
   "default_temperature": 0,
   "default_max_tokens": 16384,
+  "prediction_timeout_seconds": 3600,
   "judge": {
     "prompt": "JUDGE_PROMPT from pinned upstream evaluator",
     "model": "must be explicitly selected and pinned by caller",

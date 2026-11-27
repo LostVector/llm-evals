@@ -1,7 +1,9 @@
 from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
-from scripts.hle_diamond import PROTOCOL, judge_payload, messages, private_run_path, run_prediction, select_questions, summarize, validate_endpoint, validate_judgment, validate_questions
+from scripts.hle_diamond import PROTOCOL, judge_payload, messages, predict_cohort, private_run_path, run_prediction, select_questions, summarize, validate_endpoint, validate_judgment, validate_questions
 
 
 def question(id='synthetic-1',image=''):
@@ -38,7 +40,7 @@ class HLETests(unittest.TestCase):
 
     def test_generation_failure_stays_in_denominator(self):
         q1,q2=question(),question('synthetic-2')
-        def fake(body):raise TimeoutError()
+        def fake(body):return {'choices': [{'message': {'content': ''}}]}
         failed=run_prediction([q2],'system',config(),fake)
         predictions={'synthetic-1':dict(status='answered',response='fixture'),**failed}
         manifest=dict(task_ids=[q1['id'],q2['id']],partitions={q1['id']:'reasoning',q2['id']:'knowledge'},config=config())
@@ -47,6 +49,35 @@ class HLETests(unittest.TestCase):
         self.assertEqual(summary['overall']['accuracy_percent'],50)
         self.assertEqual(summary['generation_errors'],1)
         self.assertEqual(summary['partitions']['knowledge']['accuracy_percent'],0)
+
+    def test_resume_preserves_saved_attempts_and_requires_the_same_settings(self):
+        first, second = question(), question('synthetic-2')
+        second['question'] = 'Another synthetic prompt.'
+        prompt = {'SYSTEM_PROMPT': 'system', 'JUDGE_PROMPT': 'judge'}
+        reply = {'choices': [{'message': {'content': 'synthetic response'}}]}
+        requests = []
+
+        def interrupt(body):
+            if requests:
+                raise TimeoutError
+            requests.append(body)
+            return reply
+
+        def resume(body):
+            requests.append(body)
+            return reply
+
+        with TemporaryDirectory() as directory, patch('scripts.hle_diamond.importlib.metadata.version', return_value='1'):
+            output = Path(directory) / 'run'
+            with self.assertRaisesRegex(ValueError, 'Prediction connection failed'):
+                predict_cohort(output, [first, second], prompt, config(), interrupt)
+            with self.assertRaisesRegex(ValueError, 'manifest differs'):
+                predict_cohort(output, [first, second], prompt, dict(config(), seed=42), resume, resume=True)
+            predict_cohort(output, [first, second], prompt, config(), resume, resume=True)
+            predict_cohort(output, [first, second], prompt, config(), resume, resume=True)
+
+        self.assertEqual([r['messages'][1]['content'][0]['text'] for r in requests],
+                         [first['question'], second['question']])
 
     def test_judge_failure_prevents_reporting(self):
         manifest=dict(task_ids=['synthetic-1'],partitions={'synthetic-1':'reasoning'},config=config())

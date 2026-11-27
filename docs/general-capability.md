@@ -20,7 +20,7 @@ This is a broad expert knowledge/reasoning measure, not a complete measure of in
 - Our local default is temperature 0, 16,384 completion tokens, one request at a time. Preserve seed, reasoning mode, chat template, backend, model revision, quant and KV precision. These defaults are our recipe; they are not a claim to reproduce each frontier source's model-specific output budget.
 - Read official generation/judge prompt constants from the pinned evaluator as data. The adapter does not execute upstream client initialization.
 - Pick one fixed, explicitly versioned judge for a comparison series. AA reports GPT-5.6 Luna at medium reasoning effort, using the official judge prompt/format. Judge choice, reasoning setting, endpoint semantics, and generation settings must match to claim recipe equivalence. A different local judge is a separate grading protocol, not an AA reproduction.
-- Generation errors stay in the denominator and receive zero task success; failed/missing judgments block scoring until resolved. Report truncation separately. Correctness is judged from the final answer against the reference answer, not from string equality alone.
+- Empty or invalid model responses stay in the denominator and receive zero task success. Connection failures or a one-hour prediction timeout stop generation and allow resumption from the last saved task. Failed or missing judgments block scoring. Report truncation separately and grade final answers against the reference using the pinned judge prompt.
 - Report overall and partition accuracy, task count, failures, and Wilson 95% intervals. Retain task-level results privately for paired uncertainty analysis; a single model's interval does not establish a significant paired quant difference.
 
 ### Input modes
@@ -78,7 +78,7 @@ Grade through an explicitly chosen judge endpoint. `JUDGE_MODEL_ID` and `JUDGE_B
   --run .local/hle/smoke
 ```
 
-The runner preserves a frozen task-ID manifest, partitions, protocol/config fingerprints, predictions, and judgments. It checkpoints each generated answer, requires a new directory for new generation runs, and rejects incomplete prediction sets at scoring time. Interrupted generation is an incomplete run, not a subset headline; keep it recorded separately. Rerunning `judge` retries only missing/failed judgments with the same judge recipe, without regenerating model answers.
+The runner preserves a frozen task-ID manifest, partitions, protocol/config fingerprints, predictions, and judgments. It checkpoints each attempt. To continue after an interruption, repeat the original `predict` command with `--resume`. It checks the endpoint, cohort, settings, prompt fingerprint, and software versions and skips saved attempts. Start a new run directory for a different configuration. Scoring requires the full prediction set. Rerunning `judge` retries only missing or failed judgments with the same judge recipe.
 
 Keep model/artifact hashes, runtime versions, hardware specifications, chat-template hash and KV precision with the run. Use the existing local observation template to publish reviewed aggregate results; the runner's summary does not bypass the repository's provenance/identity requirements. Benchmark questions, images, gold answers, and raw response/judge artifacts remain in ignored `.local/` and must not be deployed or redistributed. Never run this benchmark in Pages or a pull-request CI job.
 
