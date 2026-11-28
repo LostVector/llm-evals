@@ -40,6 +40,15 @@ Compare runtime and outcomes across the lineup before expanding. The pilot
 can reveal floor effects and grading problems. Small differences between
 quantizations need a larger cohort.
 
+The first local profile left reasoning open until the 16,384-token output
+cap. Flash-Next Q2_0 produced one final answer in 13 attempts and Inkling
+Q8_0 produced one in 12. The other attempts reached the output cap with an
+empty final answer. We stopped both runs and kept them as incomplete
+diagnostics. The new pilot uses the same cohort, output cap, and temperature,
+with `--reasoning-budget-tokens 13926` on both serving builds. This leaves
+2,458 output tokens for the final answer. A synthetic request verified that
+both builds honor forced closure and return a final answer.
+
 ## Run locally
 
 Use a Python 3.11 or 3.12 environment; the core tracking/site tooling does not need these optional dependencies. Run from the repository root:

@@ -149,14 +149,19 @@ def run_prediction(questions, system, config, request_fn):
         payload=dict(model=config['model'],messages=messages(q,system,config['input_mode']),temperature=config['temperature'],stream=False)
         payload[config['token_parameter']]=config['max_tokens']
         if config.get('reasoning_effort'):payload['reasoning_effort']=config['reasoning_effort']
+        if config.get('reasoning_budget_tokens') is not None:
+            payload['reasoning_budget_tokens'] = config['reasoning_budget_tokens']
         if config.get('seed') is not None:payload['seed']=config['seed']
         started = monotonic()
         try:
             reply=request_fn(payload)
             choice=reply['choices'][0]
             text=choice['message']['content']
-            if not isinstance(text,str) or not text.strip():raise ValueError('Empty model response')
-            result[q['id']]=dict(status='answered',response=text,finish_reason=choice.get('finish_reason'),usage=reply.get('usage'))
+            details = dict(finish_reason=choice.get('finish_reason'), usage=reply.get('usage'))
+            if isinstance(text, str) and text.strip():
+                result[q['id']] = dict(status='answered', response=text, **details)
+            else:
+                result[q['id']] = dict(status='generation_error', error_type='EmptyAnswer', **details)
         except (OSError, HTTPException) as exc:
             raise ValueError('Prediction connection failed. Resume the same run after checking the endpoint.') from exc
         except Exception as exc:
@@ -215,7 +220,7 @@ def summarize(manifest,predictions,judgments):
         mid=(p+z*z/(2*n))/den if n else 0
         half=z*math.sqrt(p*(1-p)/n+z*z/(4*n*n))/den if n else 0
         return dict(correct=correct,n=n,accuracy_percent=100*p,wilson_95_percent=[100*max(0,mid-half),100*min(1,mid+half)])
-    return dict(metric='pass@1_accuracy',input_mode=mode,task_set=task_set,overall=stats(task_ids),partitions={p:stats([i for i in task_ids if manifest['partitions'][i]==p]) for p in PROTOCOL['expected_partition_counts'] if any(manifest['partitions'][i]==p for i in task_ids)},generation_errors=len(task_ids)-len(answered),truncated_responses=sum(predictions[i].get('finish_reason')=='length' for i in answered))
+    return dict(metric='pass@1_accuracy',input_mode=mode,task_set=task_set,overall=stats(task_ids),partitions={p:stats([i for i in task_ids if manifest['partitions'][i]==p]) for p in PROTOCOL['expected_partition_counts'] if any(manifest['partitions'][i]==p for i in task_ids)},generation_errors=len(task_ids)-len(answered),truncated_responses=sum(predictions[i].get('finish_reason')=='length' for i in task_ids))
 
 
 def private_run_path(path):
@@ -294,6 +299,8 @@ def main():
     predict.add_argument('--input-mode',choices=['multimodal','text-input-full','text-only-subset'],default='text-input-full')
     predict.add_argument('--max-tokens',type=int,default=16384);predict.add_argument('--temperature',type=float,default=0)
     predict.add_argument('--seed',type=int);predict.add_argument('--reasoning-effort')
+    predict.add_argument('--reasoning-budget-tokens',type=int,
+                         help='Ask a compatible server to close reasoning before the maximum completion length')
     predict.add_argument('--token-parameter',choices=['max_tokens','max_completion_tokens'],default='max_tokens')
     cohort = predict.add_mutually_exclusive_group()
     cohort.add_argument('--limit',type=int)
@@ -318,7 +325,11 @@ def main():
             raise ValueError('Output directory already exists; use --resume or choose a new directory')
         if args.limit is not None and args.limit<=0:raise ValueError('limit must be positive')
         if args.max_tokens<=0 or not math.isfinite(args.temperature) or args.temperature<0:raise ValueError('Invalid decoding budget')
+        if args.reasoning_budget_tokens is not None and not 0 < args.reasoning_budget_tokens < args.max_tokens:
+            raise ValueError('Reasoning budget must be positive and leave tokens for the final answer')
         config={k:getattr(args,k) for k in ('model','input_mode','max_tokens','temperature','seed','reasoning_effort','token_parameter','limit','pilot','workers')}
+        if args.reasoning_budget_tokens is not None:
+            config['reasoning_budget_tokens'] = args.reasoning_budget_tokens
         config['endpoint_sha256'] = digest(validate_endpoint(args.base_url))
         questions=load_questions(args.input_mode,args.limit,pilot=args.pilot)
         predict_cohort(args.output, questions, prompt, config,

@@ -42,14 +42,17 @@ class HLETests(unittest.TestCase):
 
     def test_generation_failure_stays_in_denominator(self):
         q1,q2=question(),question('synthetic-2')
-        def fake(body):return {'choices': [{'message': {'content': ''}}]}
-        failed=run_prediction([q2],'system',config(),fake)
+        def fake(body):
+            self.assertEqual(body['reasoning_budget_tokens'], 6963)
+            return {'choices': [{'message': {'content': ''}, 'finish_reason': 'length'}]}
+        failed=run_prediction([q2],'system',dict(config(), reasoning_budget_tokens=6963),fake)
         predictions={'synthetic-1':dict(status='answered',response='fixture'),**failed}
         manifest=dict(task_ids=[q1['id'],q2['id']],partitions={q1['id']:'reasoning',q2['id']:'knowledge'},config=config())
         summary=summarize(manifest,predictions,{'synthetic-1':grade()})
         self.assertEqual(summary['overall']['n'],2)
         self.assertEqual(summary['overall']['accuracy_percent'],50)
         self.assertEqual(summary['generation_errors'],1)
+        self.assertEqual(summary['truncated_responses'],1)
         self.assertEqual(summary['partitions']['knowledge']['accuracy_percent'],0)
 
     def test_resume_preserves_saved_attempts_and_requires_the_same_settings(self):
