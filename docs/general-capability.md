@@ -91,6 +91,36 @@ The runner preserves a frozen task-ID manifest, partitions, protocol/config fing
 
 Keep model/artifact hashes, runtime versions, hardware specifications, chat-template hash and KV precision with the run. Use the existing local observation template to publish reviewed aggregate results; the runner's summary does not bypass the repository's provenance/identity requirements. Benchmark questions, images, gold answers, and raw response/judge artifacts remain in ignored `.local/` and must not be deployed or redistributed. Never run this benchmark in Pages or a pull-request CI job.
 
-## Verification and remaining setup
+## Verification
 
-The public dataset's revision and access gate were checked through Hugging Face metadata. The evaluator commit was fetched and its prompt constants extracted successfully. Offline tests verify modality/subset selection, omission of gold from candidate requests, fixed one-attempt behavior, failure denominators, judge validation, and private artifact paths. **No real model evaluation or paid judge calls have run.** End-to-end execution still needs dataset access, optional dependencies, a served model, and the selected judge endpoint. The runner is our pinned adapter, not a claim of certification by the benchmark authors or exact reproduction of AA's implementation.
+The runner loaded the authorized dataset at the pinned revision and extracted the
+prompts from the pinned evaluator commit. Offline tests verify cohort selection,
+omission of gold answers from candidate requests, attempt and recovery rules,
+judge validation, and private artifact paths.
+
+## Local pilot results
+
+| Deployment | Overall | Reasoning | Knowledge | Elapsed, including grading |
+| --- | ---: | ---: | ---: | ---: |
+| Flash-Next GSQ-RCO Q2_0 | [7/40 (17.5%)](../data/results/flash-q2-hle-diamond-text-pilot-2026-11-28.json) | 2/20 | 5/20 | 2 h 19 min |
+| Inkling 2 Mini Q8_0 | [4/40 (10.0%)](../data/results/inkling-q8-hle-diamond-text-pilot-2026-11-28.json) | 1/20 | 3/20 | 2 h 59 min |
+
+Both deployments used three concurrent requests and the same token limits.
+They used different Gufo builds. The pilot produced 79 nonempty answers
+across 80 attempts, with no completions hitting the output cap. Inkling's
+one empty answer counted as a miss.
+
+The same local Qwen 3.8 27B UD-Q4_K_XL judge graded both candidates against
+the reference answers using the pinned CAIS prompt. It passed six synthetic
+checks covering equivalent forms and plausible errors. It also accepted all
+ten pilot answers whose extracted final answer matched the reference after
+case and whitespace normalization. This is a limited consistency check.
+Semantic equivalence on actual pilot answers has no independent audit.
+Artificial Analysis uses GPT-5.6 Luna and the full 1,000-question set.
+[Artificial Analysis methodology](https://artificialanalysis.ai/evaluations/hle-diamond)
+
+Keep HLE Diamond as a diagnostic. Both deployments missed 32 of the same
+40 questions. Flash-Next alone passed four, and Inkling alone passed one.
+That leaves five discordant tasks and too little evidence for a close model
+ranking. Each 40-question run took two to three hours per deployment.
+The full frontier track has a different cohort and judge.

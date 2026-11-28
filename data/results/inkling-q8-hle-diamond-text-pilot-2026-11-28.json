@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "id": "inkling-q8-hle-diamond-text-pilot-2026-11-28",
+  "kind": "local",
+  "observed_at": "2026-11-28",
+  "model": {
+    "name": "Inkling 2 Mini",
+    "revision": "db61c5b492a6a034d986328d28274af0a439aa6c",
+    "quantization": "Q8_0",
+    "artifact": "Inkling-2-Mini-Q8_0.gguf",
+    "artifact_sha256": "d57542f8aea5d7639beba5fc4ae7f584754916f63ac5d5a69328c27f652f45da"
+  },
+  "benchmark": {
+    "name": "HLE-Diamond",
+    "revision": "04eeb7efa7e3e4f83a00cbd5ce436a38fd5dda23",
+    "split": "Fixed balanced text-only pilot",
+    "task_set": "hle-diamond-text-pilot-v1"
+  },
+  "metric": {
+    "name": "pass@1_accuracy",
+    "unit": "percent",
+    "value": 10.0,
+    "direction": "higher",
+    "n": 40
+  },
+  "protocol": {
+    "harness": "Pinned CAIS evaluator prompts via the local closed-book runner",
+    "harness_revision": "22ed3074b1e7b134bcbc09028d0ba320839b0655",
+    "backend": "Gufo",
+    "backend_revision": "development (inkling-eval-ada29e15ad50)",
+    "hardware": "AMD Ryzen AI Max+ 395 with Radeon 8060S, 128 GB shared memory class",
+    "config": {
+      "input_mode": "text-only-subset",
+      "max_tokens": 16384,
+      "temperature": 0,
+      "seed": null,
+      "reasoning_effort": null,
+      "token_parameter": "max_tokens",
+      "workers": 3,
+      "reasoning_budget_tokens": 13926,
+      "comparison_group": "hle-diamond-text-pilot-v1",
+      "task_cohort_sha256": "d19b6ccc697bd00806ee906e35dda399550b3aadbe777fa306424258c9c1c762",
+      "prompt_bundle_sha256": "a9c88c59f44a53d3c949f31abcaf88729e412cc6798f94c4432710bc51107391",
+      "protocol_file": "protocols/hle-diamond.json",
+      "attempts_per_task": 1,
+      "tools": false,
+      "prediction_timeout_seconds": 3600,
+      "reasoning_budget_exhaustion": "force_close_then_answer",
+      "observed_sampling_defaults": {
+        "temperature": 1,
+        "min_p": 0,
+        "top_p": 1,
+        "top_k": 0,
+        "repeat_penalty": 1,
+        "seed": -1
+      },
+      "runtime": {
+        "context_tokens_per_slot": 262144,
+        "slots": 4,
+        "binary_sha256": "cbe4d1554a299b00df576a487c05addbe008783beab0058be43fa5b76c4041c6",
+        "accelerator": "ROCm HIP",
+        "cache_ram_bytes": 2147483648,
+        "template_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      },
+      "judge": {
+        "model": {
+          "name": "Qwen3.8 27B",
+          "revision": "43f522df59109a037f64f1e29ab1eff5c00e8e1e",
+          "quantization": "UD-Q4_K_XL",
+          "artifact": "Qwen3.8-27B-UD-Q4_K_XL.gguf",
+          "artifact_sha256": "3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e"
+        },
+        "backend_revision": "development (inkling-eval-ada29e15ad50)",
+        "reasoning_effort": null,
+        "observed_sampling_defaults": {
+          "temperature": 1,
+          "min_p": 0,
+          "top_p": 0.949999988079071,
+          "top_k": 20,
+          "repeat_penalty": 1,
+          "seed": -1
+        },
+        "prompt_sha256": "211a9a038c3762dc515729280c6e7693564da745463d27396d2c392f75c80d6e",
+        "template_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    }
+  },
+  "provenance": {
+    "type": "measured",
+    "retrieved_at": "2026-11-28",
+    "location": "https://github.com/LostVector/llm-evals/blob/main/data/results/inkling-q8-hle-diamond-text-pilot-2026-11-28.json",
+    "notes": "Audited predictions and structured judge outcomes for the frozen cohort."
+  },
+  "measurements": {
+    "completed": 40,
+    "total": 40,
+    "correct": 4,
+    "wilson_95_percent": [
+      3.957888759557486,
+      23.052074380473897
+    ],
+    "partitions": {
+      "reasoning": {
+        "correct": 1,
+        "n": 20,
+        "accuracy_percent": 5.0,
+        "wilson_95_percent": [
+          0.8881219432873135,
+          23.613589351256675
+        ]
+      },
+      "knowledge": {
+        "correct": 3,
+        "n": 20,
+        "accuracy_percent": 15.0,
+        "wilson_95_percent": [
+          5.236779195949584,
+          36.04232958869574
+        ]
+      }
+    },
+    "generation_errors": 1,
+    "truncated_responses": 0,
+    "runtime": {
+      "median_prediction_seconds": 784.338,
+      "predict_and_grade_elapsed_seconds": 10716
+    }
+  },
+  "notes": "40-question text-only diagnostic. Full-set published scores use different tasks and may use a different judge."
+}
