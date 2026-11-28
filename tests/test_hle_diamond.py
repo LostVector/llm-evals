@@ -1,5 +1,7 @@
+import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from threading import Barrier
 import unittest
 from unittest.mock import patch
 
@@ -78,6 +80,23 @@ class HLETests(unittest.TestCase):
 
         self.assertEqual([r['messages'][1]['content'][0]['text'] for r in requests],
                          [first['question'], second['question']])
+
+    def test_prediction_workers_can_run_three_independent_requests(self):
+        ready = Barrier(3, timeout=3)
+
+        def concurrent_reply(body):
+            ready.wait()
+            return {'choices': [{'message': {'content': 'synthetic response'}}]}
+
+        questions = [question(f'synthetic-{i}') for i in range(3)]
+        prompt = {'SYSTEM_PROMPT': 'system', 'JUDGE_PROMPT': 'judge'}
+        with TemporaryDirectory() as directory, patch('scripts.hle_diamond.importlib.metadata.version', return_value='1'):
+            output = Path(directory) / 'run'
+            predict_cohort(output, questions, prompt, dict(config(), workers=3), concurrent_reply)
+            predictions = json.loads((output / 'predictions.json').read_text())
+
+        self.assertEqual(set(predictions), {q['id'] for q in questions})
+        self.assertTrue(all(value['status'] == 'answered' for value in predictions.values()))
 
     def test_judge_failure_prevents_reporting(self):
         manifest=dict(task_ids=['synthetic-1'],partitions={'synthetic-1':'reasoning'},config=config())

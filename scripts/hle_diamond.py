@@ -2,17 +2,20 @@
 """Pinned HLE-Diamond runner for OpenAI-compatible endpoints. No tools or paid calls by default."""
 import argparse
 import ast
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from datetime import datetime, timezone
 import fcntl
 import hashlib
 from http.client import HTTPException
 import importlib.metadata
+from itertools import islice
 import json
 import math
 import os
 from pathlib import Path
 import subprocess
 import sys
+from time import monotonic
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
@@ -71,7 +74,9 @@ def load_questions(mode, limit=None, *, pilot=False):
     except ImportError as exc:
         raise ValueError('Install requirements-hle.txt in a Python 3.11/3.12 virtualenv first') from exc
     dataset=load_dataset(PROTOCOL['dataset'], revision=PROTOCOL['dataset_revision'],split=PROTOCOL['split'])
-    questions=[dict(row) for row in dataset]
+    # The release stores prompt images as strings. Preview and rationale columns
+    # are irrelevant to scoring and would invoke the dataset's Pillow decoder.
+    questions = list(dataset.select_columns(['id', 'question', 'image', 'answer', 'partition']))
     for q in questions:q['partition']=str(q.get('partition','')).strip().lower()
     validate_questions(questions)
     return select_questions(questions,mode,limit,pilot=pilot)
@@ -145,6 +150,7 @@ def run_prediction(questions, system, config, request_fn):
         payload[config['token_parameter']]=config['max_tokens']
         if config.get('reasoning_effort'):payload['reasoning_effort']=config['reasoning_effort']
         if config.get('seed') is not None:payload['seed']=config['seed']
+        started = monotonic()
         try:
             reply=request_fn(payload)
             choice=reply['choices'][0]
@@ -155,6 +161,7 @@ def run_prediction(questions, system, config, request_fn):
             raise ValueError('Prediction connection failed. Resume the same run after checking the endpoint.') from exc
         except Exception as exc:
             result[q['id']]=dict(status='generation_error',error_type=type(exc).__name__)
+        result[q['id']]['seconds'] = round(monotonic() - started, 3)
     return result
 
 
@@ -249,12 +256,28 @@ def predict_cohort(output, questions, prompt, config, request_fn, *, resume=Fals
         result = json.loads(predictions_path.read_text()) if predictions_path.exists() else {}
         if not isinstance(result, dict) or not result.keys() <= set(identity['task_ids']):
             raise ValueError('Saved predictions contain tasks outside the frozen manifest')
-        for question in questions:
-            if question['id'] in result:
-                continue
-            result.update(run_prediction([question], prompt['SYSTEM_PROMPT'], config, request_fn))
-            save(predictions_path, result)
-            print(f'{len(result)}/{len(questions)} tasks attempted', flush=True)
+        pending = (question for question in questions if question['id'] not in result)
+        workers = config.get('workers', 1)
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            def submit(question):
+                return pool.submit(run_prediction, [question], prompt['SYSTEM_PROMPT'], config, request_fn)
+
+            active = {submit(question) for question in islice(pending, workers)}
+            failure = None
+            while active:
+                finished, active = wait(active, return_when=FIRST_COMPLETED)
+                for future in finished:
+                    try:
+                        result.update(future.result())
+                    except ValueError as exc:
+                        failure = exc
+                        continue
+                    save(predictions_path, result)
+                    print(f'{len(result)}/{len(questions)} tasks attempted', flush=True)
+                if failure is None:
+                    active.update(submit(question) for question in islice(pending, len(finished)))
+            if failure is not None:
+                raise failure
 
 
 def main():
@@ -266,6 +289,8 @@ def main():
     predict.add_argument('--model',required=True);predict.add_argument('--base-url',required=True)
     predict.add_argument('--output',type=Path,required=True)
     predict.add_argument('--resume',action='store_true',help='Continue a matching prediction run from its saved attempts')
+    predict.add_argument('--workers',type=int,choices=range(1,4),default=1,
+                         help='Maximum concurrent prediction requests to the deployment')
     predict.add_argument('--input-mode',choices=['multimodal','text-input-full','text-only-subset'],default='text-input-full')
     predict.add_argument('--max-tokens',type=int,default=16384);predict.add_argument('--temperature',type=float,default=0)
     predict.add_argument('--seed',type=int);predict.add_argument('--reasoning-effort')
@@ -293,7 +318,7 @@ def main():
             raise ValueError('Output directory already exists; use --resume or choose a new directory')
         if args.limit is not None and args.limit<=0:raise ValueError('limit must be positive')
         if args.max_tokens<=0 or not math.isfinite(args.temperature) or args.temperature<0:raise ValueError('Invalid decoding budget')
-        config={k:getattr(args,k) for k in ('model','input_mode','max_tokens','temperature','seed','reasoning_effort','token_parameter','limit','pilot')}
+        config={k:getattr(args,k) for k in ('model','input_mode','max_tokens','temperature','seed','reasoning_effort','token_parameter','limit','pilot','workers')}
         config['endpoint_sha256'] = digest(validate_endpoint(args.base_url))
         questions=load_questions(args.input_mode,args.limit,pilot=args.pilot)
         predict_cohort(args.output, questions, prompt, config,
